@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  <meta name="author" content="Edison Van">
+  <meta name="keywords" content>
+  <title>Code Review-磨刀不费砍柴功！ ~ 彭思凡的个人网站</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  
+  <link rel="stylesheet" href="/css/main.css">
+
+  
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p>星期四, 十月 31日 2019, 10:23 上午</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <p><strong><code>Code Review</code>和写自动化测试一样，都是磨刀不误砍柴工的工作!</strong></p>
+<h1 id="Commit-规范"><a href="#Commit-规范" class="headerlink" title="Commit 规范"></a>Commit 规范</h1><p>整理CodeReview规范、commit内容</p>
+<ul>
+<li><p>commit 规范分享</p>
+</li>
+<li><p>Dev-Tool/Front-end-Tool/踩坑Gti/Content/SubmitSpecification.md<br><a href="https://mp.weixin.qq.com/s?__biz=MzI3ODY2NjA1Nw==&mid=2247483912&idx=1&sn=b8dff8e68806982cb21ff7ea8ad1c031&chksm=eb52cc2edc254538fee09f38d5ce2b553ed782f79d2d80357b3c50a666cb413817c729d07d74&scene=21#wechat_redirect" target="_blank" rel="noopener">如何做好Python代码的Code Review–章老师说</a></p>
+</li>
+</ul>
+<p>✔ 每次代码提交应该都要确保是一个最小的完整功能<br>✔ 每个 <code>Commit</code> 只应该干一件事<br>✔ 每次提交后的代码库应该都是正常运行<br>✔ 每次提交应该按照下面的规范添加操作类型<br>✔ 每次 <code>Commit</code> 都要明确具体操作类型</p>
+<blockquote>
+<p>✨ Feat: 车辆管理（查看车辆信息） #650070<br>🐛 Fix: 电子合同，驳回原因应有必填校验 #640609</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">操作类型</th>
+<th align="center">前缀</th>
+<th align="center">Emoji 符号（可选）</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">添加功能</td>
+<td align="center">Feature 或 Feat</td>
+<td align="center">✨</td>
+<td align="center">后面要跟着对应功能的 <code>iWork</code> 编号</td>
+</tr>
+<tr>
+<td align="center">优化代码（代码结构）</td>
+<td align="center">Style</td>
+<td align="center">🎨</td>
+<td align="center">不影响代码功能，特指代码结构优化</td>
+</tr>
+<tr>
+<td align="center">重构</td>
+<td align="center">Refactor</td>
+<td align="center">🔨</td>
+<td align="center">大范围级别项目重构</td>
+</tr>
+<tr>
+<td align="center">添加测试</td>
+<td align="center">Test</td>
+<td align="center">✅</td>
+<td align="center">添加单元测试</td>
+</tr>
+<tr>
+<td align="center">性能优化</td>
+<td align="center">Performance</td>
+<td align="center">⚡</td>
+<td align="center">提升性能有关的优化</td>
+</tr>
+<tr>
+<td align="center">合并代码</td>
+<td align="center">Merge</td>
+<td align="center">🔀</td>
+<td align="center">跟别人冲突了之后执行合并的时候</td>
+</tr>
+<tr>
+<td align="center">临时的脏代码</td>
+<td align="center">Shit</td>
+<td align="center">💩</td>
+<td align="center">屎一样的代码，未来需要优化的临时脏代码</td>
+</tr>
+<tr>
+<td align="center">包更新</td>
+<td align="center">Upgrade</td>
+<td align="center">⬆️</td>
+<td align="center">升级 npm 包</td>
+</tr>
+<tr>
+<td align="center">包降级</td>
+<td align="center">Downgrade</td>
+<td align="center">⬇️</td>
+<td align="center">降级 npm 包</td>
+</tr>
+<tr>
+<td align="center">修复 Bug</td>
+<td align="center">Fix</td>
+<td align="center">🐛</td>
+<td align="center">修复 Bug 的提交</td>
+</tr>
+<tr>
+<td align="center">填写注释</td>
+<td align="center">Document 或 Doc</td>
+<td align="center">💡</td>
+<td align="center">为代码编写注释</td>
+</tr>
+<tr>
+<td align="center">破坏性改动</td>
+<td align="center">Breaking Change</td>
+<td align="center">💥</td>
+<td align="center">所提供的接口或者方法出现重大不兼容更改</td>
+</tr>
+<tr>
+<td align="center">配置修改</td>
+<td align="center">Config</td>
+<td align="center">🔧</td>
+<td align="center">配置修改（如 <code>webpack</code> 中 <code>process.ENV</code>）</td>
+</tr>
+<tr>
+<td align="center">配合代码审查的更改</td>
+<td align="center">Code Review</td>
+<td align="center">👌</td>
+<td align="center">配合代码审查提出的改进意见做的提交</td>
+</tr>
+<tr>
+<td align="center">开发进行中</td>
+<td align="center">Doing/InProgress</td>
+<td align="center">🚧</td>
+<td align="center">一个大功能开发过程中，必须需要跟着对应功能的 <code>iWork</code> 编号</td>
+</tr>
+<tr>
+<td align="center">代码移动或者重命名</td>
+<td align="center">Rename/Move</td>
+<td align="center">🚚</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">代码删除</td>
+<td align="center">Remove/Delete</td>
+<td align="center">🔥</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h1 id="前端：推荐用VsCode插件Visual-Studio-Code-Commitizen-Support来设置提交规范"><a href="#前端：推荐用VsCode插件Visual-Studio-Code-Commitizen-Support来设置提交规范" class="headerlink" title="前端：推荐用VsCode插件Visual Studio Code Commitizen Support来设置提交规范"></a>前端：推荐用VsCode插件<a href="https://github.com/KnisterPeter/vscode-commitizen" target="_blank" rel="noopener">Visual Studio Code Commitizen Support</a>来设置提交规范</h1><p>使用教程：</p>
+<ul>
+<li>Step1.快捷键<code>command+shift+p</code>打开命令面板输入 conventional commit</li>
+<li>Step2.选择提交类型</li>
+<li>Step3.填写commit信息、iWork编号（选），回车完成push操作</li>
+</ul>
+<h1 id="Code-Review的好处"><a href="#Code-Review的好处" class="headerlink" title="Code Review的好处"></a>Code Review的好处</h1><ul>
+<li>让高水平的帮助新人成长，指出新手代码中的问题</li>
+<li>形成代码规范，保证有人离职后其他人能快速接手</li>
+</ul>
+<h1 id="如何审核"><a href="#如何审核" class="headerlink" title="如何审核"></a>如何审核</h1><h2 id="将代码的审查设置为开发流程的必选项"><a href="#将代码的审查设置为开发流程的必选项" class="headerlink" title="将代码的审查设置为开发流程的必选项"></a>将代码的审查设置为开发流程的必选项</h2><p>每次开发新功能或修复Bug，开一个新的分支，分支要合并到master必须满足以下条件</p>
+<ul>
+<li>所有的自动化测试通过</li>
+<li>至少有一个人Code Review通过<ul>
+<li>如果是新手的PR，还必须有资深程序员Code Review通过</li>
+</ul>
+</li>
+<li>保证每次审查的代码量也不会太大，减轻审查者压力<ul>
+<li>提交PR时，保证PR要小，相对就比较容易Review，也容易发现代码中可能存在的问题</li>
+<li>针对比较大的改动，最好分批提交，以减轻审查者的压力</li>
+</ul>
+</li>
+<li>Code Review时发现问题，被审查者要积极的对审查出来的问题进行修改</li>
+</ul>
+<h2 id="把Code-Review变成一种开发文化而不仅仅是一种制度"><a href="#把Code-Review变成一种开发文化而不仅仅是一种制度" class="headerlink" title="把Code Review变成一种开发文化而不仅仅是一种制度"></a>把Code Review变成一种开发文化而不仅仅是一种制度</h2><ul>
+<li>有几个人做好表率作用，榜样的力量很重要</li>
+<li>对于管理者来说，你激励什么，往往就会得到什么</li>
+<li>像写自动化测试一样，把Code Review作为开发任务的一部分，给审查者和被审查者都留出专门的时间去做这件事</li>
+</ul>
+<h1 id="Code-Review的经验技巧"><a href="#Code-Review的经验技巧" class="headerlink" title="Code Review的经验技巧"></a>Code Review的经验技巧</h1><h2 id="先设计再编码"><a href="#先设计再编码" class="headerlink" title="先设计再编码"></a>先设计再编码</h2><ul>
+<li>在做一个新功能之前，写一个简单的设计文档，表达清楚自己的设计思路！</li>
+<li>找资深的开发先帮忙做一下设计的审查，发现设计上的问题！</li>
+<li>设计上没问题了，再着手开发！</li>
+</ul>
+<h2 id="利用辅助工具"><a href="#利用辅助工具" class="headerlink" title="利用辅助工具"></a>利用辅助工具</h2><ul>
+<li>本地搭建环境根据自己的需要配置Gitlab</li>
+</ul>
+<h2 id="遇到紧急情况，来不及代码审查怎么办？"><a href="#遇到紧急情况，来不及代码审查怎么办？" class="headerlink" title="遇到紧急情况，来不及代码审查怎么办？"></a>遇到紧急情况，来不及代码审查怎么办？</h2><p><strong>比如，线上故障补丁，而又没有其他人在线的场景</strong><br>在任务管理系统中，创建一个Ticket，用来后续跟踪，确保后续补上Code Review，并对Code Review结果有后续的代码更新</p>
+<h2 id="代码在提交CODE-REVIEW之前，作者要自己先REVIEW和测试一遍"><a href="#代码在提交CODE-REVIEW之前，作者要自己先REVIEW和测试一遍" class="headerlink" title="代码在提交CODE REVIEW之前，作者要自己先REVIEW和测试一遍"></a>代码在提交CODE REVIEW之前，作者要自己先REVIEW和测试一遍</h2><ul>
+<li>好的开发人员，代码在提交Code Review之前，肯定是要自己先Review一遍，把该写的自动化测试代码写上，自己把基本的测试用例跑一遍</li>
+<li><strong>要求团队提交的PR在PR的描述中增加截图或者录屏，通过截图或者录屏，确保提交PR的人自己是先测试过</strong><h3 id="windows系统推荐"><a href="#windows系统推荐" class="headerlink" title="windows系统推荐"></a>windows系统推荐</h3><a href="https://www.screentogif.com/" target="_blank" rel="noopener">ScreenToGif</a><h3 id="mac系统推荐"><a href="#mac系统推荐" class="headerlink" title="mac系统推荐"></a>mac系统推荐</h3><a href="https://www.cockos.com/licecap/" target="_blank" rel="noopener">LICEcap</a></li>
+</ul>
+<h2 id="对评论进行分级"><a href="#对评论进行分级" class="headerlink" title="对评论进行分级"></a>对评论进行分级</h2><p>以对Review的评论进行分级，不同级别的结果可以打上不同的Tag</p>
+<ul>
+<li>[blocker]: 在评论前面加上一个[blocker]标记，表示这个代码行的问题必须要修改</li>
+<li>[optional]：在评论前面加上一个[optional]标记，表示这个代码行的问题可改可不改</li>
+<li>[question]：在评论前面加上一个[question]标记，表示对这个代码行不理解，有问题需要问，被审查者需要针对问题进行回复澄清<blockquote>
+<p>评论要友好，避免负面词汇；有说不清楚的问题当面沟通，面对面的沟通效率更高，也容易消除误解。</p>
+</blockquote>
+</li>
+</ul>
+<p>参考：<br><a href="https://mp.weixin.qq.com/s/JinlEjmWPJ3Ua6DrW74ABg" target="_blank" rel="noopener">不容错过，前端 Code Review 的最佳实践方案来了</a></p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+              <p>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81">快乐编码</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%BE%8E">编程之美</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+  
+    <script src="/lib/tocbot/tocbot.min.js"></script>
+  
+  <script src="/js/post.js"></script>
+
+
+  <script src="/lib/prettify/prettify.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Code Review-磨刀不费砍柴功！&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+</body>
+</html>

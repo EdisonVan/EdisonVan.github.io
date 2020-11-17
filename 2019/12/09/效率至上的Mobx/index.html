@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  <meta name="author" content="Edison Van">
+  <meta name="keywords" content>
+  <title>效率至上的Mobx ~ 彭思凡的个人网站</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  
+  <link rel="stylesheet" href="/css/main.css">
+
+  
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p>星期一, 十二月 9日 2019, 4:36 下午</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <h1 id="为什么会考虑使用状态管理？"><a href="#为什么会考虑使用状态管理？" class="headerlink" title="为什么会考虑使用状态管理？"></a>为什么会考虑使用状态管理？</h1><p>项目开发中经常会碰到以下场景：<br>1.业务系统许多接口，入参都需要传递登陆人 id</p>
+<pre><code class="jsx">userCode: localStorage.getItem(&#39;userCode&#39;),</code></pre>
+<p>2.业务系统选择下拉框，如城市，销售业务员、车型、折旧选项等均为同一接口数据。</p>
+<pre><code class="jsx">// 获取司机信息
+getDrivers(name) {
+  http
+    .get(&quot;/api/Common/GetDrivers&quot;, {
+      Key: name
+    })
+    .then(res =&gt; {
+      const { success, result } = res.data;
+      if (success) {
+        if (Array.isArray(result)) {
+          this.setState({
+            drivers: result
+          });
+        } else {
+          this.setState({
+            drivers: []
+          });
+        }
+      } else {
+        message.error(&quot;获取司机信息失败&quot;);
+      }
+    })
+    .catch(err =&gt; {
+      console.error(err);
+    });
+}</code></pre>
+<p>3.兄弟组件传值等</p>
+<!-- [1]台词 -->
+
+<h1 id="MobX-背后的哲学"><a href="#MobX-背后的哲学" class="headerlink" title="MobX 背后的哲学"></a>MobX 背后的哲学</h1><p>任何可以从应用程序的状态中获取/衍生的数据都应该可以自动被获取/衍生。<br>MobX 遵循单项数据流，通过 action 改变 state(可观测对象)，state 的变化又会触发 computed value 和 reaction 的重新执行。</p>
+<!-- [2]台词 -->
+
+<h1 id="Redux-和-Mobx-相同点"><a href="#Redux-和-Mobx-相同点" class="headerlink" title="Redux 和 Mobx 相同点"></a>Redux 和 Mobx 相同点</h1><p>1.优秀的状态管理解决方案<br>2.采用单向数据流管理状态<br>3.<code>Action--&gt;State--&gt;Views</code></p>
+<h1 id="Mobx-和-Redux-的区别"><a href="#Mobx-和-Redux-的区别" class="headerlink" title="Mobx 和 Redux 的区别"></a>Mobx 和 Redux 的区别</h1><table>
+<thead>
+<tr>
+<th>Mobx</th>
+<th>Redux</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>多个 store 对象，多 store 间的数据共享、相互引用</td>
+<td>单一数据源，应用共享一个 store 对象</td>
+</tr>
+<tr>
+<td>state 结构可以任意嵌套</td>
+<td>state 结构尽可能的扁平化，从而减少嵌套层级</td>
+</tr>
+<tr>
+<td>state 可观测，可以直接修改</td>
+<td>普通 JavaScript 对象存储 state</td>
+</tr>
+<tr>
+<td>上手成本低、开发效率高</td>
+<td>需要熟悉函数式编程基础</td>
+</tr>
+<tr>
+<td>代码量更少</td>
+<td>需要写更多的代码来执行严格的规范</td>
+</tr>
+</tbody></table>
+<!-- [3]台词 -->
+
+<h2 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h2><table>
+<thead>
+<tr>
+<th>MobX</th>
+<th>Redux</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>相对简单的应用</td>
+<td>复杂度较高的应用</td>
+</tr>
+</tbody></table>
+<!-- [4]台词 -->
+
+<h1 id="MobX-包含的主要概念"><a href="#MobX-包含的主要概念" class="headerlink" title="MobX 包含的主要概念"></a>MobX 包含的主要概念</h1><ul>
+<li>state（状态）</li>
+<li>computed value（计算值）</li>
+<li>reaction（响应）<ul>
+<li>computed value 和 reaction 会自动根据 state 的改变做最小化的更新</li>
+</ul>
+</li>
+<li>action（动作）<!-- [5]台词 -->
+
+</li>
+</ul>
+<h1 id="Mobx-的缺点"><a href="#Mobx-的缺点" class="headerlink" title="Mobx 的缺点"></a>Mobx 的缺点</h1><p>如使用装饰器时团队如果不制定一个规范，后期可能难以维护。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>自定义装饰器还是要在项目组内达成共识才行。<br>如：将各个状态封装到一个对象中导出（防止代码难以维护，加入静态图和 gif 图）<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/%E7%BB%9F%E4%B8%80%E5%AF%B9%E8%B1%A1-20191210.png" alt="统一对象"></p>
+<p>将使用 Mobx 观测的数据整合到一个 stores 对象注入到 Provider<br>到‘src/stores/index.js’中</p>
+<h1 id="获取可观测的-state"><a href="#获取可观测的-state" class="headerlink" title="获取可观测的 state"></a>获取可观测的 state</h1><p>通过 React-mobx 提供 Provider 组件在根目录 index.jsx 中让容器组件拿到 state</p>
+<pre><code class="jsx">import { Provider } from &quot;mobx-react&quot;;
+import stores from &quot;./stores&quot;;
+...
+&lt;Provider {...stores}&gt;
+  &lt;App /&gt;
+&lt;/Provider&gt;,
+document.getElementById(&#39;root&#39;)</code></pre>
+<p>Provider 在根组件外包了一层，来让 App 的所有子组件就默认都可以拿到 state。<br><a href="https://github.com/mobxjs/mobx-react/raw/master/src/Provider.js" target="_blank" rel="noopener">Provider 源码</a><br>只有先获取到 state，在对应组件中才能使用 inject 注入</p>
+<h2 id="inject-注入使用的-Store"><a href="#inject-注入使用的-Store" class="headerlink" title="@inject 注入使用的 Store"></a>@inject 注入使用的 Store</h2><pre><code class="jsx">import { observer, inject } from &quot;mobx-react&quot;;
+import { observable } from &quot;mobx&quot;;
+@observer
+@inject(&quot;store&quot;) // inject从context中取出store对象，注入到组件的props中
+class App extends Component {
+  render() {
+    const { store } = this.props;
+    return (
+      &lt;div&gt;
+        &lt;ul&gt;
+          {store.map(todo =&gt; (
+            &lt;TodoView todo={todo} key={todo.id} /&gt;
+          ))}
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+const TodoView = observer(({ todo }) =&gt; {
+  return &lt;li&gt;{todo.title}&lt;/li&gt;;
+});</code></pre>
+<!-- [6]台词 -->
+
+<h1 id="配置装饰器语法"><a href="#配置装饰器语法" class="headerlink" title="配置装饰器语法"></a>配置装饰器语法</h1><p><strong>项目中会大量使用到装饰器语法@observable，所以要提前配置装饰器</strong><br><a href="https://mobx.js.org/best/decorators.html" target="_blank" rel="noopener">配置方案</a><br><a href="https://github.com/EdisonVan/MobxDemo/blob/master/jsconfig.json" target="_blank" rel="noopener">记得配置jsconfig</a></p>
+<!-- [7]台词 -->
+
+<h2 id="computed-value-的使用"><a href="#computed-value-的使用" class="headerlink" title="computed value 的使用"></a>computed value 的使用</h2><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/Loading%E7%8A%B6%E6%80%81%E5%AE%9E%E7%8E%B0-20191210.png" alt="Loading-20191210"><br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Loading-20191210.gif" alt="Loading状态 gif"></p>
+<!-- [8]台词 -->
+<p>一般通过<code>computed</code>和<code>@computed</code>创建<code>computed value</code></p>
+<pre><code class="js">computed(() =&gt; expression)
+@computed get classProperty() { return expression; }</code></pre>
+<!-- [9]台词 -->
+
+<h2 id="action-的使用"><a href="#action-的使用" class="headerlink" title="action 的使用"></a>action 的使用</h2><h3 id="常见的用法"><a href="#常见的用法" class="headerlink" title="常见的用法"></a>常见的用法</h3><pre><code class="js">action(fn)
+@action classMethod</code></pre>
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/action%E7%9A%84%E4%BD%BF%E7%94%A8-20191210.png" alt="action的使用.png"></p>
+<!-- [10]台词 -->
+
+<h3 id="action-bound解决this指向问题"><a href="#action-bound解决this指向问题" class="headerlink" title="action.bound解决this指向问题"></a>action.bound解决this指向问题</h3><p><strong>箭头函数</strong></p>
+<pre><code class="jsx">logout = () =&gt;{
+    this.userId = undefined;
+    this.username = &#39;jack&#39;;
+    this.password = &#39;123456&#39;;
+    sessionStorage.removeItem(&quot;userId&quot;);
+    sessionStorage.removeItem(&quot;username&quot;);
+}</code></pre>
+<p><strong>action.bound/@action.bound</strong></p>
+<pre><code class="jsx">  @action.bound logout() {
+    this.userId = undefined;
+    this.username = &#39;jack&#39;;
+    this.password = &#39;123456&#39;;
+    sessionStorage.removeItem(&quot;userId&quot;);
+    sessionStorage.removeItem(&quot;username&quot;);
+  }</code></pre>
+<pre><code class="jsx">{
+  authStore.userId &amp;&amp; authStore.userId.length &gt; 0 ? (
+    &lt;span className=&quot;user&quot;&gt;
+      当前用户：{authStore.username}&amp;nbsp;
+      &lt;button onClick={authStore.logout}&gt;注销&lt;/button&gt;
+    &lt;/span&gt;
+  ) : (
+    &lt;span className=&quot;right-link&quot;&gt;
+      &lt;Link to={{ pathname: "/login", state: { from: location } }}&gt;登录&lt;/Link&gt;
+    &lt;/span&gt;
+  );
+}</code></pre>
+<!-- [11]台词 -->
+
+<h1 id="mobx-调试工具"><a href="#mobx-调试工具" class="headerlink" title="mobx 调试工具"></a>mobx 调试工具</h1><p>mobx-react-devtools 是一个用于调试 MobX+React 项目的工具，可以追踪组件的渲染以及组件依赖的可观测数据。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>只需要在开发环境下使用调试工具，安装命令使用的参数是–save-dev</strong></p>
+<pre><code>npm install mobx-react-devtools --save-dev
+或
+yarn add mobx-react-devtools --save-dev</code></pre><p>再次运行程序，界面右上角会多出三个小图标，是 mobx-react-devtools 的功能键。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>点击第一个图标，当组件发生渲染行为时，对应的组件会被高亮显示<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button1-20191210.gif" alt="DevTool-Button1.gif"></p>
+<ul>
+<li>高亮组件右上角显示的 3 个数字分别代表截至当前组件渲染的次数、组件 render 方法执行的时间、组件从 render 方法开始到渲染到浏览器界面使用的时间<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Button1%E6%B3%A8%E9%87%8A.png" alt="Button1注释.png"></li>
+</ul>
+<p>点击第二个图标后，再用鼠标选择任意一个组件，可以查看该组件会对哪些数据的变化做出响应<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button2-20191210.gif" alt="DevTool-Button2.gif"></p>
+<p>点击第三个图标，控制台会输出发生的 action、响应的 reaction 等调试日志信息<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button3-20191210.gif" alt="DevTool-Button3.gif"></p>
+<p>当然你也可以<a href="https://cn.mobx.js.org/best/trace.html" target="_blank" rel="noopener">使用 trace 进行调试</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://mobx.js.org/README.html" target="_blank" rel="noopener">Mobx 官方文档</a></li>
+<li><a href="https://developers.youzanyun.com/article/1557135472680?p=1&m=0" target="_blank" rel="noopener">我为什么从 Redux 迁移到了 Mobx</a></li>
+<li>《React 进阶之路》–徐超</li>
+</ul>
+<h1 id="入门项目推荐"><a href="#入门项目推荐" class="headerlink" title="入门项目推荐"></a>入门项目推荐</h1><p><a href="https://github.com/EdisonVan/MobxDemo" target="_blank" rel="noopener">《React进阶之路》bbs项目案例</a></p>
+<!-- [12]台词（总结） -->
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+              <p>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81">快乐编码</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/React%20%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF">React 那些事儿</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+  
+    <script src="/lib/tocbot/tocbot.min.js"></script>
+  
+  <script src="/js/post.js"></script>
+
+
+  <script src="/lib/prettify/prettify.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "效率至上的Mobx&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+</body>
+</html>

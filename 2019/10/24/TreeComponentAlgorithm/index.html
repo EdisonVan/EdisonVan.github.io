@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  <meta name="author" content="Edison Van">
+  <meta name="keywords" content>
+  <title>Tree Component Data Processing ~ 彭思凡的个人网站</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  
+  <link rel="stylesheet" href="/css/main.css">
+
+  
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p>星期四, 十月 24日 2019, 3:07 下午</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/AntTree-20191024.gif" alt="AntTree-20191024.gif"></p>
+<h2 id="后端接口返回数据OriginResult"><a href="#后端接口返回数据OriginResult" class="headerlink" title="后端接口返回数据OriginResult"></a>后端接口返回数据<code>OriginResult</code></h2><pre><code>&quot;result&quot;: [
+  {
+    &quot;province&quot;: {
+      &quot;name&quot;: &quot;安徽&quot;,
+      “id”:&#39;0-0&#39;
+    },
+    &quot;city&quot;: [
+      {
+        &quot;name&quot;: &quot;安庆&quot;,
+        parentId:&#39;0-0&#39;
+      },
+      {
+        &quot;name&quot;: &quot;蚌埠&quot;
+      },
+    ]
+  },
+  {
+    &quot;province&quot;: {
+      &quot;name&quot;: &quot;重庆&quot;
+    },
+    &quot;city&quot;: [
+      {
+        &quot;name&quot;: &quot;重庆&quot;
+      }
+    ]
+  }
+]</code></pre><h2 id="Ant-的-Tree-组件需要的数据格式如下"><a href="#Ant-的-Tree-组件需要的数据格式如下" class="headerlink" title="Ant 的 Tree 组件需要的数据格式如下"></a>Ant 的 Tree 组件需要的数据格式如下</h2><pre><code>treeData: [
+  {
+    &quot;title&quot;: &#39;安徽&#39;,
+    &quot;key&quot;: 0,
+    &quot;children&quot;: [
+      {
+        &quot;title&quot;: &#39;安庆&#39;,
+        &quot;key&quot;: &quot;0-0&quot;
+      },
+      {
+        &quot;title&quot;: &#39;蚌埠&#39;,
+        &quot;key&quot;: &quot;0-1&quot;
+      }
+    ],
+  },
+  {
+    &quot;title&quot;: &#39;重庆&#39;,
+    &quot;key&quot;: &quot;重庆&quot;
+  },
+];</code></pre><h1 id="后端数据转换为-Tree-组件所需数据的算法"><a href="#后端数据转换为-Tree-组件所需数据的算法" class="headerlink" title="后端数据转换为 Tree 组件所需数据的算法"></a>后端数据转换为 Tree 组件所需数据的算法</h1><pre><code>let navs = [];
+if (OriginResult != undefined &amp;&amp; OriginResult.length &gt; 0) {
+  // 先确认后端返回数据不为空
+  OriginResult.forEach((item, index) =&gt; {
+    // 第一次遍历给省份数据加入key
+    let i = {};
+    let PIndex = index++; // PIndex用于作最外层的key
+    if (item[&quot;city&quot;].length &gt; 1) {
+      // 不是直辖市对应city就有多个
+      i[&quot;title&quot;] = item.province.name;
+      i[&quot;key&quot;] = PIndex;
+      i[&quot;children&quot;] = [];
+      OriginResult[PIndex].city.forEach((ii, IN) =&gt; {
+        // 遍历当前索引下后端数据的city数据
+        let CIndex = IN++;
+        i[&quot;children&quot;].push({
+          // 插入children数据
+          title: ii.name,
+          key: PIndex + &quot;-&quot; + CIndex // 通过0-0作为key，方便后面判断城市和省份的所属关系
+        });
+      });
+      navs.push(i);
+    } else {
+      // 直辖市对应city就只有一个，为了满足后端接口入参需求
+      i[&quot;title&quot;] = item.province.name;
+      i[&quot;key&quot;] = item.province.name;
+      navs.push(i);
+    }
+  });
+  this.setState(
+    {
+      CityTreeList: this.state.CityTreeList.concat(navs)
+    },
+    () =&gt; {
+      console.log(this.state.CityTreeList);
+    }
+  );
+}</code></pre><p>现在后端数据已经整合到了 CityTreeList 中，且符合 Ant 的 Tree 组件格式要求。但后端要求入参符合如下格式，意味着我们触发确定接口保存用户所选省份和城市时需要再次遍历勾选内容进行数据重组</p>
+<pre><code>&quot;city&quot;: [
+  {
+    &quot;province&quot;: &quot;string&quot;,
+    &quot;city&quot;: &quot;string&quot;
+  }
+]</code></pre><p>Ant 的 Tree 组件有一个 onCheck 属性，会记录用户点击的内容，平铺到 checkedKeys 数组中</p>
+<pre><code class="json">[
+  &quot;澳门&quot;,
+  &quot;蚌埠&quot;,
+  &quot;巢湖&quot;,
+  &quot;福建&quot;,
+  &quot;福安&quot;,
+  &quot;福州&quot;,
+  &quot;晋江&quot;,
+  &quot;宁德&quot;,
+  &quot;泉州&quot;,
+  &quot;武夷山&quot;
+]</code></pre>
+<h1 id="将勾选数据处理为后端入参形式"><a href="#将勾选数据处理为后端入参形式" class="headerlink" title="将勾选数据处理为后端入参形式"></a>将勾选数据处理为后端入参形式</h1><pre><code>onCheck = checkedKeys =&gt; {
+  // console.log(&quot;onCheck&quot;, checkedKeys);
+  this.setState({ checkedKeys });
+  let nav = [];
+  const { CityTreeList } = this.state;
+  checkedKeys.forEach(item =&gt; { 
+    CityTreeList.forEach(x =&gt; { 
+      if (x.key === item) { 
+        nav.push({
+          province: item,
+          city: item
+        });
+      } else if (x.children != undefined) {
+        x.children.forEach(xx =&gt; {
+          if (xx.key === item) {
+            nav.push({
+              province: x.title,
+              city: xx.title
+            });
+          }
+        });
+      }
+    });
+  });
+  this.setState(
+    {
+      city: nav
+    },
+    () =&gt; {
+      this.props.sendCityData(this.state.city);
+    }
+  );
+};</code></pre><p>处理后的格式如下</p>
+<pre><code>[{ &quot;province&quot;: &quot;澳门&quot;, &quot;city&quot;: &quot;澳门&quot; }, { &quot;province&quot;: &quot;福建&quot;, &quot;city&quot;: &quot;福安&quot; }]</code></pre>
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+              <p>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/Algorithms">Algorithms</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/Taste-Algorithms">Taste-Algorithms</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+  
+    <script src="/lib/tocbot/tocbot.min.js"></script>
+  
+  <script src="/js/post.js"></script>
+
+
+  <script src="/lib/prettify/prettify.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Tree Component Data Processing&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+</body>
+</html>

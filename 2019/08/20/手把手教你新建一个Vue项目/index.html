@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  <meta name="author" content="Edison Van">
+  <meta name="keywords" content>
+  <title>手把手教你新建一个Vue项目 ~ 彭思凡的个人网站</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  
+  <link rel="stylesheet" href="/css/main.css">
+
+  
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p>星期二, 八月 20日 2019, 12:27 中午</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <!-- 原始笔记在‘Vue-Study文件夹下修改，再来此处更新！’ -->
+<h1 id="下载安装-node-js"><a href="#下载安装-node-js" class="headerlink" title="下载安装 node.js"></a>下载安装 node.js</h1><p><a href="http://nodejs.cn/" target="_blank" rel="noopener">node 官网下载地址</a><br>控制台输入 node-v 检查自己系统有没有下载过 node<br>使用 npm 包管理工具，推荐去国内最常用的库：<a href="https://cnpmjs.org" target="_blank" rel="noopener">https://cnpmjs.org</a><br>国内用户在终端执行以下代码替换淘宝镜像进行下载，换成了淘宝了镜像，在国内网速很快。</p>
+<pre><code>alias cnpm=&quot;npm --registry=https://registry.npm.taobao.org \
+--cache=$HOME/.npm/.cache/cnpm \
+--disturl=https://npm.taobao.org/mirrors/node \
+--userconfig=$HOME/.cnpmrc&quot;</code></pre><blockquote>
+<p>alias（别名）的一串命令将 npm 重命名为 cnpm</p>
+</blockquote>
+<h1 id="安装-vue-cli-vue-cli-是-vue-官方提供的脚手架工具"><a href="#安装-vue-cli-vue-cli-是-vue-官方提供的脚手架工具" class="headerlink" title="安装 vue-cli(vue-cli 是 vue 官方提供的脚手架工具)"></a>安装 vue-cli(vue-cli 是 vue 官方提供的脚手架工具)</h1><h2 id="用-vue-cli-初始化项目的优势："><a href="#用-vue-cli-初始化项目的优势：" class="headerlink" title="用 vue-cli 初始化项目的优势："></a>用 vue-cli 初始化项目的优势：</h2><ul>
+<li>成熟的 vue 项目架构设计</li>
+<li>本地测试服务器</li>
+<li>集成 webpack 打包上线方案</li>
+</ul>
+<h2 id="安装系统要求："><a href="#安装系统要求：" class="headerlink" title="安装系统要求："></a>安装系统要求：</h2><ul>
+<li>Node.js(&gt;=4.x)</li>
+<li>Git</li>
+<li>一个能使用 node 的命令行终端</li>
+</ul>
+<h2 id="全局安装-Vue-cli"><a href="#全局安装-Vue-cli" class="headerlink" title="全局安装 Vue-cli"></a>全局安装 Vue-cli</h2><p>npm install vue-cli -g</p>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><blockquote>
+<p>在自己项目文件夹下打开控制台</p>
+</blockquote>
+<h2 id="安装-webpack-模板，并设置工程信息"><a href="#安装-webpack-模板，并设置工程信息" class="headerlink" title="安装 webpack 模板，并设置工程信息"></a>安装 webpack 模板，并设置工程信息</h2><p>vue init webpack my-project [my-project 为项目名称]<br>控制台需要设置如下问题<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-1-20190820.png" alt></p>
+<ul>
+<li>Project name：项目名称，默认是输入时的那个名称，想改的话直接输入修改，也可以直接回车</li>
+<li>Install vue-router:是否需要 vue-router，这里默认选择使用，这样生成好的项目就会有相关的路由配置文件</li>
+<li>Use ESLint to lint your code:是否使用 ES 检测器，默认使用，这样会生成相关的 ESLint 配置</li>
+<li>Setup unit tests with Karma + Moch?: 是否安装单元测试。一般选 no，根据自己项目情况选择”Y”或”N”</li>
+<li>Setup e2e tests with Nightwatch：是否安装 e2e 测试。一般也选 no，根据自己项目情况选择”Y”或”N”<br>以上配置如选择 yes 则生成的项目会自动有相关的配置，有一些 loader 我们就要配套下载。<br>如果我们确定不用的话最好不要 yes，防止下很多没有用的 loader。</li>
+</ul>
+<h2 id="部署-Vue-项目完成之后的目录"><a href="#部署-Vue-项目完成之后的目录" class="headerlink" title="部署 Vue 项目完成之后的目录"></a>部署 Vue 项目完成之后的目录</h2><ul>
+<li><p>首页入口 index.html</p>
+</li>
+<li><p>build 配置文件夹</p>
+</li>
+<li><p>webpack.base.config.js、webpack.dev.config.js、webpack.prod.config.js 三个 webpack 的配置文件，分别是基本 webpack 配置、开发环境配置、生产环境配置。</p>
+</li>
+<li><p>config 配置文件夹<br>其中最主要的 index.js 用于配置代理服务器，和后台联调时在 proxyTable 这个属性设置一个后台地址即可。<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-2-20190820.png" alt></p>
+</li>
+<li><p>src 文件夹（主要以及使用频率最高的文件夹、大部分开发在 src 目录下、存储主要源码）<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-3-20190820.png" alt></p>
+</li>
+<li><p>assets: 共用的样式、图片</p>
+</li>
+<li><p>components: 业务代码存放位置、里面分成一个个组件存放，一个页面是一个组件，一个页面里面还会包着很多组件</p>
+</li>
+<li><p>router: 设置路由</p>
+</li>
+<li><p>App.vue: vue 文件入口界面，App.vue 是可以热更新的。</p>
+</li>
+<li><p>main.js：入口文件、对应 App.vue 创建 vue 实例，对应 webpack.base.config.js 里的入口配置</p>
+</li>
+<li><p>static 文件夹（保存静态文件）<br>存放的文件不会经过 webpack 处理，可直接引用<br>如 swf 文件要引用可在 webpack 配置带 swf 后缀名的文件处理的 loader，也可直接将 swf 文件放在这个文件夹引用</p>
+</li>
+<li><p>package.json（npm 所需要的一套配置文件）<br>这个文件有两部分是有用的：</p>
+<ul>
+<li>scripts 里面设置命令，<br>如设置了 dev 用于调试则我们开发时输入：npm run dev</li>
+<li>如设置了 build 输入<br>npm run build 用于打包会生成部署一套上线目录文件（完成之后多了 dist 目录）<br>我们需要的依赖包,在 dependencies 和 devDependencies 中，分别对应全局下载和局部下载的依赖包</li>
+</ul>
+</li>
+</ul>
+<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><ul>
+<li>进入项目文件夹：cd my-project</li>
+<li>打开 package.json 文件，找到 devDependencies 和 dependencies，删掉里面我们不需要的依赖包</li>
+<li>根据自己项目需要通过命令 sudo npm install /npm install（安装项目依赖）、下载其他依赖包如 npm install vue-resource 等，一个个下载<blockquote>
+<p>要在有 packge.json 文件的目录下、推荐使用 yarn，速度更快、相关依赖安装之后目录会多一个 node_modules</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="跑项目-npm-run-dev"><a href="#跑项目-npm-run-dev" class="headerlink" title="跑项目 npm run dev"></a>跑项目 npm run dev</h1><ul>
+<li><p>下载好依赖后先输入 npm install</p>
+</li>
+<li><p>如有缺漏再根据提示去下载。</p>
+</li>
+<li><p>输入命令 sudo npm run dev / npm run dev(在本地启动测试服务器)<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-4-20190820.png" alt></p>
+<blockquote>
+<p>ESLint: 帮助检查 Javascript 编程时的语法错误，保证多人开发一个项目保持语法一致。<br>Webpack: 设置代理、插件和 loader 处理各种文件和相关功能、打包等功能。整个项目中核心配置<br>iview: 基于 vue 的一套样式框架，里面有很多封装好的组件样式<br>ES6 语法：利用 babel 处理。<br>vue –help vue 的命令行查看帮助<br>vue -v 看版本</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="步骤总结："><a href="#步骤总结：" class="headerlink" title="步骤总结："></a>步骤总结：</h1><ul>
+<li>npm install –global vue-cli 下载 vue-cli 脚手架</li>
+<li>vue init webpack myProject 生成项目，形成基本结构</li>
+<li>npm install 下载依赖包</li>
+<li>npm run dev 运行</li>
+</ul>
+<h1 id="项目实例"><a href="#项目实例" class="headerlink" title="项目实例"></a>项目实例</h1><p>build/webpack.base.config.js<br>进行 loader 的配置，以及有一个 iview 的 css 文件不进行 babel 的处理，如下<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-5-20190820.png" alt><br>src/router/index.js:<br>import 引入组件文件，根据 vue-router 写上相应的路由配置</p>
+<p>src/components:<br>业务代码集中地，我做了一个简单的，只有三个组件。然后在每个组件中又分成几个组件构成。<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-6-20190820.png" alt></p>
+<!-- 
+-----------------
+后期再来更新项目实例文档，觉得文章写的不错可扫码募捐以鼓励我继续书写高质量的原创文章。 
+-->
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/Vue">Vue</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+  
+    <script src="/lib/tocbot/tocbot.min.js"></script>
+  
+  <script src="/js/post.js"></script>
+
+
+  <script src="/lib/prettify/prettify.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "手把手教你新建一个Vue项目&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+</body>
+</html>

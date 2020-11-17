@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  <meta name="author" content="Edison Van">
+  <meta name="keywords" content>
+  <title>低成本快速搭建个人博客 ~ 彭思凡的个人网站</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  
+  <link rel="stylesheet" href="/css/main.css">
+
+  
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p>星期二, 八月 6日 2019, 8:36 晚上</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <p><a href="https://tuchong.com/2590461/" target="_blank" rel="noopener">Van摄影</a></p>
+<blockquote>
+<p>最小的成本搭建一个有自己域名的博客站点（Hexo 生成页面，托管于 GitHub，使用自己的域名，可以安心写作又不用花费很多心思定期维护）</p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>1、一个博客网站模板<br>Hexo/Jekyll/vuePress（这里我选用了Hexo）</p>
+<p>2、自己的域名（非必须）</p>
+<ul>
+<li>百度不收录<code>.github.io</code>结尾的站点，直接使用 GitHub 托管的话，用户在百度上无法搜到自己站点上的内容；</li>
+<li>有SSL（网址前面的https://）比没有会在搜索引擎的排名中更加靠前</li>
+<li>在内容相同的情况下，有着自己的域名更加利于SEO(搜索引擎的优化)</li>
+</ul>
+<h2 id="Blog框架："><a href="#Blog框架：" class="headerlink" title="Blog框架："></a>Blog框架：</h2><p><a href="https://hexo.io/" target="_blank" rel="noopener">hexo官网</a> </p>
+<h3 id="hexo的特点"><a href="#hexo的特点" class="headerlink" title="hexo的特点"></a>hexo的特点</h3><ul>
+<li>支持Markdown: 支持Markdown意味着你可以把精力从排版中解放出来.</li>
+<li>轻量: 无需拥有后台及数据库,专心写好你的文章</li>
+<li>一键部署: 可以通过Git或者ftp来将生成的静态页面部署到服务器或者主机空间中</li>
+<li>插件丰富: 丰富的插件可以满足你的各种需求.</li>
+</ul>
+<h3 id="hexo的工作机制"><a href="#hexo的工作机制" class="headerlink" title="hexo的工作机制"></a>hexo的工作机制</h3><ul>
+<li>基于Node.js,将/source文件夹下的资源(文章,图片,模板),按照预定的配置文件,转换成静态页面放置到/public目录下.</li>
+<li>如果需要预览或者部署,hexo会把public作为web目录处理.</li>
+</ul>
+<h3 id="Hexo安装所需环境"><a href="#Hexo安装所需环境" class="headerlink" title="Hexo安装所需环境"></a>Hexo安装所需环境</h3><ul>
+<li>Node.js</li>
+<li>git</li>
+</ul>
+<h3 id="Tip（⚠️敲黑板划重点⚠️）"><a href="#Tip（⚠️敲黑板划重点⚠️）" class="headerlink" title="Tip（⚠️敲黑板划重点⚠️）"></a>Tip（⚠️敲黑板划重点⚠️）</h3><p>博客目录有全局config.yml，在每个theme主题中也有一个config.yml，对应的不同工作！</p>
+<ul>
+<li>Hexo配置文件:myblog/_config.yml</li>
+<li>主题配置文件:myblog/themes/next/_config.yml</li>
+</ul>
+<h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2><p>操作流程图：</p>
+<!-- ![CreateABlog](assets/CreateABlog.gif) -->
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/CreateABlog-20190730.gif" alt="123"><br>1.安装Hexo<br>推荐<code>yarn global add hexo</code>来全局安装Hexo.（保证 NodeJS 已经安装好的情况下）<br>Yarn/npm全局安装和本地安装的区别:</p>
+<ul>
+<li>全局安装会把package存放在用户目录指定的目录下</li>
+<li>本地安装则是存放在当前项目的node_module目录中.</li>
+</ul>
+<p>2.创建站点目录</p>
+<ul>
+<li>2.1 新建一个空文件夹<code>MyBlog</code>（将作为hexo站点目录）并初始化博客<pre><code class="js">$ hexo init MyBlog</code></pre>
+</li>
+<li>2.2 进入MyBlog文件夹安装相关依赖<pre><code class="js">$ cd MyBlog
+$ npm install</code></pre>
+</li>
+</ul>
+<p>3.用<code>hexo s</code>在本机运行后来看一下默认的效果<br>4.在 source/_posts/ 目录下创建文章，步骤如下：</p>
+<ul>
+<li>4.1 写文章（hexo new post-title） //post-title为文章markdown的名字</li>
+<li>4.2 渲染成 HTML 页面（hexo g）</li>
+<li>4.3 发布（hexo d）</li>
+</ul>
+<p>例.<br>创建一个名为 <code>宏彦获水</code> 的文章，可以在上述目录下创建一个文件，名为<code>宏彦获水.md</code></p>
+<pre><code class="js">---
+title: 宏彦获水
+date: 2019-07-26 22:32:51
+tags:
+- 热门时事
+---
+全球极客挚爱的高质量技术成长平台，想要学习和提升专业能力从这里开始，充足技术干货等你来啃，轻松拿下 李彦宏亮相百度第三届AI开发者大会，在李彦宏专注介绍百度AI成绩时，一位男子直接冲上舞台泼水。李彦宏先是一愣，后来用英语问到：What’s your problem？...</code></pre>
+<p>刷新页面，就可以看到这篇文章啦</p>
+<!-- ![CreateABlog](assets/NewPost20190730.png) -->
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/NewPost-20190730.png" alt="CreateABlog"></p>
+<h2 id="主题样式"><a href="#主题样式" class="headerlink" title="主题样式"></a>主题样式</h2><p>在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Themes | Hexo</a>中有非常多的主题可以供选择：</p>
+<h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h3><ul>
+<li>将主题所在的 GitHub 仓库 clone 到自己的博客的 themes 目录下，在 _config.yml 中修改以下字段为主题所在的文件夹名称即可：<pre><code class="js">theme: landscape</code></pre>
+也可以考虑自建一个主题，或从其他博客平台上移植一个主题过来。</li>
+</ul>
+<!--计划仿照Twitter、知乎、GitHub设计。-->
+
+<h3 id="站点配置"><a href="#站点配置" class="headerlink" title="站点配置"></a>站点配置</h3><p>对标题做修改只需要修改博客根目录下的<code>_config.yml</code> 即可，部分文件内容如下：</p>
+<pre><code class="js">title: Peng Sifan # 这里写博客的标题
+subtitle: It&#39;s my whole life! # 可以理解为博客的副标题
+description: Peng Sifan&#39;s self blog!
+keywords:
+author: Edison Van
+language: zh-CN
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39;
+url: http://yoursite.com
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:</code></pre>
+<h2 id="发布站点"><a href="#发布站点" class="headerlink" title="发布站点"></a>发布站点</h2><p>使用<code>GitHub</code>来托管我们的站点</p>
+<ul>
+<li><p>1.创建一个 <code>GitHub</code> 仓库用来存放我们的博客，<code>GitHub</code> 的仓库名称为<code>&lt;你的用户名&gt;.github.io</code></p>
+</li>
+<li><p>2.安装 Hexo 的 Git 发布（部署）模块：<code>npm install hexo-deployer-git --save</code></p>
+</li>
+<li><p>在 _config.yml 中加入以下部分：</p>
+<pre><code>deploy:
+type: git
+repo: https://github.com/EdisonVan/EdisonVan.github.io.git    
+branch: master
+message: Blog Update
+name: EdisonVan
+email: vanjohnson@foxmail.com</code></pre><p>⚠️repo后接你GitHub仓库的SSH地址或者HTTPS地址，这里我用的HTTPS地址，因为我公司网络无法访问SSH地址。😢<br>SSH地址格式：<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:&lt;用户名&gt;/&lt;仓库名称&gt;.git</p>
+</li>
+<li><p>3.开始发布</p>
+<pre><code class="js">hexo clean # 清理之前public的文件
+hexo g # 重新渲染所有页面为 HTML
+hexo d # 发布！</code></pre>
+<!-- ![selfBlog.png](assets/selfBlog.png) -->
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/selfBlog-20190730.png" alt="selfBlog.png"></p>
+</li>
+<li><p>4.设置自己的域名解析<br>如果没有填写<code>Custom domain</code>你的站点地址将会是<code>&lt;GitHub 用户名&gt;.github.io</code>，如果有自己的域名且希望使用的话，就在<code>source 目录</code>下放一个名为CNAME的文件（对，没有任何后缀名），内容只有一行，就是自己的域名，将自己的域名做一个<code>CNAME</code>解析到<code>&lt;GitHub 用户名&gt;.github.io</code>地址即可</p>
+<!-- ![GitHub-Page-20190704](assets/GitHub-Page-20190704.png) -->
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/GitHub-Page-20190704.png" alt="GitHub-Page-20190704"></p>
+</li>
+</ul>
+<p><a href="https://github.com/EdisonVan/EdisonVan.github.io" target="_blank" rel="noopener">🌟赏颗星星吧！🌟</a></p>
+<!-- 主要涉及知识点：linux基础命令，mysql基础操作 -->
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/%E7%BC%96%E7%A0%81%E4%B9%8B%E5%A4%96">编码之外</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+  
+    <script src="/lib/tocbot/tocbot.min.js"></script>
+  
+  <script src="/js/post.js"></script>
+
+
+  <script src="/lib/prettify/prettify.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "低成本快速搭建个人博客&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+</body>
+</html>

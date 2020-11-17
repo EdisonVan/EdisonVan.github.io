@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  <meta name="author" content="Edison Van">
+  <meta name="keywords" content>
+  <title>渐进式迁移TypeScript ~ 彭思凡的个人网站</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  
+  <link rel="stylesheet" href="/css/main.css">
+
+  
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p>星期五, 一月 31日 2020, 12:59 下午</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <!-- 大纲（Add到个人笔记中）
+Demo里的README步骤 -->
+
+<h1 id="使用create-react-app"><a href="#使用create-react-app" class="headerlink" title="使用create-react-app"></a>使用create-react-app</h1><p>由于老项目使用的react-app-rewired，为了更好的适配TypeScript，这里首先使用create-react-app这套构建方案替换react-app-rewired！</p>
+<pre><code class="bash">- npm uninstall -g crete-react-app
+- yarn global add create-react-app
+- yarn create react-app my-app --template typescript
+- yarn add typescript
+- yarn add @types/react
+- yarn add @types/react-dom
+- yarn install
+- yarn start</code></pre>
+<!-- yarn remove -g crete-react-app -->
+
+<h2 id="渐进式迁移策略"><a href="#渐进式迁移策略" class="headerlink" title="渐进式迁移策略"></a>渐进式迁移策略</h2><h3 id="共存策略"><a href="#共存策略" class="headerlink" title="共存策略"></a>共存策略</h3><h4 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h4><p>原JavaScript代码不动，新增代码都用TypeScript编写</p>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>1.添加ts(x) 文件<br>2.安装typescript<br>3.选择构建工具<br>保留Babel</p>
+<ul>
+<li>安装@babel/preset-typescript</li>
+<li>修改Webpack配置</li>
+<li>添加tsc –watch模式</li>
+</ul>
+<p>放弃Babel</p>
+<ul>
+<li>安装ts-loader</li>
+<li>修改Webpack配置</li>
+</ul>
+<p>4.检查JavaScript<br>allowJs: true<br>checkJs: true</p>
+<p>5.处理JavaScript报错<br>// @ts-nocheck<br>JSDOC注释</p>
+<h3 id="宽松策略"><a href="#宽松策略" class="headerlink" title="宽松策略"></a>宽松策略</h3><h4 id="含义-1"><a href="#含义-1" class="headerlink" title="含义"></a>含义</h4><p>将所有的js(x)文件重命名为ts(x)文件，在不修改代码的基础上，使用最宽松的类型检查规则</p>
+<h4 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h4><p>1.重命名文件(shelljs)<br>2.修改Webpack入口<br>3.strict: false</p>
+<h3 id="严格策略"><a href="#严格策略" class="headerlink" title="严格策略"></a>严格策略</h3><h4 id="含义-2"><a href="#含义-2" class="headerlink" title="含义"></a>含义</h4><p>开启最严格的类型检查规则，处理剩余的报错</p>
+<h4 id="步骤-2"><a href="#步骤-2" class="headerlink" title="步骤"></a>步骤</h4><ul>
+<li>strict: true</li>
+<li>处理报错</li>
+</ul>
+<h1 id="axios的封装-🚀"><a href="#axios的封装-🚀" class="headerlink" title="axios的封装 🚀"></a>axios的封装 🚀</h1><h2 id="安装进度条"><a href="#安装进度条" class="headerlink" title="安装进度条"></a>安装进度条</h2><p>yarn add nprogress @types/nprogress</p>
+<ul>
+<li><strong>request.ts</strong></li>
+<li><strong>http.js</strong><!-- 将GTA作为Ts的Demo模版，对比和公司axios请求封装的区别
+对比长包、销售、考拉几个项目的 axios 封装方式
+写法一：销售系统那种
+写法二：考拉爱车官网项目中 utils/request.js 代码 -->
+
+</li>
+</ul>
+<p><a href="https://github.com/Microsoft/TypeScript-React-Conversion-Guide#typescript-react-conversion-guide" target="_blank" rel="noopener">JS项目–TS项目迁移官方例子</a></p>
+<!-- src/components/GlobalHeader/index.less
+注释掉一些:global
+```diff
+- :global {
+.ant-layout {
+  min-height: 100vh;
+  overflow-x: hidden;
+  // width:165px;
+  //   max-width:165px;
+  //   min-width:165px;
+}
+- }
+``` -->
+<!-- 
+正文，通过笔记拓展
+----------
+
+```ts
+``` -->
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+              <p>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81">快乐编码</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/TypeScript">TypeScript</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+  
+    <script src="/lib/tocbot/tocbot.min.js"></script>
+  
+  <script src="/js/post.js"></script>
+
+
+  <script src="/lib/prettify/prettify.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "渐进式迁移TypeScript&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+</body>
+</html>

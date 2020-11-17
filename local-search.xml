@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>前端单元测试</title>
+    <link href="undefined2020/08/12/%E5%89%8D%E7%AB%AF%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    <url>2020/08/12/%E5%89%8D%E7%AB%AF%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/</url>
+    
+    <content type="html"><![CDATA[<h1 id="单元测试工具的选择"><a href="#单元测试工具的选择" class="headerlink" title="单元测试工具的选择"></a>单元测试工具的选择</h1><blockquote><p>测试框架到底是一个工具，选择一个几乎不需要配置、开箱即用的框架是可以大大提高生产效率的选择!</p></blockquote><h2 id="Mocha"><a href="#Mocha" class="headerlink" title="Mocha"></a><a href="https://github.com/mochajs/mocha" target="_blank" rel="noopener">Mocha</a></h2><p>适合作为高度定制的测试框架！<br>优点：</p><ul><li>对异步的强大支持</li><li>灵活，它只提供给开发者的只有一个基础测试结构</li><li>其它功能性的功能如 assertions， spies，mocks，和像它们一样的其它功能需要引用添加其它库/插件来完成。</li></ul><p>缺点：</p><ul><li>需要额外的引入众多辅助库和插件，增加了的学习成本和配置成本。</li><li>一开始为 Node.js 而生的单元测试框架，对浏览器的支持并不如其对服务器做的那么好。</li></ul><h2 id="Jasmine"><a href="#Jasmine" class="headerlink" title="Jasmine"></a><a href="https://github.com/jasmine/jasmine" target="_blank" rel="noopener">Jasmine</a></h2><p>优点：</p><ul><li>UI：清晰且操作简单</li><li>Ready-To-Go：有断言、spies、mocks，和 Sinon 能做的事差不多。和其他库的结合使用也很方便。</li><li>代码覆盖检查<ul><li>内置了一个基于 Istanbul 的代码覆盖工具，功能强大且性能高。</li></ul></li></ul><h2 id="Jest-推荐"><a href="#Jest-推荐" class="headerlink" title="Jest (推荐)"></a><a href="https://github.com/facebook/jest" target="_blank" rel="noopener">Jest</a> (推荐)</h2><p>Jest 基于 Jasmine 开发而来，比 Jasmine 更加大而全，是一款由 Facebook 开源的大而全的测试框架,它的特点是开箱即用,功能强大,目前三大框架全部采用 Jest 测试。<br>优点：</p><ul><li>内置的断言库</li><li>内置的异步支持</li><li>内置的覆盖率报告</li><li>强大的 TypeScript 支持</li><li>性能：Jest 基于并行测试多文件，所以在大项目中的运行速度相当快</li><li>Globals<ul><li>和 Jasmine 一样，默认创建全局环境。但这一个特性确实会降低代码灵活性和健壮性，但是非常方便测试者调用。</li></ul></li><li>快照测试<ul><li>Jest 快照功能由 FB 开发和维护，它还可以平移到别的框架上作为插件使用。 更强大的模块级 mocking 功能</li><li>Jest 允许开发者用非常简单的方法 mock 很重的库，达到提高测试效率的目的。比如可以模拟一个 promise 的 resolve，而不是真的进行网络请求。</li></ul></li><li>开发<ul><li>Jest 仅仅更新被修改的文件，所以在监控模式 (watch mode) 下它的运行速度非常快</li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开发工具</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>我与Golang的每一天</title>
+    <link href="undefined2020/05/06/Golang-Daily/"/>
+    <url>2020/05/06/Golang-Daily/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Go语言的优点"><a href="#Go语言的优点" class="headerlink" title="Go语言的优点"></a>Go语言的优点</h1><h2 id="生产力语言"><a href="#生产力语言" class="headerlink" title="生产力语言"></a>生产力语言</h2><p>作为一门生产力语言，它有很多约束，规避代码的一些低级错误！<br>例如.go语言中没有前置的++和–，所以你不用担心混淆前置++和后置++的区别。</p><h2 id="可读性好，易于维护"><a href="#可读性好，易于维护" class="headerlink" title="可读性好，易于维护"></a>可读性好，易于维护</h2><p>例如位运算符重的<code>按位置零操作&amp;^</code></p><ul><li>右边操作数位为1时，结果都为0</li><li>右边操作数位为0时，结果和左侧保持一直，左侧为0，则结果为0<pre><code class="go">1 &amp;^ 0 -- 11 &amp;^ 1 -- 00 &amp;^ 1 -- 00 &amp;^ 0 -- 0</code></pre></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>后端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Golang</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>渐进式迁移TypeScript</title>
+    <link href="undefined2020/01/31/%E6%B8%90%E8%BF%9B%E5%BC%8F%E8%BF%81%E7%A7%BBTypeScript/"/>
+    <url>2020/01/31/%E6%B8%90%E8%BF%9B%E5%BC%8F%E8%BF%81%E7%A7%BBTypeScript/</url>
+    
+    <content type="html"><![CDATA[<!-- 大纲（Add到个人笔记中）Demo里的README步骤 --><h1 id="使用create-react-app"><a href="#使用create-react-app" class="headerlink" title="使用create-react-app"></a>使用create-react-app</h1><p>由于老项目使用的react-app-rewired，为了更好的适配TypeScript，这里首先使用create-react-app这套构建方案替换react-app-rewired！</p><pre><code class="bash">- npm uninstall -g crete-react-app- yarn global add create-react-app- yarn create react-app my-app --template typescript- yarn add typescript- yarn add @types/react- yarn add @types/react-dom- yarn install- yarn start</code></pre><!-- yarn remove -g crete-react-app --><h2 id="渐进式迁移策略"><a href="#渐进式迁移策略" class="headerlink" title="渐进式迁移策略"></a>渐进式迁移策略</h2><h3 id="共存策略"><a href="#共存策略" class="headerlink" title="共存策略"></a>共存策略</h3><h4 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h4><p>原JavaScript代码不动，新增代码都用TypeScript编写</p><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>1.添加ts(x) 文件<br>2.安装typescript<br>3.选择构建工具<br>保留Babel</p><ul><li>安装@babel/preset-typescript</li><li>修改Webpack配置</li><li>添加tsc –watch模式</li></ul><p>放弃Babel</p><ul><li>安装ts-loader</li><li>修改Webpack配置</li></ul><p>4.检查JavaScript<br>allowJs: true<br>checkJs: true</p><p>5.处理JavaScript报错<br>// @ts-nocheck<br>JSDOC注释</p><h3 id="宽松策略"><a href="#宽松策略" class="headerlink" title="宽松策略"></a>宽松策略</h3><h4 id="含义-1"><a href="#含义-1" class="headerlink" title="含义"></a>含义</h4><p>将所有的js(x)文件重命名为ts(x)文件，在不修改代码的基础上，使用最宽松的类型检查规则</p><h4 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h4><p>1.重命名文件(shelljs)<br>2.修改Webpack入口<br>3.strict: false</p><h3 id="严格策略"><a href="#严格策略" class="headerlink" title="严格策略"></a>严格策略</h3><h4 id="含义-2"><a href="#含义-2" class="headerlink" title="含义"></a>含义</h4><p>开启最严格的类型检查规则，处理剩余的报错</p><h4 id="步骤-2"><a href="#步骤-2" class="headerlink" title="步骤"></a>步骤</h4><ul><li>strict: true</li><li>处理报错</li></ul><h1 id="axios的封装-🚀"><a href="#axios的封装-🚀" class="headerlink" title="axios的封装 🚀"></a>axios的封装 🚀</h1><h2 id="安装进度条"><a href="#安装进度条" class="headerlink" title="安装进度条"></a>安装进度条</h2><p>yarn add nprogress @types/nprogress</p><ul><li><strong>request.ts</strong></li><li><strong>http.js</strong><!-- 将GTA作为Ts的Demo模版，对比和公司axios请求封装的区别对比长包、销售、考拉几个项目的 axios 封装方式写法一：销售系统那种写法二：考拉爱车官网项目中 utils/request.js 代码 --></li></ul><p><a href="https://github.com/Microsoft/TypeScript-React-Conversion-Guide#typescript-react-conversion-guide" target="_blank" rel="noopener">JS项目–TS项目迁移官方例子</a></p><!-- src/components/GlobalHeader/index.less注释掉一些:global```diff- :global {.ant-layout {  min-height: 100vh;  overflow-x: hidden;  // width:165px;  //   max-width:165px;  //   min-width:165px;}- }``` --><!-- 正文，通过笔记拓展----------```ts``` -->]]></content>
+    
+    
+    <categories>
+      
+      <category>快乐编码</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>TypeScript</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2019，我拿时间换了啥？</title>
+    <link href="undefined2020/01/02/%E6%88%91%E7%9A%842019/"/>
+    <url>2020/01/02/%E6%88%91%E7%9A%842019/</url>
+    
+    <content type="html"><![CDATA[<ul><li>我在2019的关键词</li><li>进厨房，做菜</li><li>第一次在外过年</li><li>读书、理财、健康</li><li>2020期望</li></ul><p>writing…</p><blockquote><p>我写博客有拖延症，这是毛病，我在慢慢的改正！</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>杂谈</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>生活</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>参加第14届D2前端技术大会后的感悟</title>
+    <link href="undefined2019/12/16/%E7%AC%AC14%E5%B1%8AD2%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%A4%A7%E4%BC%9A/"/>
+    <url>2019/12/16/%E7%AC%AC14%E5%B1%8AD2%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%A4%A7%E4%BC%9A/</url>
+    
+    <content type="html"><![CDATA[<p>继19年VueConf之后，这是我第二次参加技术大会！虽然大部分内容听不懂，但还是有不小收获，也给2020年的学习方向起到了一些引导作用！尤其是在晚会D2之夜上听大佬们的学习历程，不禁让我陷入了沉思！这天晚上我脑子里时时刻刻回想着《霸王别姬》里面的一个镜头！</p><!-- “xxx对xxx说”：是要挨多少打，才能成为角啊！ add霸王镜头--><p>我相信前端学习，肉体上不用挨打，但心灵上肯定是饱受历练的，希望有一天我也能像几位大佬一样在编码前沿跟后生谈笑风生！</p><!-- > 白天是热门或新技术的专场 --><h1 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h1><!-- 体现自己在思考问题 --><ul><li><a href="https://mp.weixin.qq.com/s?__biz=Mzg4MjE5OTI4Mw==&mid=2247484246&idx=1&sn=fb3fabb3e7b6b3169289fe709de9c0fd&chksm=cf5b1ccaf82c95dcb692e2ed4c246944f73057573b29f1be2b7cd8caa720f6dc9254871a5980&token=1631420129&lang=zh_CN#rd" target="_blank" rel="noopener">标准微前端架构在蚂蚁的落地实践</a></li><li><a href="http://pc-shop.xiaoe-tech.com/app8t0DSHwT1047/imgtext_details?id=i_5dee26d30c780_wfpkqKTc" target="_blank" rel="noopener">第十四届D2大会资料</a></li><li><a href="https://github.com/d2forum/14th" target="_blank" rel="noopener">第十四届D2大会PPT</a></li><li><a href="https://www.yuque.com/d2forum/content/egk1pc" target="_blank" rel="noopener">第14届D2完整资料</a></li></ul><h1 id="值得了解的技术"><a href="#值得了解的技术" class="headerlink" title="值得了解的技术"></a>值得了解的技术</h1><ul><li>Node的Serverless</li><li>微前端（Micro Frontends Web），推广到业务项目中，提高开发效率、优化团队协作成本</li><li><a href="https://github.com/css-modules/css-modules/blob/master/docs/composition.md" target="_blank" rel="noopener">CSS Modules</a>：简单高效、尤其体现在处理子应用样式隔离。<!-- 字节跳动和阿里 --></li></ul><h1 id="开源仓库-学习资源"><a href="#开源仓库-学习资源" class="headerlink" title="开源仓库/学习资源"></a>开源仓库/学习资源</h1><ul><li>umi 插件</li><li>微前端内核</li><li>Umiqs/qiankun<!-- （GitHub Search from PPT） --></li><li><a href="https://github.com/css-modules/css-modules/blob/master/docs/composition.md" target="_blank" rel="noopener">CSS Modules</a></li></ul><h1 id="值得关注的一些平台"><a href="#值得关注的一些平台" class="headerlink" title="值得关注的一些平台"></a>值得关注的一些平台</h1><ul><li><a href="https://github.com/tc39" target="_blank" rel="noopener">制定JS规范的组织的TC39</a></li></ul><!-- # 回顾 PPT --><!-- 生态云新物种 --><!-- 微前端沙盒体系 （艾石光/字节跳动 ‘微前端专场’） --><h1 id="D2晚会"><a href="#D2晚会" class="headerlink" title="D2晚会"></a><a href="https://www.yuque.com/zhaishenking/ggn07n/uvdo44" target="_blank" rel="noopener">D2晚会</a></h1><p>晚上的D2之夜是真正让我静下心来修炼内功的盛宴！</p><!-- 南京阿里巴巴研发中心Henry --><h1 id="2020年的自我计划（学习质量-gt-学习数量）"><a href="#2020年的自我计划（学习质量-gt-学习数量）" class="headerlink" title="2020年的自我计划（学习质量&gt;学习数量）"></a>2020年的自我计划（学习质量&gt;学习数量）</h1><ul><li>算法：通过 LeetCode 保持算法思维</li><li>Golang</li><li>Flutter</li><li>性能优化</li><li>音视频方向</li><li>源码阅读计划（避免成为 API 工程师）<ul><li>对比不同 UI 库与 antd 实现的区别，思考它们的设计思路</li><li>针对自己感兴趣的组件去看看源码了解其实现原理<!-- 思考开发过程中浪费时间的流程，并想办法解决它 --></li></ul></li></ul><h1 id="思维能力的培养"><a href="#思维能力的培养" class="headerlink" title="思维能力的培养"></a>思维能力的培养</h1><p>从 bug 追根溯源</p><ul><li>解决问题之后思考更好的解决方案</li><li>什么原因导致这类 bug</li><li>不满足于 API 的使用</li><li>去了解 API 底层原理，挑自己喜欢的组件去看实现原理</li><li>不只看结果，深究重塑</li><li>多思考如果让我实现，我该怎么写-&gt;写 Demo-&gt;看源码-&gt;思考有无更优解</li><li>自己写完的东西-&gt;看看别人的解法-&gt;思考有无更优解</li><li>多角度思考问题</li><li>思考产品、老板、运营、后端是怎么想（多去交流沟通）</li><li>多读书</li><li>读一些技术无关的书籍，学更多的东西，思考技术方案如何落地到项目！<ul><li>人物传记，看伟人如何思考问题</li><li>认知提升类书籍</li></ul></li></ul><h1 id="前端的自我修养"><a href="#前端的自我修养" class="headerlink" title="前端的自我修养"></a>前端的自我修养</h1><p><strong>虽然我的职业规划不止步于前端，但我很认同大佬们说的前端该具备的几点自我修养！</strong></p><ul><li>做任何需求心态要好，不要急，但要保证效率</li><li>像素眼-&gt;高度还原 UI 高保真图</li><li>EQ 要高，善于沟通</li><li>最终必须变为全栈（强烈赞同）</li><li>有浓厚的好奇心</li><li>前端开发工程师的终极目标应该是：开发+运维</li></ul><!-- 未完待续... -->]]></content>
+    
+    
+    <categories>
+      
+      <category>技术分享</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>技术大会</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>不想做API工程师</title>
+    <link href="undefined2019/12/12/%E4%B8%8D%E6%83%B3%E5%81%9AAPI%E5%B7%A5%E7%A8%8B%E5%B8%88/"/>
+    <url>2019/12/12/%E4%B8%8D%E6%83%B3%E5%81%9AAPI%E5%B7%A5%E7%A8%8B%E5%B8%88/</url>
+    
+    <content type="html"><![CDATA[<p>曾有人跟我说说：‘高手与低手的区别在于读库能力与调试能力。’我觉得很在理，所以也制定一些源码阅读计划！</p><ul><li><a href="https://github.com/RubyLouvre/anu" target="_blank" rel="noopener">迷你React框架anujs源码</a></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>源码阅读</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Ant-Design</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>React性能优化</title>
+    <link href="undefined2019/12/10/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <url>2019/12/10/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</url>
+    
+    <content type="html"><![CDATA[<h1 id="项目中的代码分割"><a href="#项目中的代码分割" class="headerlink" title="项目中的代码分割"></a>项目中的代码分割</h1><p>import 静态引入写法</p><pre><code class="jsx">import Home from &quot;./components/Home&quot;;import Login from &quot;./components/Login&quot;;...return(  &lt;Router&gt;    &lt;Switch&gt;      &lt;Route exact path=&quot;/&quot; component={Home} /&gt;      &lt;Route path=&quot;/login&quot; component={Login} /&gt;      &lt;Route path=&quot;/posts&quot; component={Home} /&gt;  ...)</code></pre><p>以上写法不管匹配到了哪一个 route，都是一次性地引入所有的组件。可以使用代码分割进行优化，实现只引入匹配到的 route 和对应组件。</p><h2 id="创建一个异步组件-asyncComponent-替换-import-动态导入的-Login-和-Home-组件，实现按需异步加载"><a href="#创建一个异步组件-asyncComponent-替换-import-动态导入的-Login-和-Home-组件，实现按需异步加载" class="headerlink" title="创建一个异步组件 asyncComponent 替换 import 动态导入的 Login 和 Home 组件，实现按需异步加载"></a>创建一个异步组件 asyncComponent 替换 import 动态导入的 Login 和 Home 组件，实现按需异步加载</h2><p><strong>utils/AsyncComponent/asyncComponent.jsx</strong></p><pre><code class="jsx">import React, { Component } from &quot;react&quot;;export default function asyncComponent(importComponent) {  // asyncComponent 接收一个 importComponent函数作为参数，importComponent()在被调用时会动态引入给定的组件。  class AsyncComponent extends Component {    constructor(props) {      super(props);      this.state = {        component: null      };    }    componentDidMount() {      // 调用传入的importComponent()，并将动态引入的组件保存在state中      importComponent().then(mod =&gt; {        // import()方法返回的是一个Promise，Promise的返回值只能通过then()来读取        this.setState({          // 同时兼容ES6和CommonJS的模块          component: mod.default ? mod.default : mod        });      });    }    render() {      const C = this.state.component;      return C ? &lt;C {...this.props} /&gt; : null;    }  }  return AsyncComponent;}</code></pre><h3 id="使用-asyncComponent-组件"><a href="#使用-asyncComponent-组件" class="headerlink" title="使用 asyncComponent 组件"></a>使用 asyncComponent 组件</h3><p><strong>src/components/App/index.js</strong></p><pre><code class="jsx">import asyncComponent from &quot;../../utils/AsyncComponent&quot;;// 使用asyncComponent组件来创建代码分片点替换import动态导入的Login和Home组件const AsyncHome = connectRoute(asyncComponent(() =&gt; import(&quot;../Home&quot;)));const AsyncLogin = connectRoute(asyncComponent(() =&gt; import(&quot;../Login&quot;)));//传给 asyncComponent 一个函数，在 AsyncHome 组件被创建时对组件进行动态引入 这里并没有进行组件的引入...  return(    &lt;div&gt;      &lt;Router&gt;        &lt;Switch&gt;          {/* 使用这个 AsyncHome 组件*/}          &lt;Route exact path=&quot;/&quot; component={AsyncHome} /&gt;          &lt;Route path=&quot;/login&quot; component={AsyncLogin} /&gt;          &lt;Route path=&quot;/posts&quot; component={AsyncHome} /&gt;    ...  )...</code></pre><h1 id="不要把所有的数据都往-State-中塞"><a href="#不要把所有的数据都往-State-中塞" class="headerlink" title="不要把所有的数据都往 State 中塞"></a>不要把所有的数据都往 State 中塞</h1><p>如后端数据，且数据为不需要在页面变动</p><pre><code class="json">  &quot;data&quot;: {    &quot;result&quot;: {      &quot;id&quot;: 2,      &quot;totalUserCount&quot;: 634801,      &quot;totalSilentUserCount&quot;: 631192,      &quot;totalAccountCount&quot;: 29012,      &quot;creationTime&quot;: &quot;2019-12-12T14:46:45.423&quot;    },    &quot;isSuccess&quot;: true,    &quot;errorCode&quot;: 0,    &quot;message&quot;: &quot;&quot;  },</code></pre><p>那么我们只需要把 result 放入 state 即可</p><pre><code class="jsx">this.setState({  Data:result})const {Data}  = this.state....&lt;span style={{ color: '#333333', fontSize: '14px' }}&gt;  &lt;a href=&quot;#&quot;&gt;    {Data.totalUserCount}  &lt;/a&gt;  个，</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>快乐编码</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>React 那些事儿</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>效率至上的Mobx</title>
+    <link href="undefined2019/12/09/%E6%95%88%E7%8E%87%E8%87%B3%E4%B8%8A%E7%9A%84Mobx/"/>
+    <url>2019/12/09/%E6%95%88%E7%8E%87%E8%87%B3%E4%B8%8A%E7%9A%84Mobx/</url>
+    
+    <content type="html"><![CDATA[<h1 id="为什么会考虑使用状态管理？"><a href="#为什么会考虑使用状态管理？" class="headerlink" title="为什么会考虑使用状态管理？"></a>为什么会考虑使用状态管理？</h1><p>项目开发中经常会碰到以下场景：<br>1.业务系统许多接口，入参都需要传递登陆人 id</p><pre><code class="jsx">userCode: localStorage.getItem(&#39;userCode&#39;),</code></pre><p>2.业务系统选择下拉框，如城市，销售业务员、车型、折旧选项等均为同一接口数据。</p><pre><code class="jsx">// 获取司机信息getDrivers(name) {  http    .get(&quot;/api/Common/GetDrivers&quot;, {      Key: name    })    .then(res =&gt; {      const { success, result } = res.data;      if (success) {        if (Array.isArray(result)) {          this.setState({            drivers: result          });        } else {          this.setState({            drivers: []          });        }      } else {        message.error(&quot;获取司机信息失败&quot;);      }    })    .catch(err =&gt; {      console.error(err);    });}</code></pre><p>3.兄弟组件传值等</p><!-- [1]台词 --><h1 id="MobX-背后的哲学"><a href="#MobX-背后的哲学" class="headerlink" title="MobX 背后的哲学"></a>MobX 背后的哲学</h1><p>任何可以从应用程序的状态中获取/衍生的数据都应该可以自动被获取/衍生。<br>MobX 遵循单项数据流，通过 action 改变 state(可观测对象)，state 的变化又会触发 computed value 和 reaction 的重新执行。</p><!-- [2]台词 --><h1 id="Redux-和-Mobx-相同点"><a href="#Redux-和-Mobx-相同点" class="headerlink" title="Redux 和 Mobx 相同点"></a>Redux 和 Mobx 相同点</h1><p>1.优秀的状态管理解决方案<br>2.采用单向数据流管理状态<br>3.<code>Action--&gt;State--&gt;Views</code></p><h1 id="Mobx-和-Redux-的区别"><a href="#Mobx-和-Redux-的区别" class="headerlink" title="Mobx 和 Redux 的区别"></a>Mobx 和 Redux 的区别</h1><table><thead><tr><th>Mobx</th><th>Redux</th></tr></thead><tbody><tr><td>多个 store 对象，多 store 间的数据共享、相互引用</td><td>单一数据源，应用共享一个 store 对象</td></tr><tr><td>state 结构可以任意嵌套</td><td>state 结构尽可能的扁平化，从而减少嵌套层级</td></tr><tr><td>state 可观测，可以直接修改</td><td>普通 JavaScript 对象存储 state</td></tr><tr><td>上手成本低、开发效率高</td><td>需要熟悉函数式编程基础</td></tr><tr><td>代码量更少</td><td>需要写更多的代码来执行严格的规范</td></tr></tbody></table><!-- [3]台词 --><h2 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h2><table><thead><tr><th>MobX</th><th>Redux</th></tr></thead><tbody><tr><td>相对简单的应用</td><td>复杂度较高的应用</td></tr></tbody></table><!-- [4]台词 --><h1 id="MobX-包含的主要概念"><a href="#MobX-包含的主要概念" class="headerlink" title="MobX 包含的主要概念"></a>MobX 包含的主要概念</h1><ul><li>state（状态）</li><li>computed value（计算值）</li><li>reaction（响应）<ul><li>computed value 和 reaction 会自动根据 state 的改变做最小化的更新</li></ul></li><li>action（动作）<!-- [5]台词 --></li></ul><h1 id="Mobx-的缺点"><a href="#Mobx-的缺点" class="headerlink" title="Mobx 的缺点"></a>Mobx 的缺点</h1><p>如使用装饰器时团队如果不制定一个规范，后期可能难以维护。</p><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>自定义装饰器还是要在项目组内达成共识才行。<br>如：将各个状态封装到一个对象中导出（防止代码难以维护，加入静态图和 gif 图）<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/%E7%BB%9F%E4%B8%80%E5%AF%B9%E8%B1%A1-20191210.png" alt="统一对象"></p><p>将使用 Mobx 观测的数据整合到一个 stores 对象注入到 Provider<br>到‘src/stores/index.js’中</p><h1 id="获取可观测的-state"><a href="#获取可观测的-state" class="headerlink" title="获取可观测的 state"></a>获取可观测的 state</h1><p>通过 React-mobx 提供 Provider 组件在根目录 index.jsx 中让容器组件拿到 state</p><pre><code class="jsx">import { Provider } from &quot;mobx-react&quot;;import stores from &quot;./stores&quot;;...&lt;Provider {...stores}&gt;  &lt;App /&gt;&lt;/Provider&gt;,document.getElementById(&#39;root&#39;)</code></pre><p>Provider 在根组件外包了一层，来让 App 的所有子组件就默认都可以拿到 state。<br><a href="https://github.com/mobxjs/mobx-react/raw/master/src/Provider.js" target="_blank" rel="noopener">Provider 源码</a><br>只有先获取到 state，在对应组件中才能使用 inject 注入</p><h2 id="inject-注入使用的-Store"><a href="#inject-注入使用的-Store" class="headerlink" title="@inject 注入使用的 Store"></a>@inject 注入使用的 Store</h2><pre><code class="jsx">import { observer, inject } from &quot;mobx-react&quot;;import { observable } from &quot;mobx&quot;;@observer@inject(&quot;store&quot;) // inject从context中取出store对象，注入到组件的props中class App extends Component {  render() {    const { store } = this.props;    return (      &lt;div&gt;        &lt;ul&gt;          {store.map(todo =&gt; (            &lt;TodoView todo={todo} key={todo.id} /&gt;          ))}        &lt;/ul&gt;      &lt;/div&gt;    );  }}const TodoView = observer(({ todo }) =&gt; {  return &lt;li&gt;{todo.title}&lt;/li&gt;;});</code></pre><!-- [6]台词 --><h1 id="配置装饰器语法"><a href="#配置装饰器语法" class="headerlink" title="配置装饰器语法"></a>配置装饰器语法</h1><p><strong>项目中会大量使用到装饰器语法@observable，所以要提前配置装饰器</strong><br><a href="https://mobx.js.org/best/decorators.html" target="_blank" rel="noopener">配置方案</a><br><a href="https://github.com/EdisonVan/MobxDemo/blob/master/jsconfig.json" target="_blank" rel="noopener">记得配置jsconfig</a></p><!-- [7]台词 --><h2 id="computed-value-的使用"><a href="#computed-value-的使用" class="headerlink" title="computed value 的使用"></a>computed value 的使用</h2><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/Loading%E7%8A%B6%E6%80%81%E5%AE%9E%E7%8E%B0-20191210.png" alt="Loading-20191210"><br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Loading-20191210.gif" alt="Loading状态 gif"></p><!-- [8]台词 --><p>一般通过<code>computed</code>和<code>@computed</code>创建<code>computed value</code></p><pre><code class="js">computed(() =&gt; expression)@computed get classProperty() { return expression; }</code></pre><!-- [9]台词 --><h2 id="action-的使用"><a href="#action-的使用" class="headerlink" title="action 的使用"></a>action 的使用</h2><h3 id="常见的用法"><a href="#常见的用法" class="headerlink" title="常见的用法"></a>常见的用法</h3><pre><code class="js">action(fn)@action classMethod</code></pre><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/action%E7%9A%84%E4%BD%BF%E7%94%A8-20191210.png" alt="action的使用.png"></p><!-- [10]台词 --><h3 id="action-bound解决this指向问题"><a href="#action-bound解决this指向问题" class="headerlink" title="action.bound解决this指向问题"></a>action.bound解决this指向问题</h3><p><strong>箭头函数</strong></p><pre><code class="jsx">logout = () =&gt;{    this.userId = undefined;    this.username = &#39;jack&#39;;    this.password = &#39;123456&#39;;    sessionStorage.removeItem(&quot;userId&quot;);    sessionStorage.removeItem(&quot;username&quot;);}</code></pre><p><strong>action.bound/@action.bound</strong></p><pre><code class="jsx">  @action.bound logout() {    this.userId = undefined;    this.username = &#39;jack&#39;;    this.password = &#39;123456&#39;;    sessionStorage.removeItem(&quot;userId&quot;);    sessionStorage.removeItem(&quot;username&quot;);  }</code></pre><pre><code class="jsx">{  authStore.userId &amp;&amp; authStore.userId.length &gt; 0 ? (    &lt;span className=&quot;user&quot;&gt;      当前用户：{authStore.username}&amp;nbsp;      &lt;button onClick={authStore.logout}&gt;注销&lt;/button&gt;    &lt;/span&gt;  ) : (    &lt;span className=&quot;right-link&quot;&gt;      &lt;Link to={{ pathname: "/login", state: { from: location } }}&gt;登录&lt;/Link&gt;    &lt;/span&gt;  );}</code></pre><!-- [11]台词 --><h1 id="mobx-调试工具"><a href="#mobx-调试工具" class="headerlink" title="mobx 调试工具"></a>mobx 调试工具</h1><p>mobx-react-devtools 是一个用于调试 MobX+React 项目的工具，可以追踪组件的渲染以及组件依赖的可观测数据。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>只需要在开发环境下使用调试工具，安装命令使用的参数是–save-dev</strong></p><pre><code>npm install mobx-react-devtools --save-dev或yarn add mobx-react-devtools --save-dev</code></pre><p>再次运行程序，界面右上角会多出三个小图标，是 mobx-react-devtools 的功能键。</p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>点击第一个图标，当组件发生渲染行为时，对应的组件会被高亮显示<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button1-20191210.gif" alt="DevTool-Button1.gif"></p><ul><li>高亮组件右上角显示的 3 个数字分别代表截至当前组件渲染的次数、组件 render 方法执行的时间、组件从 render 方法开始到渲染到浏览器界面使用的时间<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Button1%E6%B3%A8%E9%87%8A.png" alt="Button1注释.png"></li></ul><p>点击第二个图标后，再用鼠标选择任意一个组件，可以查看该组件会对哪些数据的变化做出响应<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button2-20191210.gif" alt="DevTool-Button2.gif"></p><p>点击第三个图标，控制台会输出发生的 action、响应的 reaction 等调试日志信息<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button3-20191210.gif" alt="DevTool-Button3.gif"></p><p>当然你也可以<a href="https://cn.mobx.js.org/best/trace.html" target="_blank" rel="noopener">使用 trace 进行调试</a></p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul><li><a href="https://mobx.js.org/README.html" target="_blank" rel="noopener">Mobx 官方文档</a></li><li><a href="https://developers.youzanyun.com/article/1557135472680?p=1&m=0" target="_blank" rel="noopener">我为什么从 Redux 迁移到了 Mobx</a></li><li>《React 进阶之路》–徐超</li></ul><h1 id="入门项目推荐"><a href="#入门项目推荐" class="headerlink" title="入门项目推荐"></a>入门项目推荐</h1><p><a href="https://github.com/EdisonVan/MobxDemo" target="_blank" rel="noopener">《React进阶之路》bbs项目案例</a></p><!-- [12]台词（总结） -->]]></content>
+    
+    
+    <categories>
+      
+      <category>快乐编码</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>React 那些事儿</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Code Review-磨刀不费砍柴功！</title>
+    <link href="undefined2019/10/31/Code%20Review-%E7%A3%A8%E5%88%80%E4%B8%8D%E8%B4%B9%E7%A0%8D%E6%9F%B4%E5%8A%9F%EF%BC%81/"/>
+    <url>2019/10/31/Code%20Review-%E7%A3%A8%E5%88%80%E4%B8%8D%E8%B4%B9%E7%A0%8D%E6%9F%B4%E5%8A%9F%EF%BC%81/</url>
+    
+    <content type="html"><![CDATA[<p><strong><code>Code Review</code>和写自动化测试一样，都是磨刀不误砍柴工的工作!</strong></p><h1 id="Commit-规范"><a href="#Commit-规范" class="headerlink" title="Commit 规范"></a>Commit 规范</h1><p>整理CodeReview规范、commit内容</p><ul><li><p>commit 规范分享</p></li><li><p>Dev-Tool/Front-end-Tool/踩坑Gti/Content/SubmitSpecification.md<br><a href="https://mp.weixin.qq.com/s?__biz=MzI3ODY2NjA1Nw==&mid=2247483912&idx=1&sn=b8dff8e68806982cb21ff7ea8ad1c031&chksm=eb52cc2edc254538fee09f38d5ce2b553ed782f79d2d80357b3c50a666cb413817c729d07d74&scene=21#wechat_redirect" target="_blank" rel="noopener">如何做好Python代码的Code Review–章老师说</a></p></li></ul><p>✔ 每次代码提交应该都要确保是一个最小的完整功能<br>✔ 每个 <code>Commit</code> 只应该干一件事<br>✔ 每次提交后的代码库应该都是正常运行<br>✔ 每次提交应该按照下面的规范添加操作类型<br>✔ 每次 <code>Commit</code> 都要明确具体操作类型</p><blockquote><p>✨ Feat: 车辆管理（查看车辆信息） #650070<br>🐛 Fix: 电子合同，驳回原因应有必填校验 #640609</p></blockquote><table><thead><tr><th align="center">操作类型</th><th align="center">前缀</th><th align="center">Emoji 符号（可选）</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center">添加功能</td><td align="center">Feature 或 Feat</td><td align="center">✨</td><td align="center">后面要跟着对应功能的 <code>iWork</code> 编号</td></tr><tr><td align="center">优化代码（代码结构）</td><td align="center">Style</td><td align="center">🎨</td><td align="center">不影响代码功能，特指代码结构优化</td></tr><tr><td align="center">重构</td><td align="center">Refactor</td><td align="center">🔨</td><td align="center">大范围级别项目重构</td></tr><tr><td align="center">添加测试</td><td align="center">Test</td><td align="center">✅</td><td align="center">添加单元测试</td></tr><tr><td align="center">性能优化</td><td align="center">Performance</td><td align="center">⚡</td><td align="center">提升性能有关的优化</td></tr><tr><td align="center">合并代码</td><td align="center">Merge</td><td align="center">🔀</td><td align="center">跟别人冲突了之后执行合并的时候</td></tr><tr><td align="center">临时的脏代码</td><td align="center">Shit</td><td align="center">💩</td><td align="center">屎一样的代码，未来需要优化的临时脏代码</td></tr><tr><td align="center">包更新</td><td align="center">Upgrade</td><td align="center">⬆️</td><td align="center">升级 npm 包</td></tr><tr><td align="center">包降级</td><td align="center">Downgrade</td><td align="center">⬇️</td><td align="center">降级 npm 包</td></tr><tr><td align="center">修复 Bug</td><td align="center">Fix</td><td align="center">🐛</td><td align="center">修复 Bug 的提交</td></tr><tr><td align="center">填写注释</td><td align="center">Document 或 Doc</td><td align="center">💡</td><td align="center">为代码编写注释</td></tr><tr><td align="center">破坏性改动</td><td align="center">Breaking Change</td><td align="center">💥</td><td align="center">所提供的接口或者方法出现重大不兼容更改</td></tr><tr><td align="center">配置修改</td><td align="center">Config</td><td align="center">🔧</td><td align="center">配置修改（如 <code>webpack</code> 中 <code>process.ENV</code>）</td></tr><tr><td align="center">配合代码审查的更改</td><td align="center">Code Review</td><td align="center">👌</td><td align="center">配合代码审查提出的改进意见做的提交</td></tr><tr><td align="center">开发进行中</td><td align="center">Doing/InProgress</td><td align="center">🚧</td><td align="center">一个大功能开发过程中，必须需要跟着对应功能的 <code>iWork</code> 编号</td></tr><tr><td align="center">代码移动或者重命名</td><td align="center">Rename/Move</td><td align="center">🚚</td><td align="center"></td></tr><tr><td align="center">代码删除</td><td align="center">Remove/Delete</td><td align="center">🔥</td><td align="center"></td></tr></tbody></table><h1 id="前端：推荐用VsCode插件Visual-Studio-Code-Commitizen-Support来设置提交规范"><a href="#前端：推荐用VsCode插件Visual-Studio-Code-Commitizen-Support来设置提交规范" class="headerlink" title="前端：推荐用VsCode插件Visual Studio Code Commitizen Support来设置提交规范"></a>前端：推荐用VsCode插件<a href="https://github.com/KnisterPeter/vscode-commitizen" target="_blank" rel="noopener">Visual Studio Code Commitizen Support</a>来设置提交规范</h1><p>使用教程：</p><ul><li>Step1.快捷键<code>command+shift+p</code>打开命令面板输入 conventional commit</li><li>Step2.选择提交类型</li><li>Step3.填写commit信息、iWork编号（选），回车完成push操作</li></ul><h1 id="Code-Review的好处"><a href="#Code-Review的好处" class="headerlink" title="Code Review的好处"></a>Code Review的好处</h1><ul><li>让高水平的帮助新人成长，指出新手代码中的问题</li><li>形成代码规范，保证有人离职后其他人能快速接手</li></ul><h1 id="如何审核"><a href="#如何审核" class="headerlink" title="如何审核"></a>如何审核</h1><h2 id="将代码的审查设置为开发流程的必选项"><a href="#将代码的审查设置为开发流程的必选项" class="headerlink" title="将代码的审查设置为开发流程的必选项"></a>将代码的审查设置为开发流程的必选项</h2><p>每次开发新功能或修复Bug，开一个新的分支，分支要合并到master必须满足以下条件</p><ul><li>所有的自动化测试通过</li><li>至少有一个人Code Review通过<ul><li>如果是新手的PR，还必须有资深程序员Code Review通过</li></ul></li><li>保证每次审查的代码量也不会太大，减轻审查者压力<ul><li>提交PR时，保证PR要小，相对就比较容易Review，也容易发现代码中可能存在的问题</li><li>针对比较大的改动，最好分批提交，以减轻审查者的压力</li></ul></li><li>Code Review时发现问题，被审查者要积极的对审查出来的问题进行修改</li></ul><h2 id="把Code-Review变成一种开发文化而不仅仅是一种制度"><a href="#把Code-Review变成一种开发文化而不仅仅是一种制度" class="headerlink" title="把Code Review变成一种开发文化而不仅仅是一种制度"></a>把Code Review变成一种开发文化而不仅仅是一种制度</h2><ul><li>有几个人做好表率作用，榜样的力量很重要</li><li>对于管理者来说，你激励什么，往往就会得到什么</li><li>像写自动化测试一样，把Code Review作为开发任务的一部分，给审查者和被审查者都留出专门的时间去做这件事</li></ul><h1 id="Code-Review的经验技巧"><a href="#Code-Review的经验技巧" class="headerlink" title="Code Review的经验技巧"></a>Code Review的经验技巧</h1><h2 id="先设计再编码"><a href="#先设计再编码" class="headerlink" title="先设计再编码"></a>先设计再编码</h2><ul><li>在做一个新功能之前，写一个简单的设计文档，表达清楚自己的设计思路！</li><li>找资深的开发先帮忙做一下设计的审查，发现设计上的问题！</li><li>设计上没问题了，再着手开发！</li></ul><h2 id="利用辅助工具"><a href="#利用辅助工具" class="headerlink" title="利用辅助工具"></a>利用辅助工具</h2><ul><li>本地搭建环境根据自己的需要配置Gitlab</li></ul><h2 id="遇到紧急情况，来不及代码审查怎么办？"><a href="#遇到紧急情况，来不及代码审查怎么办？" class="headerlink" title="遇到紧急情况，来不及代码审查怎么办？"></a>遇到紧急情况，来不及代码审查怎么办？</h2><p><strong>比如，线上故障补丁，而又没有其他人在线的场景</strong><br>在任务管理系统中，创建一个Ticket，用来后续跟踪，确保后续补上Code Review，并对Code Review结果有后续的代码更新</p><h2 id="代码在提交CODE-REVIEW之前，作者要自己先REVIEW和测试一遍"><a href="#代码在提交CODE-REVIEW之前，作者要自己先REVIEW和测试一遍" class="headerlink" title="代码在提交CODE REVIEW之前，作者要自己先REVIEW和测试一遍"></a>代码在提交CODE REVIEW之前，作者要自己先REVIEW和测试一遍</h2><ul><li>好的开发人员，代码在提交Code Review之前，肯定是要自己先Review一遍，把该写的自动化测试代码写上，自己把基本的测试用例跑一遍</li><li><strong>要求团队提交的PR在PR的描述中增加截图或者录屏，通过截图或者录屏，确保提交PR的人自己是先测试过</strong><h3 id="windows系统推荐"><a href="#windows系统推荐" class="headerlink" title="windows系统推荐"></a>windows系统推荐</h3><a href="https://www.screentogif.com/" target="_blank" rel="noopener">ScreenToGif</a><h3 id="mac系统推荐"><a href="#mac系统推荐" class="headerlink" title="mac系统推荐"></a>mac系统推荐</h3><a href="https://www.cockos.com/licecap/" target="_blank" rel="noopener">LICEcap</a></li></ul><h2 id="对评论进行分级"><a href="#对评论进行分级" class="headerlink" title="对评论进行分级"></a>对评论进行分级</h2><p>以对Review的评论进行分级，不同级别的结果可以打上不同的Tag</p><ul><li>[blocker]: 在评论前面加上一个[blocker]标记，表示这个代码行的问题必须要修改</li><li>[optional]：在评论前面加上一个[optional]标记，表示这个代码行的问题可改可不改</li><li>[question]：在评论前面加上一个[question]标记，表示对这个代码行不理解，有问题需要问，被审查者需要针对问题进行回复澄清<blockquote><p>评论要友好，避免负面词汇；有说不清楚的问题当面沟通，面对面的沟通效率更高，也容易消除误解。</p></blockquote></li></ul><p>参考：<br><a href="https://mp.weixin.qq.com/s/JinlEjmWPJ3Ua6DrW74ABg" target="_blank" rel="noopener">不容错过，前端 Code Review 的最佳实践方案来了</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>快乐编码</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>编程之美</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Tree Component Data Processing</title>
+    <link href="undefined2019/10/24/TreeComponentAlgorithm/"/>
+    <url>2019/10/24/TreeComponentAlgorithm/</url>
+    
+    <content type="html"><![CDATA[<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/AntTree-20191024.gif" alt="AntTree-20191024.gif"></p><h2 id="后端接口返回数据OriginResult"><a href="#后端接口返回数据OriginResult" class="headerlink" title="后端接口返回数据OriginResult"></a>后端接口返回数据<code>OriginResult</code></h2><pre><code>&quot;result&quot;: [  {    &quot;province&quot;: {      &quot;name&quot;: &quot;安徽&quot;,      “id”:&#39;0-0&#39;    },    &quot;city&quot;: [      {        &quot;name&quot;: &quot;安庆&quot;,        parentId:&#39;0-0&#39;      },      {        &quot;name&quot;: &quot;蚌埠&quot;      },    ]  },  {    &quot;province&quot;: {      &quot;name&quot;: &quot;重庆&quot;    },    &quot;city&quot;: [      {        &quot;name&quot;: &quot;重庆&quot;      }    ]  }]</code></pre><h2 id="Ant-的-Tree-组件需要的数据格式如下"><a href="#Ant-的-Tree-组件需要的数据格式如下" class="headerlink" title="Ant 的 Tree 组件需要的数据格式如下"></a>Ant 的 Tree 组件需要的数据格式如下</h2><pre><code>treeData: [  {    &quot;title&quot;: &#39;安徽&#39;,    &quot;key&quot;: 0,    &quot;children&quot;: [      {        &quot;title&quot;: &#39;安庆&#39;,        &quot;key&quot;: &quot;0-0&quot;      },      {        &quot;title&quot;: &#39;蚌埠&#39;,        &quot;key&quot;: &quot;0-1&quot;      }    ],  },  {    &quot;title&quot;: &#39;重庆&#39;,    &quot;key&quot;: &quot;重庆&quot;  },];</code></pre><h1 id="后端数据转换为-Tree-组件所需数据的算法"><a href="#后端数据转换为-Tree-组件所需数据的算法" class="headerlink" title="后端数据转换为 Tree 组件所需数据的算法"></a>后端数据转换为 Tree 组件所需数据的算法</h1><pre><code>let navs = [];if (OriginResult != undefined &amp;&amp; OriginResult.length &gt; 0) {  // 先确认后端返回数据不为空  OriginResult.forEach((item, index) =&gt; {    // 第一次遍历给省份数据加入key    let i = {};    let PIndex = index++; // PIndex用于作最外层的key    if (item[&quot;city&quot;].length &gt; 1) {      // 不是直辖市对应city就有多个      i[&quot;title&quot;] = item.province.name;      i[&quot;key&quot;] = PIndex;      i[&quot;children&quot;] = [];      OriginResult[PIndex].city.forEach((ii, IN) =&gt; {        // 遍历当前索引下后端数据的city数据        let CIndex = IN++;        i[&quot;children&quot;].push({          // 插入children数据          title: ii.name,          key: PIndex + &quot;-&quot; + CIndex // 通过0-0作为key，方便后面判断城市和省份的所属关系        });      });      navs.push(i);    } else {      // 直辖市对应city就只有一个，为了满足后端接口入参需求      i[&quot;title&quot;] = item.province.name;      i[&quot;key&quot;] = item.province.name;      navs.push(i);    }  });  this.setState(    {      CityTreeList: this.state.CityTreeList.concat(navs)    },    () =&gt; {      console.log(this.state.CityTreeList);    }  );}</code></pre><p>现在后端数据已经整合到了 CityTreeList 中，且符合 Ant 的 Tree 组件格式要求。但后端要求入参符合如下格式，意味着我们触发确定接口保存用户所选省份和城市时需要再次遍历勾选内容进行数据重组</p><pre><code>&quot;city&quot;: [  {    &quot;province&quot;: &quot;string&quot;,    &quot;city&quot;: &quot;string&quot;  }]</code></pre><p>Ant 的 Tree 组件有一个 onCheck 属性，会记录用户点击的内容，平铺到 checkedKeys 数组中</p><pre><code class="json">[  &quot;澳门&quot;,  &quot;蚌埠&quot;,  &quot;巢湖&quot;,  &quot;福建&quot;,  &quot;福安&quot;,  &quot;福州&quot;,  &quot;晋江&quot;,  &quot;宁德&quot;,  &quot;泉州&quot;,  &quot;武夷山&quot;]</code></pre><h1 id="将勾选数据处理为后端入参形式"><a href="#将勾选数据处理为后端入参形式" class="headerlink" title="将勾选数据处理为后端入参形式"></a>将勾选数据处理为后端入参形式</h1><pre><code>onCheck = checkedKeys =&gt; {  // console.log(&quot;onCheck&quot;, checkedKeys);  this.setState({ checkedKeys });  let nav = [];  const { CityTreeList } = this.state;  checkedKeys.forEach(item =&gt; {     CityTreeList.forEach(x =&gt; {       if (x.key === item) {         nav.push({          province: item,          city: item        });      } else if (x.children != undefined) {        x.children.forEach(xx =&gt; {          if (xx.key === item) {            nav.push({              province: x.title,              city: xx.title            });          }        });      }    });  });  this.setState(    {      city: nav    },    () =&gt; {      this.props.sendCityData(this.state.city);    }  );};</code></pre><p>处理后的格式如下</p><pre><code>[{ &quot;province&quot;: &quot;澳门&quot;, &quot;city&quot;: &quot;澳门&quot; }, { &quot;province&quot;: &quot;福建&quot;, &quot;city&quot;: &quot;福安&quot; }]</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Algorithms</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Taste-Algorithms</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>人生初半马！</title>
+    <link href="undefined2019/09/19/%E4%BA%BA%E7%94%9F%E5%88%9D%E5%8D%8A%E9%A9%AC/"/>
+    <url>2019/09/19/%E4%BA%BA%E7%94%9F%E5%88%9D%E5%8D%8A%E9%A9%AC/</url>
+    
+    <content type="html"><![CDATA[<p>人生初半马！如果没办法停，你就要继续跑！<br>大学老师说过最让我印象深刻的一句话是：“迷茫时，走出寝室、走出教室、走向操场！”</p><p>2019 诸暨西施马拉松（绍兴半程马拉松 21.0975 公里）<br>地点：绍兴市诸暨市（浙江省绍兴市诸暨市城市广场）<br>时间：2019 年 11 月 17 日 07:30<br>比赛路线 :诸暨城市广场 → 浣东北路 → 暨东路 → 环城东路 → 环城北路 → 迎宾路 → 西二环路 → 五纹岭隧道 → 环城南路 → 浣纱南路 → 浣纱大桥 → 浣东中路 → 诸暨城市广场（终点）</p><ul><li>赛事详情：<a href="http://www.zjxsmarathon.com/zjxsmarathon/Index/details/id/1.html" target="_blank" rel="noopener">http://www.zjxsmarathon.com/zjxsmarathon/Index/details/id/1.html</a></li></ul><h1 id="赛前训练"><a href="#赛前训练" class="headerlink" title="赛前训练"></a>赛前训练</h1><p><strong>注意：每次训练/比赛之前先上厕所把身体的垃圾排空</strong></p><h2 id="热身"><a href="#热身" class="headerlink" title="热身"></a>热身</h2><p>1.关节热身：踝、膝、腰、肩<br>2.慢跑10-15min<br>3.关节操、伸展操</p><h2 id="跑步结束之后的肌群训练"><a href="#跑步结束之后的肌群训练" class="headerlink" title="跑步结束之后的肌群训练"></a>跑步结束之后的肌群训练</h2><p>1.腿肌-&gt;跨步走/深蹲（负重）<br>2.腹肌-&gt;V型脚踏车<br>3.背肌-&gt;俯卧打水<br>4.手肌-&gt;俯卧撑</p><h2 id="赛前2个月（量和肌力的训练）"><a href="#赛前2个月（量和肌力的训练）" class="headerlink" title="赛前2个月（量和肌力的训练）"></a>赛前2个月（量和肌力的训练）</h2><ul><li>7k (3次/周)</li><li>保持8-9min/Km平均配速</li><li>每个礼拜增加1-2公里</li></ul><h2 id="赛前1个月（提高速度）"><a href="#赛前1个月（提高速度）" class="headerlink" title="赛前1个月（提高速度）"></a>赛前1个月（提高速度）</h2><ul><li>赛前前3天调整训练、提升自信心</li></ul><h2 id="配速技巧"><a href="#配速技巧" class="headerlink" title="配速技巧"></a>配速技巧</h2><p>起点(原定配速)-&gt;1/2(原定配速)-&gt;3/4(视体力调整)-&gt;终点（最后1/4，条件允许加速）</p><h1 id="饮食调整"><a href="#饮食调整" class="headerlink" title="饮食调整"></a>饮食调整</h1><h2 id="赛前1周"><a href="#赛前1周" class="headerlink" title="赛前1周"></a>赛前1周</h2><ul><li>提高肌肉肝糖储存量</li><li>前3天 70%高蛋白 10%低碳水</li><li>后3天 低蛋白 高碳水</li><li>赛前1天 高碳水、淀粉</li></ul><h1 id="赛前注意事项"><a href="#赛前注意事项" class="headerlink" title="赛前注意事项"></a>赛前注意事项</h1><h2 id="赛前1天"><a href="#赛前1天" class="headerlink" title="赛前1天"></a>赛前1天</h2><ul><li>熟悉赛道</li></ul><p>⚠️比赛之前的一餐一定要吃</p><h2 id="水分补充"><a href="#水分补充" class="headerlink" title="水分补充"></a>水分补充</h2><ul><li>200cc/30分钟（跑步过程中先喝运动饮料、再喝水）</li><li>有水就喝水（第一个饮水站就开始喝水、避免口渴再喝）</li></ul><h1 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h1><h2 id="马拉松报名"><a href="#马拉松报名" class="headerlink" title="马拉松报名"></a>马拉松报名</h2><p>一般都会限额，如本次诸暨西施马拉松3000限额，超过要抽签报名</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生活</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>马拉松</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>人无再少年！</title>
+    <link href="undefined2019/09/19/%E4%BA%BA%E6%97%A0%E5%86%8D%E5%B0%91%E5%B9%B4!/"/>
+    <url>2019/09/19/%E4%BA%BA%E6%97%A0%E5%86%8D%E5%B0%91%E5%B9%B4!/</url>
+    
+    <content type="html"><![CDATA[<p><strong>人无再少年！当搏还得搏！</strong></p><blockquote><p>我也想要永远都躺在学校的草地上晒太阳，我也想要永远喝着一块钱的西瓜冰而不会有任何的失落，我也想要永远穿着简单的衣服，听着简单的CD，过着简单的十七岁的生活。但是这是不可能的，因为我的生命里，再也不会拥有另外一个十七岁了。<br>                                                     —《夏至未至》郭敬明</p></blockquote>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>生活</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>初识泰罗奥特曼</title>
+    <link href="undefined2019/08/21/%E5%88%9D%E8%AF%86Taro%EF%BC%88%E6%B3%B0%E7%BD%97%E5%A5%A5%E7%89%B9%E6%9B%BC%EF%BC%89/"/>
+    <url>2019/08/21/%E5%88%9D%E8%AF%86Taro%EF%BC%88%E6%B3%B0%E7%BD%97%E5%A5%A5%E7%89%B9%E6%9B%BC%EF%BC%89/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://tuchong.com/2590461/" target="_blank" rel="noopener">Van 摄影</a>–&gt;喜欢摄影的 IT 从业人员（Base 上海）😁</p><blockquote><p>Taro 作为儿时最喜欢的奥特曼角色之一，宇宙警备队总教官！现如今 Taro 成为了京东开源的适配多端框架！</p></blockquote><p>[TOC]</p><h1 id="快速搭建了一个泰罗"><a href="#快速搭建了一个泰罗" class="headerlink" title="快速搭建了一个泰罗"></a>快速搭建了一个泰罗</h1><blockquote><p>前提：保证 node 版本&gt;=8.0.0 的情况</p></blockquote><h2 id="Step1-全局安装Taro"><a href="#Step1-全局安装Taro" class="headerlink" title="Step1.全局安装Taro"></a>Step1.全局安装Taro</h2><pre><code class="bash">yarn global add @tarojs/cli</code></pre><h2 id="Step2-使用命令创建模板项目"><a href="#Step2-使用命令创建模板项目" class="headerlink" title="Step2.使用命令创建模板项目"></a>Step2.使用命令创建模板项目</h2><pre><code class="bash">taro init MyFirstTaro</code></pre><h2 id="Step3-使用-yarn-安装依赖"><a href="#Step3-使用-yarn-安装依赖" class="headerlink" title="Step3.使用 yarn 安装依赖"></a>Step3.使用 yarn 安装依赖</h2><pre><code class="bash">cd MyFirstTaroyarn install</code></pre><h1 id="编译预览及打包"><a href="#编译预览及打包" class="headerlink" title="编译预览及打包"></a>编译预览及打包</h1><p>目前我只需要适配微信小程序，所以只对微信小程序进行编译预览及打包</p><pre><code class="bash">yarn dev:weapp --watch //添加watch来监听文件修改yarn build:weapp --watch</code></pre><p>如果在编译时想禁用 ESLint 检查，可以在命令前加入 <code>ESLINT=false</code> 参数</p><pre><code class="bash">ESLINT=false taro build --type weapp --watch</code></pre><!-- 此处后期添加一个效果图 --><h1 id="文件配置"><a href="#文件配置" class="headerlink" title="文件配置"></a>文件配置</h1><h2 id="格式化工具"><a href="#格式化工具" class="headerlink" title="格式化工具"></a>格式化工具</h2><blockquote><p>VsCode 安装好格式化插件 prettierrc 的前提下</p></blockquote><p><strong>.prettierrc.js</strong></p><pre><code class="js">/** * 默认的一些配置 * printWidth: 80, * tabWidth: 2, * useTabs: false * quoteProps:as-needed 对象的属性只有需要时才添加引号 * jsxSingleQuote: false jsx中使用单引号 * trailingComma: none 数组和对象的尾逗号 * bracketSpacing: true 对象左右大括号各有一个空格 { foo: bar } * jsxBracketSameLine: false jsx中标签多行属性的第一个 &gt; 是单独一行还是在行尾 * arrowParens: avoid 箭头函数只有一个参数时，尽可能地省略括号 */module.exports = {  singleQuote: true, // 单引号  semi: false,  arrowParens: &quot;always&quot;,  trailingComma: &quot;es5&quot; // 是否使用尾逗号，有三个可选值：&lt;none|es5|all&gt;};// 无分号，箭头函数参数必有括号，尾逗号</code></pre><p><strong>project.config.json 配置</strong><br>Taro 模板创建的项目默认拥有 <code>project.config.json</code> 这一项目配置文件<strong>只用于适配微信小程序</strong>，要适配其他平台要进行相应 json 文件的配置，具体可看<a href="https://nervjs.github.io/taro/docs/project-config.html" target="_blank" rel="noopener">Taro 官网-项目配置</a></p><pre><code class="json">{  &quot;miniprogramRoot&quot;: &quot;dist/&quot;,  &quot;projectname&quot;: &quot;MyFirstTaro&quot;,  &quot;description&quot;: &quot;Can&#39;t Tell U&quot;,  &quot;appid&quot;: &quot;wxf694b87c0666666&quot;,  &quot;setting&quot;: {    &quot;urlCheck&quot;: true,    &quot;es6&quot;: false,    &quot;postcss&quot;: false,    &quot;minified&quot;: false,    &quot;coverView&quot;: true,    &quot;babelSetting&quot;: {      &quot;ignore&quot;: [],      &quot;outputPath&quot;: &quot;&quot;    }  },  &quot;compileType&quot;: &quot;miniprogram&quot;,  &quot;simulatorType&quot;: &quot;wechat&quot;,  &quot;simulatorPluginLibVersion&quot;: {},  &quot;condition&quot;: {}}</code></pre><h1 id="Taro-页面模版"><a href="#Taro-页面模版" class="headerlink" title="Taro 页面模版"></a>Taro 页面模版</h1><pre><code class="jsx">import Taro, { Component } from &quot;@tarojs/taro&quot;;import { View, Text } from &quot;@tarojs/components&quot;;import &quot;./app.less&quot;;import &quot;./index.less&quot;;class LoginFindpassword extends Component {  constructor(props) {    super(props);    this.state = {};  }  componentWillMount() {}  componentDidMount() {}  // 项目配置  config = {    navigationBarTitleText: &quot;忘记密码&quot;  };  componentDidShow() {}  componentDidHide() {}  // JS方法  render() {    const {} = this.props;    const {} = this.state;    return (      &lt;View className=&quot;page&quot;&gt;        &lt;Text&gt;Hello Taro&lt;/Text&gt;      &lt;/View&gt;    );  }}export default LoginFindpassword;</code></pre><h1 id="与微信小程序原生写法的常见不同写法"><a href="#与微信小程序原生写法的常见不同写法" class="headerlink" title="与微信小程序原生写法的常见不同写法"></a>与微信小程序原生写法的常见不同写法</h1><ul><li><code>bindfocus</code> 改用 <code>onFocus</code> 替代<pre><code class="jsx">&lt;Input bindfocus={this.onFocus} /&gt;  =&gt; &lt;Input onFocus={this.onFocus} /&gt;</code></pre></li><li><code>bindtap</code> 改用 <code>onClick</code> 替代<pre><code class="jsx">&lt;View bindtap={this.onTag} /&gt; =&gt; &lt;View onClick={this.onTag} /&gt;</code></pre></li><li><code>animationEnd</code> 改用 <code>onAnimationEnd</code> 替代<pre><code class="jsx">&lt;CustomElement animationEnd={this.data.onAnimationEnd} /&gt; =&gt; &lt;CustomElement onAnimationEnd={this.state.onAnimationEnd} /&gt;</code></pre></li><li>maxlength=”15”改用 maxLength={15}替代</li><li>scroll-view 改为 ScrollView</li><li>input中<code>password</code>改写为<code>&lt;Input password={true} /&gt;</code></li><li><code>bindinput</code>改写为<code>onInput</code></li><li><code>&lt;block&gt;...&lt;/block&gt;</code>改写为<code>&lt;Block&gt;...&lt;/Block&gt;</code></li><li><code>&lt;picker&gt;...&lt;/picker&gt;</code>改写为<code>&lt;Picker&gt;...&lt;/Picker&gt;</code></li><li><code>wx-if={IdCardType == 1010106}</code>改为<code>{IdCardType === 1010106 &amp;&amp; (...)}</code></li><li><code>this.setData</code>改为<code>this.setState</code></li><li>在小程序里对应的生命周期是onLoad在Taro中对应componentWillMount()这一块</li><li>使用<code>map</code>方法替换成小程序中<code>wx:for</code>,且要注意Taro中map后索引通过map(item,index)后给对应事件通过bind(this,index)的方式获取索引index，而不能使用小程序常用的自定义方法’data-xxx’<!-- - `AppIdentity: function ()`改为`AppIdentity=()=>` --></li></ul><p><strong>微信原生</strong></p><pre><code class="js">&lt;view className=&quot;route-list&quot; wx:for={orderList} wx:for-item=&quot;order&quot; bindtap=&quot;routeChoosedTap&quot; data-id={index} wx:key=&quot;orderList&quot;&gt;  {{order.test}}&lt;/view&gt;</code></pre><p><strong>Taro</strong></p><pre><code class="js">{  orderList.map((order, index) =&gt; (    &lt;View      className=&quot;route-list&quot;      onClick={this.routeChoosedTap}      data-id={index}      taroKey=&quot;orderList&quot;    &gt;      {order.test}    &lt;/View&gt;  ));}</code></pre><ul><li>taroKey 替换微信小程序的 wx:key，用于循环渲染原生小程序组件，赋予每个元素唯一确定标识</li></ul><p><strong>原生</strong></p><pre><code class="jsx">&lt;view wx:key={statusArr}&gt;{item.message}&lt;/view&gt;</code></pre><p><strong>Taro</strong></p><pre><code class="jsx">&lt;view taroKey={statusArr}&gt;{item.message}&lt;/view&gt;</code></pre><h1 id="你不得不避免的坑"><a href="#你不得不避免的坑" class="headerlink" title="你不得不避免的坑"></a>你不得不避免的坑</h1><h2 id="因为-setState-异步导致的问题"><a href="#因为-setState-异步导致的问题" class="headerlink" title="因为 setState 异步导致的问题"></a>因为 setState 异步导致的问题</h2><blockquote><p>场景：<br>登录成功则通过 Taro.setStorage 缓存一个 key，并将hasLogin设置为true<br>首页通过getStorage来获取指定key来判断是否登录成功<br>如果在complete中通过 setState 更新 hasLogin，但setState是异步操作，所以getStorage 事件里获取的 hasLogin 还是 false，所以页面登录进去又会跳回登录页面(login/index)！</p><pre><code class="js">Taro.getStorage({  key: &quot;User&quot;,  success: function(res) {    if (res.data) {      globalData.User = res.data;      console.log(&quot;成功得到key&quot;);      that.setState(        {          hasLogin: true        }      );    }  },  complete: function() { // 无论接口调用结束的回调函数    if (!that.state.hasLogin) {      console.log(&quot;Test3&quot;);      console.log(that.state.hasLogin);      Taro.redirectTo({        url: &quot;../login/index&quot;      });    }  }});</code></pre></blockquote><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>不在 complete 回调中使用路由跳转方法，转而放到 componentDidMount()生命周期中执行判断</p><pre><code class="js">componentDidMount() {  if (!that.state.hasLogin) {    console.log(&quot;Test3&quot;);    console.log(that.state.hasLogin);    Taro.redirectTo({      url: &quot;../login/index&quot;    });  }}</code></pre><h2 id="要使用-stopPropagation-来取代-catchtap-阻止冒泡"><a href="#要使用-stopPropagation-来取代-catchtap-阻止冒泡" class="headerlink" title="要使用 stopPropagation 来取代 catchtap 阻止冒泡"></a>要使用 stopPropagation 来取代 catchtap 阻止冒泡</h2><p><strong>微信小程序写法</strong></p><pre><code class="js">toggleDialog:function() {  this.setData({    showDialog: false,  })}&lt;View className=&#39;item-bd&#39; catchtap=&#39;toggleDialog&#39;&gt;  {personCenter[yuyan].cancel}&lt;/View&gt;</code></pre><p><strong>Taro 写法</strong></p><pre><code class="js">toggleDialog = e =&gt; {  e.stopPropagation();  this.setState({    showDialog: false  });};&lt;View className=&quot;item-bd&quot; onClick={this.toggleDialog}&gt;  {personCenter[yuyan].cancel}&lt;/View&gt;;</code></pre><h2 id="本地资源引入"><a href="#本地资源引入" class="headerlink" title="本地资源引入"></a>本地资源引入</h2><p><a href="https://nervjs.github.io/taro/docs/static-reference.html#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%A0%B7%E5%BC%8F%E4%B8%AD%E5%BC%95%E7%94%A8%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90" target="_blank" rel="noopener">小程序样式中引用本地资源</a><br>本地 config 文件夹下的 index.js 保持和 Taro 官网中一样的配置，但是使用<code>import note from &#39;../../images/path/note.png</code>仍然报错<code>Failed to load local image resource</code>，仔细检查发现路径也没有任何问题。</p><h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>js 中引入本地图片，Taro 无法对其进行转换</p><h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p><strong>在 css 里引入图片</strong></p><pre><code class="css">.note {  background-image: url(../../images/note.png);}</code></pre><h2 id="currentTarget-获取索引的-Taro-写法与微信小程序写法异同"><a href="#currentTarget-获取索引的-Taro-写法与微信小程序写法异同" class="headerlink" title="currentTarget 获取索引的 Taro 写法与微信小程序写法异同"></a>currentTarget 获取索引的 Taro 写法与微信小程序写法异同</h2><p>场景：后端给出一个数组，数组中的数据依次渲染到列表中，用户点击对应的数据要拿到对应的索引进行操作<br><strong>微信小程序写法</strong></p><blockquote><p>通过 currentTarget 事件绑定的当前组件，dataset 属性结合自定义属性组成的集合 data-xxx</p><pre><code class="js">//查看审核流程showCheckModal: function(e){  var that = this;  var id = e.currentTarget.dataset.id;  that.setData({    showCheck: true,    modalList: that.data.orderList[id].ApproveSteps  })},&lt;view catchtap=&quot;showCheckModal&quot; wx-if=&quot;{{order.ApproveSteps.length > 0 }}&quot; data-id=&quot;{{index}}&quot;&gt;&lt;/view&gt;</code></pre></blockquote><p><strong>Taro写法</strong></p><blockquote><p>通过map将数据遍历渲染，然后通过bind将数据的索引传递给绑定事件</p><pre><code class="js">  //查看审核流程  showCheckModal = (index,e) =&gt; { // 通过 bind 传入多个参数    // e.stopPropagation() // 需要阻止冒泡时写    let id = index     // console.log(&#39;id&#39;)    // console.log(id)    this.setState({      showCheck: true,      modalList: this.state.orderList[id].ApproveSteps,    })  }{orderList.length &gt; 0 &amp;&amp; orderList.map((order, i) =&gt; (  &lt;View    className=&#39;approveStatus&#39;    onClick={this.showCheckModal.bind(this, i)}</code></pre></blockquote><pre><code>&lt;View&gt;{Itinerary[yuyan].viewPro}&lt;/View&gt;</code></pre>  )}```<h1 id="开发注意事项"><a href="#开发注意事项" class="headerlink" title="开发注意事项"></a>开发注意事项</h1><ul><li>在 Taro 默认生成的模板都推荐用 ESLint 进行检测</li><li>小程序不支持将 data 中任何一项的 value 设为 <code>undefined</code>，setState 时用<code>null</code>来代替 <code>undefined</code></li><li>Taro 中，JS 代码里必须书写单引号,双引号会导致编译错误</li><li>双重嵌套遍历时每层的 index 都要写出来，详情<a href="https://nervjs.github.io/taro/docs/debug.html" target="_blank" rel="noopener">Debug 指南-编译模板出错</a></li></ul><blockquote><p>未完待续，继续认识泰罗 😁</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>快乐编码</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>React 那些事儿</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>手把手教你新建一个Vue项目</title>
+    <link href="undefined2019/08/20/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAVue%E9%A1%B9%E7%9B%AE/"/>
+    <url>2019/08/20/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAVue%E9%A1%B9%E7%9B%AE/</url>
+    
+    <content type="html"><![CDATA[<!-- 原始笔记在‘Vue-Study文件夹下修改，再来此处更新！’ --><h1 id="下载安装-node-js"><a href="#下载安装-node-js" class="headerlink" title="下载安装 node.js"></a>下载安装 node.js</h1><p><a href="http://nodejs.cn/" target="_blank" rel="noopener">node 官网下载地址</a><br>控制台输入 node-v 检查自己系统有没有下载过 node<br>使用 npm 包管理工具，推荐去国内最常用的库：<a href="https://cnpmjs.org" target="_blank" rel="noopener">https://cnpmjs.org</a><br>国内用户在终端执行以下代码替换淘宝镜像进行下载，换成了淘宝了镜像，在国内网速很快。</p><pre><code>alias cnpm=&quot;npm --registry=https://registry.npm.taobao.org \--cache=$HOME/.npm/.cache/cnpm \--disturl=https://npm.taobao.org/mirrors/node \--userconfig=$HOME/.cnpmrc&quot;</code></pre><blockquote><p>alias（别名）的一串命令将 npm 重命名为 cnpm</p></blockquote><h1 id="安装-vue-cli-vue-cli-是-vue-官方提供的脚手架工具"><a href="#安装-vue-cli-vue-cli-是-vue-官方提供的脚手架工具" class="headerlink" title="安装 vue-cli(vue-cli 是 vue 官方提供的脚手架工具)"></a>安装 vue-cli(vue-cli 是 vue 官方提供的脚手架工具)</h1><h2 id="用-vue-cli-初始化项目的优势："><a href="#用-vue-cli-初始化项目的优势：" class="headerlink" title="用 vue-cli 初始化项目的优势："></a>用 vue-cli 初始化项目的优势：</h2><ul><li>成熟的 vue 项目架构设计</li><li>本地测试服务器</li><li>集成 webpack 打包上线方案</li></ul><h2 id="安装系统要求："><a href="#安装系统要求：" class="headerlink" title="安装系统要求："></a>安装系统要求：</h2><ul><li>Node.js(&gt;=4.x)</li><li>Git</li><li>一个能使用 node 的命令行终端</li></ul><h2 id="全局安装-Vue-cli"><a href="#全局安装-Vue-cli" class="headerlink" title="全局安装 Vue-cli"></a>全局安装 Vue-cli</h2><p>npm install vue-cli -g</p><h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><blockquote><p>在自己项目文件夹下打开控制台</p></blockquote><h2 id="安装-webpack-模板，并设置工程信息"><a href="#安装-webpack-模板，并设置工程信息" class="headerlink" title="安装 webpack 模板，并设置工程信息"></a>安装 webpack 模板，并设置工程信息</h2><p>vue init webpack my-project [my-project 为项目名称]<br>控制台需要设置如下问题<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-1-20190820.png" alt></p><ul><li>Project name：项目名称，默认是输入时的那个名称，想改的话直接输入修改，也可以直接回车</li><li>Install vue-router:是否需要 vue-router，这里默认选择使用，这样生成好的项目就会有相关的路由配置文件</li><li>Use ESLint to lint your code:是否使用 ES 检测器，默认使用，这样会生成相关的 ESLint 配置</li><li>Setup unit tests with Karma + Moch?: 是否安装单元测试。一般选 no，根据自己项目情况选择”Y”或”N”</li><li>Setup e2e tests with Nightwatch：是否安装 e2e 测试。一般也选 no，根据自己项目情况选择”Y”或”N”<br>以上配置如选择 yes 则生成的项目会自动有相关的配置，有一些 loader 我们就要配套下载。<br>如果我们确定不用的话最好不要 yes，防止下很多没有用的 loader。</li></ul><h2 id="部署-Vue-项目完成之后的目录"><a href="#部署-Vue-项目完成之后的目录" class="headerlink" title="部署 Vue 项目完成之后的目录"></a>部署 Vue 项目完成之后的目录</h2><ul><li><p>首页入口 index.html</p></li><li><p>build 配置文件夹</p></li><li><p>webpack.base.config.js、webpack.dev.config.js、webpack.prod.config.js 三个 webpack 的配置文件，分别是基本 webpack 配置、开发环境配置、生产环境配置。</p></li><li><p>config 配置文件夹<br>其中最主要的 index.js 用于配置代理服务器，和后台联调时在 proxyTable 这个属性设置一个后台地址即可。<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-2-20190820.png" alt></p></li><li><p>src 文件夹（主要以及使用频率最高的文件夹、大部分开发在 src 目录下、存储主要源码）<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-3-20190820.png" alt></p></li><li><p>assets: 共用的样式、图片</p></li><li><p>components: 业务代码存放位置、里面分成一个个组件存放，一个页面是一个组件，一个页面里面还会包着很多组件</p></li><li><p>router: 设置路由</p></li><li><p>App.vue: vue 文件入口界面，App.vue 是可以热更新的。</p></li><li><p>main.js：入口文件、对应 App.vue 创建 vue 实例，对应 webpack.base.config.js 里的入口配置</p></li><li><p>static 文件夹（保存静态文件）<br>存放的文件不会经过 webpack 处理，可直接引用<br>如 swf 文件要引用可在 webpack 配置带 swf 后缀名的文件处理的 loader，也可直接将 swf 文件放在这个文件夹引用</p></li><li><p>package.json（npm 所需要的一套配置文件）<br>这个文件有两部分是有用的：</p><ul><li>scripts 里面设置命令，<br>如设置了 dev 用于调试则我们开发时输入：npm run dev</li><li>如设置了 build 输入<br>npm run build 用于打包会生成部署一套上线目录文件（完成之后多了 dist 目录）<br>我们需要的依赖包,在 dependencies 和 devDependencies 中，分别对应全局下载和局部下载的依赖包</li></ul></li></ul><h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><ul><li>进入项目文件夹：cd my-project</li><li>打开 package.json 文件，找到 devDependencies 和 dependencies，删掉里面我们不需要的依赖包</li><li>根据自己项目需要通过命令 sudo npm install /npm install（安装项目依赖）、下载其他依赖包如 npm install vue-resource 等，一个个下载<blockquote><p>要在有 packge.json 文件的目录下、推荐使用 yarn，速度更快、相关依赖安装之后目录会多一个 node_modules</p></blockquote></li></ul><h1 id="跑项目-npm-run-dev"><a href="#跑项目-npm-run-dev" class="headerlink" title="跑项目 npm run dev"></a>跑项目 npm run dev</h1><ul><li><p>下载好依赖后先输入 npm install</p></li><li><p>如有缺漏再根据提示去下载。</p></li><li><p>输入命令 sudo npm run dev / npm run dev(在本地启动测试服务器)<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-4-20190820.png" alt></p><blockquote><p>ESLint: 帮助检查 Javascript 编程时的语法错误，保证多人开发一个项目保持语法一致。<br>Webpack: 设置代理、插件和 loader 处理各种文件和相关功能、打包等功能。整个项目中核心配置<br>iview: 基于 vue 的一套样式框架，里面有很多封装好的组件样式<br>ES6 语法：利用 babel 处理。<br>vue –help vue 的命令行查看帮助<br>vue -v 看版本</p></blockquote></li></ul><h1 id="步骤总结："><a href="#步骤总结：" class="headerlink" title="步骤总结："></a>步骤总结：</h1><ul><li>npm install –global vue-cli 下载 vue-cli 脚手架</li><li>vue init webpack myProject 生成项目，形成基本结构</li><li>npm install 下载依赖包</li><li>npm run dev 运行</li></ul><h1 id="项目实例"><a href="#项目实例" class="headerlink" title="项目实例"></a>项目实例</h1><p>build/webpack.base.config.js<br>进行 loader 的配置，以及有一个 iview 的 css 文件不进行 babel 的处理，如下<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-5-20190820.png" alt><br>src/router/index.js:<br>import 引入组件文件，根据 vue-router 写上相应的路由配置</p><p>src/components:<br>业务代码集中地，我做了一个简单的，只有三个组件。然后在每个组件中又分成几个组件构成。<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-6-20190820.png" alt></p><!-- -----------------后期再来更新项目实例文档，觉得文章写的不错可扫码募捐以鼓励我继续书写高质量的原创文章。 -->]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>低成本快速搭建个人博客</title>
+    <link href="undefined2019/08/06/HexoBlog-20190704/"/>
+    <url>2019/08/06/HexoBlog-20190704/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://tuchong.com/2590461/" target="_blank" rel="noopener">Van摄影</a></p><blockquote><p>最小的成本搭建一个有自己域名的博客站点（Hexo 生成页面，托管于 GitHub，使用自己的域名，可以安心写作又不用花费很多心思定期维护）</p></blockquote><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>1、一个博客网站模板<br>Hexo/Jekyll/vuePress（这里我选用了Hexo）</p><p>2、自己的域名（非必须）</p><ul><li>百度不收录<code>.github.io</code>结尾的站点，直接使用 GitHub 托管的话，用户在百度上无法搜到自己站点上的内容；</li><li>有SSL（网址前面的https://）比没有会在搜索引擎的排名中更加靠前</li><li>在内容相同的情况下，有着自己的域名更加利于SEO(搜索引擎的优化)</li></ul><h2 id="Blog框架："><a href="#Blog框架：" class="headerlink" title="Blog框架："></a>Blog框架：</h2><p><a href="https://hexo.io/" target="_blank" rel="noopener">hexo官网</a> </p><h3 id="hexo的特点"><a href="#hexo的特点" class="headerlink" title="hexo的特点"></a>hexo的特点</h3><ul><li>支持Markdown: 支持Markdown意味着你可以把精力从排版中解放出来.</li><li>轻量: 无需拥有后台及数据库,专心写好你的文章</li><li>一键部署: 可以通过Git或者ftp来将生成的静态页面部署到服务器或者主机空间中</li><li>插件丰富: 丰富的插件可以满足你的各种需求.</li></ul><h3 id="hexo的工作机制"><a href="#hexo的工作机制" class="headerlink" title="hexo的工作机制"></a>hexo的工作机制</h3><ul><li>基于Node.js,将/source文件夹下的资源(文章,图片,模板),按照预定的配置文件,转换成静态页面放置到/public目录下.</li><li>如果需要预览或者部署,hexo会把public作为web目录处理.</li></ul><h3 id="Hexo安装所需环境"><a href="#Hexo安装所需环境" class="headerlink" title="Hexo安装所需环境"></a>Hexo安装所需环境</h3><ul><li>Node.js</li><li>git</li></ul><h3 id="Tip（⚠️敲黑板划重点⚠️）"><a href="#Tip（⚠️敲黑板划重点⚠️）" class="headerlink" title="Tip（⚠️敲黑板划重点⚠️）"></a>Tip（⚠️敲黑板划重点⚠️）</h3><p>博客目录有全局config.yml，在每个theme主题中也有一个config.yml，对应的不同工作！</p><ul><li>Hexo配置文件:myblog/_config.yml</li><li>主题配置文件:myblog/themes/next/_config.yml</li></ul><h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2><p>操作流程图：</p><!-- ![CreateABlog](assets/CreateABlog.gif) --><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/CreateABlog-20190730.gif" alt="123"><br>1.安装Hexo<br>推荐<code>yarn global add hexo</code>来全局安装Hexo.（保证 NodeJS 已经安装好的情况下）<br>Yarn/npm全局安装和本地安装的区别:</p><ul><li>全局安装会把package存放在用户目录指定的目录下</li><li>本地安装则是存放在当前项目的node_module目录中.</li></ul><p>2.创建站点目录</p><ul><li>2.1 新建一个空文件夹<code>MyBlog</code>（将作为hexo站点目录）并初始化博客<pre><code class="js">$ hexo init MyBlog</code></pre></li><li>2.2 进入MyBlog文件夹安装相关依赖<pre><code class="js">$ cd MyBlog$ npm install</code></pre></li></ul><p>3.用<code>hexo s</code>在本机运行后来看一下默认的效果<br>4.在 source/_posts/ 目录下创建文章，步骤如下：</p><ul><li>4.1 写文章（hexo new post-title） //post-title为文章markdown的名字</li><li>4.2 渲染成 HTML 页面（hexo g）</li><li>4.3 发布（hexo d）</li></ul><p>例.<br>创建一个名为 <code>宏彦获水</code> 的文章，可以在上述目录下创建一个文件，名为<code>宏彦获水.md</code></p><pre><code class="js">---title: 宏彦获水date: 2019-07-26 22:32:51tags:- 热门时事---全球极客挚爱的高质量技术成长平台，想要学习和提升专业能力从这里开始，充足技术干货等你来啃，轻松拿下 李彦宏亮相百度第三届AI开发者大会，在李彦宏专注介绍百度AI成绩时，一位男子直接冲上舞台泼水。李彦宏先是一愣，后来用英语问到：What’s your problem？...</code></pre><p>刷新页面，就可以看到这篇文章啦</p><!-- ![CreateABlog](assets/NewPost20190730.png) --><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/NewPost-20190730.png" alt="CreateABlog"></p><h2 id="主题样式"><a href="#主题样式" class="headerlink" title="主题样式"></a>主题样式</h2><p>在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Themes | Hexo</a>中有非常多的主题可以供选择：</p><h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h3><ul><li>将主题所在的 GitHub 仓库 clone 到自己的博客的 themes 目录下，在 _config.yml 中修改以下字段为主题所在的文件夹名称即可：<pre><code class="js">theme: landscape</code></pre>也可以考虑自建一个主题，或从其他博客平台上移植一个主题过来。</li></ul><!--计划仿照Twitter、知乎、GitHub设计。--><h3 id="站点配置"><a href="#站点配置" class="headerlink" title="站点配置"></a>站点配置</h3><p>对标题做修改只需要修改博客根目录下的<code>_config.yml</code> 即可，部分文件内容如下：</p><pre><code class="js">title: Peng Sifan # 这里写博客的标题subtitle: It&#39;s my whole life! # 可以理解为博客的副标题description: Peng Sifan&#39;s self blog!keywords:author: Edison Vanlanguage: zh-CNtimezone:# URL## If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39;url: http://yoursite.comroot: /permalink: :year/:month/:day/:title/permalink_defaults:</code></pre><h2 id="发布站点"><a href="#发布站点" class="headerlink" title="发布站点"></a>发布站点</h2><p>使用<code>GitHub</code>来托管我们的站点</p><ul><li><p>1.创建一个 <code>GitHub</code> 仓库用来存放我们的博客，<code>GitHub</code> 的仓库名称为<code>&lt;你的用户名&gt;.github.io</code></p></li><li><p>2.安装 Hexo 的 Git 发布（部署）模块：<code>npm install hexo-deployer-git --save</code></p></li><li><p>在 _config.yml 中加入以下部分：</p><pre><code>deploy:type: gitrepo: https://github.com/EdisonVan/EdisonVan.github.io.git    branch: mastermessage: Blog Updatename: EdisonVanemail: vanjohnson@foxmail.com</code></pre><p>⚠️repo后接你GitHub仓库的SSH地址或者HTTPS地址，这里我用的HTTPS地址，因为我公司网络无法访问SSH地址。😢<br>SSH地址格式：<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:&lt;用户名&gt;/&lt;仓库名称&gt;.git</p></li><li><p>3.开始发布</p><pre><code class="js">hexo clean # 清理之前public的文件hexo g # 重新渲染所有页面为 HTMLhexo d # 发布！</code></pre><!-- ![selfBlog.png](assets/selfBlog.png) --><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/selfBlog-20190730.png" alt="selfBlog.png"></p></li><li><p>4.设置自己的域名解析<br>如果没有填写<code>Custom domain</code>你的站点地址将会是<code>&lt;GitHub 用户名&gt;.github.io</code>，如果有自己的域名且希望使用的话，就在<code>source 目录</code>下放一个名为CNAME的文件（对，没有任何后缀名），内容只有一行，就是自己的域名，将自己的域名做一个<code>CNAME</code>解析到<code>&lt;GitHub 用户名&gt;.github.io</code>地址即可</p><!-- ![GitHub-Page-20190704](assets/GitHub-Page-20190704.png) --><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/GitHub-Page-20190704.png" alt="GitHub-Page-20190704"></p></li></ul><p><a href="https://github.com/EdisonVan/EdisonVan.github.io" target="_blank" rel="noopener">🌟赏颗星星吧！🌟</a></p><!-- 主要涉及知识点：linux基础命令，mysql基础操作 -->]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>编码之外</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>你不得不知道的Git插件1--git history</title>
+    <link href="undefined2019/07/30/git-history/"/>
+    <url>2019/07/30/git-history/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>该系列贴子只分享vs code插件，如果您的编译器不是vs code可以选择看看其他的博客！😂</p></blockquote><p>###<a href="https://github.com/DonJayamanne/gitHistoryVSCode" target="_blank" rel="noopener">Git History, Search and More</a></p><h2 id="一、下载"><a href="#一、下载" class="headerlink" title="一、下载"></a>一、下载</h2><p>VsCode上通过快捷键<strong>⌘+⇧+X</strong>打开Extensions搜索Git History进行下载</p><h2 id="二、打开方式"><a href="#二、打开方式" class="headerlink" title="二、打开方式"></a>二、打开方式</h2><p>1.选中文件-右键- <code>Git:View File History</code></p><p>2.F1输入<br><code>Git:View History(Git log)</code> 查看所有分支的历史记录<br><code>Git:View File History</code> 查看文件的历史记录<br><code>Git:View Line History</code> 查看单行历史变更记录（不常用）</p><h2 id="三、常用功能"><a href="#三、常用功能" class="headerlink" title="三、常用功能"></a>三、常用功能</h2><h2 id="3-1-对比"><a href="#3-1-对比" class="headerlink" title="3.1 对比"></a>3.1 对比</h2><h3 id="本地代码与当前版本代码对比"><a href="#本地代码与当前版本代码对比" class="headerlink" title="本地代码与当前版本代码对比"></a>本地代码与当前版本代码对比</h3><p><img src="https://i.loli.net/2019/04/02/5ca309c7f0bb3.gif" alt="本地与当前版本对比-20190402"><br>左侧为本地代码，右侧为工作区代码</p><h3 id="当前版本号与上一个版本号对比"><a href="#当前版本号与上一个版本号对比" class="headerlink" title="当前版本号与上一个版本号对比"></a>当前版本号与上一个版本号对比</h3><p><img src="https://i.loli.net/2019/04/02/5ca30a39ccb03.gif" alt="不同版本对比-20190402"><br>左侧为当前选中版本，右侧为上一个版本</p><h3 id="不同版本号对比"><a href="#不同版本号对比" class="headerlink" title="不同版本号对比"></a>不同版本号对比</h3><p><img src="https://i.loli.net/2019/04/02/5ca30a47dd256.gif" alt="不同版本号对比-20190402"></p><h2 id="3-2-查看"><a href="#3-2-查看" class="headerlink" title="3.2 查看"></a>3.2 查看</h2><h3 id="查看每一个作者的提交记录"><a href="#查看每一个作者的提交记录" class="headerlink" title="查看每一个作者的提交记录"></a>查看每一个作者的提交记录</h3><p><img src="https://i.loli.net/2019/04/02/5ca30a6bb3d4a.gif" alt="查看不同作者提交-20190402"></p><h3 id="查看不同分支"><a href="#查看不同分支" class="headerlink" title="查看不同分支"></a>查看不同分支</h3><p><img src="https://i.loli.net/2019/04/02/5ca30a5fa7639.gif" alt="查看不同分支-20190402"></p><h2 id="四、其他功能"><a href="#四、其他功能" class="headerlink" title="四、其他功能"></a>四、其他功能</h2><p>恢复提交、从提交创建分支、在树视图中查看提交信息（所有更改的快照）、合并和变革、比较分支<br><img src="https://i.loli.net/2019/04/02/5ca30a7e4bbfd.gif" alt="其他-20190402"></p><blockquote><p>大四实习中，如有写错的地方请大家留言指出，万分感谢。转载请注明出处。</p></blockquote>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>开发工具</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Best Time to Buy and Sell Stock</title>
+    <link href="undefined2018/12/10/BestTimeToBuyAndSellStock/"/>
+    <url>2018/12/10/BestTimeToBuyAndSellStock/</url>
+    
+    <content type="html"><![CDATA[<h1 id="121-Best-Time-to-Buy-and-Sell-Stock"><a href="#121-Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="121 Best Time to Buy and Sell Stock"></a>121 Best Time to Buy and Sell Stock</h1><p>Related:Array &amp;&amp; Dynamic Programming<br>Say you have an array for which the ith element is the price of a given stock on day i.<br>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.<br>Note that you cannot sell a stock before you buy one.<br>example:I got array[7,1,5,3,6,4];The correct output should be 5;</p><h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><pre><code class="js">const maxProfit = function(prices){     //maxProfit在这里起到了比较下面profit大小的作用    if(prices === null || price.lenght === 0){return 0;}    var min = Number.MAX_VALUE;    var profit = 0;    var i;    for(i=0;i&lt;prices.length;i++){        min = prices[i]&lt;min?:prices[i]:min; //7 1 1 1 1 1        profit = (prices[i] - min)&gt;profit?price[i]-min:profit;  //0 0 5-1  3-1  6-1 4-1    }    return profit;}</code></pre><h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>[7,1,5,3,6,4]</p><pre><code class="js">const maxProfit = function (prices) {    var profit = 0, diff;    var i;    for (i = 0; i &lt; prices.length - 1; i++) {        diff = prices[i+1] - prices[i]; //1-7 5-1 3-5 6-3  4-6        if (diff &gt; 0) { profit += diff; } //4 3    }    return profit; //4}// 这里我想maxProfit是已经封装了max()函数，因为const不定义maxProfit老是报错</code></pre><p>一起回顾下max()方法</p><pre><code class="js">var max = Math.max(3,54,32,16);alert(max); //54</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Taste-Algorithms</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>多对一数据绑定[template的妙用]</title>
+    <link href="undefined2018/05/13/%E5%A4%9A%E5%AF%B9%E4%B8%80%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%5Btemplate%E7%9A%84%E5%A6%99%E7%94%A8%5D/"/>
+    <url>2018/05/13/%E5%A4%9A%E5%AF%B9%E4%B8%80%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%5Btemplate%E7%9A%84%E5%A6%99%E7%94%A8%5D/</url>
+    
+    <content type="html"><![CDATA[<p>（新闻详情页面：Detail、新闻首页：Index、模拟本地数据：posts-data,js）<br><img src="https://images2018.cnblogs.com/blog/968267/201805/968267-20180513091744966-1885664133.gif" alt></p><h1 id="部分源码"><a href="#部分源码" class="headerlink" title="部分源码"></a>部分源码</h1><p><strong>Detail.wxml</strong></p><pre><code class="html">&lt;image class=&quot;head-image&quot; src=&quot;{{detail.headImgSrc}}&quot;&gt;&lt;/image&gt;&lt;view class=&quot;author-date&quot;&gt;  &lt;image class=&quot;avatar&quot; src=&quot;{{detail.avatar}}&quot;&gt;&lt;/image&gt;  &lt;text class=&quot;author&quot;&gt;{{detail.author}}&lt;/text&gt;  &lt;text class=&quot;const-text&quot;&gt;发表于&lt;/text&gt;  &lt;text class=&quot;date&quot;&gt;{{detail.dateTime}}&lt;/text&gt;&lt;/view&gt;&lt;view class=&quot;title&quot;&gt;{{detail.title}}&lt;/view&gt;&lt;text class=&quot;detail&quot;&gt;  {{detail.detail}}&lt;/text&gt;</code></pre><p><strong>Detail.JS</strong></p><pre><code class="js">var postsData = require(&#39;../../../data/posts-data.js&#39;)//这个新闻内容文件Page({    data: {    },    onLoad: function (option) {        var postId = option.id;        var postData = postsData.postList[postId];//这个方法是用来定义每个新闻列表对应的顺序是哪个新闻内容        //不管是不是在onLoad里面直接使用this.setData反正不会有错。        this.setData({            detail: postData //渲染到对应data中就是postData        });})</code></pre><p><strong>Index.wxml</strong></p><pre><code class="pre">&lt;import src=&quot;post-item/index-template.wxml&quot; /&gt;&lt;block wx:for=&quot;{{posts_key}}&quot; wx:for-item=&quot;item&quot; wx:for-index=&quot;idx&quot;&gt;&lt;!--把wx:for=&quot;{{posts_key}}&quot;，用数组的形式来绑定多个新闻块的内容，利用for循环来反复调用后台数据，如果没用用posts_key了，那么对应的item_这种命名就是不可以的--&gt;    &lt;!--item代表一个子元素，用item.xxx的方法来进行一个单一元素绑定--&gt;    &lt;!--//template--&gt;    &lt;view catchtap=&quot;onPostTap&quot; data-postId=&quot;{{item.postId}}&quot;&gt;&lt;!--postId方法用来确认点击的是哪一则新闻、data-postId自定义数据--&gt;      &lt;!--catch绑定事件就不会出发冒泡事件--&gt;      &lt;template is=&quot;postItem&quot; data=&quot;{{...item}}&quot; /&gt;&lt;!--使用...item就可以让template里面的变量前面不用加上item.了，否则都应该是item.变量名的写法--&gt;    &lt;/view&gt;  &lt;/block&gt;</code></pre><h1 id="template的使用"><a href="#template的使用" class="headerlink" title="template的使用"></a>template的使用</h1><p>index-template.wxml</p><pre><code class="html">&lt;template name=&quot;postItem&quot;&gt;  &lt;view class=&quot;post-container&quot;&gt;    &lt;view class=&quot;post-author-date&quot;&gt;      &lt;!--常见的一列四行布局--&gt;      &lt;image class=&quot;post-author&quot; src=&quot;{{avatar}}&quot;&gt;&lt;/image&gt;      &lt;text class=&quot;post-date&quot;&gt;{{date}}&lt;/text&gt;    &lt;/view&gt;    &lt;view&gt;      &lt;text class=&quot;post-title&quot;&gt;{{title}}&lt;/text&gt;      &lt;image class=&quot;post-image&quot; src=&quot;{{imgSrc}}&quot;&gt;&lt;/image&gt;      &lt;text class=&quot;post-content&quot;&gt;{{content}}&lt;/text&gt;    &lt;/view&gt;    &lt;view class=&quot;post-like&quot;&gt;      &lt;image class=&quot;post-like-image&quot; src=&quot;../../images/icon/star.png&quot;&gt;&lt;/image&gt;      &lt;text class=&quot;post-like-font&quot;&gt;{{collection}}&lt;/text&gt;      &lt;image class=&quot;post-like-image&quot; src=&quot;../../images/icon/view.png&quot;&gt;&lt;/image&gt;      &lt;text class=&quot;post-like-font&quot;&gt;{{reading}}&lt;/text&gt;    &lt;/view&gt;  &lt;/view&gt;&lt;/template&gt;</code></pre><p><strong>Index.js</strong></p><pre><code class="js">var postsData = require(&quot;../../data/posts-data.js&quot;);Page({  data: {},  /** 生命周期函数--监听页面加载*/  onLoad: function(options) {    //页面初始化options为页面跳转所带来的参数    //把wxml中改成wx:for=&quot;{{posts_key}}&quot;，用数组的形式来绑定多个新闻块的内容，利用for循环来反复调用后台数据    this.setData({      posts_key: postsData.postList //渲染到对应data中就是posts_key:[]    });  },  onPostTap: function(event) {    //用JS来捕获postId从而让事件知道我们点击的是哪条新闻，event是框架所给的默认事件对象。    var postId = event.currentTarget.dataset.postid; // currentTarget当前鼠标点击的一个事件对应wxml所绑定事件处的view，dataset所有的自定义数据的一个集合，wxml对应的就是data-postId。data自定义的字符只有连字符的第一个字母能大写，如果不是连字符的第一个字母，它默认会被转化为小写。所有我们在wxml定义一个data - postId后，在js中应用时就写成event.currentTarget.dateset.postid;    wx.navigateTo({      url: &quot;post-detail/detail?id=&quot; + postId //？id=&quot; + postId ? id+路径后面是接参数id 将postId传递到post-detail中从而让detail页面知道对应点击post里面哪篇文章跳转到哪篇页面    });  }});</code></pre><h2 id="模拟本地数据库"><a href="#模拟本地数据库" class="headerlink" title="模拟本地数据库"></a>模拟本地数据库</h2><p><strong>Posts-data,js</strong><br>````js<br>var local_database = [<br>    {<br>        avatar: “/images/Catoon5.jpg”,<br>        date: “May 8 2018”,<br>        imgSrc: “/images/Catoon50.jpeg”,<br>        title: “以色列总理用“鞋”招待安倍，日外交官：这是冒犯，不知道我们进门都要脱鞋？”,<br>        content: ““日本首相觉得内塔尼亚胡家中鞋子上的甜点冒犯了他…。”,<br>        collection: “192”,<br>        reading: “9668”,<br>        //下面的内容是post-detail里面的数据<br>        headImgSrc: “/images/Catoon50.jpeg”,<br>        author: “郭鹏飞”,<br>        dateTime: “三天前”,<br>        detail: “【环球网报道 记者 郭鹏飞】日本首相安倍晋三上周访问以色列，…”,<br>        postId: 0<br>    },<br>    {<br>        avatar: “/images/Catoon1.jpg”,<br>        date: “May 8 2018”,<br>        imgSrc: “/images/Catoon10.jpeg”,<br>        title: “欧文惨遭伤病”,<br>        content: “欧文已经因为膝盖酸痛问题休战了…”,<br>        collection: “92”,<br>        reading: “189”,<br>　　　　　//下面内容是post-detail里面的数据　<br>        headImgSrc: “/images/Catoon10.jpeg”,<br>        author: “乔-瓦尔登”,<br>        dateTime: “三天前”,<br>        detail: “今天NBA主要发生了以下几件事情…”,<br>        postId: 1,<br>    },<br>]<br>module.exports = {<br>    postList: local_database<br>}<br>```</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>微信小程序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>一对一、模拟本地的数据库动态绑定数据</title>
+    <link href="undefined2018/05/13/%E4%B8%80%E5%AF%B9%E4%B8%80%E3%80%81%E6%A8%A1%E6%8B%9F%E6%9C%AC%E5%9C%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E6%95%B0%E6%8D%AE/"/>
+    <url>2018/05/13/%E4%B8%80%E5%AF%B9%E4%B8%80%E3%80%81%E6%A8%A1%E6%8B%9F%E6%9C%AC%E5%9C%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%E6%95%B0%E6%8D%AE/</url>
+    
+    <content type="html"><![CDATA[<p>核心：使用wx:for=”“，用数组的形式来绑定多个的内容，利用for循环来反复调用后台数据，如果没用用posts_key了，那么对应的item_这种命名就是不可以的！<br><img src="https://images2018.cnblogs.com/blog/968267/201805/968267-20180513084046266-1777965348.png" alt><br><strong>Wxml</strong></p><pre><code class="html"> &lt;block wx:for=&quot;{{posts_key}}&quot; wx:for-item=&quot;item&quot; wx:for-index=&quot;idx&quot; wx:key=&quot;idx&quot;&gt;    &lt;view catchtap=&quot;onPostTap&quot; data-postId=&quot;{{item.postId}}&quot;&gt;      &lt;image src=&quot;{{item.images}}&quot;&gt;&lt;/image&gt;      &lt;text&gt;{{item.content}}&lt;/text&gt;    &lt;/view&gt;  &lt;/block&gt; </code></pre><p><strong>JS</strong></p><pre><code class="js">var postsData = require(&#39;../../data/skip-data.js&#39;)const app = getApp()Page({  data: {  },  onLoad:function(options){    this.setData({      posts_key:postsData.postList    });  },})</code></pre><p>Skip-data.js(这个脚本用来模拟本地数据库)</p><pre><code class="json">var local_database = [  {    content: &quot;VIPKID 纯北美外教 代言人刘涛&quot;,    images: &quot;/images/dian1@2x.png&quot;,    postId: 0,  },  {    content: &quot;哒哒英语 专属外教 代言人孙俪&quot;,    images: &quot;/images/dian1@2x.png&quot;,    postId: 1,  },  {    content: &quot;51Talk 高校教材 代言人贾乃亮&quot;,    images: &quot;/images/dian1@2x.png&quot;,    postId: 2,  },  {    content: &quot;VipJr 量身定制课 代言人姚明&quot;,    images: &quot;/images/dian1@2x.png&quot;,    postId: 3,  },  {    content: &quot;以上都想试听&quot;,    images: &quot;/images/dian1@2x.png&quot;,    postId: 4,  },]module.exports = {  postList: local_database}</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>微信小程序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>微信小程序点击切换图片、收藏功能的实现！</title>
+    <link href="undefined2018/05/12/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%82%B9%E5%87%BB%E5%88%87%E6%8D%A2%E5%9B%BE%E7%89%87%E3%80%81%E6%94%B6%E8%97%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0%EF%BC%81/"/>
+    <url>2018/05/12/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%82%B9%E5%87%BB%E5%88%87%E6%8D%A2%E5%9B%BE%E7%89%87%E3%80%81%E6%94%B6%E8%97%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0%EF%BC%81/</url>
+    
+    <content type="html"><![CDATA[<p><strong>大四写的小程序记录的笔记，刚从博客园迁移过来，写的很粗糙，后续再整理！</strong></p><p>微信小程序图片点击切换和收藏功能是非常常用的！有更好写法的请留言，喜欢小程序和 web 前端开发的请加我微信 Angelo_Sifan<br>效果图如下<br><img src="https://images2018.cnblogs.com/blog/968267/201805/968267-20180512090857705-567175825.gif" alt><br>首先对 Image 绑定相应变量，选用 catchxxx 而不选用 bindxxx 进行绑定是因为，catch 不会出发冒泡事件就不会向父节点传递，写的过程中一定要用 wx:if 和 wx:else 来进行判断。然后我们还需要在 JS 中对 onCollectionTap 变量进行定义，最后当组件触发事件时，逻辑层绑定该事件的处理函数会收到一个事件对象。</p><pre><code class="js">Page({    data: {},    onLoad: function (option) {    var postId = option.id;//要先在对应的数据文本中对每个栏目定义postId、比如postId: 0 postId:1    this.data.currentPostId = postId; //借助顶部data作为中转，拿到上面这行postid后，将它放到下面var postCollected = postsCollected[]中        //将这个postId从onLoad中传递到下面的onCollectionTap中        var postData = postsData.postList[postId];//定义每个新闻列表对应顺序是哪个新闻内容//用户收藏功能    var postsCollected = wx.getStorageSync(&#39;posts_collected&#39;) //从缓存中读取所有的缓存状态        if (postsCollected) {   //postsCollected为真的情况，在缓存中存在            var postCollected = postsCollected[postId]//读取其中一个缓存状态            this.setData({                collected: postCollected //将是否被收藏的状态上绑定到collected这个变量上            })        }        else {       //为假的情况，缓存中为空的情况            var postsCollected = { }; //对postsCollected进行一个赋值操作，从而防止为空，从而省掉后面对它是否为空进行测试的步骤            postsCollected[postId] = false; // 让当前的这篇文章状态为false，从而收藏星星不点亮            wx.setStorageSync(&#39;posts_collected&#39;, postsCollected);//将postsCollected对象放到缓存中        }    },    onCollectionTap: function (event) {　　　　// 定义onCollectionTap事件用来确定文章是否收藏，如果没收藏就能点亮星星进行收藏        var postsCollected = wx.getStorageSync(&#39;posts_collected&#39;);   //获取缓存的方法        var postCollected = postsCollected[this.data.currentPostId];   //确定当前文章是否有缓存的状态，传递参数方法、借助其他参数来传递变量，如上的data        postCollected = !postCollected;// 取反操作，收藏变成未收藏、未收藏变为收藏        postsCollected[this.data.currentPostId] = postCollected;//整体缓存的某一篇文章的缓存值等于postCollected从而更新一个变量        wx.setStorageSync(&#39;posts_collected&#39;, postsCollected);//更新文章是否收藏的缓存值,相当于在数据库中做了一次更新。        //更新Data的数据绑定变量,从而实现图片切换        this.setData({            collected: postCollected //当前的collected为postCollected        })    })}</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>微信小程序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>微信小程序之数据绑定的妙用！</title>
+    <link href="undefined2018/05/09/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B9%8B%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84%E5%A6%99%E7%94%A8%EF%BC%81/"/>
+    <url>2018/05/09/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B9%8B%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84%E5%A6%99%E7%94%A8%EF%BC%81/</url>
+    
+    <content type="html"><![CDATA[<p><strong>大四写的小程序记录的笔记，刚从博客园迁移过来，写的很粗糙，后续再整理！</strong></p><!--post.wxml文件--><pre><code class="html">&lt;view&gt;  &lt;swiper indicator-dots=&quot;true&quot; autoplay=&quot;ture&quot; interval=&quot;5000&quot;&gt;    &lt;swiper-item&gt;      &lt;image src=&quot;/images/swiper3.jpeg&quot;&gt; &lt;/image&gt;    &lt;/swiper-item&gt;    &lt;swiper-item&gt;      &lt;image src=&quot;/images/swiper2.jpeg&quot;&gt;&lt;/image&gt;    &lt;/swiper-item&gt;    &lt;swiper-item&gt;      &lt;image src=&quot;/images/swiper1.jpeg&quot;&gt;&lt;/image&gt;    &lt;/swiper-item&gt;  &lt;/swiper&gt;  &lt;block wx:for=&quot;{{posts_key}}&quot; wx:for-item=&quot;item&quot;&gt;    &lt;!--block用来将包裹的代码变成一个整理,item代表一个子元素，用item.xxx的方法来进行一个单一元素绑定--&gt;    &lt;view class=&quot;post-container&quot;&gt;      &lt;view class=&quot;post-author-date&quot;&gt;        &lt;!-常见的一列四行布局--&gt;        &lt;image class=&quot;post-author&quot; src=&quot;{{item.author_img}}&quot;&gt;&lt;/image&gt;        &lt;text class=&quot;post-date&quot;&gt;{{item.date}}&lt;/text&gt;      &lt;/view&gt;      &lt;view&gt;        &lt;text class=&quot;post-title&quot;&gt;{{item.title}}&lt;/text&gt;        &lt;image class=&quot;post-image&quot; src=&quot;{{item.post_img}}&quot;&gt;&lt;/image&gt;        &lt;text class=&quot;post-content&quot;&gt;{{item.content}}&lt;/text&gt;      &lt;/view&gt;      &lt;view class=&quot;post-like&quot;&gt;        &lt;image class=&quot;post-like-image&quot; src=&quot;../../images/icon/star.png&quot;&gt;&lt;/image&gt;        &lt;text class=&quot;post-like-font&quot;&gt;{{item.view_num}}&lt;/text&gt;        &lt;image class=&quot;post-like-image&quot; src=&quot;../../images/icon/view.png&quot;&gt;&lt;/image&gt;        &lt;text class=&quot;post-like-font&quot;&gt;{{item.collect_num}}&lt;/text&gt;      &lt;/view&gt;    &lt;/view&gt;  &lt;/block&gt;&lt;/view&gt;</code></pre><pre><code class="js">var postsData = require(&#39;../../data/posts-data.js&#39;)Page({data: {//小程序总是会读取 data 对象下面来做数据绑定，这个动作我们称为动作 A//而 A 的执行，是在 onLoad 事件执行之后发生的},/\*_ 生命周期函数--监听页面加载_/onLoad: function (options) {//页面初始化 options 为页面跳转所带来的参数    //要把前面绑定的wxml中wx:for=&quot;{{posts_key}}&quot;再改成postList    //下面这种方法要把wxml中改成wx:for=&quot;{{posts_key}}&quot;    //用数组的形式来绑定多个新闻块的内容，利用for循环来反复调用后台数据    this.setData({       posts_key:postsData.postList //渲染到对应data中就是posts_key:[]       });}})</code></pre><pre><code class="js">var local_database = [  {    author_img: &quot;/images/Catoon5.jpg&quot;,    date: &quot;May 8 2018&quot;,    post_img: &quot;/images/Catoon50.jpeg&quot;,    title:      &quot;以色列总理用“鞋”招待安倍，日外交官：这是冒犯，不知道我们进门都要脱鞋？&quot;,    content:      &quot;“日本首相觉得内塔尼亚胡家中鞋子上的甜点冒犯了他，”《以色列时报》7 日报道称，日本首相安倍晋三上周对以色列进行正式访问，以色列总理内塔尼亚胡在官邸设宴招待来访的安倍夫妇时，官邸厨子却用鞋形餐具盛放甜点，这被视为“外交失礼”，对安倍的怠慢与侮辱。该报称，按照日本家庭文化，鞋子不仅远离桌子，而且还得脱了置于门外。&quot;,    view_num: &quot;192&quot;,    collect_num: &quot;9668&quot;  },  {    author_img: &quot;/images/Catoon1.jpg&quot;,    date: &quot;May 8 2018&quot;,    post_img: &quot;/images/Catoon10.jpeg&quot;,    title: &quot;欧文惨遭伤病&quot;,    content:      &quot;欧文已经因为膝盖酸痛问题休战了十几天，这个伤对他来说其实是老问题了。在绿军公布决定之后，骑士随队记者乔-瓦尔登也在专栏中讨论了欧文膝伤的来龙去脉。&quot;,    view_num: &quot;92&quot;,    collect_num: &quot;189&quot;  },  {    author_img: &quot;/images/Catoon2.jpg&quot;,    date: &quot;May 8 2018&quot;,    post_img: &quot;/images/Catoon20.jpeg&quot;,    title: &quot;骑士胜券在握詹姆斯打懵猛龙，骑士球迷却倒戈支持起了猛龙&quot;,    content:      &quot;要说联盟中哪支球队最命苦，那猛龙绝对当仁不让，要数哪个球员最心酸，那德罗赞绝对让人心疼。猛龙被骑士打的毫无还手之力，上赛季半决赛被骑士 4-0 横扫后，这赛季历史又惊人的相似，猛龙在半决赛中又被打的惨不忍睹。如果上赛季东部第三的猛龙被当时还拥有欧文的东部第二骑士打败还情有可原；那这赛季卷土重来，以东部榜首的姿态杀入季后赛的猛龙面对整个赛季都在动荡中挣扎的骑士又被打成这样，确实是让人感到有些扼腕。&quot;,    view_num: &quot;192&quot;,    collect_num: &quot;9668&quot;  },  {    author_img: &quot;/images/Catoon3.jpg&quot;,    date: &quot;May 8 2018&quot;,    post_img: &quot;/images/Catoon30.jpeg&quot;,    title: &quot;陈冠希首谈意外怀孕产下的女儿,陈冠希首谈意外怀孕产下的女儿&quot;,    content:      &quot;近日，陈冠希在个人社交网站上发了一张女儿在沙滩上玩的照片，照片中 alaia 带着帽子，穿着吊带露肩装真是太可爱太萌了！老爸陈冠希还附言：priceless！知道什么意思吗？这是在说女儿是他的无价之宝！网友听了纷纷夸赞，都哑口无言了！&quot;,    view_num: &quot;232&quot;,    collect_num: &quot;7668&quot;  },  {    author_img: &quot;/images/Catoon4.jpg&quot;,    date: &quot;May 8 2018&quot;,    post_img: &quot;/images/Catoon40.jpg&quot;,    title: &quot;贸易战博弈里中兴的曙光&quot;,    content:      &quot;与往常不同的是，这次会谈后双方都极为低调，各自披露的信息非常有限，更多的是语焉不详的框架性描述。从中文媒体的内容来看，基本上是新华社通稿和围绕通稿简短内容的延展性解读，信息量并不大。如果我们阅读外媒的相关报道，能够看到不少有价值的细节信息&quot;,    view_num: &quot;232&quot;,    collect_num: &quot;15468&quot;  },  {    author_img: &quot;/images/Catoon6.jpeg&quot;,    date: &quot;May 8 2018&quot;,    post_img: &quot;/images/Catoon60.jpeg&quot;,    title: &quot;日媒：印度等国欲就美国钢铝进口限制向 WTO 起诉&quot;,    content:      &quot;海外网 5 月 8 日电 特朗普于 3 月 8 日表示，美国将对进口钢铁产品征收 25%关税、对进口铝产品征收 10%关税。日媒表示，如今，各国对特朗普政府 3 月启动的钢铝进口限制的反对仍未停息。对美钢铁出口额排名第十的印度显示出不排除向世界贸易组织（WTO）起诉的姿态；泰国在与美国的双边磋商中要求给予豁免；俄罗斯已在探讨反制措施。其背景之一是对部分国家很早就得到豁免的不满。&quot;,    view_num: &quot;192&quot;,    collect_num: &quot;9668&quot;  }];module.exports = {  postList: local_database //渲染到对应 data 中就是 posts_key:[]};</code></pre><p>本篇博客尚未写完，会在后期进行完善。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>微信小程序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>

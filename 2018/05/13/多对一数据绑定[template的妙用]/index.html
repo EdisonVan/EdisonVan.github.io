@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  <meta name="author" content="Edison Van">
+  <meta name="keywords" content>
+  <title>多对一数据绑定[template的妙用] ~ 彭思凡的个人网站</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  
+  <link rel="stylesheet" href="/css/main.css">
+
+  
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p>星期日, 五月 13日 2018, 9:17 上午</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <p>（新闻详情页面：Detail、新闻首页：Index、模拟本地数据：posts-data,js）<br><img src="https://images2018.cnblogs.com/blog/968267/201805/968267-20180513091744966-1885664133.gif" alt></p>
+<h1 id="部分源码"><a href="#部分源码" class="headerlink" title="部分源码"></a>部分源码</h1><p><strong>Detail.wxml</strong></p>
+<pre><code class="html">&lt;image class=&quot;head-image&quot; src=&quot;{{detail.headImgSrc}}&quot;&gt;&lt;/image&gt;
+&lt;view class=&quot;author-date&quot;&gt;
+  &lt;image class=&quot;avatar&quot; src=&quot;{{detail.avatar}}&quot;&gt;&lt;/image&gt;
+  &lt;text class=&quot;author&quot;&gt;{{detail.author}}&lt;/text&gt;
+  &lt;text class=&quot;const-text&quot;&gt;发表于&lt;/text&gt;
+  &lt;text class=&quot;date&quot;&gt;{{detail.dateTime}}&lt;/text&gt;
+&lt;/view&gt;
+&lt;view class=&quot;title&quot;&gt;{{detail.title}}&lt;/view&gt;
+&lt;text class=&quot;detail&quot;&gt;
+  {{detail.detail}}
+&lt;/text&gt;</code></pre>
+<p><strong>Detail.JS</strong></p>
+<pre><code class="js">var postsData = require(&#39;../../../data/posts-data.js&#39;)
+//这个新闻内容文件
+Page({
+    data: {
+    },
+    onLoad: function (option) {
+        var postId = option.id;
+        var postData = postsData.postList[postId];//这个方法是用来定义每个新闻列表对应的顺序是哪个新闻内容
+        //不管是不是在onLoad里面直接使用this.setData反正不会有错。
+        this.setData({
+            detail: postData //渲染到对应data中就是postData
+        });
+})</code></pre>
+<p><strong>Index.wxml</strong></p>
+<pre><code class="pre">&lt;import src=&quot;post-item/index-template.wxml&quot; /&gt;
+&lt;block wx:for=&quot;{{posts_key}}&quot; wx:for-item=&quot;item&quot; wx:for-index=&quot;idx&quot;&gt;
+&lt;!--把wx:for=&quot;{{posts_key}}&quot;，用数组的形式来绑定多个新闻块的内容，利用for循环来反复调用后台数据，如果没用用posts_key了，那么对应的item_这种命名就是不可以的--&gt;
+    &lt;!--item代表一个子元素，用item.xxx的方法来进行一个单一元素绑定--&gt;
+    &lt;!--//template--&gt;
+    &lt;view catchtap=&quot;onPostTap&quot; data-postId=&quot;{{item.postId}}&quot;&gt;&lt;!--postId方法用来确认点击的是哪一则新闻、data-postId自定义数据--&gt;
+      &lt;!--catch绑定事件就不会出发冒泡事件--&gt;
+      &lt;template is=&quot;postItem&quot; data=&quot;{{...item}}&quot; /&gt;
+&lt;!--使用...item就可以让template里面的变量前面不用加上item.了，否则都应该是item.变量名的写法--&gt;
+    &lt;/view&gt;
+  &lt;/block&gt;</code></pre>
+<h1 id="template的使用"><a href="#template的使用" class="headerlink" title="template的使用"></a>template的使用</h1><p>index-template.wxml</p>
+<pre><code class="html">&lt;template name=&quot;postItem&quot;&gt;
+  &lt;view class=&quot;post-container&quot;&gt;
+    &lt;view class=&quot;post-author-date&quot;&gt;
+      &lt;!--常见的一列四行布局--&gt;
+      &lt;image class=&quot;post-author&quot; src=&quot;{{avatar}}&quot;&gt;&lt;/image&gt;
+      &lt;text class=&quot;post-date&quot;&gt;{{date}}&lt;/text&gt;
+    &lt;/view&gt;
+    &lt;view&gt;
+      &lt;text class=&quot;post-title&quot;&gt;{{title}}&lt;/text&gt;
+      &lt;image class=&quot;post-image&quot; src=&quot;{{imgSrc}}&quot;&gt;&lt;/image&gt;
+      &lt;text class=&quot;post-content&quot;&gt;{{content}}&lt;/text&gt;
+    &lt;/view&gt;
+    &lt;view class=&quot;post-like&quot;&gt;
+      &lt;image class=&quot;post-like-image&quot; src=&quot;../../images/icon/star.png&quot;&gt;&lt;/image&gt;
+      &lt;text class=&quot;post-like-font&quot;&gt;{{collection}}&lt;/text&gt;
+      &lt;image class=&quot;post-like-image&quot; src=&quot;../../images/icon/view.png&quot;&gt;&lt;/image&gt;
+      &lt;text class=&quot;post-like-font&quot;&gt;{{reading}}&lt;/text&gt;
+    &lt;/view&gt;
+  &lt;/view&gt;
+&lt;/template&gt;</code></pre>
+<p><strong>Index.js</strong></p>
+<pre><code class="js">var postsData = require(&quot;../../data/posts-data.js&quot;);
+Page({
+  data: {},
+  /** 生命周期函数--监听页面加载*/
+  onLoad: function(options) {
+    //页面初始化options为页面跳转所带来的参数
+    //把wxml中改成wx:for=&quot;{{posts_key}}&quot;，用数组的形式来绑定多个新闻块的内容，利用for循环来反复调用后台数据
+    this.setData({
+      posts_key: postsData.postList //渲染到对应data中就是posts_key:[]
+    });
+  },
+
+  onPostTap: function(event) {
+    //用JS来捕获postId从而让事件知道我们点击的是哪条新闻，event是框架所给的默认事件对象。
+    var postId = event.currentTarget.dataset.postid; // currentTarget当前鼠标点击的一个事件对应wxml所绑定事件处的view，dataset所有的自定义数据的一个集合，wxml对应的就是data-postId。data自定义的字符只有连字符的第一个字母能大写，如果不是连字符的第一个字母，它默认会被转化为小写。所有我们在wxml定义一个data - postId后，在js中应用时就写成event.currentTarget.dateset.postid;
+    wx.navigateTo({
+      url: &quot;post-detail/detail?id=&quot; + postId //？id=&quot; + postId ? id+路径后面是接参数id 将postId传递到post-detail中从而让detail页面知道对应点击post里面哪篇文章跳转到哪篇页面
+    });
+  }
+});</code></pre>
+<h2 id="模拟本地数据库"><a href="#模拟本地数据库" class="headerlink" title="模拟本地数据库"></a>模拟本地数据库</h2><p><strong>Posts-data,js</strong><br>````js<br>var local_database = [<br>    {<br>        avatar: “/images/Catoon5.jpg”,<br>        date: “May 8 2018”,<br>        imgSrc: “/images/Catoon50.jpeg”,<br>        title: “以色列总理用“鞋”招待安倍，日外交官：这是冒犯，不知道我们进门都要脱鞋？”,<br>        content: ““日本首相觉得内塔尼亚胡家中鞋子上的甜点冒犯了他…。”,<br>        collection: “192”,<br>        reading: “9668”,<br>        //下面的内容是post-detail里面的数据<br>        headImgSrc: “/images/Catoon50.jpeg”,<br>        author: “郭鹏飞”,<br>        dateTime: “三天前”,<br>        detail: “【环球网报道 记者 郭鹏飞】日本首相安倍晋三上周访问以色列，…”,<br>        postId: 0<br>    },<br>    {<br>        avatar: “/images/Catoon1.jpg”,<br>        date: “May 8 2018”,<br>        imgSrc: “/images/Catoon10.jpeg”,<br>        title: “欧文惨遭伤病”,<br>        content: “欧文已经因为膝盖酸痛问题休战了…”,<br>        collection: “92”,<br>        reading: “189”,<br>　　　　　//下面内容是post-detail里面的数据　<br>        headImgSrc: “/images/Catoon10.jpeg”,<br>        author: “乔-瓦尔登”,<br>        dateTime: “三天前”,<br>        detail: “今天NBA主要发生了以下几件事情…”,<br>        postId: 1,<br>    },<br>]<br>module.exports = {<br>    postList: local_database<br>}<br>```</p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F">微信小程序</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+  
+    <script src="/lib/tocbot/tocbot.min.js"></script>
+  
+  <script src="/js/post.js"></script>
+
+
+  <script src="/lib/prettify/prettify.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "多对一数据绑定[template的妙用]&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  <meta name="author" content="Edison Van">
+  <meta name="keywords" content>
+  <title>React性能优化 ~ 彭思凡的个人网站</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  
+  <link rel="stylesheet" href="/css/main.css">
+
+  
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p>星期二, 十二月 10日 2019, 8:36 早上</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <h1 id="项目中的代码分割"><a href="#项目中的代码分割" class="headerlink" title="项目中的代码分割"></a>项目中的代码分割</h1><p>import 静态引入写法</p>
+<pre><code class="jsx">import Home from &quot;./components/Home&quot;;
+import Login from &quot;./components/Login&quot;;
+...
+return(
+  &lt;Router&gt;
+    &lt;Switch&gt;
+      &lt;Route exact path=&quot;/&quot; component={Home} /&gt;
+      &lt;Route path=&quot;/login&quot; component={Login} /&gt;
+      &lt;Route path=&quot;/posts&quot; component={Home} /&gt;
+  ...
+)</code></pre>
+<p>以上写法不管匹配到了哪一个 route，都是一次性地引入所有的组件。可以使用代码分割进行优化，实现只引入匹配到的 route 和对应组件。</p>
+<h2 id="创建一个异步组件-asyncComponent-替换-import-动态导入的-Login-和-Home-组件，实现按需异步加载"><a href="#创建一个异步组件-asyncComponent-替换-import-动态导入的-Login-和-Home-组件，实现按需异步加载" class="headerlink" title="创建一个异步组件 asyncComponent 替换 import 动态导入的 Login 和 Home 组件，实现按需异步加载"></a>创建一个异步组件 asyncComponent 替换 import 动态导入的 Login 和 Home 组件，实现按需异步加载</h2><p><strong>utils/AsyncComponent/asyncComponent.jsx</strong></p>
+<pre><code class="jsx">import React, { Component } from &quot;react&quot;;
+export default function asyncComponent(importComponent) {
+  // asyncComponent 接收一个 importComponent函数作为参数，importComponent()在被调用时会动态引入给定的组件。
+  class AsyncComponent extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        component: null
+      };
+    }
+    componentDidMount() {
+      // 调用传入的importComponent()，并将动态引入的组件保存在state中
+      importComponent().then(mod =&gt; {
+        // import()方法返回的是一个Promise，Promise的返回值只能通过then()来读取
+        this.setState({
+          // 同时兼容ES6和CommonJS的模块
+          component: mod.default ? mod.default : mod
+        });
+      });
+    }
+    render() {
+      const C = this.state.component;
+      return C ? &lt;C {...this.props} /&gt; : null;
+    }
+  }
+  return AsyncComponent;
+}</code></pre>
+<h3 id="使用-asyncComponent-组件"><a href="#使用-asyncComponent-组件" class="headerlink" title="使用 asyncComponent 组件"></a>使用 asyncComponent 组件</h3><p><strong>src/components/App/index.js</strong></p>
+<pre><code class="jsx">import asyncComponent from &quot;../../utils/AsyncComponent&quot;;
+// 使用asyncComponent组件来创建代码分片点替换import动态导入的Login和Home组件
+const AsyncHome = connectRoute(asyncComponent(() =&gt; import(&quot;../Home&quot;)));
+const AsyncLogin = connectRoute(asyncComponent(() =&gt; import(&quot;../Login&quot;)));
+//传给 asyncComponent 一个函数，在 AsyncHome 组件被创建时对组件进行动态引入 这里并没有进行组件的引入
+...
+  return(
+    &lt;div&gt;
+      &lt;Router&gt;
+        &lt;Switch&gt;
+          {/* 使用这个 AsyncHome 组件*/}
+          &lt;Route exact path=&quot;/&quot; component={AsyncHome} /&gt;
+          &lt;Route path=&quot;/login&quot; component={AsyncLogin} /&gt;
+          &lt;Route path=&quot;/posts&quot; component={AsyncHome} /&gt;
+    ...
+  )
+...</code></pre>
+<h1 id="不要把所有的数据都往-State-中塞"><a href="#不要把所有的数据都往-State-中塞" class="headerlink" title="不要把所有的数据都往 State 中塞"></a>不要把所有的数据都往 State 中塞</h1><p>如后端数据，且数据为不需要在页面变动</p>
+<pre><code class="json">  &quot;data&quot;: {
+    &quot;result&quot;: {
+      &quot;id&quot;: 2,
+      &quot;totalUserCount&quot;: 634801,
+      &quot;totalSilentUserCount&quot;: 631192,
+      &quot;totalAccountCount&quot;: 29012,
+      &quot;creationTime&quot;: &quot;2019-12-12T14:46:45.423&quot;
+    },
+    &quot;isSuccess&quot;: true,
+    &quot;errorCode&quot;: 0,
+    &quot;message&quot;: &quot;&quot;
+  },</code></pre>
+<p>那么我们只需要把 result 放入 state 即可</p>
+<pre><code class="jsx">this.setState({
+  Data:result
+})
+const {Data}  = this.state
+....
+&lt;span style={{ color: '#333333', fontSize: '14px' }}&gt;
+  &lt;a href=&quot;#&quot;&gt;
+    {Data.totalUserCount}
+  &lt;/a&gt;
+  个，</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+              <p>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81">快乐编码</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/React%20%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF">React 那些事儿</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+  
+    <script src="/lib/tocbot/tocbot.min.js"></script>
+  
+  <script src="/js/post.js"></script>
+
+
+  <script src="/lib/prettify/prettify.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "React性能优化&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+</body>
+</html>
