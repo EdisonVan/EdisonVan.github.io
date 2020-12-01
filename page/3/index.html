@@ -128,6 +128,40 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2018/05/12/微信小程序点击切换图片、收藏功能的实现！/">
+        <p class="h4 index-header">微信小程序点击切换图片、收藏功能的实现！</p>
+        <div class="index-excerpt">
+          
+            <div class="index-text mb-1">大四写的小程序记录的笔记，刚从博客园迁移过来，写的很粗糙，后续再整理！
+微信小程序图片点击切换和收藏功能是非常常用的！有更好写法的请留言，喜欢小程序和 web 前端开发的请加我微信 Angelo_Sifan效果图如下首先对 Image 绑定相应变量，选用 catchxxx 而不选用 bindxxx 进行绑定是因为，catch 不会出发冒泡事件就不会向父节点传递，写的过程中一定要用 wx:if 和 wx:else 来进行判断。然后我们还需要在 JS 中对 onCollectionTap 变量进行定义，最后当组件触发事件时，逻辑层绑定该事件的处理函数会收到一个事件对象。
+Page({
+    data: {},
+    onLoad: function (option) {
+    var postId = option.id;//要先在对应的数据文本中对每个栏目定义postId、比如postId: 0 postId:1
+    this.data.currentPostId = postId; //借助顶部data作为中转，拿到上面这行postid后，将它放到下面var postColl</div>
+          
+        </div>
+      </a>
+
+        <div>
+          
+            <i class="iconfont icon-riqi2"></i>&nbsp;2018-05-12&nbsp;&nbsp;
+          
+          
+          
+            <i class="iconfont icon-tag"></i>
+            
+              <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F">微信小程序</a>&nbsp;
+            
+          
+        </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2018/05/09/微信小程序之数据绑定的妙用！/">
         <p class="h4 index-header">微信小程序之数据绑定的妙用！</p>
         <div class="index-excerpt">
