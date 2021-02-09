@@ -4,7 +4,57 @@
   
   
   <entry>
-    <title>Loading chunk {n} failed 问题的解决方法</title>
+    <title>2021会有哪些不一样？</title>
+    <link href="undefined2021/02/07/2021%E4%BC%9A%E6%9C%89%E5%93%AA%E4%BA%9B%E4%B8%8D%E4%B8%80%E6%A0%B7%EF%BC%9F/"/>
+    <url>2021/02/07/2021%E4%BC%9A%E6%9C%89%E5%93%AA%E4%BA%9B%E4%B8%8D%E4%B8%80%E6%A0%B7%EF%BC%9F/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>2020 对于我来说是很奇幻的一年，工作换了 2 份，遇到了一些好人和坏人，认知也得到了大幅提升。不过我始终坚信狼叔说过的那句话，少抱怨多思考，明天会更好！</p></blockquote><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/Ctrip-start.JPG" alt="Ctrip-Start"></p><h1 id="GoodBye-2020"><a href="#GoodBye-2020" class="headerlink" title="GoodBye 2020"></a>GoodBye 2020</h1><p>上半年受疫情影响，我在的公司是做租车业务，普调被取消，晋升被延期，组内陆续有同事跳槽；直到组内最好的朋友申请了降薪回老家远程办公。于是我在 5 月中旬开始了请假面试，陆续拿到了几个 offer，我跟组长和广哥提了离职后，选择 6 月初入职 base 较低的携程，而这个决定改变了我过往的一些价值观。</p><blockquote><p>初入社会还是不太习惯分别，离职的这天请组内小伙伴在长风大悦城搓了一顿，心里满是感激和不舍！</p></blockquote><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/eHi.JPG" alt="一嗨png"></p><h2 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h2><ul><li>react 项目全面使用 hooks+ts</li><li>开始使用 Jest 进行前端单测，但还是停留在使用层面，一些边界条件考虑的还不够</li><li>动手搭建了 pc 端的通用脚手架，得到了组长的一些指点，进一步思考可视化搭建中…</li><li>重新用上了 vue 写 h5，学会了更多的关注不同业务适合什么技术栈，而不是去纠结哪个技术栈自己使用更熟练</li><li>代码更规范了，会习惯性的抽离通用组件，并对代码进行拆分，每个 tsx 文件代码量尽可能地控制在了 300 行以内</li></ul><h2 id="认知"><a href="#认知" class="headerlink" title="认知"></a>认知</h2><ul><li>始终感激身边每一个人</li><li>摒弃学生思维，逢人话三分，交浅不言深</li><li>能给团队带来的价值以及自己的成长才是核心竞争力</li><li>不去阴谋论任何一个人，但如果发现某些人作风不良，私下交谈的场合一定要录音</li></ul><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/Ctrip-end.JPG" alt="Ctrip-End"></p><h1 id="Hello-2021"><a href="#Hello-2021" class="headerlink" title="Hello 2021"></a>Hello 2021</h1><h2 id="没有-Flag-就没有灵魂"><a href="#没有-Flag-就没有灵魂" class="headerlink" title="没有 Flag 就没有灵魂"></a>没有 Flag 就没有灵魂</h2><ul><li>快乐工作，准点下班</li><li>React 重构 Blog(React+Ts+Less+Golang)</li><li>继续死磕 Golang<ul><li>Go 语言从入门到实战-极客时间 进度 80%</li><li>《Go 语言编程之旅》 进度 2%</li><li>参与一个 Go 语言项目</li></ul></li><li>明确职业规划</li><li>治愈拖延症<ul><li>每月坚持阅读 2 本书</li><li>每周坚持写一篇博客</li></ul></li><li>学着和各类人博弈，而不是一味地接受</li></ul><!-- 沉默是金 --><!-- 年终总结 Blog->参考“《沉默是金》”歌词 --><!-- 上线较频繁，大小事故频发。前期无测试人员，到我离职时也只有一个测试（还是我内推的）。部门 PUA 严重，风气较差，人员流动大。论资排辈之外，还有各类表演，如复盘会作打油诗，感慨团队是除中国共产党以外最伟大的团队... -->]]></content>
+    
+    
+    <categories>
+      
+      <category>杂谈</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>生活</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Mock方案</title>
+    <link href="undefined2021/01/05/Mock%E6%96%B9%E6%A1%88/"/>
+    <url>2021/01/05/Mock%E6%96%B9%E6%A1%88/</url>
+    
+    <content type="html"><![CDATA[<h1 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h1><ul><li>1.<code>JSON-server + express</code></li><li>2.<code>Yapi + mock.js</code></li><li>3.Vue-cli 使用 json server 在本地模拟请求数据</li></ul><h1 id="项目中使用-JSON-server-方法"><a href="#项目中使用-JSON-server-方法" class="headerlink" title="项目中使用 JSON-server 方法"></a>项目中使用 JSON-server 方法</h1><p><code>npm install json-server --save</code></p><pre><code class="js">var jsonServer = require(&quot;json-server&quot;); // 引入jsonServervar jsonServer = new jsonServer(); // 实例化jsonServervar apiRouter = express.Router();var fs = require(&quot;fs&quot;);apiRouter.route(&quot;/:apiName&quot;).all(function (req, res) {  fs.readFile(&quot;./db.json&quot;, &quot;utf8&quot;, function (err, data) {    if (err) throw err;    var data = JSON.parse(data);    if (data[req.params.apiName]) {      res.json(data[req.params.apiName]);    } else {      res.send(&quot;no such api name&quot;);    }  });});</code></pre><blockquote><p>db.json 是当前访问页面的同级目录下的 json</p></blockquote><h2 id="json-server-使用方法官方简单例简介"><a href="#json-server-使用方法官方简单例简介" class="headerlink" title="json-server 使用方法官方简单例简介"></a>json-server 使用方法官方简单例简介</h2><pre><code class="js">var jsonServer = require(&quot;json-server&quot;); // 引入var Server = jsonServer.create(); // 搭建servervar Router = jsonServer.router(&quot;db.json&quot;); // 关联自己的db数据var middlewares = jsonServer.defaults();Server.use(middlewares);Server.use(router);server.listen(3000, function () {  监听端口;  console.log(&quot;JSON Server is running&quot;);});</code></pre><h2 id="测试服务器的模拟搭建和使用"><a href="#测试服务器的模拟搭建和使用" class="headerlink" title="测试服务器的模拟搭建和使用"></a>测试服务器的模拟搭建和使用</h2><p>案例：json-server 搭建之后在组件中调用</p><pre><code class="js">export default {  created: function () {    this.$http      .post(&quot;api/getNewsList&quot;) // 调用api下的getNewsList方法      .then(        function (res) {          console.log(res.data); // res.data就是拿到的数据        },        function (err) {          console.log(err);        }      );  },};</code></pre><p>打开控制台，console 里面能到成功的回调数据<br>Network 中的 XHR 中能看到 getNewList 发送了一个 POST 请求</p><h1 id="使用-JSON-Server-搭建-Mock-服务器"><a href="#使用-JSON-Server-搭建-Mock-服务器" class="headerlink" title="使用 JSON Server 搭建 Mock 服务器"></a>使用 JSON Server 搭建 Mock 服务器</h1><p>vue-cli-mock<br>vue-cli 添加本地 mock 服务框架</p><pre><code class="bash">npm install   //install dependenciesnpm run dev   //serve with hot reload at localhost:8080npm run build   //build for production with minificationnpm run mock    //run mock serve localhost:3000npm run mockdev   //run serve with mock serve</code></pre><p>mock 目录</p><pre><code class="bash">└── mock/         # mock配置目录    └── db.json         # mock数据配置    └── faker-data.js     # 批量生成伪数据    └── post-to-get.js      # post映射为get中间件</code></pre><blockquote><p><a href="https://github.com/typicode/json-server" target="_blank" rel="noopener">JSON Server</a>是一个创建伪 RESTful 服务器的工具</p></blockquote><p><strong>db.json</strong></p><pre><code>{  &quot;posts&quot;: [{ &quot;id&quot;: 1, &quot;title&quot;: &quot;json-server&quot;, &quot;author&quot;: &quot;typicode&quot; }],  &quot;comments&quot;: [{ &quot;id&quot;: 1, &quot;body&quot;: &quot;some comment&quot;, &quot;postId&quot;: 1 }],  &quot;profile&quot;: { &quot;name&quot;: &quot;typicode&quot; }}</code></pre><p>在 vue-cli 中的用法<br>配置流程</p><pre><code class="bash">npm install -g json-server #全局安装</code></pre><p><strong>package.json</strong>添加命令</p><pre><code class="json">&quot;mock&quot;: &quot;json-server --watch mock/db.json&quot;,&quot;mockdev&quot;: &quot;npm run mock &amp; npm run dev&quot;</code></pre><h2 id="启动-mock-服务器"><a href="#启动-mock-服务器" class="headerlink" title="启动 mock 服务器"></a>启动 mock 服务器</h2><p><code>npm run mock</code>命令运行 mock server 访问<code>http://localhost:3000/</code>发现<code>db.json</code>下第一级 <code>json对象</code>被解析成为可访问路径<br>GET 请求具体路径 如：<a href="http://localhost:3000/posts" target="_blank" rel="noopener">http://localhost:3000/posts</a> 可获取数据</p><h2 id="faker-js批量生成伪数据"><a href="#faker-js批量生成伪数据" class="headerlink" title="faker.js批量生成伪数据"></a><a href="https://github.com/Marak/faker.js" target="_blank" rel="noopener">faker.js</a>批量生成伪数据</h2><pre><code class="bash">cnpm install faker -G #全局安装 faker</code></pre><pre><code class="js">module.exports = function () {  var faker = require(&quot;faker&quot;);  faker.locale = &quot;zh_CN&quot;;  var _ = require(&quot;lodash&quot;);  return {    people: _.times(100, function (n) {      return {        id: n,        name: faker.name.findName(),        avatar: faker.internet.avatar(),      };    }),    address: _.times(100, function (n) {      return {        id: faker.random.uuid(),        city: faker.address.city(),        county: faker.address.county(),      };    }),  };};</code></pre><p><code>json-server mock/faker-data.js</code>：在 json server 中使用 faker 请求，<code>http://localhost:3000/address</code>可获取到随机生成的 100 组伪数据</p><h2 id="添加中间件"><a href="#添加中间件" class="headerlink" title="添加中间件"></a>添加中间件</h2><p><code>json server</code>使用 RESTful 架构，GET 请求可以获取数据，POST 请求则是添加数据。<br>开发过程中想直接模拟获取 POST 请求返回结果，可添加 express 中间件将 POST 请求转为 GET 请求<br><strong>post-to-get.js</strong></p><pre><code class="js">module.exports = function (req, res, next) {  req.method = &quot;GET&quot;;  next();};</code></pre><p><strong>package.json</strong>启动命令添加运行中间件</p><pre><code class="json">&quot;mock&quot;: &quot;json-server --watch mock/db.json --m mock/post-to-get.js&quot;</code></pre><p>重新启动服务，POST 请求就被转换为 GET 请求了</p><blockquote><p>其他需求也可以通过添加不同的中间件实现</p></blockquote><h2 id="代理设置"><a href="#代理设置" class="headerlink" title="代理设置"></a>代理设置</h2><p><code>config/index.js</code>的 proxyTable 将请求映射到 <a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a></p><pre><code class="js">proxyTable:{    &#39;/api/&#39;:{        target:&#39;http://localhost:3000&#39;,        changeOrigin:true,        pathRewrite:{            &#39;^/api&#39;:&#39;&#39;        }    },},</code></pre><p>添加请求测试效果</p><pre><code class="js">axios.post(&quot;/api/posts&quot;, {}).then((m) =&gt; console.log(m.data));</code></pre><p><code>npm run mockdev</code>启动带 mock 数据的本地服务</p><h1 id="Vue-cli-使用-json-server-在本地模拟请求数据"><a href="#Vue-cli-使用-json-server-在本地模拟请求数据" class="headerlink" title="Vue-cli 使用 json server 在本地模拟请求数据"></a>Vue-cli 使用 json server 在本地模拟请求数据</h1><p>后台还没给接口之前，使用 JSON-Server 搭建一台 JSON 服务器，将接口要返回的数据放在 json 文件里面 1.安装依赖</p><pre><code class="bash">cnpm install json-server –save     #json servercnpm install axios --save     #使用axios发送请求</code></pre><p>2.创建 db.json 文件放置在跟 index.html 平级的目录中（如 static 目录）/build 文件夹下 3.配置 build/dev-server.js</p><pre><code class="js">//json-server 假数据const jsonServer = require(&#39;json-server&#39;) // 引入文件const apiServer = jsonServer.create(); //创建服务器const apiRouter = jsonServer.router(&#39;db.json&#39;) //引入json 文件const middlewares = jsonServer.defaults(); //返回JSON服务器使用的中间件// 监听端口apiServer.use(middlewares)apiServer.use(&#39;/json&#39;,apiRouter)apiServer.listen( port + 1,()=&gt;{    //json服务器端口:比如你使用8080,这里的json服务器就是8081端口    console.log(&#39;JSON Server is running&#39;)    //json server成功运行会在git bash里面打印出&#39;JSON Server is running&#39;})var uri = ‘http://localhost:’ + portvar _resolvevar readyPromise = new Promise(resolve =&gt;{_resolve = resolve})</code></pre><p><code>npm run dev</code>启动项目，浏览器输入 localhost:8081，就可以访问到你的 json 文件</p><p>3.服务已启动成功加上相应后缀即可访问文件里面的数据，如<code>localhost:8081/posts</code></p><p>4.请求接口代理/浏览器代理设置<br><strong>config/index.js</strong></p><pre><code class="js">proxyTable: {  &#39;/api&#39;: {    target: &#39;http://localhost:8081/&#39;,  // 通过本地服务器将你的请求转发到这个地址    changeOrigin: true,  // 设置这个参数可以避免跨域    pathRewrite: {      &#39;/api&#39;: &#39;/&#39;    }  },},</code></pre><p>验证</p><p>5.axios 请求 json 数据<br><strong>main.js</strong></p><pre><code class="js">import axios from &quot;axios&quot;;Vue.prototype.$ajax = axios; // 将axios挂载到Vue实例中的$ajax上面,在项目中的任何位置通过this.$ajax使用// 在组件中的使用方式，比如：this.$ajax({  url: &quot;/api/articles&quot;, //api 代理到json文件地址，后面的后缀是文件中的对象或数组  method: &quot;get&quot;, // 请求方式  // 可添加axios文档中的各种配置})  .then(function (res) {    console.log(res, &quot;成功&quot;);  })  .catch(function (err) {    console.log(err, &quot;错误&quot;);  });// 简写this.$ajax.get(&quot;api/publishContent&quot;).then(  (res) =&gt; {    console.log(res, &quot;请求成功&quot;);  },  (err) =&gt; {    console.log(err, &quot;请求失败&quot;);  });</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>前端</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>工程化</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Loading chunk {n} failed 的解决方法</title>
     <link href="undefined2020/12/01/Loading%20chunk%20%7Bn%7D%20failed/"/>
     <url>2020/12/01/Loading%20chunk%20%7Bn%7D%20failed/</url>
     
@@ -58,7 +108,7 @@
     <link href="undefined2020/05/06/Golang-Daily/"/>
     <url>2020/05/06/Golang-Daily/</url>
     
-    <content type="html"><![CDATA[<h1 id="Go语言的优点"><a href="#Go语言的优点" class="headerlink" title="Go语言的优点"></a>Go语言的优点</h1><h2 id="生产力语言"><a href="#生产力语言" class="headerlink" title="生产力语言"></a>生产力语言</h2><p>作为一门生产力语言，它有很多约束，规避代码的一些低级错误！<br>例如.go语言中没有前置的++和–，所以你不用担心混淆前置++和后置++的区别。</p><h2 id="可读性好，易于维护"><a href="#可读性好，易于维护" class="headerlink" title="可读性好，易于维护"></a>可读性好，易于维护</h2><p>例如位运算符重的<code>按位置零操作&amp;^</code></p><ul><li>右边操作数位为1时，结果都为0</li><li>右边操作数位为0时，结果和左侧保持一直，左侧为0，则结果为0<pre><code class="go">1 &amp;^ 0 -- 11 &amp;^ 1 -- 00 &amp;^ 1 -- 00 &amp;^ 0 -- 0</code></pre></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="Go-语言的优点"><a href="#Go-语言的优点" class="headerlink" title="Go 语言的优点"></a>Go 语言的优点</h1><h2 id="生产力语言"><a href="#生产力语言" class="headerlink" title="生产力语言"></a>生产力语言</h2><p>作为一门生产力语言，它有很多约束，规避代码的一些低级错误！<br>例如.go 语言中没有前置的++和–，所以你不用担心混淆前置++和后置++的区别。</p><h2 id="可读性好，易于维护"><a href="#可读性好，易于维护" class="headerlink" title="可读性好，易于维护"></a>可读性好，易于维护</h2><p>例如位运算符重的<code>按位置零操作&amp;^</code></p><ul><li>右边操作数位为 1 时，结果都为 0</li><li>右边操作数位为 0 时，结果和左侧保持一直，左侧为 0，则结果为 0</li></ul><pre><code class="go">1 &amp;^ 0 -- 11 &amp;^ 1 -- 00 &amp;^ 1 -- 00 &amp;^ 0 -- 0</code></pre>]]></content>
     
     
     <categories>
@@ -96,31 +146,6 @@
     <tags>
       
       <tag>TypeScript</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>2019，我拿时间换了啥？</title>
-    <link href="undefined2020/01/02/%E6%88%91%E7%9A%842019/"/>
-    <url>2020/01/02/%E6%88%91%E7%9A%842019/</url>
-    
-    <content type="html"><![CDATA[<ul><li>我在2019的关键词</li><li>进厨房，做菜</li><li>第一次在外过年</li><li>读书、理财、健康</li><li>2020期望</li></ul><p>writing…</p><blockquote><p>我写博客有拖延症，这是毛病，我在慢慢的改正！</p></blockquote>]]></content>
-    
-    
-    <categories>
-      
-      <category>杂谈</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>生活</tag>
       
     </tags>
     
@@ -296,25 +321,6 @@
     <tags>
       
       <tag>马拉松</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>人无再少年！</title>
-    <link href="undefined2019/09/19/%E4%BA%BA%E6%97%A0%E5%86%8D%E5%B0%91%E5%B9%B4!/"/>
-    <url>2019/09/19/%E4%BA%BA%E6%97%A0%E5%86%8D%E5%B0%91%E5%B9%B4!/</url>
-    
-    <content type="html"><![CDATA[<p><strong>人无再少年！当搏还得搏！</strong></p><blockquote><p>我也想要永远都躺在学校的草地上晒太阳，我也想要永远喝着一块钱的西瓜冰而不会有任何的失落，我也想要永远穿着简单的衣服，听着简单的CD，过着简单的十七岁的生活。但是这是不可能的，因为我的生命里，再也不会拥有另外一个十七岁了。<br>                                                     —《夏至未至》郭敬明</p></blockquote>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>生活</tag>
       
     </tags>
     

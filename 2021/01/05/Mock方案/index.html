@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  <meta name="author" content="Edison Van">
+  <meta name="keywords" content>
+  <title>Mock方案 ~ 彭思凡的个人网站</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  
+  <link rel="stylesheet" href="/css/main.css">
+
+  
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p>星期二, 一月 5日 2021, 8:42 早上</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <h1 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h1><ul>
+<li>1.<code>JSON-server + express</code></li>
+<li>2.<code>Yapi + mock.js</code></li>
+<li>3.Vue-cli 使用 json server 在本地模拟请求数据</li>
+</ul>
+<h1 id="项目中使用-JSON-server-方法"><a href="#项目中使用-JSON-server-方法" class="headerlink" title="项目中使用 JSON-server 方法"></a>项目中使用 JSON-server 方法</h1><p><code>npm install json-server --save</code></p>
+<pre><code class="js">var jsonServer = require(&quot;json-server&quot;); // 引入jsonServer
+var jsonServer = new jsonServer(); // 实例化jsonServer
+var apiRouter = express.Router();
+var fs = require(&quot;fs&quot;);
+apiRouter.route(&quot;/:apiName&quot;).all(function (req, res) {
+  fs.readFile(&quot;./db.json&quot;, &quot;utf8&quot;, function (err, data) {
+    if (err) throw err;
+    var data = JSON.parse(data);
+    if (data[req.params.apiName]) {
+      res.json(data[req.params.apiName]);
+    } else {
+      res.send(&quot;no such api name&quot;);
+    }
+  });
+});</code></pre>
+<blockquote>
+<p>db.json 是当前访问页面的同级目录下的 json</p>
+</blockquote>
+<h2 id="json-server-使用方法官方简单例简介"><a href="#json-server-使用方法官方简单例简介" class="headerlink" title="json-server 使用方法官方简单例简介"></a>json-server 使用方法官方简单例简介</h2><pre><code class="js">var jsonServer = require(&quot;json-server&quot;); // 引入
+var Server = jsonServer.create(); // 搭建server
+var Router = jsonServer.router(&quot;db.json&quot;); // 关联自己的db数据
+var middlewares = jsonServer.defaults();
+Server.use(middlewares);
+Server.use(router);
+server.listen(3000, function () {
+  监听端口;
+  console.log(&quot;JSON Server is running&quot;);
+});</code></pre>
+<h2 id="测试服务器的模拟搭建和使用"><a href="#测试服务器的模拟搭建和使用" class="headerlink" title="测试服务器的模拟搭建和使用"></a>测试服务器的模拟搭建和使用</h2><p>案例：json-server 搭建之后在组件中调用</p>
+<pre><code class="js">export default {
+  created: function () {
+    this.$http
+      .post(&quot;api/getNewsList&quot;) // 调用api下的getNewsList方法
+      .then(
+        function (res) {
+          console.log(res.data); // res.data就是拿到的数据
+        },
+        function (err) {
+          console.log(err);
+        }
+      );
+  },
+};</code></pre>
+<p>打开控制台，console 里面能到成功的回调数据<br>Network 中的 XHR 中能看到 getNewList 发送了一个 POST 请求</p>
+<h1 id="使用-JSON-Server-搭建-Mock-服务器"><a href="#使用-JSON-Server-搭建-Mock-服务器" class="headerlink" title="使用 JSON Server 搭建 Mock 服务器"></a>使用 JSON Server 搭建 Mock 服务器</h1><p>vue-cli-mock<br>vue-cli 添加本地 mock 服务框架</p>
+<pre><code class="bash">npm install   //install dependencies
+npm run dev   //serve with hot reload at localhost:8080
+npm run build   //build for production with minification
+npm run mock    //run mock serve localhost:3000
+npm run mockdev   //run serve with mock serve</code></pre>
+<p>mock 目录</p>
+<pre><code class="bash">└── mock/         # mock配置目录
+    └── db.json         # mock数据配置
+    └── faker-data.js     # 批量生成伪数据
+    └── post-to-get.js      # post映射为get中间件</code></pre>
+<blockquote>
+<p><a href="https://github.com/typicode/json-server" target="_blank" rel="noopener">JSON Server</a>是一个创建伪 RESTful 服务器的工具</p>
+</blockquote>
+<p><strong>db.json</strong></p>
+<pre><code>{
+  &quot;posts&quot;: [{ &quot;id&quot;: 1, &quot;title&quot;: &quot;json-server&quot;, &quot;author&quot;: &quot;typicode&quot; }],
+  &quot;comments&quot;: [{ &quot;id&quot;: 1, &quot;body&quot;: &quot;some comment&quot;, &quot;postId&quot;: 1 }],
+  &quot;profile&quot;: { &quot;name&quot;: &quot;typicode&quot; }
+}</code></pre><p>在 vue-cli 中的用法<br>配置流程</p>
+<pre><code class="bash">npm install -g json-server #全局安装</code></pre>
+<p><strong>package.json</strong>添加命令</p>
+<pre><code class="json">&quot;mock&quot;: &quot;json-server --watch mock/db.json&quot;,
+&quot;mockdev&quot;: &quot;npm run mock &amp; npm run dev&quot;</code></pre>
+<h2 id="启动-mock-服务器"><a href="#启动-mock-服务器" class="headerlink" title="启动 mock 服务器"></a>启动 mock 服务器</h2><p><code>npm run mock</code>命令运行 mock server 访问<code>http://localhost:3000/</code>发现<code>db.json</code>下第一级 <code>json对象</code>被解析成为可访问路径<br>GET 请求具体路径 如：<a href="http://localhost:3000/posts" target="_blank" rel="noopener">http://localhost:3000/posts</a> 可获取数据</p>
+<h2 id="faker-js批量生成伪数据"><a href="#faker-js批量生成伪数据" class="headerlink" title="faker.js批量生成伪数据"></a><a href="https://github.com/Marak/faker.js" target="_blank" rel="noopener">faker.js</a>批量生成伪数据</h2><pre><code class="bash">cnpm install faker -G #全局安装 faker</code></pre>
+<pre><code class="js">module.exports = function () {
+  var faker = require(&quot;faker&quot;);
+  faker.locale = &quot;zh_CN&quot;;
+  var _ = require(&quot;lodash&quot;);
+  return {
+    people: _.times(100, function (n) {
+      return {
+        id: n,
+        name: faker.name.findName(),
+        avatar: faker.internet.avatar(),
+      };
+    }),
+    address: _.times(100, function (n) {
+      return {
+        id: faker.random.uuid(),
+        city: faker.address.city(),
+        county: faker.address.county(),
+      };
+    }),
+  };
+};</code></pre>
+<p><code>json-server mock/faker-data.js</code>：在 json server 中使用 faker 请求，<code>http://localhost:3000/address</code>可获取到随机生成的 100 组伪数据</p>
+<h2 id="添加中间件"><a href="#添加中间件" class="headerlink" title="添加中间件"></a>添加中间件</h2><p><code>json server</code>使用 RESTful 架构，GET 请求可以获取数据，POST 请求则是添加数据。<br>开发过程中想直接模拟获取 POST 请求返回结果，可添加 express 中间件将 POST 请求转为 GET 请求<br><strong>post-to-get.js</strong></p>
+<pre><code class="js">module.exports = function (req, res, next) {
+  req.method = &quot;GET&quot;;
+  next();
+};</code></pre>
+<p><strong>package.json</strong>启动命令添加运行中间件</p>
+<pre><code class="json">&quot;mock&quot;: &quot;json-server --watch mock/db.json --m mock/post-to-get.js&quot;</code></pre>
+<p>重新启动服务，POST 请求就被转换为 GET 请求了</p>
+<blockquote>
+<p>其他需求也可以通过添加不同的中间件实现</p>
+</blockquote>
+<h2 id="代理设置"><a href="#代理设置" class="headerlink" title="代理设置"></a>代理设置</h2><p><code>config/index.js</code>的 proxyTable 将请求映射到 <a href="http://localhost:3000" target="_blank" rel="noopener">http://localhost:3000</a></p>
+<pre><code class="js">proxyTable:{
+    &#39;/api/&#39;:{
+        target:&#39;http://localhost:3000&#39;,
+        changeOrigin:true,
+        pathRewrite:{
+            &#39;^/api&#39;:&#39;&#39;
+        }
+    },
+},</code></pre>
+<p>添加请求测试效果</p>
+<pre><code class="js">axios.post(&quot;/api/posts&quot;, {}).then((m) =&gt; console.log(m.data));</code></pre>
+<p><code>npm run mockdev</code>启动带 mock 数据的本地服务</p>
+<h1 id="Vue-cli-使用-json-server-在本地模拟请求数据"><a href="#Vue-cli-使用-json-server-在本地模拟请求数据" class="headerlink" title="Vue-cli 使用 json server 在本地模拟请求数据"></a>Vue-cli 使用 json server 在本地模拟请求数据</h1><p>后台还没给接口之前，使用 JSON-Server 搭建一台 JSON 服务器，将接口要返回的数据放在 json 文件里面 1.安装依赖</p>
+<pre><code class="bash">cnpm install json-server –save     #json server
+cnpm install axios --save     #使用axios发送请求</code></pre>
+<p>2.创建 db.json 文件放置在跟 index.html 平级的目录中（如 static 目录）/build 文件夹下 3.配置 build/dev-server.js</p>
+<pre><code class="js">//json-server 假数据
+const jsonServer = require(&#39;json-server&#39;) // 引入文件
+const apiServer = jsonServer.create(); //创建服务器
+const apiRouter = jsonServer.router(&#39;db.json&#39;) //引入json 文件
+const middlewares = jsonServer.defaults(); //返回JSON服务器使用的中间件
+// 监听端口
+apiServer.use(middlewares)
+apiServer.use(&#39;/json&#39;,apiRouter)
+apiServer.listen( port + 1,()=&gt;{
+    //json服务器端口:比如你使用8080,这里的json服务器就是8081端口
+    console.log(&#39;JSON Server is running&#39;)
+    //json server成功运行会在git bash里面打印出&#39;JSON Server is running&#39;
+})
+var uri = ‘http://localhost:’ + port
+var _resolve
+var readyPromise = new Promise(resolve =&gt;{_resolve = resolve})</code></pre>
+<p><code>npm run dev</code>启动项目，浏览器输入 localhost:8081，就可以访问到你的 json 文件</p>
+<p>3.服务已启动成功加上相应后缀即可访问文件里面的数据，如<code>localhost:8081/posts</code></p>
+<p>4.请求接口代理/浏览器代理设置<br><strong>config/index.js</strong></p>
+<pre><code class="js">proxyTable: {
+  &#39;/api&#39;: {
+    target: &#39;http://localhost:8081/&#39;,  // 通过本地服务器将你的请求转发到这个地址
+    changeOrigin: true,  // 设置这个参数可以避免跨域
+    pathRewrite: {
+      &#39;/api&#39;: &#39;/&#39;
+    }
+  },
+},</code></pre>
+<p>验证</p>
+<p>5.axios 请求 json 数据<br><strong>main.js</strong></p>
+<pre><code class="js">import axios from &quot;axios&quot;;
+Vue.prototype.$ajax = axios; // 将axios挂载到Vue实例中的$ajax上面,在项目中的任何位置通过this.$ajax使用
+// 在组件中的使用方式，比如：
+this.$ajax({
+  url: &quot;/api/articles&quot;, //api 代理到json文件地址，后面的后缀是文件中的对象或数组
+  method: &quot;get&quot;, // 请求方式
+  // 可添加axios文档中的各种配置
+})
+  .then(function (res) {
+    console.log(res, &quot;成功&quot;);
+  })
+  .catch(function (err) {
+    console.log(err, &quot;错误&quot;);
+  });
+// 简写
+this.$ajax.get(&quot;api/publishContent&quot;).then(
+  (res) =&gt; {
+    console.log(res, &quot;请求成功&quot;);
+  },
+  (err) =&gt; {
+    console.log(err, &quot;请求失败&quot;);
+  }
+);</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+              <p>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF">前端</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96">工程化</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/popper/popper.min.js"></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+<script src="/js/main.js"></script>
+
+  
+    <script src="/lib/tocbot/tocbot.min.js"></script>
+  
+  <script src="/js/post.js"></script>
+
+
+  <script src="/lib/prettify/prettify.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Mock方案&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+</body>
+</html>
