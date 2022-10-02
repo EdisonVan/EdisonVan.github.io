@@ -1,43 +1,89 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.ico">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  
+  <meta name="theme-color" content="#2f4154">
   <meta name="author" content="sifan.peng">
   <meta name="keywords" content="">
-  <title>低成本快速搭建个人博客 ~ 彭思凡的个人网站</title>
   
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+    <meta name="description" content="最小的成本搭建一个有自己域名的博客站点（Hexo 生成页面，托管于 GitHub，使用自己的域名，可以安心写作又不用花费很多心思定期维护）  准备工作 一个博客网站模板：Hexo&#x2F;Jekyll&#x2F;vuePress（这里我选用了 Hexo）   主要涉及知识点：linux 基础命令，mysql 基础操作   购买自己的域名（建议）   百度不收录.github.io结尾的站点，直">
+<meta property="og:type" content="article">
+<meta property="og:title" content="低成本快速搭建个人博客">
+<meta property="og:url" content="https://www.pengsifan.com/2019/08/06/HexoBlog-20190704/index.html">
+<meta property="og:site_name" content="彭思凡的个人网站">
+<meta property="og:description" content="最小的成本搭建一个有自己域名的博客站点（Hexo 生成页面，托管于 GitHub，使用自己的域名，可以安心写作又不用花费很多心思定期维护）  准备工作 一个博客网站模板：Hexo&#x2F;Jekyll&#x2F;vuePress（这里我选用了 Hexo）   主要涉及知识点：linux 基础命令，mysql 基础操作   购买自己的域名（建议）   百度不收录.github.io结尾的站点，直">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/CreateABlog-20190730.gif">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/NewPost-20190730.png">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/selfBlog-20190730.png">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/GitHub-Page-20190704.png">
+<meta property="article:published_time" content="2019-08-06T12:36:47.000Z">
+<meta property="article:modified_time" content="2022-10-02T07:07:13.054Z">
+<meta property="article:author" content="sifan.peng">
+<meta property="article:tag" content="编码之外">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://github.com/EdisonVan/GraphBed/raw/master/CreateABlog-20190730.gif">
+  
+  
+  
+  <title>低成本快速搭建个人博客 - 彭思凡的个人网站</title>
 
-  
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
-  
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
 
-  
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
 
-  
-<link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  
-    
-<link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
-<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.pengsifan.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
 
   
@@ -45,11 +91,17 @@
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -63,82 +115,170 @@
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">Archives</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">Categories</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">Tags</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">About</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
     </div>
   </div>
-
-
 </nav>
 
-    <div class="view intro-2"
-         style="background: url('/img/default.png')no-repeat center center;
-           background-size: cover;
-           background-attachment: fixed;">
-      <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
-              
-            </span>
+  
 
-            
-              <br>
-              <p>星期二, 八月 6日 2019, 8:36 晚上</p>
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="低成本快速搭建个人博客"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-08-06 20:36" pubdate>
+          2019年8月6日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          29 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="py-5 z-depth-3" id="board">
-        <div class="post-content mx-auto">
-          <div class="markdown-body">
-            <blockquote>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">低成本快速搭建个人博客</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
 <p>最小的成本搭建一个有自己域名的博客站点（Hexo 生成页面，托管于 GitHub，使用自己的域名，可以安心写作又不用花费很多心思定期维护）</p>
 </blockquote>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
@@ -177,7 +317,7 @@
 </ul>
 <h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2><!-- ![CreateABlog](assets/CreateABlog.gif) -->
 
-<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/CreateABlog-20190730.gif" alt="操作流程图"></p>
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/CreateABlog-20190730.gif" srcset="/img/loading.gif" lazyload alt="操作流程图"></p>
 <ol>
 <li>安装 Hexo</li>
 </ol>
@@ -193,77 +333,49 @@
 <ul>
 <li>2.1 新建一个空文件夹<code>MyBlog</code>（将作为 hexo 站点目录）并初始化博客</li>
 </ul>
-<pre><code class="js">$ hexo init MyBlog
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">$ hexo init <span class="hljs-title class_">MyBlog</span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>2.2 进入 MyBlog 文件夹安装相关依赖</li>
 </ul>
-<pre><code class="js">$ cd MyBlog
-$ npm install
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">$ cd <span class="hljs-title class_">MyBlog</span><br>$ npm install<br></code></pre></td></tr></table></figure>
+
 <ol start="3">
 <li>用<code>hexo s</code>在本机运行后来看一下默认的效果</li>
 <li>在 <code>source/_posts/</code> 目录下创建文章 或通过 <code>hexo new post-title（文章 markdown 的名字）</code> 创建新文章，步骤如下：</li>
 </ol>
 <p>例.<br>创建一个名为 <code>宏彦获水</code> 的文章，可以在上述目录下创建一个文件，名为<code>宏彦获水.md</code></p>
-<pre><code class="js">---
-title: 宏彦获水
-date: 2019-07-26 22:32:51
-tags:
-- 热门时事
----
-全球极客挚爱的高质量技术成长平台，想要学习和提升专业能力从这里开始，充足技术干货等你来啃，轻松拿下 李彦宏亮相百度第三届AI开发者大会，在李彦宏专注介绍百度AI成绩时，一位男子直接冲上舞台泼水。李彦宏先是一愣，后来用英语问到：What’s your problem？...
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">---<br><span class="hljs-attr">title</span>: 宏彦获水<br><span class="hljs-attr">date</span>: <span class="hljs-number">2019</span>-<span class="hljs-number">07</span>-<span class="hljs-number">26</span> <span class="hljs-number">22</span>:<span class="hljs-number">32</span>:<span class="hljs-number">51</span><br><span class="hljs-attr">tags</span>:<br>- 热门时事<br>---<br>全球极客挚爱的高质量技术成长平台，想要学习和提升专业能力从这里开始，充足技术干货等你来啃，轻松拿下 李彦宏亮相百度第三届<span class="hljs-variable constant_">AI</span>开发者大会，在李彦宏专注介绍百度<span class="hljs-variable constant_">AI</span>成绩时，一位男子直接冲上舞台泼水。李彦宏先是一愣，后来用英语问到：<span class="hljs-title class_">What</span>’s your problem？...<br></code></pre></td></tr></table></figure>
+
 <p>刷新页面，就可以看到这篇文章啦</p>
-<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/NewPost-20190730.png" alt="CreateABlog"></p>
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/NewPost-20190730.png" srcset="/img/loading.gif" lazyload alt="CreateABlog"></p>
 <h2 id="主题样式"><a href="#主题样式" class="headerlink" title="主题样式"></a>主题样式</h2><p>在<a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes | Hexo</a>中有非常多的主题可以供选择：</p>
 <h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h3><ul>
 <li>将主题所在的 GitHub 仓库 clone 到自己的博客的 themes 目录下，在 <code>config.yml</code> 中修改以下字段为主题所在的文件夹名称即可：</li>
 </ul>
-<pre><code class="js">theme: landscape;
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-attr">theme</span>: landscape;<br></code></pre></td></tr></table></figure>
+
 <p>也可以考虑自建一个主题，或从其他博客平台上移植一个主题过来</p>
 <h3 id="站点配置"><a href="#站点配置" class="headerlink" title="站点配置"></a>站点配置</h3><p>对标题做修改只需要修改博客根目录下的<code>_config.yml</code> 即可，部分文件内容如下：</p>
-<pre><code class="js">title: Peng Sifan # 这里写博客的标题
-subtitle: It&#39;s my whole life! # 可以理解为博客的副标题
-description: Peng Sifan&#39;s self blog!
-keywords:
-author: Edison Van
-language: zh-CN
-timezone:
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-attr">title</span>: <span class="hljs-title class_">Peng</span> <span class="hljs-title class_">Sifan</span> # 这里写博客的标题<br><span class="hljs-attr">subtitle</span>: <span class="hljs-title class_">It</span><span class="hljs-string">&#x27;s my whole life! # 可以理解为博客的副标题</span><br><span class="hljs-string">description: Peng Sifan&#x27;</span>s self blog!<br><span class="hljs-attr">keywords</span>:<br><span class="hljs-attr">author</span>: <span class="hljs-title class_">Edison</span> <span class="hljs-title class_">Van</span><br><span class="hljs-attr">language</span>: zh-<span class="hljs-variable constant_">CN</span><br><span class="hljs-attr">timezone</span>:<br><br># <span class="hljs-variable constant_">URL</span><br>## <span class="hljs-title class_">If</span> your site is put <span class="hljs-keyword">in</span> a subdirectory, set url <span class="hljs-keyword">as</span> <span class="hljs-string">&#x27;http://yoursite.com/child&#x27;</span> and root <span class="hljs-keyword">as</span> <span class="hljs-string">&#x27;/child/&#x27;</span><br><span class="hljs-attr">url</span>: <span class="hljs-attr">http</span>:<span class="hljs-comment">//yoursite.com</span><br><span class="hljs-attr">root</span>: /<br><span class="hljs-attr">permalink</span>: :year/:month/:day/:title/<br><span class="hljs-attr">permalink_defaults</span>:<br></code></pre></td></tr></table></figure>
 
-# URL
-## If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39;
-url: http://yoursite.com
-root: /
-permalink: :year/:month/:day/:title/
-permalink_defaults:
-</code></pre>
 <h2 id="发布站点"><a href="#发布站点" class="headerlink" title="发布站点"></a>发布站点</h2><p>使用<code>GitHub</code>来托管我们的站点</p>
 <ul>
 <li>创建一个 <code>GitHub</code> 仓库用来存放我们的博客，<code>GitHub</code> 的仓库名称为<code>&lt;你的用户名&gt;.github.io</code></li>
 <li>安装 Hexo 的 Git 发布（部署）模块：<code>npm install hexo-deployer-git --save</code></li>
 <li>在 <code>config.yml</code> 中加入以下部分：</li>
 </ul>
-<pre><code>deploy:
-  type: git
-  repo: https://github.com/EdisonVan/EdisonVan.github.io.git
-  branch: master
-  message: Blog Update
-  name: EdisonVan
-  email: vanjohnson@foxmail.com
-</code></pre>
-<p>⚠️repo 后接你 GitHub 仓库的 SSH 地址或者 HTTPS 地址，这里我用的 HTTPS 地址，因为我公司网络无法访问 SSH 地址。😢<br>SSH 地址格式：<a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;">&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#109;</a>:&lt;用户名&gt;&#x2F;&lt;仓库名称&gt;.git</p>
-<h2 id="开始发布"><a href="#开始发布" class="headerlink" title="开始发布"></a>开始发布</h2><pre><code class="js">hexo clean # 清理之前public的文件
-hexo g # 重新渲染所有页面为 HTML
-hexo d # 发布！
-</code></pre>
-<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/selfBlog-20190730.png" alt="selfBlog.png"></p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">deploy:</span><br><span class="hljs-symbol">  type:</span> git<br><span class="hljs-symbol">  repo:</span> https:<span class="hljs-comment">//github.com/EdisonVan/EdisonVan.github.io.git</span><br><span class="hljs-symbol">  branch:</span> master<br><span class="hljs-symbol">  message:</span> Blog Update<br><span class="hljs-symbol">  name:</span> EdisonVan<br><span class="hljs-symbol">  email:</span> vanjohnson@foxmail.com<br></code></pre></td></tr></table></figure>
+
+<p>⚠️repo 后接你 GitHub 仓库的 SSH 地址或者 HTTPS 地址，这里我用的 HTTPS 地址，因为我公司网络无法访问 SSH 地址。😢<br>SSH 地址格式：<a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>:&lt;用户名&gt;&#x2F;&lt;仓库名称&gt;.git</p>
+<h2 id="开始发布"><a href="#开始发布" class="headerlink" title="开始发布"></a>开始发布</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">hexo clean # 清理之前public的文件<br>hexo g # 重新渲染所有页面为 <span class="hljs-variable constant_">HTML</span><br>hexo d # 发布！<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/selfBlog-20190730.png" srcset="/img/loading.gif" lazyload alt="selfBlog.png"></p>
 <blockquote>
 <p>如果使用<code>hexo clean</code>会清理 public 里面的所有文件进行重新生成，而 public 中的文件实际上就是 userName.github.io 仓库中生成博客页面的文件，所以对应的 CHAME 文件也会被清除，所以小改动暂时不使用 hexo clean。大改动 clean 之后需要再去 public 中添加 CHAME 文件。<br>CNAME 的文本文件，CNAME 文件没有后缀，里面写入你要绑定的域名，比如<code>www.pengsifan.com</code><br>注意 CNAME 文件里面的网址写完整，和你自己解析设置的一致，如我的解析中主机记录加了 www 所以我的 CNAME 文件内就写成了<code>www.pengsifan.com</code></p>
 </blockquote>
 <h2 id="设置自己的域名解析"><a href="#设置自己的域名解析" class="headerlink" title="设置自己的域名解析"></a>设置自己的域名解析</h2><p>如果没有填写<code>Custom domain</code>你的站点地址将会是<code>&lt;GitHub 用户名&gt;.github.io</code>，如果有自己的域名且希望使用的话，就在<code>source 目录</code>下放一个名为 CNAME 的文件（对，没有任何后缀名），内容只有一行，就是自己的域名，将自己的域名做一个<code>CNAME</code>解析到<code>&lt;GitHub 用户名&gt;.github.io</code>地址即可</p>
-<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/GitHub-Page-20190704.png" alt="GitHub-Page-20190704"></p>
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/GitHub-Page-20190704.png" srcset="/img/loading.gif" lazyload alt="GitHub-Page-20190704"></p>
 <h1 id="博客的维护与更新"><a href="#博客的维护与更新" class="headerlink" title="博客的维护与更新"></a>博客的维护与更新</h1><p>静态的博客，且有 GitHub 进行托管，所以博客在程序的维护方面就省了很多的事情，让我们可以更加专注于内容和样式上的细节。<br>更新与内容<br>一个博客的灵魂在于博客的内容，如：</p>
 <ul>
 <li>技术的记录（类似日志，方便以后自己查询）</li>
@@ -291,56 +403,156 @@ hexo d # 发布！
 <p><a target="_blank" rel="noopener" href="https://github.com/EdisonVan/EdisonVan.github.io">🌟 赏颗星星吧！🌟</a></p>
 <!-- 主要涉及知识点：linux基础命令，mysql基础操作 -->
 
-            <hr>
-          </div>
-          <br>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E7%A0%81%E4%B9%8B%E5%A4%96/">#编码之外</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>低成本快速搭建个人博客</div>
+      <div>https://www.pengsifan.com/2019/08/06/HexoBlog-20190704/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>sifan.peng</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年8月6日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
           <div>
             
-            <p>
-              <i class="iconfont icon-tag"></i>
               
-                <a class="hover-with-bg" href="/tags/%E7%BC%96%E7%A0%81%E4%B9%8B%E5%A4%96">编码之外</a>
               
-            </p>
-            
-              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
             
           </div>
         </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/08/20/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAVue%E9%A1%B9%E7%9B%AE/" title="手把手教你新建一个Vue项目">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">手把手教你新建一个Vue项目</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/07/30/git-history/" title="你不得不知道的Git插件1--git history">
+                        <span class="hidden-mobile">你不得不知道的Git插件1--git history</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
     </div>
-    <div class="d-none d-lg-block col-lg-2 toc-container">
+
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-  <div id="toc">
-    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
-    <div id="tocbot"></div>
-  </div>
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
   </div>
 </div>
 
-<!-- custom -->
 
 
-<!-- Comments -->
-<div class="col-lg-7 mx-auto nopadding-md">
-  <div class="container comments mx-auto" id="comments">
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
-  </div>
-</div>
 
     
-  </main>
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-    </a>
-  
-
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -353,116 +565,186 @@ hexo d # 发布！
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
 
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
     
-  </div>
-</footer>
 
-<!-- SCRIPTS -->
-
-<script src="/lib/jquery/jquery.min.js"></script>
-
-
-<script src="/lib/popper/popper.min.js"></script>
-
-
-<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-
-
-<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-  
     
-<script src="/lib/tocbot/tocbot.min.js"></script>
+  </main>
 
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
   
-<script src="/js/post.js"></script>
-
-
-
   
-<script src="/lib/prettify/prettify.min.js"></script>
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint linenums');
-      prettyPrint();
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
     })
   </script>
 
 
-  
-<script src="/lib/typed/typed.min.js"></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "低成本快速搭建个人博客&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-  
-<script src="/lib/anchor/anchor.min.js"></script>
-
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "false",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+        typing(text);
+      
+    })(window, document);
   </script>
+
 
 
 
   
-<script src="/js/local-search.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
     }
-  </script>
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>

@@ -1,43 +1,93 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.ico">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="description" content="Peng Sifan&#39;s self blog!">
-  <meta name="author" content="sifan.peng">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Van">
   <meta name="keywords" content="">
-  <title>效率至上的Mobx ~ 彭思凡的个人网站</title>
   
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+    <meta name="description" content="为什么会考虑使用状态管理？项目开发中经常会碰到以下场景：1.业务系统许多接口，入参都需要传递登陆人 id 1userCode: localStorage.getItem(&amp;#x27;userCode&amp;#x27;), 2.业务系统选择下拉框，如城市，销售业务员、车型、折旧选项等均为同一接口数据。 1234567891011121314151617181920212223242526&#x2F;&#x2F; 获取司机信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="效率至上的Mobx">
+<meta property="og:url" content="https://www.pengsifan.com/2019/12/09/%E6%95%88%E7%8E%87%E8%87%B3%E4%B8%8A%E7%9A%84Mobx/index.html">
+<meta property="og:site_name" content="彭思凡的个人网站">
+<meta property="og:description" content="为什么会考虑使用状态管理？项目开发中经常会碰到以下场景：1.业务系统许多接口，入参都需要传递登陆人 id 1userCode: localStorage.getItem(&amp;#x27;userCode&amp;#x27;), 2.业务系统选择下拉框，如城市，销售业务员、车型、折旧选项等均为同一接口数据。 1234567891011121314151617181920212223242526&#x2F;&#x2F; 获取司机信息">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/%E7%BB%9F%E4%B8%80%E5%AF%B9%E8%B1%A1-20191210.png">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/Loading%E7%8A%B6%E6%80%81%E5%AE%9E%E7%8E%B0-20191210.png">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/Loading-20191210.gif">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/action%E7%9A%84%E4%BD%BF%E7%94%A8-20191210.png">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button1-20191210.gif">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/Button1%E6%B3%A8%E9%87%8A.png">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button2-20191210.gif">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button3-20191210.gif">
+<meta property="article:published_time" content="2019-12-09T08:36:33.000Z">
+<meta property="article:modified_time" content="2021-04-26T00:50:59.964Z">
+<meta property="article:author" content="sifan.peng">
+<meta property="article:tag" content="React 那些事儿">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://github.com/EdisonVan/GraphBed/raw/master/%E7%BB%9F%E4%B8%80%E5%AF%B9%E8%B1%A1-20191210.png">
+  
+  
+  
+  <title>效率至上的Mobx - 彭思凡的个人网站</title>
 
-  
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
-  
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
 
-  
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
 
-  
-<link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  
-    
-<link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
-<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.pengsifan.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
 
   
@@ -45,11 +95,17 @@
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -63,112 +119,173 @@
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">Archives</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">Categories</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">Tags</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">About</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
     </div>
   </div>
-
-
 </nav>
 
-    <div class="view intro-2"
-         style="background: url('/img/default.png')no-repeat center center;
-           background-size: cover;
-           background-attachment: fixed;">
-      <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
-              
-            </span>
+  
 
-            
-              <br>
-              <p>星期一, 十二月 9日 2019, 4:36 下午</p>
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="效率至上的Mobx"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-12-09 16:36" pubdate>
+          2019年12月9日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          33 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="py-5 z-depth-3" id="board">
-        <div class="post-content mx-auto">
-          <div class="markdown-body">
-            <h1 id="为什么会考虑使用状态管理？"><a href="#为什么会考虑使用状态管理？" class="headerlink" title="为什么会考虑使用状态管理？"></a>为什么会考虑使用状态管理？</h1><p>项目开发中经常会碰到以下场景：<br>1.业务系统许多接口，入参都需要传递登陆人 id</p>
-<pre><code class="jsx">userCode: localStorage.getItem(&#39;userCode&#39;),
-</code></pre>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">效率至上的Mobx</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="为什么会考虑使用状态管理？"><a href="#为什么会考虑使用状态管理？" class="headerlink" title="为什么会考虑使用状态管理？"></a>为什么会考虑使用状态管理？</h1><p>项目开发中经常会碰到以下场景：<br>1.业务系统许多接口，入参都需要传递登陆人 id</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-attr">userCode</span>: <span class="hljs-variable language_">localStorage</span>.<span class="hljs-title function_">getItem</span>(<span class="hljs-string">&#x27;userCode&#x27;</span>),<br></code></pre></td></tr></table></figure>
 <p>2.业务系统选择下拉框，如城市，销售业务员、车型、折旧选项等均为同一接口数据。</p>
-<pre><code class="jsx">// 获取司机信息
-getDrivers(name) &#123;
-  http
-    .get(&quot;/api/Common/GetDrivers&quot;, &#123;
-      Key: name
-    &#125;)
-    .then(res =&gt; &#123;
-      const &#123; success, result &#125; = res.data;
-      if (success) &#123;
-        if (Array.isArray(result)) &#123;
-          this.setState(&#123;
-            drivers: result
-          &#125;);
-        &#125; else &#123;
-          this.setState(&#123;
-            drivers: []
-          &#125;);
-        &#125;
-      &#125; else &#123;
-        message.error(&quot;获取司机信息失败&quot;);
-      &#125;
-    &#125;)
-    .catch(err =&gt; &#123;
-      console.error(err);
-    &#125;);
-&#125;
-</code></pre>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// 获取司机信息</span><br><span class="hljs-title function_">getDrivers</span>(<span class="hljs-params">name</span>) &#123;<br>  http<br>    .<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;/api/Common/GetDrivers&quot;</span>, &#123;<br>      <span class="hljs-title class_">Key</span>: name<br>    &#125;)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> &#123; success, result &#125; = res.<span class="hljs-property">data</span>;<br>      <span class="hljs-keyword">if</span> (success) &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-title class_">Array</span>.<span class="hljs-title function_">isArray</span>(result)) &#123;<br>          <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>(&#123;<br>            <span class="hljs-attr">drivers</span>: result<br>          &#125;);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>          <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>(&#123;<br>            <span class="hljs-attr">drivers</span>: []<br>          &#125;);<br>        &#125;<br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        message.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;获取司机信息失败&quot;</span>);<br>      &#125;<br>    &#125;)<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span> =&gt;</span> &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(err);<br>    &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>3.兄弟组件传值等</p>
 <!-- [1]台词 -->
 
@@ -230,105 +347,45 @@ getDrivers(name) &#123;
 <li>action（动作）<!-- [5]台词 --></li>
 </ul>
 <h1 id="Mobx-的缺点"><a href="#Mobx-的缺点" class="headerlink" title="Mobx 的缺点"></a>Mobx 的缺点</h1><p>如使用装饰器时团队如果不制定一个规范，后期可能难以维护。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>自定义装饰器还是要在项目组内达成共识才行。<br>如：将各个状态封装到一个对象中导出（防止代码难以维护，加入静态图和 gif 图）<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/%E7%BB%9F%E4%B8%80%E5%AF%B9%E8%B1%A1-20191210.png" alt="统一对象"></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>自定义装饰器还是要在项目组内达成共识才行。<br>如：将各个状态封装到一个对象中导出（防止代码难以维护，加入静态图和 gif 图）<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/%E7%BB%9F%E4%B8%80%E5%AF%B9%E8%B1%A1-20191210.png" srcset="/img/loading.gif" lazyload alt="统一对象"></p>
 <p>将使用 Mobx 观测的数据整合到一个 stores 对象注入到 Provider<br>到‘src&#x2F;stores&#x2F;index.js’中</p>
 <h1 id="获取可观测的-state"><a href="#获取可观测的-state" class="headerlink" title="获取可观测的 state"></a>获取可观测的 state</h1><p>通过 React-mobx 提供 Provider 组件在根目录 index.jsx 中让容器组件拿到 state</p>
-<pre><code class="jsx">import &#123; Provider &#125; from &quot;mobx-react&quot;;
-import stores from &quot;./stores&quot;;
-...
-&lt;Provider &#123;...stores&#125;&gt;
-  &lt;App /&gt;
-&lt;/Provider&gt;,
-document.getElementById(&#39;root&#39;)
-</code></pre>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">Provider</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;mobx-react&quot;</span>;<br><span class="hljs-keyword">import</span> stores <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./stores&quot;</span>;<br>...<br>&lt;<span class="hljs-title class_">Provider</span> &#123;...stores&#125;&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span><br>&lt;/<span class="hljs-title class_">Provider</span>&gt;,<br><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;root&#x27;</span>)<br></code></pre></td></tr></table></figure>
 <p>Provider 在根组件外包了一层，来让 App 的所有子组件就默认都可以拿到 state。<br><a target="_blank" rel="noopener" href="https://github.com/mobxjs/mobx-react/raw/master/src/Provider.js">Provider 源码</a><br>只有先获取到 state，在对应组件中才能使用 inject 注入</p>
-<h2 id="inject-注入使用的-Store"><a href="#inject-注入使用的-Store" class="headerlink" title="@inject 注入使用的 Store"></a>@inject 注入使用的 Store</h2><pre><code class="jsx">import &#123; observer, inject &#125; from &quot;mobx-react&quot;;
-import &#123; observable &#125; from &quot;mobx&quot;;
-@observer
-@inject(&quot;store&quot;) // inject从context中取出store对象，注入到组件的props中
-class App extends Component &#123;
-  render() &#123;
-    const &#123; store &#125; = this.props;
-    return (
-      &lt;div&gt;
-        &lt;ul&gt;
-          &#123;store.map(todo =&gt; (
-            &lt;TodoView todo=&#123;todo&#125; key=&#123;todo.id&#125; /&gt;
-          ))&#125;
-        &lt;/ul&gt;
-      &lt;/div&gt;
-    );
-  &#125;
-&#125;
-const TodoView = observer((&#123; todo &#125;) =&gt; &#123;
-  return &lt;li&gt;&#123;todo.title&#125;&lt;/li&gt;;
-&#125;);
-</code></pre>
+<h2 id="inject-注入使用的-Store"><a href="#inject-注入使用的-Store" class="headerlink" title="@inject 注入使用的 Store"></a>@inject 注入使用的 Store</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> &#123; observer, inject &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;mobx-react&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; observable &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;mobx&quot;</span>;<br>@observer<br>@<span class="hljs-title function_">inject</span>(<span class="hljs-string">&quot;store&quot;</span>) <span class="hljs-comment">// inject从context中取出store对象，注入到组件的props中</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Component</span> &#123;<br>  <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">const</span> &#123; store &#125; = <span class="hljs-variable language_">this</span>.<span class="hljs-property">props</span>;<br>    <span class="hljs-keyword">return</span> (<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">          &#123;store.map(todo =&gt; (</span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">TodoView</span> <span class="hljs-attr">todo</span>=<span class="hljs-string">&#123;todo&#125;</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#123;todo.id&#125;</span> /&gt;</span></span><br><span class="language-xml">          ))&#125;</span><br><span class="language-xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>    );<br>  &#125;<br>&#125;<br><span class="hljs-keyword">const</span> <span class="hljs-title class_">TodoView</span> = <span class="hljs-title function_">observer</span>(<span class="hljs-function">(<span class="hljs-params">&#123; todo &#125;</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>&#123;todo.title&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span>;<br>&#125;);<br></code></pre></td></tr></table></figure>
 <!-- [6]台词 -->
 
 <h1 id="配置装饰器语法"><a href="#配置装饰器语法" class="headerlink" title="配置装饰器语法"></a>配置装饰器语法</h1><p><strong>项目中会大量使用到装饰器语法@observable，所以要提前配置装饰器</strong><br><a target="_blank" rel="noopener" href="https://mobx.js.org/best/decorators.html">配置方案</a><br><a target="_blank" rel="noopener" href="https://github.com/EdisonVan/MobxDemo/blob/master/jsconfig.json">记得配置jsconfig</a></p>
 <!-- [7]台词 -->
 
-<h2 id="computed-value-的使用"><a href="#computed-value-的使用" class="headerlink" title="computed value 的使用"></a>computed value 的使用</h2><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/Loading%E7%8A%B6%E6%80%81%E5%AE%9E%E7%8E%B0-20191210.png" alt="Loading-20191210"><br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Loading-20191210.gif" alt="Loading状态 gif"></p>
+<h2 id="computed-value-的使用"><a href="#computed-value-的使用" class="headerlink" title="computed value 的使用"></a>computed value 的使用</h2><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/Loading%E7%8A%B6%E6%80%81%E5%AE%9E%E7%8E%B0-20191210.png" srcset="/img/loading.gif" lazyload alt="Loading-20191210"><br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Loading-20191210.gif" srcset="/img/loading.gif" lazyload alt="Loading状态 gif"></p>
 <!-- [8]台词 -->
 <p>一般通过<code>computed</code>和<code>@computed</code>创建<code>computed value</code></p>
-<pre><code class="js">computed(() =&gt; expression)
-@computed get classProperty() &#123; return expression; &#125;
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">computed</span>(<span class="hljs-function">() =&gt;</span> expression)<br>@computed <span class="hljs-keyword">get</span> <span class="hljs-title function_">classProperty</span>() &#123; <span class="hljs-keyword">return</span> expression; &#125;<br></code></pre></td></tr></table></figure>
 <!-- [9]台词 -->
 
-<h2 id="action-的使用"><a href="#action-的使用" class="headerlink" title="action 的使用"></a>action 的使用</h2><h3 id="常见的用法"><a href="#常见的用法" class="headerlink" title="常见的用法"></a>常见的用法</h3><pre><code class="js">action(fn)
-@action classMethod
-</code></pre>
-<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/action%E7%9A%84%E4%BD%BF%E7%94%A8-20191210.png" alt="action的使用.png"></p>
+<h2 id="action-的使用"><a href="#action-的使用" class="headerlink" title="action 的使用"></a>action 的使用</h2><h3 id="常见的用法"><a href="#常见的用法" class="headerlink" title="常见的用法"></a>常见的用法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">action</span>(fn)<br>@action classMethod<br></code></pre></td></tr></table></figure>
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/action%E7%9A%84%E4%BD%BF%E7%94%A8-20191210.png" srcset="/img/loading.gif" lazyload alt="action的使用.png"></p>
 <!-- [10]台词 -->
 
 <h3 id="action-bound解决this指向问题"><a href="#action-bound解决this指向问题" class="headerlink" title="action.bound解决this指向问题"></a>action.bound解决this指向问题</h3><p><strong>箭头函数</strong></p>
-<pre><code class="jsx">logout = () =&gt;&#123;
-    this.userId = undefined;
-    this.username = &#39;jack&#39;;
-    this.password = &#39;123456&#39;;
-    sessionStorage.removeItem(&quot;userId&quot;);
-    sessionStorage.removeItem(&quot;username&quot;);
-&#125;
-</code></pre>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx">logout = <span class="hljs-function">() =&gt;</span>&#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">userId</span> = <span class="hljs-literal">undefined</span>;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">username</span> = <span class="hljs-string">&#x27;jack&#x27;</span>;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">password</span> = <span class="hljs-string">&#x27;123456&#x27;</span>;<br>    sessionStorage.<span class="hljs-title function_">removeItem</span>(<span class="hljs-string">&quot;userId&quot;</span>);<br>    sessionStorage.<span class="hljs-title function_">removeItem</span>(<span class="hljs-string">&quot;username&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><strong>action.bound&#x2F;@action.bound</strong></p>
-<pre><code class="jsx">  @action.bound logout() &#123;
-    this.userId = undefined;
-    this.username = &#39;jack&#39;;
-    this.password = &#39;123456&#39;;
-    sessionStorage.removeItem(&quot;userId&quot;);
-    sessionStorage.removeItem(&quot;username&quot;);
-  &#125;
-</code></pre>
-<pre><code class="jsx">&#123;
-  authStore.userId &amp;&amp; authStore.userId.length &gt; 0 ? (
-    &lt;span className=&quot;user&quot;&gt;
-      当前用户：&#123;authStore.username&#125;&amp;nbsp;
-      &lt;button onClick=&#123;authStore.logout&#125;&gt;注销&lt;/button&gt;
-    &lt;/span&gt;
-  ) : (
-    &lt;span className=&quot;right-link&quot;&gt;
-      &lt;Link to=&#123;&#123; pathname: "/login", state: &#123; from: location &#125; &#125;&#125;&gt;登录&lt;/Link&gt;
-    &lt;/span&gt;
-  );
-&#125;
-</code></pre>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs jsx">@action.<span class="hljs-property">bound</span> <span class="hljs-title function_">logout</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">userId</span> = <span class="hljs-literal">undefined</span>;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">username</span> = <span class="hljs-string">&#x27;jack&#x27;</span>;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-property">password</span> = <span class="hljs-string">&#x27;123456&#x27;</span>;<br>  sessionStorage.<span class="hljs-title function_">removeItem</span>(<span class="hljs-string">&quot;userId&quot;</span>);<br>  sessionStorage.<span class="hljs-title function_">removeItem</span>(<span class="hljs-string">&quot;username&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs jsx">&#123;<br>  authStore.<span class="hljs-property">userId</span> &amp;&amp; authStore.<span class="hljs-property">userId</span>.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span> ? (<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;user&quot;</span>&gt;</span></span><br><span class="language-xml">      当前用户：&#123;authStore.username&#125;<span class="hljs-symbol">&amp;nbsp;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;authStore.logout&#125;</span>&gt;</span>注销<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br>  ) : (<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;right-link&quot;</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&#123;&#123;</span> <span class="hljs-attr">pathname:</span> &quot;/<span class="hljs-attr">login</span>&quot;, <span class="hljs-attr">state:</span> &#123; <span class="hljs-attr">from:</span> <span class="hljs-attr">location</span> &#125; &#125;&#125;&gt;</span>登录<span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br>  );<br>&#125;<br></code></pre></td></tr></table></figure>
 <!-- [11]台词 -->
 
 <h1 id="mobx-调试工具"><a href="#mobx-调试工具" class="headerlink" title="mobx 调试工具"></a>mobx 调试工具</h1><p>mobx-react-devtools 是一个用于调试 MobX+React 项目的工具，可以追踪组件的渲染以及组件依赖的可观测数据。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>只需要在开发环境下使用调试工具，安装命令使用的参数是–save-dev</strong></p>
-<pre><code>npm install mobx-react-devtools --save-dev
-或
-yarn add mobx-react-devtools --save-dev
-</code></pre>
+<figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs q">npm install mobx-react-devtools --<span class="hljs-built_in">save</span>-<span class="hljs-built_in">dev</span><br>或<br>yarn add mobx-react-devtools --<span class="hljs-built_in">save</span>-<span class="hljs-built_in">dev</span><br></code></pre></td></tr></table></figure>
 <p>再次运行程序，界面右上角会多出三个小图标，是 mobx-react-devtools 的功能键。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>点击第一个图标，当组件发生渲染行为时，对应的组件会被高亮显示<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button1-20191210.gif" alt="DevTool-Button1.gif"></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>点击第一个图标，当组件发生渲染行为时，对应的组件会被高亮显示<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button1-20191210.gif" srcset="/img/loading.gif" lazyload alt="DevTool-Button1.gif"></p>
 <ul>
-<li>高亮组件右上角显示的 3 个数字分别代表截至当前组件渲染的次数、组件 render 方法执行的时间、组件从 render 方法开始到渲染到浏览器界面使用的时间<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Button1%E6%B3%A8%E9%87%8A.png" alt="Button1注释.png"></li>
+<li>高亮组件右上角显示的 3 个数字分别代表截至当前组件渲染的次数、组件 render 方法执行的时间、组件从 render 方法开始到渲染到浏览器界面使用的时间<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Button1%E6%B3%A8%E9%87%8A.png" srcset="/img/loading.gif" lazyload alt="Button1注释.png"></li>
 </ul>
-<p>点击第二个图标后，再用鼠标选择任意一个组件，可以查看该组件会对哪些数据的变化做出响应<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button2-20191210.gif" alt="DevTool-Button2.gif"></p>
-<p>点击第三个图标，控制台会输出发生的 action、响应的 reaction 等调试日志信息<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button3-20191210.gif" alt="DevTool-Button3.gif"></p>
+<p>点击第二个图标后，再用鼠标选择任意一个组件，可以查看该组件会对哪些数据的变化做出响应<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button2-20191210.gif" srcset="/img/loading.gif" lazyload alt="DevTool-Button2.gif"></p>
+<p>点击第三个图标，控制台会输出发生的 action、响应的 reaction 等调试日志信息<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/DevTool-Button3-20191210.gif" srcset="/img/loading.gif" lazyload alt="DevTool-Button3.gif"></p>
 <p>当然你也可以<a target="_blank" rel="noopener" href="https://cn.mobx.js.org/best/trace.html">使用 trace 进行调试</a></p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://mobx.js.org/README.html">Mobx 官方文档</a></li>
@@ -337,64 +394,177 @@ yarn add mobx-react-devtools --save-dev
 </ul>
 <h1 id="入门项目推荐"><a href="#入门项目推荐" class="headerlink" title="入门项目推荐"></a>入门项目推荐</h1><p><a target="_blank" rel="noopener" href="https://github.com/EdisonVan/MobxDemo">《React进阶之路》bbs项目案例</a></p>
 <!-- [12]台词（总结） -->
-            <hr>
-          </div>
-          <br>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81/" class="category-chain-item">快乐编码</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/React-%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">#React 那些事儿</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>效率至上的Mobx</div>
+      <div>https://www.pengsifan.com/2019/12/09/效率至上的Mobx/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Van</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年12月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
           <div>
             
-              <p>
-                <i class="iconfont icon-inbox"></i>
-                
-                  <a class="hover-with-bg" href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81">快乐编码</a>
-                  &nbsp;
-                
-              </p>
-            
-            <p>
-              <i class="iconfont icon-tag"></i>
               
-                <a class="hover-with-bg" href="/tags/React%20%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF">React 那些事儿</a>
               
-            </p>
-            
-              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
             
           </div>
         </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/12/10/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="React性能优化">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">React性能优化</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/10/31/Code%20Review-%E7%A3%A8%E5%88%80%E4%B8%8D%E8%B4%B9%E7%A0%8D%E6%9F%B4%E5%8A%9F%EF%BC%81/" title="Code Review-磨刀不费砍柴功！">
+                        <span class="hidden-mobile">Code Review-磨刀不费砍柴功！</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
     </div>
-    <div class="d-none d-lg-block col-lg-2 toc-container">
+
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-  <div id="toc">
-    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
-    <div id="tocbot"></div>
-  </div>
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
   </div>
 </div>
 
-<!-- custom -->
 
 
-<!-- Comments -->
-<div class="col-lg-7 mx-auto nopadding-md">
-  <div class="container comments mx-auto" id="comments">
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
-  </div>
-</div>
 
     
-  </main>
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-    </a>
-  
-
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -407,116 +577,186 @@ yarn add mobx-react-devtools --save-dev
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
 
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
     
-  </div>
-</footer>
 
-<!-- SCRIPTS -->
-
-<script src="/lib/jquery/jquery.min.js"></script>
-
-
-<script src="/lib/popper/popper.min.js"></script>
-
-
-<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-
-
-<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-  
     
-<script src="/lib/tocbot/tocbot.min.js"></script>
+  </main>
 
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
   
-<script src="/js/post.js"></script>
-
-
-
   
-<script src="/lib/prettify/prettify.min.js"></script>
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint linenums');
-      prettyPrint();
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
     })
   </script>
 
 
-  
-<script src="/lib/typed/typed.min.js"></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "效率至上的Mobx&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-  
-<script src="/lib/anchor/anchor.min.js"></script>
-
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "false",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+        typing(text);
+      
+    })(window, document);
   </script>
+
 
 
 
   
-<script src="/js/local-search.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
     }
-  </script>
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>

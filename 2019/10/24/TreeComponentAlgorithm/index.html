@@ -1,43 +1,86 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.ico">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="description" content="Peng Sifan&#39;s self blog!">
-  <meta name="author" content="sifan.peng">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Van">
   <meta name="keywords" content="">
-  <title>Tree Component Data Processing ~ 彭思凡的个人网站</title>
   
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+    <meta name="description" content="效果 后端接口返回数据OriginResult123456789101112131415161718192021222324252627&quot;result&quot;: [  &amp;#123;    &quot;province&quot;: &amp;#123;      &quot;name&quot;: &quot;安徽&quot;,      “id”:&amp;#x27;0-0&amp;#x27;    &amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tree Component Data Processing">
+<meta property="og:url" content="https://www.pengsifan.com/2019/10/24/TreeComponentAlgorithm/index.html">
+<meta property="og:site_name" content="彭思凡的个人网站">
+<meta property="og:description" content="效果 后端接口返回数据OriginResult123456789101112131415161718192021222324252627&quot;result&quot;: [  &amp;#123;    &quot;province&quot;: &amp;#123;      &quot;name&quot;: &quot;安徽&quot;,      “id”:&amp;#x27;0-0&amp;#x27;    &amp;#">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/AntTree-20191024.gif">
+<meta property="article:published_time" content="2019-10-24T07:07:47.000Z">
+<meta property="article:modified_time" content="2021-04-26T00:50:59.959Z">
+<meta property="article:author" content="sifan.peng">
+<meta property="article:tag" content="Taste-Algorithms">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://github.com/EdisonVan/GraphBed/raw/master/AntTree-20191024.gif">
+  
+  
+  
+  <title>Tree Component Data Processing - 彭思凡的个人网站</title>
 
-  
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
-  
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
 
-  
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
 
-  
-<link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  
-    
-<link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
-<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.pengsifan.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
 
   
@@ -45,11 +88,17 @@
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -63,288 +112,358 @@
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">Archives</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">Categories</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">Tags</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">About</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
     </div>
   </div>
-
-
 </nav>
 
-    <div class="view intro-2"
-         style="background: url('/img/default.png')no-repeat center center;
-           background-size: cover;
-           background-attachment: fixed;">
-      <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
-              
-            </span>
+  
 
-            
-              <br>
-              <p>星期四, 十月 24日 2019, 3:07 下午</p>
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Tree Component Data Processing"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-10-24 15:07" pubdate>
+          2019年10月24日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="py-5 z-depth-3" id="board">
-        <div class="post-content mx-auto">
-          <div class="markdown-body">
-            <h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/AntTree-20191024.gif" alt="AntTree-20191024.gif"></p>
-<h2 id="后端接口返回数据OriginResult"><a href="#后端接口返回数据OriginResult" class="headerlink" title="后端接口返回数据OriginResult"></a>后端接口返回数据<code>OriginResult</code></h2><pre><code>&quot;result&quot;: [
-  &#123;
-    &quot;province&quot;: &#123;
-      &quot;name&quot;: &quot;安徽&quot;,
-      “id”:&#39;0-0&#39;
-    &#125;,
-    &quot;city&quot;: [
-      &#123;
-        &quot;name&quot;: &quot;安庆&quot;,
-        parentId:&#39;0-0&#39;
-      &#125;,
-      &#123;
-        &quot;name&quot;: &quot;蚌埠&quot;
-      &#125;,
-    ]
-  &#125;,
-  &#123;
-    &quot;province&quot;: &#123;
-      &quot;name&quot;: &quot;重庆&quot;
-    &#125;,
-    &quot;city&quot;: [
-      &#123;
-        &quot;name&quot;: &quot;重庆&quot;
-      &#125;
-    ]
-  &#125;
-]
-</code></pre>
-<h2 id="Ant-的-Tree-组件需要的数据格式如下"><a href="#Ant-的-Tree-组件需要的数据格式如下" class="headerlink" title="Ant 的 Tree 组件需要的数据格式如下"></a>Ant 的 Tree 组件需要的数据格式如下</h2><pre><code>treeData: [
-  &#123;
-    &quot;title&quot;: &#39;安徽&#39;,
-    &quot;key&quot;: 0,
-    &quot;children&quot;: [
-      &#123;
-        &quot;title&quot;: &#39;安庆&#39;,
-        &quot;key&quot;: &quot;0-0&quot;
-      &#125;,
-      &#123;
-        &quot;title&quot;: &#39;蚌埠&#39;,
-        &quot;key&quot;: &quot;0-1&quot;
-      &#125;
-    ],
-  &#125;,
-  &#123;
-    &quot;title&quot;: &#39;重庆&#39;,
-    &quot;key&quot;: &quot;重庆&quot;
-  &#125;,
-];
-</code></pre>
-<h1 id="后端数据转换为-Tree-组件所需数据的算法"><a href="#后端数据转换为-Tree-组件所需数据的算法" class="headerlink" title="后端数据转换为 Tree 组件所需数据的算法"></a>后端数据转换为 Tree 组件所需数据的算法</h1><pre><code>let navs = [];
-if (OriginResult != undefined &amp;&amp; OriginResult.length &gt; 0) &#123;
-  // 先确认后端返回数据不为空
-  OriginResult.forEach((item, index) =&gt; &#123;
-    // 第一次遍历给省份数据加入key
-    let i = &#123;&#125;;
-    let PIndex = index++; // PIndex用于作最外层的key
-    if (item[&quot;city&quot;].length &gt; 1) &#123;
-      // 不是直辖市对应city就有多个
-      i[&quot;title&quot;] = item.province.name;
-      i[&quot;key&quot;] = PIndex;
-      i[&quot;children&quot;] = [];
-      OriginResult[PIndex].city.forEach((ii, IN) =&gt; &#123;
-        // 遍历当前索引下后端数据的city数据
-        let CIndex = IN++;
-        i[&quot;children&quot;].push(&#123;
-          // 插入children数据
-          title: ii.name,
-          key: PIndex + &quot;-&quot; + CIndex // 通过0-0作为key，方便后面判断城市和省份的所属关系
-        &#125;);
-      &#125;);
-      navs.push(i);
-    &#125; else &#123;
-      // 直辖市对应city就只有一个，为了满足后端接口入参需求
-      i[&quot;title&quot;] = item.province.name;
-      i[&quot;key&quot;] = item.province.name;
-      navs.push(i);
-    &#125;
-  &#125;);
-  this.setState(
-    &#123;
-      CityTreeList: this.state.CityTreeList.concat(navs)
-    &#125;,
-    () =&gt; &#123;
-      console.log(this.state.CityTreeList);
-    &#125;
-  );
-&#125;
-</code></pre>
-<p>现在后端数据已经整合到了 CityTreeList 中，且符合 Ant 的 Tree 组件格式要求。但后端要求入参符合如下格式，意味着我们触发确定接口保存用户所选省份和城市时需要再次遍历勾选内容进行数据重组</p>
-<pre><code>&quot;city&quot;: [
-  &#123;
-    &quot;province&quot;: &quot;string&quot;,
-    &quot;city&quot;: &quot;string&quot;
-  &#125;
-]
-</code></pre>
-<p>Ant 的 Tree 组件有一个 onCheck 属性，会记录用户点击的内容，平铺到 checkedKeys 数组中</p>
-<pre><code class="json">[
-  &quot;澳门&quot;,
-  &quot;蚌埠&quot;,
-  &quot;巢湖&quot;,
-  &quot;福建&quot;,
-  &quot;福安&quot;,
-  &quot;福州&quot;,
-  &quot;晋江&quot;,
-  &quot;宁德&quot;,
-  &quot;泉州&quot;,
-  &quot;武夷山&quot;
-]
-</code></pre>
-<h1 id="将勾选数据处理为后端入参形式"><a href="#将勾选数据处理为后端入参形式" class="headerlink" title="将勾选数据处理为后端入参形式"></a>将勾选数据处理为后端入参形式</h1><pre><code>onCheck = checkedKeys =&gt; &#123;
-  // console.log(&quot;onCheck&quot;, checkedKeys);
-  this.setState(&#123; checkedKeys &#125;);
-  let nav = [];
-  const &#123; CityTreeList &#125; = this.state;
-  checkedKeys.forEach(item =&gt; &#123; 
-    CityTreeList.forEach(x =&gt; &#123; 
-      if (x.key === item) &#123; 
-        nav.push(&#123;
-          province: item,
-          city: item
-        &#125;);
-      &#125; else if (x.children != undefined) &#123;
-        x.children.forEach(xx =&gt; &#123;
-          if (xx.key === item) &#123;
-            nav.push(&#123;
-              province: x.title,
-              city: xx.title
-            &#125;);
-          &#125;
-        &#125;);
-      &#125;
-    &#125;);
-  &#125;);
-  this.setState(
-    &#123;
-      city: nav
-    &#125;,
-    () =&gt; &#123;
-      this.props.sendCityData(this.state.city);
-    &#125;
-  );
-&#125;;
-</code></pre>
-<p>处理后的格式如下</p>
-<pre><code>[&#123; &quot;province&quot;: &quot;澳门&quot;, &quot;city&quot;: &quot;澳门&quot; &#125;, &#123; &quot;province&quot;: &quot;福建&quot;, &quot;city&quot;: &quot;福安&quot; &#125;]
-</code></pre>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
 
-            <hr>
-          </div>
-          <br>
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Tree Component Data Processing</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="https://github.com/EdisonVan/GraphBed/raw/master/AntTree-20191024.gif" srcset="/img/loading.gif" lazyload alt="AntTree-20191024.gif"></p>
+<h2 id="后端接口返回数据OriginResult"><a href="#后端接口返回数据OriginResult" class="headerlink" title="后端接口返回数据OriginResult"></a>后端接口返回数据<code>OriginResult</code></h2><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs prolog"><span class="hljs-string">&quot;result&quot;</span>: [<br>  &#123;<br>    <span class="hljs-string">&quot;province&quot;</span>: &#123;<br>      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;安徽&quot;</span>,<br>      “id”:<span class="hljs-string">&#x27;0-0&#x27;</span><br>    &#125;,<br>    <span class="hljs-string">&quot;city&quot;</span>: [<br>      &#123;<br>        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;安庆&quot;</span>,<br>        parentId:<span class="hljs-string">&#x27;0-0&#x27;</span><br>      &#125;,<br>      &#123;<br>        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;蚌埠&quot;</span><br>      &#125;,<br>    ]<br>  &#125;,<br>  &#123;<br>    <span class="hljs-string">&quot;province&quot;</span>: &#123;<br>      <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;重庆&quot;</span><br>    &#125;,<br>    <span class="hljs-string">&quot;city&quot;</span>: [<br>      &#123;<br>        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;重庆&quot;</span><br>      &#125;<br>    ]<br>  &#125;<br>]<br></code></pre></td></tr></table></figure>
+
+<h2 id="Ant-的-Tree-组件需要的数据格式如下"><a href="#Ant-的-Tree-组件需要的数据格式如下" class="headerlink" title="Ant 的 Tree 组件需要的数据格式如下"></a>Ant 的 Tree 组件需要的数据格式如下</h2><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs prolog">treeData: [<br>  &#123;<br>    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&#x27;安徽&#x27;</span>,<br>    <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-number">0</span>,<br>    <span class="hljs-string">&quot;children&quot;</span>: [<br>      &#123;<br>        <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&#x27;安庆&#x27;</span>,<br>        <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-string">&quot;0-0&quot;</span><br>      &#125;,<br>      &#123;<br>        <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&#x27;蚌埠&#x27;</span>,<br>        <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-string">&quot;0-1&quot;</span><br>      &#125;<br>    ],<br>  &#125;,<br>  &#123;<br>    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&#x27;重庆&#x27;</span>,<br>    <span class="hljs-string">&quot;key&quot;</span>: <span class="hljs-string">&quot;重庆&quot;</span><br>  &#125;,<br>];<br></code></pre></td></tr></table></figure>
+
+<h1 id="后端数据转换为-Tree-组件所需数据的算法"><a href="#后端数据转换为-Tree-组件所需数据的算法" class="headerlink" title="后端数据转换为 Tree 组件所需数据的算法"></a>后端数据转换为 Tree 组件所需数据的算法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> navs = [];<br><span class="hljs-keyword">if</span> (<span class="hljs-title class_">OriginResult</span> != <span class="hljs-literal">undefined</span> &amp;&amp; <span class="hljs-title class_">OriginResult</span>.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) &#123;<br>  <span class="hljs-comment">// 先确认后端返回数据不为空</span><br>  <span class="hljs-title class_">OriginResult</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">item, index</span>) =&gt;</span> &#123;<br>    <span class="hljs-comment">// 第一次遍历给省份数据加入key</span><br>    <span class="hljs-keyword">let</span> i = &#123;&#125;;<br>    <span class="hljs-keyword">let</span> <span class="hljs-title class_">PIndex</span> = index++; <span class="hljs-comment">// PIndex用于作最外层的key</span><br>    <span class="hljs-keyword">if</span> (item[<span class="hljs-string">&quot;city&quot;</span>].<span class="hljs-property">length</span> &gt; <span class="hljs-number">1</span>) &#123;<br>      <span class="hljs-comment">// 不是直辖市对应city就有多个</span><br>      i[<span class="hljs-string">&quot;title&quot;</span>] = item.<span class="hljs-property">province</span>.<span class="hljs-property">name</span>;<br>      i[<span class="hljs-string">&quot;key&quot;</span>] = <span class="hljs-title class_">PIndex</span>;<br>      i[<span class="hljs-string">&quot;children&quot;</span>] = [];<br>      <span class="hljs-title class_">OriginResult</span>[<span class="hljs-title class_">PIndex</span>].<span class="hljs-property">city</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">ii, IN</span>) =&gt;</span> &#123;<br>        <span class="hljs-comment">// 遍历当前索引下后端数据的city数据</span><br>        <span class="hljs-keyword">let</span> <span class="hljs-title class_">CIndex</span> = <span class="hljs-variable constant_">IN</span>++;<br>        i[<span class="hljs-string">&quot;children&quot;</span>].<span class="hljs-title function_">push</span>(&#123;<br>          <span class="hljs-comment">// 插入children数据</span><br>          <span class="hljs-attr">title</span>: ii.<span class="hljs-property">name</span>,<br>          <span class="hljs-attr">key</span>: <span class="hljs-title class_">PIndex</span> + <span class="hljs-string">&quot;-&quot;</span> + <span class="hljs-title class_">CIndex</span> <span class="hljs-comment">// 通过0-0作为key，方便后面判断城市和省份的所属关系</span><br>        &#125;);<br>      &#125;);<br>      navs.<span class="hljs-title function_">push</span>(i);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-comment">// 直辖市对应city就只有一个，为了满足后端接口入参需求</span><br>      i[<span class="hljs-string">&quot;title&quot;</span>] = item.<span class="hljs-property">province</span>.<span class="hljs-property">name</span>;<br>      i[<span class="hljs-string">&quot;key&quot;</span>] = item.<span class="hljs-property">province</span>.<span class="hljs-property">name</span>;<br>      navs.<span class="hljs-title function_">push</span>(i);<br>    &#125;<br>  &#125;);<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>(<br>    &#123;<br>      <span class="hljs-title class_">CityTreeList</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span>.<span class="hljs-property">CityTreeList</span>.<span class="hljs-title function_">concat</span>(navs)<br>    &#125;,<br>    <span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span>.<span class="hljs-property">CityTreeList</span>);<br>    &#125;<br>  );<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>现在后端数据已经整合到了 CityTreeList 中，且符合 Ant 的 Tree 组件格式要求。但后端要求入参符合如下格式，意味着我们触发确定接口保存用户所选省份和城市时需要再次遍历勾选内容进行数据重组</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs prolog"><span class="hljs-string">&quot;city&quot;</span>: [<br>  &#123;<br>    <span class="hljs-string">&quot;province&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,<br>    <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;string&quot;</span><br>  &#125;<br>]<br></code></pre></td></tr></table></figure>
+
+<p>Ant 的 Tree 组件有一个 onCheck 属性，会记录用户点击的内容，平铺到 checkedKeys 数组中</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">[</span><br>  <span class="hljs-string">&quot;澳门&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-string">&quot;蚌埠&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-string">&quot;巢湖&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-string">&quot;福建&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-string">&quot;福安&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-string">&quot;福州&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-string">&quot;晋江&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-string">&quot;宁德&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-string">&quot;泉州&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-string">&quot;武夷山&quot;</span><br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="将勾选数据处理为后端入参形式"><a href="#将勾选数据处理为后端入参形式" class="headerlink" title="将勾选数据处理为后端入参形式"></a>将勾选数据处理为后端入参形式</h1><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs pf"><span class="hljs-keyword">on</span>Check = checkedKeys =&gt; &#123;<br>  // console.<span class="hljs-keyword">log</span>(<span class="hljs-string">&quot;onCheck&quot;</span>, checkedKeys);<br>  this.<span class="hljs-built_in">set</span>State(&#123; checkedKeys &#125;);<br>  let nav = [];<br>  <span class="hljs-keyword">const</span> &#123; CityTreeList &#125; = this.<span class="hljs-keyword">state</span>;<br>  checkedKeys.<span class="hljs-keyword">for</span>Each(item =&gt; &#123; <br>    CityTreeList.<span class="hljs-keyword">for</span>Each(x =&gt; &#123; <br>      if (x.key === item) &#123; <br>        nav.push(&#123;<br>          province: item,<br>          city: item<br>        &#125;);<br>      &#125; else if (x.children != undefined) &#123;<br>        x.children.<span class="hljs-keyword">for</span>Each(xx =&gt; &#123;<br>          if (xx.key === item) &#123;<br>            nav.push(&#123;<br>              province: x.title,<br>              city: xx.title<br>            &#125;);<br>          &#125;<br>        &#125;);<br>      &#125;<br>    &#125;);<br>  &#125;);<br>  this.<span class="hljs-built_in">set</span>State(<br>    &#123;<br>      city: nav<br>    &#125;,<br>    () =&gt; &#123;<br>      this.props.sendCityData(this.<span class="hljs-keyword">state</span>.city);<br>    &#125;<br>  );<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>处理后的格式如下</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-attr">[&#123; <span class="hljs-string">&quot;province&quot;</span>: <span class="hljs-string">&quot;澳门&quot;</span>, <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;澳门&quot;</span> &#125;, &#123; <span class="hljs-string">&quot;province&quot;</span>: <span class="hljs-string">&quot;福建&quot;</span>, <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;福安&quot;</span> &#125;]</span><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Algorithms/" class="category-chain-item">Algorithms</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Taste-Algorithms/">#Taste-Algorithms</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Tree Component Data Processing</div>
+      <div>https://www.pengsifan.com/2019/10/24/TreeComponentAlgorithm/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Van</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年10月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
           <div>
             
-              <p>
-                <i class="iconfont icon-inbox"></i>
-                
-                  <a class="hover-with-bg" href="/categories/Algorithms">Algorithms</a>
-                  &nbsp;
-                
-              </p>
-            
-            <p>
-              <i class="iconfont icon-tag"></i>
               
-                <a class="hover-with-bg" href="/tags/Taste-Algorithms">Taste-Algorithms</a>
               
-            </p>
-            
-              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
             
           </div>
         </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/10/31/Code%20Review-%E7%A3%A8%E5%88%80%E4%B8%8D%E8%B4%B9%E7%A0%8D%E6%9F%B4%E5%8A%9F%EF%BC%81/" title="Code Review-磨刀不费砍柴功！">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Code Review-磨刀不费砍柴功！</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/09/19/%E4%BA%BA%E7%94%9F%E5%88%9D%E5%8D%8A%E9%A9%AC/" title="人生初半马！">
+                        <span class="hidden-mobile">人生初半马！</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
     </div>
-    <div class="d-none d-lg-block col-lg-2 toc-container">
+
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-  <div id="toc">
-    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
-    <div id="tocbot"></div>
-  </div>
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
   </div>
 </div>
 
-<!-- custom -->
 
 
-<!-- Comments -->
-<div class="col-lg-7 mx-auto nopadding-md">
-  <div class="container comments mx-auto" id="comments">
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
-  </div>
-</div>
 
     
-  </main>
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-    </a>
-  
-
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -357,116 +476,186 @@ if (OriginResult != undefined &amp;&amp; OriginResult.length &gt; 0) &#123;
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
 
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
     
-  </div>
-</footer>
 
-<!-- SCRIPTS -->
-
-<script src="/lib/jquery/jquery.min.js"></script>
-
-
-<script src="/lib/popper/popper.min.js"></script>
-
-
-<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-
-
-<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-  
     
-<script src="/lib/tocbot/tocbot.min.js"></script>
+  </main>
 
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
   
-<script src="/js/post.js"></script>
-
-
-
   
-<script src="/lib/prettify/prettify.min.js"></script>
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint linenums');
-      prettyPrint();
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
     })
   </script>
 
 
-  
-<script src="/lib/typed/typed.min.js"></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "Tree Component Data Processing&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-  
-<script src="/lib/anchor/anchor.min.js"></script>
-
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "false",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+        typing(text);
+      
+    })(window, document);
   </script>
+
 
 
 
   
-<script src="/js/local-search.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
     }
-  </script>
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>

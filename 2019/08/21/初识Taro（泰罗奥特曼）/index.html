@@ -1,43 +1,84 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.ico">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="description" content="Peng Sifan&#39;s self blog!">
-  <meta name="author" content="sifan.peng">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Van">
   <meta name="keywords" content="">
-  <title>初识泰罗奥特曼 ~ 彭思凡的个人网站</title>
   
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+    <meta name="description" content="[TOC] 快速搭建了一个泰罗 前提：保证 node 版本&gt;&#x3D;8.0.0  Step1.全局安装 Taro1yarn global add @tarojs&#x2F;cli  Step2.使用命令创建模板项目1taro init MyFirstTaro  Step3.使用 yarn 安装依赖12cd MyFirstTaroyarn  编译预览及打包目前我只需要适配微信小程序，所以只对微信小程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识泰罗奥特曼">
+<meta property="og:url" content="https://www.pengsifan.com/2019/08/21/%E5%88%9D%E8%AF%86Taro%EF%BC%88%E6%B3%B0%E7%BD%97%E5%A5%A5%E7%89%B9%E6%9B%BC%EF%BC%89/index.html">
+<meta property="og:site_name" content="彭思凡的个人网站">
+<meta property="og:description" content="[TOC] 快速搭建了一个泰罗 前提：保证 node 版本&gt;&#x3D;8.0.0  Step1.全局安装 Taro1yarn global add @tarojs&#x2F;cli  Step2.使用命令创建模板项目1taro init MyFirstTaro  Step3.使用 yarn 安装依赖12cd MyFirstTaroyarn  编译预览及打包目前我只需要适配微信小程序，所以只对微信小程">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-20T21:39:47.000Z">
+<meta property="article:modified_time" content="2022-10-02T06:57:10.805Z">
+<meta property="article:author" content="sifan.peng">
+<meta property="article:tag" content="React 那些事儿">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>初识泰罗奥特曼 - 彭思凡的个人网站</title>
 
-  
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
-  
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
 
-  
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
 
-  
-<link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  
-    
-<link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
-<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.pengsifan.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
 
   
@@ -45,11 +86,17 @@
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -63,198 +110,213 @@
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">Archives</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">Categories</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">Tags</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">About</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
     </div>
   </div>
-
-
 </nav>
 
-    <div class="view intro-2"
-         style="background: url('/img/default.png')no-repeat center center;
-           background-size: cover;
-           background-attachment: fixed;">
-      <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
-              
-            </span>
+  
 
-            
-              <br>
-              <p>星期三, 八月 21日 2019, 5:39 凌晨</p>
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="初识泰罗奥特曼"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-08-21 05:39" pubdate>
+          2019年8月21日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          76 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="py-5 z-depth-3" id="board">
-        <div class="post-content mx-auto">
-          <div class="markdown-body">
-            <p>[TOC]</p>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">初识泰罗奥特曼</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>[TOC]</p>
 <h1 id="快速搭建了一个泰罗"><a href="#快速搭建了一个泰罗" class="headerlink" title="快速搭建了一个泰罗"></a>快速搭建了一个泰罗</h1><blockquote>
 <p>前提：保证 node 版本&gt;&#x3D;8.0.0</p>
 </blockquote>
-<h2 id="Step1-全局安装-Taro"><a href="#Step1-全局安装-Taro" class="headerlink" title="Step1.全局安装 Taro"></a>Step1.全局安装 Taro</h2><pre><code class="bash">yarn global add @tarojs/cli
-</code></pre>
-<h2 id="Step2-使用命令创建模板项目"><a href="#Step2-使用命令创建模板项目" class="headerlink" title="Step2.使用命令创建模板项目"></a>Step2.使用命令创建模板项目</h2><pre><code class="bash">taro init MyFirstTaro
-</code></pre>
-<h2 id="Step3-使用-yarn-安装依赖"><a href="#Step3-使用-yarn-安装依赖" class="headerlink" title="Step3.使用 yarn 安装依赖"></a>Step3.使用 yarn 安装依赖</h2><pre><code class="bash">cd MyFirstTaro
-yarn
-</code></pre>
+<h2 id="Step1-全局安装-Taro"><a href="#Step1-全局安装-Taro" class="headerlink" title="Step1.全局安装 Taro"></a>Step1.全局安装 Taro</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yarn global add @tarojs/cli<br></code></pre></td></tr></table></figure>
+
+<h2 id="Step2-使用命令创建模板项目"><a href="#Step2-使用命令创建模板项目" class="headerlink" title="Step2.使用命令创建模板项目"></a>Step2.使用命令创建模板项目</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">taro init MyFirstTaro<br></code></pre></td></tr></table></figure>
+
+<h2 id="Step3-使用-yarn-安装依赖"><a href="#Step3-使用-yarn-安装依赖" class="headerlink" title="Step3.使用 yarn 安装依赖"></a>Step3.使用 yarn 安装依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> MyFirstTaro<br>yarn<br></code></pre></td></tr></table></figure>
+
 <h1 id="编译预览及打包"><a href="#编译预览及打包" class="headerlink" title="编译预览及打包"></a>编译预览及打包</h1><p>目前我只需要适配微信小程序，所以只对微信小程序进行编译预览及打包</p>
-<pre><code class="bash">yarn dev:weapp --watch # 添加watch来监听文件修改
-yarn build:weapp # build 模式：无--watch，将不会监听文件修改，并会对代码进行压缩打包
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">yarn dev:weapp --watch <span class="hljs-comment"># 添加watch来监听文件修改</span><br>yarn build:weapp <span class="hljs-comment"># build 模式：无--watch，将不会监听文件修改，并会对代码进行压缩打包</span><br></code></pre></td></tr></table></figure>
+
 <p>如果在编译时想禁用 ESLint 检查，可以在命令前加入 <code>ESLINT=false</code> 参数</p>
-<pre><code class="bash">ESLINT=false taro build --type weapp --watch
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ESLINT=<span class="hljs-literal">false</span> taro build --<span class="hljs-built_in">type</span> weapp --watch<br></code></pre></td></tr></table></figure>
+
 <!-- 此处后期添加一个效果图 -->
 
 <h1 id="文件配置"><a href="#文件配置" class="headerlink" title="文件配置"></a>文件配置</h1><h2 id="格式化工具"><a href="#格式化工具" class="headerlink" title="格式化工具"></a>格式化工具</h2><blockquote>
 <p>VsCode 安装好格式化插件 prettierrc 的前提下</p>
 </blockquote>
 <p><strong>.prettierrc.js</strong></p>
-<pre><code class="js">/**
- * 默认的一些配置
- * printWidth: 80,
- * tabWidth: 2,
- * useTabs: false
- * quoteProps:as-needed 对象的属性只有需要时才添加引号
- * jsxSingleQuote: false jsx中使用单引号
- * trailingComma: none 数组和对象的尾逗号
- * bracketSpacing: true 对象左右大括号各有一个空格 &#123; foo: bar &#125;
- * jsxBracketSameLine: false jsx中标签多行属性的第一个 &gt; 是单独一行还是在行尾
- * arrowParens: avoid 箭头函数只有一个参数时，尽可能地省略括号
- */
-module.exports = &#123;
-  singleQuote: true, // 单引号
-  semi: false,
-  arrowParens: &#39;always&#39;,
-  trailingComma: &#39;es5&#39;, // 是否使用尾逗号，有三个可选值：&lt;none|es5|all&gt;
-&#125;;
-// 无分号，箭头函数参数必有括号，尾逗号
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 默认的一些配置</span><br><span class="hljs-comment"> * printWidth: 80,</span><br><span class="hljs-comment"> * tabWidth: 2,</span><br><span class="hljs-comment"> * useTabs: false</span><br><span class="hljs-comment"> * quoteProps:as-needed 对象的属性只有需要时才添加引号</span><br><span class="hljs-comment"> * jsxSingleQuote: false jsx中使用单引号</span><br><span class="hljs-comment"> * trailingComma: none 数组和对象的尾逗号</span><br><span class="hljs-comment"> * bracketSpacing: true 对象左右大括号各有一个空格 &#123; foo: bar &#125;</span><br><span class="hljs-comment"> * jsxBracketSameLine: false jsx中标签多行属性的第一个 &gt; 是单独一行还是在行尾</span><br><span class="hljs-comment"> * arrowParens: avoid 箭头函数只有一个参数时，尽可能地省略括号</span><br><span class="hljs-comment"> */</span><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">singleQuote</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">// 单引号</span><br>  <span class="hljs-attr">semi</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-attr">arrowParens</span>: <span class="hljs-string">&#x27;always&#x27;</span>,<br>  <span class="hljs-attr">trailingComma</span>: <span class="hljs-string">&#x27;es5&#x27;</span>, <span class="hljs-comment">// 是否使用尾逗号，有三个可选值：&lt;none|es5|all&gt;</span><br>&#125;;<br><span class="hljs-comment">// 无分号，箭头函数参数必有括号，尾逗号</span><br></code></pre></td></tr></table></figure>
+
 <p><strong>project.config.json 配置</strong><br>Taro 模板创建的项目默认拥有 <code>project.config.json</code> 这一项目配置文件<strong>只用于适配微信小程序</strong>，要适配其他平台要进行相应 json 文件的配置，具体可看<a target="_blank" rel="noopener" href="https://nervjs.github.io/taro/docs/project-config.html">Taro 官网-项目配置</a></p>
-<pre><code class="json">&#123;
-  &quot;miniprogramRoot&quot;: &quot;dist/&quot;,
-  &quot;projectname&quot;: &quot;MyFirstTaro&quot;,
-  &quot;description&quot;: &quot;Can&#39;t Tell U&quot;,
-  &quot;appid&quot;: &quot;wxf694b87c0666666&quot;,
-  &quot;setting&quot;: &#123;
-    &quot;urlCheck&quot;: true,
-    &quot;es6&quot;: false,
-    &quot;postcss&quot;: false,
-    &quot;minified&quot;: false,
-    &quot;coverView&quot;: true,
-    &quot;babelSetting&quot;: &#123;
-      &quot;ignore&quot;: [],
-      &quot;outputPath&quot;: &quot;&quot;
-    &#125;
-  &#125;,
-  &quot;compileType&quot;: &quot;miniprogram&quot;,
-  &quot;simulatorType&quot;: &quot;wechat&quot;,
-  &quot;simulatorPluginLibVersion&quot;: &#123;&#125;,
-  &quot;condition&quot;: &#123;&#125;
-&#125;
-</code></pre>
-<h1 id="Taro-页面模板"><a href="#Taro-页面模板" class="headerlink" title="Taro 页面模板"></a>Taro 页面模板</h1><pre><code class="jsx">import Taro, &#123; Component &#125; from &#39;@tarojs/taro&#39;;
-import &#123; View, Text &#125; from &#39;@tarojs/components&#39;;
-import &#39;./app.less&#39;;
-import &#39;./index.less&#39;;
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;miniprogramRoot&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;dist/&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;projectname&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;MyFirstTaro&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Can&#x27;t Tell U&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;appid&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;wxf694b87c0666666&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;setting&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;urlCheck&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;es6&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;postcss&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;minified&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">false</span></span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;coverView&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;babelSetting&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;ignore&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>      <span class="hljs-attr">&quot;outputPath&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;compileType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;miniprogram&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;simulatorType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;wechat&quot;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;simulatorPluginLibVersion&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;condition&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
 
-class LoginFindpassword extends Component &#123;
-  constructor(props) &#123;
-    super(props);
-    this.state = &#123;&#125;;
-  &#125;
-  componentWillMount() &#123;
-    console.log(&#39;this.$router.params&#39;);
-    console.log(this.$router.params);
-  &#125;
-  componentDidMount() &#123;&#125;
-  componentDidHide() &#123;&#125;
-  componentDidShow() &#123;&#125;
-  // 项目配置
-  config = &#123;
-    navigationBarTitleText: &#39;忘记密码&#39;,
-  &#125;;
+<h1 id="Taro-页面模板"><a href="#Taro-页面模板" class="headerlink" title="Taro 页面模板"></a>Taro 页面模板</h1><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Taro</span>, &#123; <span class="hljs-title class_">Component</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@tarojs/taro&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">View</span>, <span class="hljs-title class_">Text</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@tarojs/components&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./app.less&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">&#x27;./index.less&#x27;</span>;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">LoginFindpassword</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Component</span> &#123;<br>  <span class="hljs-title function_">constructor</span>(<span class="hljs-params">props</span>) &#123;<br>    <span class="hljs-variable language_">super</span>(props);<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span> = &#123;&#125;;<br>  &#125;<br>  <span class="hljs-title function_">componentWillMount</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;this.$router.params&#x27;</span>);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">$router</span>.<span class="hljs-property">params</span>);<br>  &#125;<br>  <span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) &#123;&#125;<br>  <span class="hljs-title function_">componentDidHide</span>(<span class="hljs-params"></span>) &#123;&#125;<br>  <span class="hljs-title function_">componentDidShow</span>(<span class="hljs-params"></span>) &#123;&#125;<br>  <span class="hljs-comment">// 项目配置</span><br>  config = &#123;<br>    <span class="hljs-attr">navigationBarTitleText</span>: <span class="hljs-string">&#x27;忘记密码&#x27;</span>,<br>  &#125;;<br><br>  <span class="hljs-comment">// JS方法</span><br>  <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">const</span> &#123;&#125; = <span class="hljs-variable language_">this</span>.<span class="hljs-property">props</span>;<br>    <span class="hljs-keyword">const</span> &#123;&#125; = <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span>;<br>    <span class="hljs-keyword">return</span> (<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&#x27;page&#x27;</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span>&gt;</span>Hello Taro<span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span><br>    );<br>  &#125;<br>&#125;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title class_">LoginFindpassword</span>;<br></code></pre></td></tr></table></figure>
 
-  // JS方法
-  render() &#123;
-    const &#123;&#125; = this.props;
-    const &#123;&#125; = this.state;
-    return (
-      &lt;View className=&#39;page&#39;&gt;
-        &lt;Text&gt;Hello Taro&lt;/Text&gt;
-      &lt;/View&gt;
-    );
-  &#125;
-&#125;
-export default LoginFindpassword;
-</code></pre>
 <h1 id="与微信小程序原生写法的常见不同写法"><a href="#与微信小程序原生写法的常见不同写法" class="headerlink" title="与微信小程序原生写法的常见不同写法"></a>与微信小程序原生写法的常见不同写法</h1><ul>
 <li><code>bindfocus</code> 改用 <code>onFocus</code> 替代</li>
 </ul>
-<pre><code class="jsx">&lt;Input bindfocus=&#123;this.onFocus&#125; /&gt;  =&gt; &lt;Input onFocus=&#123;this.onFocus&#125; /&gt;
-</code></pre>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsx">&lt;<span class="hljs-title class_">Input</span> bindfocus=&#123;<span class="hljs-variable language_">this</span>.<span class="hljs-property">onFocus</span>&#125; /&gt;  =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Input</span> <span class="hljs-attr">onFocus</span>=<span class="hljs-string">&#123;this.onFocus&#125;</span> /&gt;</span></span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li><code>bindtap</code> 改用 <code>onClick</code> 替代</li>
 </ul>
-<pre><code class="jsx">&lt;View bindtap=&#123;this.onTag&#125; /&gt; =&gt; &lt;View onClick=&#123;this.onTag&#125; /&gt;
-</code></pre>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsx">&lt;<span class="hljs-title class_">View</span> bindtap=&#123;<span class="hljs-variable language_">this</span>.<span class="hljs-property">onTag</span>&#125; /&gt; =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;this.onTag&#125;</span> /&gt;</span></span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li><code>animationEnd</code> 改用 <code>onAnimationEnd</code> 替代</li>
 </ul>
-<pre><code class="jsx">&lt;CustomElement animationEnd=&#123;this.data.onAnimationEnd&#125; /&gt; =&gt; &lt;CustomElement onAnimationEnd=&#123;this.state.onAnimationEnd&#125; /&gt;
-</code></pre>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsx">&lt;<span class="hljs-title class_">CustomElement</span> animationEnd=&#123;<span class="hljs-variable language_">this</span>.<span class="hljs-property">data</span>.<span class="hljs-property">onAnimationEnd</span>&#125; /&gt; =&gt; <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">CustomElement</span> <span class="hljs-attr">onAnimationEnd</span>=<span class="hljs-string">&#123;this.state.onAnimationEnd&#125;</span> /&gt;</span></span><br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>bindchange 该用 onChange 替代</li>
 <li>placeholder&#x3D;””改用 placeholder&#x3D;{} 替代</li>
@@ -274,178 +336,62 @@ export default LoginFindpassword;
 <li>页面退出时在小程序里对应的生命周期是 onUnload 在 Taro 中对应 componentWillUnmount()这一块</li>
 <li>动态修改 title：</li>
 </ul>
-<pre><code>Taro.setNavigationBarTitle(&#123;
-  title: &#39;登录&#39;
-&#125;);
-</code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css">Taro<span class="hljs-selector-class">.setNavigationBarTitle</span>(&#123;<br>  title: <span class="hljs-string">&#x27;登录&#x27;</span><br>&#125;);<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>使用<code>map</code>方法替换成小程序中<code>wx:for</code>,且要注意 Taro 中 map 后索引通过 map(item,index)后给对应事件通过 bind(this,index)的方式获取索引 index，而不能使用小程序常用的自定义方法’data-xxx’  <!-- - `AppIdentity: function ()`改为`AppIdentity=()=>` -->
 <strong>微信原生</strong></li>
 </ul>
-<pre><code class="js">&lt;view className=&quot;route-list&quot; wx:for=&#123;orderList&#125; wx:for-item=&quot;order&quot; bindtap=&quot;routeChoosedTap&quot; data-id=&#123;index&#125; wx:key=&quot;orderList&quot;&gt;
-  &#123;&#123;order.test&#125;&#125;
-&lt;/view&gt;
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;view className=<span class="hljs-string">&quot;route-list&quot;</span> <span class="hljs-attr">wx</span>:<span class="hljs-keyword">for</span>=&#123;orderList&#125; <span class="hljs-attr">wx</span>:<span class="hljs-keyword">for</span>-item=<span class="hljs-string">&quot;order&quot;</span> bindtap=<span class="hljs-string">&quot;routeChoosedTap&quot;</span> data-id=&#123;index&#125; <span class="hljs-attr">wx</span>:key=<span class="hljs-string">&quot;orderList&quot;</span>&gt;<br>  &#123;&#123;order.<span class="hljs-property">test</span>&#125;&#125;<br>&lt;/view&gt;<br></code></pre></td></tr></table></figure>
+
 <p><strong>Taro</strong></p>
-<pre><code class="js">&#123;
-  orderList.map((order, index) =&gt; &#123;
-    return (
-      &lt;View
-        className=&#39;route-list&#39;
-        onClick=&#123;this.routeChoosedTap&#125;
-        data-id=&#123;index&#125;
-        taroKey=&#39;orderList&#39;
-      &gt;
-        &#123;order.test&#125;
-      &lt;/View&gt;
-    );
-  &#125;);
-&#125;
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js">&#123;<br>  orderList.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">order, index</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">return</span> (<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span></span></span><br><span class="hljs-tag"><span class="language-xml">        <span class="hljs-attr">className</span>=<span class="hljs-string">&#x27;route-list&#x27;</span></span></span><br><span class="hljs-tag"><span class="language-xml">        <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;this.routeChoosedTap&#125;</span></span></span><br><span class="hljs-tag"><span class="language-xml">        <span class="hljs-attr">data-id</span>=<span class="hljs-string">&#123;index&#125;</span></span></span><br><span class="hljs-tag"><span class="language-xml">        <span class="hljs-attr">taroKey</span>=<span class="hljs-string">&#x27;orderList&#x27;</span></span></span><br><span class="hljs-tag"><span class="language-xml">      &gt;</span></span><br><span class="language-xml">        &#123;order.test&#125;</span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span><br>    );<br>  &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <ul>
 <li>taroKey 替换微信小程序的 wx:key，用于循环渲染原生小程序组件，赋予每个元素唯一确定标识</li>
 </ul>
 <p><strong>原生</strong></p>
-<pre><code class="jsx">&lt;view wx:key=&#123;statusArr&#125;&gt;&#123;item.message&#125;&lt;/view&gt;
-</code></pre>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsx">&lt;view <span class="hljs-attr">wx</span>:key=&#123;statusArr&#125;&gt;&#123;item.<span class="hljs-property">message</span>&#125;&lt;/view&gt;<br></code></pre></td></tr></table></figure>
+
 <p><strong>Taro</strong></p>
-<pre><code class="jsx">&lt;view taroKey=&#123;statusArr&#125;&gt;&#123;item.message&#125;&lt;/view&gt;
-</code></pre>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsx">&lt;view taroKey=&#123;statusArr&#125;&gt;&#123;item.<span class="hljs-property">message</span>&#125;&lt;/view&gt;<br></code></pre></td></tr></table></figure>
+
 <h1 id="你不得不避免的坑"><a href="#你不得不避免的坑" class="headerlink" title="你不得不避免的坑"></a>你不得不避免的坑</h1><h2 id="因为-setState-异步导致的问题"><a href="#因为-setState-异步导致的问题" class="headerlink" title="因为 setState 异步导致的问题"></a>因为 setState 异步导致的问题</h2><p>this.data.orderList &#x3D; []时会直接操作 data 中的数据，而 React 语法使用 setState 是有延时的，所以要放在 setState 的会提到中执行</p>
 <blockquote>
 <p>场景：<br>登录成功则通过 Taro.setStorage 缓存一个 key，并将 hasLogin 设置为 true<br>首页通过 getStorage 来获取指定 key 来判断是否登录成功<br>如果在 complete 中通过 setState 更新 hasLogin，但 setState 是异步操作，所以 getStorage 事件里获取的 hasLogin 还是 false，所以页面登录进去又会跳回登录页面(login&#x2F;index)！</p>
 </blockquote>
-<pre><code class="js">Taro.getStorage(&#123;
-  key: &#39;User&#39;,
-  success: function (res) &#123;
-    if (res.data) &#123;
-      globalData.User = res.data;
-      console.log(&#39;成功得到key&#39;);
-      that.setState(&#123;
-        hasLogin: true,
-      &#125;);
-    &#125;
-  &#125;,
-  complete: function () &#123;
-    // 无论接口调用结束的回调函数
-    if (!that.state.hasLogin) &#123;
-      console.log(&#39;Test3&#39;);
-      console.log(that.state.hasLogin);
-      Taro.redirectTo(&#123;
-        url: &#39;../login/index&#39;,
-      &#125;);
-    &#125;
-  &#125;,
-&#125;);
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Taro</span>.<span class="hljs-title function_">getStorage</span>(&#123;<br>  <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;User&#x27;</span>,<br>  <span class="hljs-attr">success</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) &#123;<br>    <span class="hljs-keyword">if</span> (res.<span class="hljs-property">data</span>) &#123;<br>      globalData.<span class="hljs-property">User</span> = res.<span class="hljs-property">data</span>;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;成功得到key&#x27;</span>);<br>      that.<span class="hljs-title function_">setState</span>(&#123;<br>        <span class="hljs-attr">hasLogin</span>: <span class="hljs-literal">true</span>,<br>      &#125;);<br>    &#125;<br>  &#125;,<br>  <span class="hljs-attr">complete</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-comment">// 无论接口调用结束的回调函数</span><br>    <span class="hljs-keyword">if</span> (!that.<span class="hljs-property">state</span>.<span class="hljs-property">hasLogin</span>) &#123;<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;Test3&#x27;</span>);<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(that.<span class="hljs-property">state</span>.<span class="hljs-property">hasLogin</span>);<br>      <span class="hljs-title class_">Taro</span>.<span class="hljs-title function_">redirectTo</span>(&#123;<br>        <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;../login/index&#x27;</span>,<br>      &#125;);<br>    &#125;<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>不在 complete 回调中使用路由跳转方法，转而放到 componentDidMount()生命周期中执行判断</p>
-<pre><code class="js">componentDidMount() &#123;
-  if (!that.state.hasLogin) &#123;
-    console.log(&quot;Test3&quot;);
-    console.log(that.state.hasLogin);
-    Taro.redirectTo(&#123;
-      url: &quot;../login/index&quot;
-    &#125;);
-  &#125;
-&#125;
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">if</span> (!that.<span class="hljs-property">state</span>.<span class="hljs-property">hasLogin</span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Test3&quot;</span>);<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(that.<span class="hljs-property">state</span>.<span class="hljs-property">hasLogin</span>);<br>    <span class="hljs-title class_">Taro</span>.<span class="hljs-title function_">redirectTo</span>(&#123;<br>      <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;../login/index&quot;</span><br>    &#125;);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <h2 id="要使用-stopPropagation-来取代-catchtap-阻止冒泡"><a href="#要使用-stopPropagation-来取代-catchtap-阻止冒泡" class="headerlink" title="要使用 stopPropagation 来取代 catchtap 阻止冒泡"></a>要使用 stopPropagation 来取代 catchtap 阻止冒泡</h2><p><strong>微信小程序写法</strong></p>
-<pre><code class="js">toggleDialog:function() &#123;
-  this.setData(&#123;
-    showDialog: false,
-  &#125;)
-&#125;
-&lt;View className=&#39;item-bd&#39; catchtap=&#39;toggleDialog&#39;&gt;
-  &#123;personCenter[yuyan].cancel&#125;
-&lt;/View&gt;
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-attr">toggleDialog</span>:<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123;<br>    <span class="hljs-attr">showDialog</span>: <span class="hljs-literal">false</span>,<br>  &#125;)<br>&#125;<br>&lt;<span class="hljs-title class_">View</span> className=<span class="hljs-string">&#x27;item-bd&#x27;</span> catchtap=<span class="hljs-string">&#x27;toggleDialog&#x27;</span>&gt;<br>  &#123;personCenter[yuyan].<span class="hljs-property">cancel</span>&#125;<br>&lt;/<span class="hljs-title class_">View</span>&gt;<br></code></pre></td></tr></table></figure>
+
 <p><strong>Taro 写法</strong></p>
-<pre><code class="js">toggleDialog = (e) =&gt; &#123;
-  e.stopPropagation();
-  this.setState(&#123;
-    showDialog: false,
-  &#125;);
-&#125;;
-&lt;View className=&#39;item-bd&#39; onClick=&#123;this.toggleDialog&#125;&gt;
-  &#123;personCenter[yuyan].cancel&#125;
-&lt;/View&gt;;
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js">toggleDialog = <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;<br>  e.<span class="hljs-title function_">stopPropagation</span>();<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>(&#123;<br>    <span class="hljs-attr">showDialog</span>: <span class="hljs-literal">false</span>,<br>  &#125;);<br>&#125;;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&#x27;item-bd&#x27;</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;this.toggleDialog&#125;</span>&gt;</span></span><br><span class="language-xml">  &#123;personCenter[yuyan].cancel&#125;</span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span>;<br></code></pre></td></tr></table></figure>
+
 <h2 id="本地资源引入"><a href="#本地资源引入" class="headerlink" title="本地资源引入"></a>本地资源引入</h2><p><a target="_blank" rel="noopener" href="https://nervjs.github.io/taro/docs/static-reference.html#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%A0%B7%E5%BC%8F%E4%B8%AD%E5%BC%95%E7%94%A8%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90">小程序样式中引用本地资源</a></p>
 <p>本地 config 文件夹下的 index.js 保持和 Taro 官网中一样的配置，但是使用<code>import note from &#39;../../images/path/note.png</code>仍然报错<code>Failed to load local image resource</code>，仔细检查发现路径也没有任何问题</p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>js 中引入本地图片，Taro 无法对其进行转换</p>
 <h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><p><strong>在 css 里引入图片</strong></p>
-<pre><code class="css">.note &#123;
-  background-image: url(../../images/note.png);
-&#125;
-</code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.note</span> &#123;<br>  <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">../../images/note.png</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <h2 id="currentTarget-获取索引的-Taro-写法与微信小程序写法异同"><a href="#currentTarget-获取索引的-Taro-写法与微信小程序写法异同" class="headerlink" title="currentTarget 获取索引的 Taro 写法与微信小程序写法异同"></a>currentTarget 获取索引的 Taro 写法与微信小程序写法异同</h2><p>场景：后端给出一个数组，数组中的数据依次渲染到列表中，用户点击对应的数据要拿到对应的索引进行操作<br><strong>微信小程序写法</strong></p>
 <blockquote>
 <p>通过 currentTarget 事件绑定的当前组件，dataset 属性结合自定义属性组成的集合 data-xxx</p>
 </blockquote>
-<pre><code class="js">//查看审核流程
-showCheckModal: function(e)&#123;
-  var that = this;
-  var id = e.currentTarget.dataset.id;
-  that.setData(&#123;
-    showCheck: true,
-    modalList: that.data.orderList[id].ApproveSteps
-  &#125;)
-&#125;,
-&lt;view catchtap=&quot;showCheckModal&quot; wx:if=&quot;&#123;&#123;order.ApproveSteps.length > 0 &#125;&#125;&quot; data-id=&quot;&#123;&#123;index&#125;&#125;&quot;&gt;
-&lt;/view&gt;
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//查看审核流程</span><br><span class="hljs-attr">showCheckModal</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)&#123;<br>  <span class="hljs-keyword">var</span> that = <span class="hljs-variable language_">this</span>;<br>  <span class="hljs-keyword">var</span> id = e.<span class="hljs-property">currentTarget</span>.<span class="hljs-property">dataset</span>.<span class="hljs-property">id</span>;<br>  that.<span class="hljs-title function_">setData</span>(&#123;<br>    <span class="hljs-attr">showCheck</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">modalList</span>: that.<span class="hljs-property">data</span>.<span class="hljs-property">orderList</span>[id].<span class="hljs-property">ApproveSteps</span><br>  &#125;)<br>&#125;,<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">catchtap</span>=<span class="hljs-string">&quot;showCheckModal&quot;</span> <span class="hljs-attr">wx:if</span>=<span class="hljs-string">&quot;&#123;&#123;order.ApproveSteps.length &gt; 0 &#125;&#125;&quot;</span> <span class="hljs-attr">data-id</span>=<span class="hljs-string">&quot;&#123;&#123;index&#125;&#125;&quot;</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
 <p><strong>Taro 写法</strong></p>
 <blockquote>
 <p>通过 map 将数据遍历渲染，然后通过 bind 将数据的索引传递给绑定事件</p>
 </blockquote>
-<pre><code class="js">//查看审核流程
-showCheckModal = (index, e) =&gt; &#123;
-  let id = index;
-  this.setState(&#123;
-    showCheck: true,
-    modalList: this.state.orderList[id].ApproveSteps,
-  &#125;);
-&#125;;
-&#123;
-  orderList.length &gt; 0 &amp;&amp;
-    orderList.map((order, i) =&gt; &#123;
-      return (
-        &lt;View
-          className=&#39;approveStatus&#39;
-          onClick=&#123;this.showCheckModal.bind(this, i)&#125;
-        &gt;
-          &lt;View&gt;&#123;Itinerary[yuyan].viewPro&#125;&lt;/View&gt;
-        &lt;/View&gt;
-      );
-    &#125;);
-&#125;
-</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//查看审核流程</span><br>showCheckModal = <span class="hljs-function">(<span class="hljs-params">index, e</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">let</span> id = index;<br>  <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>(&#123;<br>    <span class="hljs-attr">showCheck</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">modalList</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span>.<span class="hljs-property">orderList</span>[id].<span class="hljs-property">ApproveSteps</span>,<br>  &#125;);<br>&#125;;<br>&#123;<br>  orderList.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span> &amp;&amp;<br>    orderList.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">order, i</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">return</span> (<br>        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span></span></span><br><span class="hljs-tag"><span class="language-xml">          <span class="hljs-attr">className</span>=<span class="hljs-string">&#x27;approveStatus&#x27;</span></span></span><br><span class="hljs-tag"><span class="language-xml">          <span class="hljs-attr">onClick</span>=<span class="hljs-string">&#123;this.showCheckModal.bind(this,</span> <span class="hljs-attr">i</span>)&#125;</span></span><br><span class="hljs-tag"><span class="language-xml">        &gt;</span></span><br><span class="language-xml">          <span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span>&#123;Itinerary[yuyan].viewPro&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span><br>      );<br>    &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <h1 id="Taro-调用上一个页面方法"><a href="#Taro-调用上一个页面方法" class="headerlink" title="Taro 调用上一个页面方法"></a>Taro 调用上一个页面方法</h1><p>关键：<code>.$component.</code></p>
-<pre><code class="jsx">// 返回到个人信息
-Taro.showToast(&#123;
-  title: msg,
-  icon: &#39;none&#39;,
-  duration: 2000,
-  success: function () &#123;
-    let pages = Taro.getCurrentPages();
-    let prevPage = pages[pages.length - 2];
-    prevPage.$component.setState(
-      &#123;
-        userEmail: email,
-      &#125;,
-      () =&gt; &#123;
-        console.log(&#39;页面回退&#39;);
-        Taro.navigateBack(&#123;
-          delta: 1,
-          complete: function () &#123;
-            prevPage.$component.getBaseInfo(globalData.User.UserId);
-          &#125;,
-        &#125;);
-      &#125;
-    );
-  &#125;,
-&#125;);
-</code></pre>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-comment">// 返回到个人信息</span><br><span class="hljs-title class_">Taro</span>.<span class="hljs-title function_">showToast</span>(&#123;<br>  <span class="hljs-attr">title</span>: msg,<br>  <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;none&#x27;</span>,<br>  <span class="hljs-attr">duration</span>: <span class="hljs-number">2000</span>,<br>  <span class="hljs-attr">success</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">let</span> pages = <span class="hljs-title class_">Taro</span>.<span class="hljs-title function_">getCurrentPages</span>();<br>    <span class="hljs-keyword">let</span> prevPage = pages[pages.<span class="hljs-property">length</span> - <span class="hljs-number">2</span>];<br>    prevPage.<span class="hljs-property">$component</span>.<span class="hljs-title function_">setState</span>(<br>      &#123;<br>        <span class="hljs-attr">userEmail</span>: email,<br>      &#125;,<br>      <span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;页面回退&#x27;</span>);<br>        <span class="hljs-title class_">Taro</span>.<span class="hljs-title function_">navigateBack</span>(&#123;<br>          <span class="hljs-attr">delta</span>: <span class="hljs-number">1</span>,<br>          <span class="hljs-attr">complete</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>            prevPage.<span class="hljs-property">$component</span>.<span class="hljs-title function_">getBaseInfo</span>(globalData.<span class="hljs-property">User</span>.<span class="hljs-property">UserId</span>);<br>          &#125;,<br>        &#125;);<br>      &#125;<br>    );<br>  &#125;,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
 <h1 id="开发注意事项"><a href="#开发注意事项" class="headerlink" title="开发注意事项"></a>开发注意事项</h1><ul>
 <li>在 Taro 默认生成的模板都推荐用 ESLint 进行检测</li>
 <li>小程序不支持将 data 中任何一项的 value 设为 <code>undefined</code>，setState 时用<code>null</code>来代替 <code>undefined</code></li>
@@ -457,76 +403,200 @@ Taro.showToast(&#123;
 <li>写入 Taro 页面模板</li>
 <li>写入 wxml</li>
 </ol>
-<p>&#96;&#96;&#96;</p>
-<ul>
-<li><code>&quot;&#123;&#123;` 改为 `&#123;`
-- `&#123;&#123;` 改为 `&#123;`
-- `&#125;&#125;&quot;</code> 改为 <code>&#125;</code></li>
-<li>}} 改为 }</li>
-<li>&lt;view 改为&lt;View</li>
-<li>class&#x3D;”改为 className&#x3D;’</li>
-<li>className 的模版字符串引入</li>
-<li>style&#x3D;”改为 style&#x3D;</li>
-</ul>
+<figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-bullet">-</span> <span class="hljs-string">`&quot;&#123;&#123;` 改为 `&#123;`</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">`&#123;&#123;` 改为 `&#123;`</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">`&#125;&#125;&quot;` 改为 `&#125;`</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">&#125;&#125; 改为 &#125;</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">&lt;view 改为&lt;View</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">class=&quot;改为 className=&#x27;</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">className 的模版字符串引入</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">style=&quot;改为 style=&#123;&#123;</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">wx:if 改为&#123;company === &#x27;Mck&#x27; &amp;&amp; (</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">wx:for 参考 Taro 笔记改为 map 遍历</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">全局修改事件</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">所有的 bind 事件修改</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">`bindinput=&quot;`改写为`onInput=&#123;this.`</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">`bindtap=&quot;`改写为`onClick=&#123;this.`</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">bindchange 该用 onChange 替代</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">maxlength=&quot;&quot;改用 maxLength=&#123;&#125;替代</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">填充 const &#123;&#125; = this.state</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">&lt;label 改为&lt;Label （先引入 Label）</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">Checkbox-group 改为&lt;CheckboxGroup （先引入 Checkbox）</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">&lt;checkbox 改为&lt;Checkbox （先引入 Checkbox）</span><br><span class="hljs-bullet">-</span> <span class="hljs-string">&lt;text 改为&lt;Text （先引入 Text）</span><br></code></pre></td></tr></table></figure>
 
-            <hr>
-          </div>
-          <br>
+<ol start="3">
+<li>写入生命周期方法</li>
+<li>写入 js 方法</li>
+</ol>
+<ul>
+<li>删除{}&#x3D;state 中无效数值 4.全局修改</li>
+<li><code>setData</code> &#x3D;&gt;<code>setState</code></li>
+<li><code>wx.</code>&#x3D;&gt;<code>Taro.</code></li>
+<li><code>.data.</code>&#x3D;&gt;<code>.state.</code><ul>
+<li>注意 res.data 不要改成了 res.state</li>
+</ul>
+</li>
+<li><code>: function(e) </code>&#x3D;&gt;<code>=(e)=&gt;</code> 5.全局修改<code>: function() </code> &#x3D;&gt;<code>=()=&gt;</code> (fail、success 等除外)</li>
+</ul>
+<ol start="5">
+<li>},的,去掉</li>
+<li>onLoad 的 options 参数改用路由传参</li>
+<li>app.jsx 设置页面路径<br>检查 json 命名<br>检测 setState<br>getCurrentPages、prevPage 修改<br>完成倒计时</li>
+</ol>
+<h1 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h1><p>在 run bulid 后选择 dist 文件夹进行上传发布即可</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81/" class="category-chain-item">快乐编码</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/React-%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">#React 那些事儿</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>初识泰罗奥特曼</div>
+      <div>https://www.pengsifan.com/2019/08/21/初识Taro（泰罗奥特曼）/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Van</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年8月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
           <div>
             
-              <p>
-                <i class="iconfont icon-inbox"></i>
-                
-                  <a class="hover-with-bg" href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81">快乐编码</a>
-                  &nbsp;
-                
-              </p>
-            
-            <p>
-              <i class="iconfont icon-tag"></i>
               
-                <a class="hover-with-bg" href="/tags/React%20%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF">React 那些事儿</a>
               
-            </p>
-            
-              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
             
           </div>
         </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/09/19/%E4%BA%BA%E7%94%9F%E5%88%9D%E5%8D%8A%E9%A9%AC/" title="人生初半马！">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">人生初半马！</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/08/20/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAVue%E9%A1%B9%E7%9B%AE/" title="手把手教你新建一个Vue项目">
+                        <span class="hidden-mobile">手把手教你新建一个Vue项目</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
       </div>
     </div>
-    <div class="d-none d-lg-block col-lg-2 toc-container">
+
+    <div class="side-col d-none d-lg-block col-lg-2">
       
-  <div id="toc">
-    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
-    <div id="tocbot"></div>
-  </div>
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
 
     </div>
   </div>
 </div>
 
-<!-- custom -->
 
 
-<!-- Comments -->
-<div class="col-lg-7 mx-auto nopadding-md">
-  <div class="container comments mx-auto" id="comments">
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
-  </div>
-</div>
 
     
-  </main>
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-    </a>
-  
-
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -539,116 +609,186 @@ Taro.showToast(&#123;
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
 
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
     
-  </div>
-</footer>
 
-<!-- SCRIPTS -->
-
-<script src="/lib/jquery/jquery.min.js"></script>
-
-
-<script src="/lib/popper/popper.min.js"></script>
-
-
-<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-
-
-<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-  
     
-<script src="/lib/tocbot/tocbot.min.js"></script>
+  </main>
 
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
   
-<script src="/js/post.js"></script>
-
-
-
   
-<script src="/lib/prettify/prettify.min.js"></script>
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint linenums');
-      prettyPrint();
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
     })
   </script>
 
 
-  
-<script src="/lib/typed/typed.min.js"></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "初识泰罗奥特曼&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-  
-<script src="/lib/anchor/anchor.min.js"></script>
-
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "false",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+        typing(text);
+      
+    })(window, document);
   </script>
+
 
 
 
   
-<script src="/js/local-search.js"></script>
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
     }
-  </script>
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>

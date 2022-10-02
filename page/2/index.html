@@ -1,43 +1,75 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.ico">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  
+  <meta name="theme-color" content="#2f4154">
   <meta name="author" content="sifan.peng">
   <meta name="keywords" content="">
+  
+    <meta name="description" content="Peng Sifan&#39;s self blog!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="彭思凡的个人网站">
+<meta property="og:url" content="https://www.pengsifan.com/page/2/index.html">
+<meta property="og:site_name" content="彭思凡的个人网站">
+<meta property="og:description" content="Peng Sifan&#39;s self blog!">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="sifan.peng">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
   <title>彭思凡的个人网站</title>
-  
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-  
-<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
-  
-<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
 
-  
-<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
 
-  
-<link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
-  
-    
-<link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
 
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
-<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.pengsifan.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
 
   
@@ -45,11 +77,17 @@
 
 
 <body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -63,75 +101,117 @@
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/archives/">Archives</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/categories/">Categories</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/tags/">Tags</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
         
           
           
-          <li class="nav-item">
-            <a class="nav-link" href="/about/">About</a>
-          </li>
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
       </ul>
     </div>
   </div>
-
-
 </nav>
 
-    <div class="view intro-2"
-         style="background: url('https://i.loli.net/2018/05/26/5b0956f874889.jpg')no-repeat center center;
-           background-size: cover;
-           background-attachment: fixed;">
-      <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text fadeInUp">
-            <span class="h2" id="subtitle">
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
           
-            <div class="scroll-down-bar">
-              <i class="fa fa-angle-down scroll-down-arrow"></i>
-            </div>
+            <span id="subtitle" data-typed-text="An elegant Material-Design theme for Hexo"></span>
           
         </div>
+
+        
       </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
           
           <div class="container">
             <div class="row">
@@ -139,527 +219,561 @@
                 
 
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/12/%E4%B8%8D%E6%83%B3%E5%81%9AAPI%E5%B7%A5%E7%A8%8B%E5%B8%88/">
-        <p class="h4 index-header">不想做API工程师</p>
-        <div class="index-excerpt">
-          
-            <div class="index-text mb-1">曾有人跟我说说：‘高手与低手的区别在于读库能力与调试能力。’我觉得很在理，所以也制定一些源码阅读计划！
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/12/12/%E4%B8%8D%E6%83%B3%E5%81%9AAPI%E5%B7%A5%E7%A8%8B%E5%B8%88/" target="_self">
+          不想做API工程师
+        </a>
+      </h1>
 
-迷你React框架anujs源码
-
-</div>
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2019/12/12/%E4%B8%8D%E6%83%B3%E5%81%9AAPI%E5%B7%A5%E7%A8%8B%E5%B8%88/" target="_self">
+        <div>
+          曾有人跟我说说：‘高手与低手的区别在于读库能力与调试能力。’我觉得很在理，所以也制定一些源码阅读计划！  迷你React框架anujs源码
         </div>
       </a>
 
-        <div>
-          
-            <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-12&nbsp;&nbsp;
-          
-          
-            <i class="iconfont icon-inbox"></i>
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-12-12 05:39" pubdate>
+              2019-12-12
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB">源码阅读</a>&nbsp;
-            &nbsp;
-          
-          
-            <i class="iconfont icon-tag"></i>
-            
-              <a href="/tags/Ant-Design">Ant-Design</a>&nbsp;
-            
-          
-        </div>
-    </div>
-  </div>
 
-  <div class="row mb-4 mx-auto">
+<span class="category-chains">
+  
+  
     
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" class="category-chain-item">源码阅读</a>
+  
+  
+
+      </span>
     
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/10/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-        <p class="h4 index-header">React性能优化</p>
-        <div class="index-excerpt">
-          
-            <div class="index-text mb-1">项目中的代码分割import 静态引入写法
-import Home from &quot;./components/Home&quot;;
-import Login from &quot;./components/Login&quot;;
-...
-return(
-  &lt;Router&gt;
-    &lt;Switch&gt;
-      &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125; /&gt;
-      &lt;Route path=&quot;/login&quot; component=&#123;Login&#125; /&gt;
-      &lt;Route path=&quot;/posts&quot; component=&#123;Home&#125; /&gt;
-  ...
-)
+  
+</span>
 
-以上写法不管匹配到了哪一个 route，都是一次性地引入所有的组件。可以使用代码分割进行优化，实现只引入匹配到的 route 和对应组件。
-创建一个异步组件 asyncComponent 替换 impor</div>
-          
-        </div>
-      </a>
-
-        <div>
-          
-            <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-10&nbsp;&nbsp;
-          
-          
-            <i class="iconfont icon-inbox"></i>
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
             
-              <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81">快乐编码</a>&nbsp;
-            &nbsp;
-          
-          
-            <i class="iconfont icon-tag"></i>
+              <a href="/tags/Ant-Design/">#Ant-Design</a>
             
-              <a href="/tags/React%20%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF">React 那些事儿</a>&nbsp;
-            
-          
-        </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/09/%E6%95%88%E7%8E%87%E8%87%B3%E4%B8%8A%E7%9A%84Mobx/">
-        <p class="h4 index-header">效率至上的Mobx</p>
-        <div class="index-excerpt">
-          
-            <div class="index-text mb-1">为什么会考虑使用状态管理？项目开发中经常会碰到以下场景：1.业务系统许多接口，入参都需要传递登陆人 id
-userCode: localStorage.getItem(&#39;userCode&#39;),
-
-2.业务系统选择下拉框，如城市，销售业务员、车型、折旧选项等均为同一接口数据。
-// 获取司机信息
-getDrivers(name) &#123;
-  http
-    .get(&quot;/api/Common/GetDrivers&quot;, &#123;
-      Key: name
-    &#125;)
-    .then(res =&gt; &#123;
-      const &#123; success, result &#125; = res.data;
-      if (success) &#123;
-        if (Array.isArray(result)) &#123;
-          this.setState(&#123;
-            drivers: result
-          &#125;);
+          </div>
+        
       </div>
-          
-        </div>
-      </a>
-
-        <div>
-          
-            <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-09&nbsp;&nbsp;
-          
-          
-            <i class="iconfont icon-inbox"></i>
-            
-              <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81">快乐编码</a>&nbsp;
-            &nbsp;
-          
-          
-            <i class="iconfont icon-tag"></i>
-            
-              <a href="/tags/React%20%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF">React 那些事儿</a>&nbsp;
-            
-          
-        </div>
-    </div>
+    </article>
   </div>
 
-  <div class="row mb-4 mx-auto">
+  <div class="row mx-auto index-card">
     
     
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/31/Code%20Review-%E7%A3%A8%E5%88%80%E4%B8%8D%E8%B4%B9%E7%A0%8D%E6%9F%B4%E5%8A%9F%EF%BC%81/">
-        <p class="h4 index-header">Code Review-磨刀不费砍柴功！</p>
-        <div class="index-excerpt">
-          
-            <div class="index-text mb-1">Code Review和写自动化测试一样，都是磨刀不误砍柴工的工作!
-Commit 规范整理 CodeReview 规范、commit 内容
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/12/10/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" target="_self">
+          React性能优化
+        </a>
+      </h1>
 
-commit 规范分享
-
-Dev-Tool&#x2F;Front-end-Tool&#x2F;踩坑 Gti&#x2F;Content&#x2F;SubmitSpecification.md如何做好 Python 代码的 Code Review–章老师说
-
-
-✔ 每次代码提交应该都要确保是一个最小的完整功能✔ 每个 Commit 只应该干一件事✔ 每次提交后的代码库应该都是正常运行✔ 每次提交应该按照下面的规范添加操作类型✔ 每次 Commit 都要明确具体操作类型
-
-✨ Feat: 车辆管理（查看车辆信息） #650070🐛 Fix: 电子合同，驳回原因应有必填校验 #640609
-
-
-
-
-操作类型
-前缀
-Emoji 符号（可选）
-说明
-
-
-
-添加功能
-Feature 或 Feat
-✨
-后面要跟着对应功能的 iWork 编号
-
-
-优化代码（代码结构）
-Style
-🎨
-不影响代码功能，特指代码结构优化
-
-
-重构
-Refactor
-🔨
-大范围</div>
-          
-        </div>
-      </a>
-
-        <div>
-          
-            <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-31&nbsp;&nbsp;
-          
-          
-            <i class="iconfont icon-inbox"></i>
-            
-              <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81">快乐编码</a>&nbsp;
-            &nbsp;
-          
-          
-            <i class="iconfont icon-tag"></i>
-            
-              <a href="/tags/%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%BE%8E">编程之美</a>&nbsp;
-            
-          
-        </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/24/TreeComponentAlgorithm/">
-        <p class="h4 index-header">Tree Component Data Processing</p>
-        <div class="index-excerpt">
-          
-            <div class="index-text mb-1">效果
-后端接口返回数据OriginResult&quot;result&quot;: [
-  &#123;
-    &quot;province&quot;: &#123;
-      &quot;name&quot;: &quot;安徽&quot;,
-      “id”:&#39;0-0&#39;
-    &#125;,
-    &quot;city&quot;: [
-      &#123;
-        &quot;name&quot;: &quot;安庆&quot;,
-        parentId:&#39;0-0&#39;
-      &#125;,
-      &#123;
-        &quot;name&quot;: &quot;蚌埠&quot;
-      &#125;,
-    ]
-  &#125;,
-  &#123;
-    &quot;province&quot;: &#123;
-      &quot;name&quot;: &quot;重庆&quot;
-    &#125;,
-    &quot;city&quot;: [
-      &#123</div>
-          
-        </div>
-      </a>
-
-        <div>
-          
-            <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-24&nbsp;&nbsp;
-          
-          
-            <i class="iconfont icon-inbox"></i>
-            
-              <a href="/categories/Algorithms">Algorithms</a>&nbsp;
-            &nbsp;
-          
-          
-            <i class="iconfont icon-tag"></i>
-            
-              <a href="/tags/Taste-Algorithms">Taste-Algorithms</a>&nbsp;
-            
-          
-        </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/19/%E4%BA%BA%E7%94%9F%E5%88%9D%E5%8D%8A%E9%A9%AC/">
-        <p class="h4 index-header">人生初半马！</p>
-        <div class="index-excerpt">
-          
-            <div class="index-text mb-1">人生初半马！如果没办法停，你就要继续跑！大学老师说过最让我印象深刻的一句话是：“迷茫时，走出寝室、走出教室、走向操场！”
-2019 诸暨西施马拉松（绍兴半程马拉松 21.0975 公里）地点：绍兴市诸暨市（浙江省绍兴市诸暨市城市广场）时间：2019 年 11 月 17 日 07:30比赛路线 :诸暨城市广场 → 浣东北路 → 暨东路 → 环城东路 → 环城北路 → 迎宾路 → 西二环路 → 五纹岭隧道 → 环城南路 → 浣纱南路 → 浣纱大桥 → 浣东中路 → 诸暨城市广场（终点）
-
-赛事详情：http://www.zjxsmarathon.com/zjxsmarathon/Index/details/id/1.html
-
-赛前训练注意：每次训练&#x2F;比赛之前先上厕所把身体的垃圾排空
-热身1.关节热身：踝、膝、腰、肩2.慢跑10-15min3.关节操、伸展操
-跑步结束之后的肌群训练1.腿肌-&gt;跨步走&#x2F;深蹲（负重）2.腹肌-&gt;V型脚踏车3.背肌-&gt;俯卧打水4.手肌-&gt;俯卧撑
-赛前2个月（量和肌力的训练）
-7k (3次&#x2F;周)
-保持8-9mi</div>
-          
-        </div>
-      </a>
-
-        <div>
-          
-            <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-19&nbsp;&nbsp;
-          
-          
-            <i class="iconfont icon-inbox"></i>
-            
-              <a href="/categories/%E7%94%9F%E6%B4%BB">生活</a>&nbsp;
-            &nbsp;
-          
-          
-            <i class="iconfont icon-tag"></i>
-            
-              <a href="/tags/%E9%A9%AC%E6%8B%89%E6%9D%BE">马拉松</a>&nbsp;
-            
-          
-        </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/08/21/%E5%88%9D%E8%AF%86Taro%EF%BC%88%E6%B3%B0%E7%BD%97%E5%A5%A5%E7%89%B9%E6%9B%BC%EF%BC%89/">
-        <p class="h4 index-header">初识泰罗奥特曼</p>
-        <div class="index-excerpt">
-          
-            <div class="index-text mb-1">[TOC]
-快速搭建了一个泰罗
-前提：保证 node 版本&gt;&#x3D;8.0.0
-
-Step1.全局安装 Taroyarn global add @tarojs/cli
-
-Step2.使用命令创建模板项目taro init MyFirstTaro
-
-Step3.使用 yarn 安装依赖cd MyFirstTaro
-yarn
-
-编译预览及打包目前我只需要适配微信小程序，所以只对微信小程序进行编译预览及打包
-yarn dev:weapp --watch # 添加watch来监听文件修改
-yarn build:weapp # build 模式：无--watch，将不会监听文件修改，并会对代码进行压缩打包
-
-如果在编译时想禁用 ESLint 检查，可以在命令前加入 ESLINT=false 参数
-ESLINT=false taro build --type weapp --watch
-
-
-
-文件配置格式化工具
-VsCode 安装好格式化插件 prettierrc 的前提下
-
-.prettierrc.js
-/**
- * 默认的一些配置
- * printWidth: 80,
- * tabW</div>
-          
-        </div>
-      </a>
-
-        <div>
-          
-            <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-21&nbsp;&nbsp;
-          
-          
-            <i class="iconfont icon-inbox"></i>
-            
-              <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81">快乐编码</a>&nbsp;
-            &nbsp;
-          
-          
-            <i class="iconfont icon-tag"></i>
-            
-              <a href="/tags/React%20%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF">React 那些事儿</a>&nbsp;
-            
-          
-        </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/08/20/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAVue%E9%A1%B9%E7%9B%AE/">
-        <p class="h4 index-header">手把手教你新建一个Vue项目</p>
-        <div class="index-excerpt">
-          
-            <div class="index-text mb-1">
-下载安装 node.jsnode 官网下载地址控制台输入 node-v 检查自己系统有没有下载过 node使用 npm 包管理工具，推荐去国内最常用的库：https://cnpmjs.org国内用户在终端执行以下代码替换淘宝镜像进行下载，换成了淘宝了镜像，在国内网速很快。
-alias cnpm=&quot;npm --registry=https://registry.npm.taobao.org \
---cache=$HOME/.npm/.cache/cnpm \
---disturl=https://npm.taobao.org/mirrors/node \
---userconfig=$HOME/.cnpmrc&quot;
-
-
-alias（别名）的一串命令将 npm 重命名为 cnpm
-
-安装 vue-cli(vue-cli 是 vue 官方提供的脚手架工具)用 vue-cli 初始化项目的优势：
-成熟的 vue 项目架构设计
-本地测试服务器
-集成 webpack 打包上线方案
-
-安装系统要求：
-Node.js(&gt;&#x3D;4.x)
-Git
-一个能使用 node 的命令行终</div>
-          
-        </div>
-      </a>
-
-        <div>
-          
-            <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-20&nbsp;&nbsp;
-          
-          
-          
-            <i class="iconfont icon-tag"></i>
-            
-              <a href="/tags/Vue">Vue</a>&nbsp;
-            
-          
-        </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/08/06/HexoBlog-20190704/">
-        <p class="h4 index-header">低成本快速搭建个人博客</p>
-        <div class="index-excerpt">
-          
-            <div class="index-text mb-1">
-最小的成本搭建一个有自己域名的博客站点（Hexo 生成页面，托管于 GitHub，使用自己的域名，可以安心写作又不用花费很多心思定期维护）
-
-准备工作
-一个博客网站模板：Hexo&#x2F;Jekyll&#x2F;vuePress（这里我选用了 Hexo）
-
-
-主要涉及知识点：linux 基础命令，mysql 基础操作
-
-
-购买自己的域名（建议）
-
-
-百度不收录.github.io结尾的站点，直接使用 GitHub 托管的话，用户在百度上无法搜到自己站点上的内容；
-有 SSL（网址前面的 https:&#x2F;&#x2F;）比没有会在搜索引擎的排名中更加靠前
-在内容相同的情况下，有着自己的域名更加利于 SEO(搜索引擎的优化)
-
-Blog 框架：hexo 官网
-hexo 的特点
-支持 Markdown: 支持 Markdown 意味着你可以把精力从排版中解放出来.
-轻量: 无需拥有后台及数据库,专心写好你的文章
-一键部署: 可以通过 Git 或者 ftp 来将生成的静态页面部署到服务器或者主机空间中
-插件丰富: 丰富的插件可以满足你的各种需求.
-
-hexo 的工作机制
-基于 Nod</div>
-          
-        </div>
-      </a>
-
-        <div>
-          
-            <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-06&nbsp;&nbsp;
-          
-          
-          
-            <i class="iconfont icon-tag"></i>
-            
-              <a href="/tags/%E7%BC%96%E7%A0%81%E4%B9%8B%E5%A4%96">编码之外</a>&nbsp;
-            
-          
-        </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/07/30/git-history/">
-        <p class="h4 index-header">你不得不知道的Git插件1--git history</p>
-        <div class="index-excerpt">
-          
-            <div class="index-text mb-1">
-该系列贴子只分享 vs code 插件，如果您的编译器不是 vs code 可以选择看看其他的博客！😂
-
-###Git History, Search and More
-一、下载VsCode 上通过快捷键⌘+⇧+X打开 Extensions 搜索 Git History 进行下载
-二、打开方式1.选中文件-右键- Git:View File History
-2.F1 输入Git:View History(Git log) 查看所有分支的历史记录Git:View File History 查看文件的历史记录Git:View Line History 查看单行历史变更记录（不常用）
-三、常用功能3.1 对比本地代码与当前版本代码对比左侧为本地代码，右侧为工作区代码
-当前版本号与上一个版本号对比左侧为当前选中版本，右侧为上一个版本
-不同版本号对比
-3.2 查看查看每一个作者的提交记录
-查看不同分支
-四、其他功能恢复提交、从提交创建分支、在树视图中查看提交信息（所有更改的快照）、合并和变革、比较分支
-
-大四实习中，如有写错的地方请大家留言指出，万分感谢。转载请注明出处。
-
-</div>
-          
-        </div>
-      </a>
-
-        <div>
-          
-            <i class="iconfont icon-riqi2"></i>&nbsp;2019-07-30&nbsp;&nbsp;
-          
-          
-          
-            <i class="iconfont icon-tag"></i>
-            
-              <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7">开发工具</a>&nbsp;
-            
-          
-        </div>
-    </div>
-  </div>
-
-
-
-  <nav aria-label="index posts navigation">
-    <ul class="pagination pg-blue justify-content-center mt-5">
       
-        <li class="page-item">
-          <a class="page-link" href="/#board">上一页</a>
-        </li>
+      <a class="index-excerpt index-excerpt__noimg" href="/2019/12/10/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" target="_self">
+        <div>
+          项目中的代码分割import 静态引入写法 1234567891011import Home from &quot;./components/Home&quot;;import Login from &quot;./components/Login&quot;;...return(  &lt;Router&gt;    &lt;Switch&gt;      &lt;Route exact pat
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-12-10 08:36" pubdate>
+              2019-12-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81/" class="category-chain-item">快乐编码</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/React-%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">#React 那些事儿</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/12/09/%E6%95%88%E7%8E%87%E8%87%B3%E4%B8%8A%E7%9A%84Mobx/" target="_self">
+          效率至上的Mobx
+        </a>
+      </h1>
+
       
+      <a class="index-excerpt index-excerpt__noimg" href="/2019/12/09/%E6%95%88%E7%8E%87%E8%87%B3%E4%B8%8A%E7%9A%84Mobx/" target="_self">
+        <div>
+          为什么会考虑使用状态管理？项目开发中经常会碰到以下场景：1.业务系统许多接口，入参都需要传递登陆人 id 1userCode: localStorage.getItem(&#x27;userCode&#x27;), 2.业务系统选择下拉框，如城市，销售业务员、车型、折旧选项等均为同一接口数据。 1234567891011121314151617181920212223242526// 获取司机信息
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-12-09 16:36" pubdate>
+              2019-12-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81/" class="category-chain-item">快乐编码</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/React-%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">#React 那些事儿</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/10/31/Code%20Review-%E7%A3%A8%E5%88%80%E4%B8%8D%E8%B4%B9%E7%A0%8D%E6%9F%B4%E5%8A%9F%EF%BC%81/" target="_self">
+          Code Review-磨刀不费砍柴功！
+        </a>
+      </h1>
+
       
-        <li class="page-item">
-          <a class="page-link" href="/page/3/#board">下一页</a>
-        </li>
+      <a class="index-excerpt index-excerpt__noimg" href="/2019/10/31/Code%20Review-%E7%A3%A8%E5%88%80%E4%B8%8D%E8%B4%B9%E7%A0%8D%E6%9F%B4%E5%8A%9F%EF%BC%81/" target="_self">
+        <div>
+          Code Review和写自动化测试一样，都是磨刀不误砍柴工的工作! Commit 规范整理 CodeReview 规范、commit 内容  commit 规范分享  Dev-Tool&#x2F;Front-end-Tool&#x2F;踩坑 Gti&#x2F;Content&#x2F;SubmitSpecification.md如何做好 Python 代码的 Code Review–章老师说
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-31 10:23" pubdate>
+              2019-10-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81/" class="category-chain-item">快乐编码</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%BE%8E/">#编程之美</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/10/24/TreeComponentAlgorithm/" target="_self">
+          Tree Component Data Processing
+        </a>
+      </h1>
+
       
-    </ul>
+      <a class="index-excerpt index-excerpt__noimg" href="/2019/10/24/TreeComponentAlgorithm/" target="_self">
+        <div>
+          效果 后端接口返回数据OriginResult123456789101112131415161718192021222324252627&quot;result&quot;: [  &#123;    &quot;province&quot;: &#123;      &quot;name&quot;: &quot;安徽&quot;,      “id”:&#x27;0-0&#x27;    &#
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-10-24 15:07" pubdate>
+              2019-10-24
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Algorithms/" class="category-chain-item">Algorithms</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Taste-Algorithms/">#Taste-Algorithms</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/09/19/%E4%BA%BA%E7%94%9F%E5%88%9D%E5%8D%8A%E9%A9%AC/" target="_self">
+          人生初半马！
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2019/09/19/%E4%BA%BA%E7%94%9F%E5%88%9D%E5%8D%8A%E9%A9%AC/" target="_self">
+        <div>
+          人生初半马！如果没办法停，你就要继续跑！大学老师说过最让我印象深刻的一句话是：“迷茫时，走出寝室、走出教室、走向操场！” 2019 诸暨西施马拉松（绍兴半程马拉松 21.0975 公里）地点：绍兴市诸暨市（浙江省绍兴市诸暨市城市广场）时间：2019 年 11 月 17 日 07:30比赛路线 :诸暨城市广场 → 浣东北路 → 暨东路 → 环城东路 → 环城北路 → 迎宾路 → 西二环路 → 五纹岭
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-09-19 22:17" pubdate>
+              2019-09-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E6%B4%BB/" class="category-chain-item">生活</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A9%AC%E6%8B%89%E6%9D%BE/">#马拉松</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/08/21/%E5%88%9D%E8%AF%86Taro%EF%BC%88%E6%B3%B0%E7%BD%97%E5%A5%A5%E7%89%B9%E6%9B%BC%EF%BC%89/" target="_self">
+          初识泰罗奥特曼
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2019/08/21/%E5%88%9D%E8%AF%86Taro%EF%BC%88%E6%B3%B0%E7%BD%97%E5%A5%A5%E7%89%B9%E6%9B%BC%EF%BC%89/" target="_self">
+        <div>
+          [TOC] 快速搭建了一个泰罗 前提：保证 node 版本&gt;&#x3D;8.0.0  Step1.全局安装 Taro1yarn global add @tarojs/cli  Step2.使用命令创建模板项目1taro init MyFirstTaro  Step3.使用 yarn 安装依赖12cd MyFirstTaroyarn  编译预览及打包目前我只需要适配微信小程序，所以只对微信小程
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-08-21 05:39" pubdate>
+              2019-08-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81/" class="category-chain-item">快乐编码</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/React-%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">#React 那些事儿</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/08/20/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAVue%E9%A1%B9%E7%9B%AE/" target="_self">
+          手把手教你新建一个Vue项目
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2019/08/20/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAVue%E9%A1%B9%E7%9B%AE/" target="_self">
+        <div>
+          下载安装 node.jsnode 官网下载地址控制台输入 node-v 检查自己系统有没有下载过 node使用 npm 包管理工具，推荐去国内最常用的库：https://cnpmjs.org国内用户在终端执行以下代码替换淘宝镜像进行下载，换成了淘宝了镜像，在国内网速很快。 1234alias cnpm=&quot;npm --registry=https://registry.npm.taoba
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-08-20 12:27" pubdate>
+              2019-08-20
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Vue/">#Vue</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/08/06/HexoBlog-20190704/" target="_self">
+          低成本快速搭建个人博客
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2019/08/06/HexoBlog-20190704/" target="_self">
+        <div>
+          最小的成本搭建一个有自己域名的博客站点（Hexo 生成页面，托管于 GitHub，使用自己的域名，可以安心写作又不用花费很多心思定期维护）  准备工作 一个博客网站模板：Hexo&#x2F;Jekyll&#x2F;vuePress（这里我选用了 Hexo）   主要涉及知识点：linux 基础命令，mysql 基础操作   购买自己的域名（建议）   百度不收录.github.io结尾的站点，直
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-08-06 20:36" pubdate>
+              2019-08-06
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%BC%96%E7%A0%81%E4%B9%8B%E5%A4%96/">#编码之外</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2019/07/30/git-history/" target="_self">
+          你不得不知道的Git插件1--git history
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2019/07/30/git-history/" target="_self">
+        <div>
+          该系列贴子只分享 vs code 插件，如果您的编译器不是 vs code 可以选择看看其他的博客！😂  ###Git History, Search and More 一、下载VsCode 上通过快捷键⌘+⇧+X打开 Extensions 搜索 Git History 进行下载 二、打开方式1.选中文件-右键- Git:View File History 2.F1 输入Git:View Hi
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-07-30 14:05" pubdate>
+              2019-07-30
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">#开发工具</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
   </nav>
+
 
 
               </div>
@@ -668,16 +782,15 @@ hexo 的工作机制
         </div>
       </div>
     
-  </main>
 
-  
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
-    </a>
-  
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
 
-  
-    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -690,107 +803,93 @@ hexo 的工作机制
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
-  
 
-  <footer class="mt-5">
-  <div class="text-center py-3">
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
-    <br>
     
-  </div>
-</footer>
 
-<!-- SCRIPTS -->
+    
+  </main>
 
-<script src="/lib/jquery/jquery.min.js"></script>
-
-
-<script src="/lib/popper/popper.min.js"></script>
-
-
-<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-
-
-<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
-
-
-<script src="/js/main.js"></script>
-
-
-
+  <footer>
+    <div class="footer-inner">
   
-<script src="/lib/prettify/prettify.min.js"></script>
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint linenums');
-      prettyPrint();
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
     })
   </script>
 
 
-  
-<script src="/lib/typed/typed.min.js"></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
-    var typed = new Typed('#subtitle', {
-      strings: [
-        '  ',
-        "你离自己想成为的那个人还有多远！&nbsp;",
-      ],
-      cursorChar: "_",
-      typeSpeed: 70,
-      loop: false,
-    });
-    typed.stop();
-    $(document).ready(function () {
-      $(".typed-cursor").addClass("h2");
-      typed.start();
-    });
-  </script>
-
-
-  
-<script src="/lib/anchor/anchor.min.js"></script>
-
-  <script>
-    anchors.options = {
-      placement: "right",
-      visible: "false",
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
       
-    };
-    var el = "h1,h2,h3,h4,h5,h6".split(",");
-    var res = [];
-    for (item of el) {
-      res.push(".markdown-body > " + item)
-    }
-    anchors.add(res.join(", "))
+        typing(text);
+      
+    })(window, document);
   </script>
+
 
 
 
   
-<script src="/js/local-search.js"></script>
-
-  <script>
-    var path = "/local-search.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
-    }
-  </script>
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
 
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
