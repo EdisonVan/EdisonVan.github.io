@@ -1,0 +1,625 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="sifan.peng">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="大四写的小程序记录的笔记，刚从博客园迁移过来，写的很粗糙，后续再整理！   1234567891011121314151617181920212223242526272829303132333435&lt;view&gt;  &lt;swiper indicator-dots&#x3D;&quot;true&quot; autoplay&#x3D;&quot;ture&quot; interval&#x3D;&quot;500">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序之数据绑定的妙用！">
+<meta property="og:url" content="https://www.pengsifan.com/2018/05/09/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B9%8B%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%E7%9A%84%E5%A6%99%E7%94%A8%EF%BC%81/index.html">
+<meta property="og:site_name" content="彭思凡的个人网站">
+<meta property="og:description" content="大四写的小程序记录的笔记，刚从博客园迁移过来，写的很粗糙，后续再整理！   1234567891011121314151617181920212223242526272829303132333435&lt;view&gt;  &lt;swiper indicator-dots&#x3D;&quot;true&quot; autoplay&#x3D;&quot;ture&quot; interval&#x3D;&quot;500">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-05-09T05:07:37.000Z">
+<meta property="article:modified_time" content="2021-04-26T00:50:59.963Z">
+<meta property="article:author" content="sifan.peng">
+<meta property="article:tag" content="微信小程序">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>微信小程序之数据绑定的妙用！ - 彭思凡的个人网站</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.pengsifan.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="微信小程序之数据绑定的妙用！"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2018-05-09 13:07" pubdate>
+          2018年5月9日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          41 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">微信小程序之数据绑定的妙用！</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><strong>大四写的小程序记录的笔记，刚从博客园迁移过来，写的很粗糙，后续再整理！</strong></p>
+<!--post.wxml文件-->
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">swiper</span> <span class="hljs-attr">indicator-dots</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">autoplay</span>=<span class="hljs-string">&quot;ture&quot;</span> <span class="hljs-attr">interval</span>=<span class="hljs-string">&quot;5000&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">swiper-item</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/images/swiper3.jpeg&quot;</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">image</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">swiper-item</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">swiper-item</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/images/swiper2.jpeg&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">image</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">swiper-item</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">swiper-item</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/images/swiper1.jpeg&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">image</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">swiper-item</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">swiper</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">block</span> <span class="hljs-attr">wx:for</span>=<span class="hljs-string">&quot;&#123;&#123;posts_key&#125;&#125;&quot;</span> <span class="hljs-attr">wx:for-item</span>=<span class="hljs-string">&quot;item&quot;</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--block用来将包裹的代码变成一个整理,item代表一个子元素，用item.xxx的方法来进行一个单一元素绑定--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-container&quot;</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-author-date&quot;</span>&gt;</span><br>        &lt;!-常见的一列四行布局--&gt;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-author&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&#123;&#123;item.author_img&#125;&#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">image</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-date&quot;</span>&gt;</span>&#123;&#123;item.date&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-title&quot;</span>&gt;</span>&#123;&#123;item.title&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-image&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&#123;&#123;item.post_img&#125;&#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">image</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-content&quot;</span>&gt;</span>&#123;&#123;item.content&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">view</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-like&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-like-image&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;../../images/icon/star.png&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">image</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-like-font&quot;</span>&gt;</span>&#123;&#123;item.view_num&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-like-image&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;../../images/icon/view.png&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">image</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">text</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;post-like-font&quot;</span>&gt;</span>&#123;&#123;item.collect_num&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">text</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">block</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> postsData = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;../../data/posts-data.js&#x27;</span>)<br><br><span class="hljs-title class_">Page</span>(&#123;<br><span class="hljs-attr">data</span>: &#123;<br><span class="hljs-comment">//小程序总是会读取 data 对象下面来做数据绑定，这个动作我们称为动作 A</span><br><span class="hljs-comment">//而 A 的执行，是在 onLoad 事件执行之后发生的</span><br>&#125;,<br><span class="hljs-regexp">/\*_ 生命周期函数--监听页面加载_/</span><br><span class="hljs-attr">onLoad</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">options</span>) &#123;<br><span class="hljs-comment">//页面初始化 options 为页面跳转所带来的参数</span><br><br>    <span class="hljs-comment">//要把前面绑定的wxml中wx:for=&quot;&#123;&#123;posts_key&#125;&#125;&quot;再改成postList</span><br><br>    <span class="hljs-comment">//下面这种方法要把wxml中改成wx:for=&quot;&#123;&#123;posts_key&#125;&#125;&quot;</span><br>    <span class="hljs-comment">//用数组的形式来绑定多个新闻块的内容，利用for循环来反复调用后台数据</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setData</span>(&#123;<br>       <span class="hljs-attr">posts_key</span>:postsData.<span class="hljs-property">postList</span> <span class="hljs-comment">//渲染到对应data中就是posts_key:[]</span><br>       &#125;);<br><br>&#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> local_database = [<br>  &#123;<br>    <span class="hljs-attr">author_img</span>: <span class="hljs-string">&quot;/images/Catoon5.jpg&quot;</span>,<br>    <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;May 8 2018&quot;</span>,<br>    <span class="hljs-attr">post_img</span>: <span class="hljs-string">&quot;/images/Catoon50.jpeg&quot;</span>,<br>    <span class="hljs-attr">title</span>:<br>      <span class="hljs-string">&quot;以色列总理用“鞋”招待安倍，日外交官：这是冒犯，不知道我们进门都要脱鞋？&quot;</span>,<br>    <span class="hljs-attr">content</span>:<br>      <span class="hljs-string">&quot;“日本首相觉得内塔尼亚胡家中鞋子上的甜点冒犯了他，”《以色列时报》7 日报道称，日本首相安倍晋三上周对以色列进行正式访问，以色列总理内塔尼亚胡在官邸设宴招待来访的安倍夫妇时，官邸厨子却用鞋形餐具盛放甜点，这被视为“外交失礼”，对安倍的怠慢与侮辱。该报称，按照日本家庭文化，鞋子不仅远离桌子，而且还得脱了置于门外。&quot;</span>,<br>    <span class="hljs-attr">view_num</span>: <span class="hljs-string">&quot;192&quot;</span>,<br>    <span class="hljs-attr">collect_num</span>: <span class="hljs-string">&quot;9668&quot;</span><br>  &#125;,<br>  &#123;<br>    <span class="hljs-attr">author_img</span>: <span class="hljs-string">&quot;/images/Catoon1.jpg&quot;</span>,<br>    <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;May 8 2018&quot;</span>,<br>    <span class="hljs-attr">post_img</span>: <span class="hljs-string">&quot;/images/Catoon10.jpeg&quot;</span>,<br>    <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;欧文惨遭伤病&quot;</span>,<br>    <span class="hljs-attr">content</span>:<br>      <span class="hljs-string">&quot;欧文已经因为膝盖酸痛问题休战了十几天，这个伤对他来说其实是老问题了。在绿军公布决定之后，骑士随队记者乔-瓦尔登也在专栏中讨论了欧文膝伤的来龙去脉。&quot;</span>,<br>    <span class="hljs-attr">view_num</span>: <span class="hljs-string">&quot;92&quot;</span>,<br>    <span class="hljs-attr">collect_num</span>: <span class="hljs-string">&quot;189&quot;</span><br>  &#125;,<br>  &#123;<br>    <span class="hljs-attr">author_img</span>: <span class="hljs-string">&quot;/images/Catoon2.jpg&quot;</span>,<br>    <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;May 8 2018&quot;</span>,<br>    <span class="hljs-attr">post_img</span>: <span class="hljs-string">&quot;/images/Catoon20.jpeg&quot;</span>,<br>    <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;骑士胜券在握詹姆斯打懵猛龙，骑士球迷却倒戈支持起了猛龙&quot;</span>,<br>    <span class="hljs-attr">content</span>:<br>      <span class="hljs-string">&quot;要说联盟中哪支球队最命苦，那猛龙绝对当仁不让，要数哪个球员最心酸，那德罗赞绝对让人心疼。猛龙被骑士打的毫无还手之力，上赛季半决赛被骑士 4-0 横扫后，这赛季历史又惊人的相似，猛龙在半决赛中又被打的惨不忍睹。如果上赛季东部第三的猛龙被当时还拥有欧文的东部第二骑士打败还情有可原；那这赛季卷土重来，以东部榜首的姿态杀入季后赛的猛龙面对整个赛季都在动荡中挣扎的骑士又被打成这样，确实是让人感到有些扼腕。&quot;</span>,<br>    <span class="hljs-attr">view_num</span>: <span class="hljs-string">&quot;192&quot;</span>,<br>    <span class="hljs-attr">collect_num</span>: <span class="hljs-string">&quot;9668&quot;</span><br>  &#125;,<br>  &#123;<br>    <span class="hljs-attr">author_img</span>: <span class="hljs-string">&quot;/images/Catoon3.jpg&quot;</span>,<br>    <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;May 8 2018&quot;</span>,<br>    <span class="hljs-attr">post_img</span>: <span class="hljs-string">&quot;/images/Catoon30.jpeg&quot;</span>,<br>    <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;陈冠希首谈意外怀孕产下的女儿,陈冠希首谈意外怀孕产下的女儿&quot;</span>,<br>    <span class="hljs-attr">content</span>:<br>      <span class="hljs-string">&quot;近日，陈冠希在个人社交网站上发了一张女儿在沙滩上玩的照片，照片中 alaia 带着帽子，穿着吊带露肩装真是太可爱太萌了！老爸陈冠希还附言：priceless！知道什么意思吗？这是在说女儿是他的无价之宝！网友听了纷纷夸赞，都哑口无言了！&quot;</span>,<br>    <span class="hljs-attr">view_num</span>: <span class="hljs-string">&quot;232&quot;</span>,<br>    <span class="hljs-attr">collect_num</span>: <span class="hljs-string">&quot;7668&quot;</span><br>  &#125;,<br>  &#123;<br>    <span class="hljs-attr">author_img</span>: <span class="hljs-string">&quot;/images/Catoon4.jpg&quot;</span>,<br>    <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;May 8 2018&quot;</span>,<br>    <span class="hljs-attr">post_img</span>: <span class="hljs-string">&quot;/images/Catoon40.jpg&quot;</span>,<br>    <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;贸易战博弈里中兴的曙光&quot;</span>,<br>    <span class="hljs-attr">content</span>:<br>      <span class="hljs-string">&quot;与往常不同的是，这次会谈后双方都极为低调，各自披露的信息非常有限，更多的是语焉不详的框架性描述。从中文媒体的内容来看，基本上是新华社通稿和围绕通稿简短内容的延展性解读，信息量并不大。如果我们阅读外媒的相关报道，能够看到不少有价值的细节信息&quot;</span>,<br>    <span class="hljs-attr">view_num</span>: <span class="hljs-string">&quot;232&quot;</span>,<br>    <span class="hljs-attr">collect_num</span>: <span class="hljs-string">&quot;15468&quot;</span><br>  &#125;,<br>  &#123;<br>    <span class="hljs-attr">author_img</span>: <span class="hljs-string">&quot;/images/Catoon6.jpeg&quot;</span>,<br>    <span class="hljs-attr">date</span>: <span class="hljs-string">&quot;May 8 2018&quot;</span>,<br>    <span class="hljs-attr">post_img</span>: <span class="hljs-string">&quot;/images/Catoon60.jpeg&quot;</span>,<br>    <span class="hljs-attr">title</span>: <span class="hljs-string">&quot;日媒：印度等国欲就美国钢铝进口限制向 WTO 起诉&quot;</span>,<br>    <span class="hljs-attr">content</span>:<br>      <span class="hljs-string">&quot;海外网 5 月 8 日电 特朗普于 3 月 8 日表示，美国将对进口钢铁产品征收 25%关税、对进口铝产品征收 10%关税。日媒表示，如今，各国对特朗普政府 3 月启动的钢铝进口限制的反对仍未停息。对美钢铁出口额排名第十的印度显示出不排除向世界贸易组织（WTO）起诉的姿态；泰国在与美国的双边磋商中要求给予豁免；俄罗斯已在探讨反制措施。其背景之一是对部分国家很早就得到豁免的不满。&quot;</span>,<br>    <span class="hljs-attr">view_num</span>: <span class="hljs-string">&quot;192&quot;</span>,<br>    <span class="hljs-attr">collect_num</span>: <span class="hljs-string">&quot;9668&quot;</span><br>  &#125;<br>];<br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">postList</span>: local_database <span class="hljs-comment">//渲染到对应 data 中就是 posts_key:[]</span><br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>本篇博客尚未写完，会在后期进行完善。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">#微信小程序</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>微信小程序之数据绑定的妙用！</div>
+      <div>https://www.pengsifan.com/2018/05/09/微信小程序之数据绑定的妙用！/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>sifan.peng</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2018年5月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/05/12/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%82%B9%E5%87%BB%E5%88%87%E6%8D%A2%E5%9B%BE%E7%89%87%E3%80%81%E6%94%B6%E8%97%8F%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0%EF%BC%81/" title="微信小程序点击切换图片、收藏功能的实现！">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">微信小程序点击切换图片、收藏功能的实现！</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

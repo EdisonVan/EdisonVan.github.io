@@ -1,0 +1,717 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="sifan.peng">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="下载安装 node.jsnode 官网下载地址控制台输入 node-v 检查自己系统有没有下载过 node使用 npm 包管理工具，推荐去国内最常用的库：https:&#x2F;&#x2F;cnpmjs.org国内用户在终端执行以下代码替换淘宝镜像进行下载，换成了淘宝了镜像，在国内网速很快。 1234alias cnpm&#x3D;&quot;npm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taoba">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手把手教你新建一个Vue项目">
+<meta property="og:url" content="https://www.pengsifan.com/2019/08/20/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAVue%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="彭思凡的个人网站">
+<meta property="og:description" content="下载安装 node.jsnode 官网下载地址控制台输入 node-v 检查自己系统有没有下载过 node使用 npm 包管理工具，推荐去国内最常用的库：https:&#x2F;&#x2F;cnpmjs.org国内用户在终端执行以下代码替换淘宝镜像进行下载，换成了淘宝了镜像，在国内网速很快。 1234alias cnpm&#x3D;&quot;npm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taoba">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-1-20190820.png">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-2-20190820.png">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-3-20190820.png">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-4-20190820.png">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-5-20190820.png">
+<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-6-20190820.png">
+<meta property="article:published_time" content="2019-08-20T04:27:47.000Z">
+<meta property="article:modified_time" content="2021-04-26T00:50:59.964Z">
+<meta property="article:author" content="sifan.peng">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-1-20190820.png">
+  
+  
+  
+  <title>手把手教你新建一个Vue项目 - 彭思凡的个人网站</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.pengsifan.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="手把手教你新建一个Vue项目"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-08-20 12:27" pubdate>
+          2019年8月20日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          21 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">手把手教你新建一个Vue项目</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <!-- 原始笔记在‘Vue-Study文件夹下修改，再来此处更新！’ -->
+<h1 id="下载安装-node-js"><a href="#下载安装-node-js" class="headerlink" title="下载安装 node.js"></a>下载安装 node.js</h1><p><a target="_blank" rel="noopener" href="http://nodejs.cn/">node 官网下载地址</a><br>控制台输入 node-v 检查自己系统有没有下载过 node<br>使用 npm 包管理工具，推荐去国内最常用的库：<a target="_blank" rel="noopener" href="https://cnpmjs.org/">https://cnpmjs.org</a><br>国内用户在终端执行以下代码替换淘宝镜像进行下载，换成了淘宝了镜像，在国内网速很快。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">alias</span> cnpm=<span class="hljs-string">&quot;npm --registry=https://registry.npm.taobao.org \</span><br><span class="hljs-string">--cache=<span class="hljs-variable">$HOME</span>/.npm/.cache/cnpm \</span><br><span class="hljs-string">--disturl=https://npm.taobao.org/mirrors/node \</span><br><span class="hljs-string">--userconfig=<span class="hljs-variable">$HOME</span>/.cnpmrc&quot;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>alias（别名）的一串命令将 npm 重命名为 cnpm</p>
+</blockquote>
+<h1 id="安装-vue-cli-vue-cli-是-vue-官方提供的脚手架工具"><a href="#安装-vue-cli-vue-cli-是-vue-官方提供的脚手架工具" class="headerlink" title="安装 vue-cli(vue-cli 是 vue 官方提供的脚手架工具)"></a>安装 vue-cli(vue-cli 是 vue 官方提供的脚手架工具)</h1><h2 id="用-vue-cli-初始化项目的优势："><a href="#用-vue-cli-初始化项目的优势：" class="headerlink" title="用 vue-cli 初始化项目的优势："></a>用 vue-cli 初始化项目的优势：</h2><ul>
+<li>成熟的 vue 项目架构设计</li>
+<li>本地测试服务器</li>
+<li>集成 webpack 打包上线方案</li>
+</ul>
+<h2 id="安装系统要求："><a href="#安装系统要求：" class="headerlink" title="安装系统要求："></a>安装系统要求：</h2><ul>
+<li>Node.js(&gt;&#x3D;4.x)</li>
+<li>Git</li>
+<li>一个能使用 node 的命令行终端</li>
+</ul>
+<h2 id="全局安装-Vue-cli"><a href="#全局安装-Vue-cli" class="headerlink" title="全局安装 Vue-cli"></a>全局安装 Vue-cli</h2><p>npm install vue-cli -g</p>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><blockquote>
+<p>在自己项目文件夹下打开控制台</p>
+</blockquote>
+<h2 id="安装-webpack-模板，并设置工程信息"><a href="#安装-webpack-模板，并设置工程信息" class="headerlink" title="安装 webpack 模板，并设置工程信息"></a>安装 webpack 模板，并设置工程信息</h2><p>vue init webpack my-project [my-project 为项目名称]<br>控制台需要设置如下问题<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-1-20190820.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>Project name：项目名称，默认是输入时的那个名称，想改的话直接输入修改，也可以直接回车</li>
+<li>Install vue-router:是否需要 vue-router，这里默认选择使用，这样生成好的项目就会有相关的路由配置文件</li>
+<li>Use ESLint to lint your code:是否使用 ES 检测器，默认使用，这样会生成相关的 ESLint 配置</li>
+<li>Setup unit tests with Karma + Moch?: 是否安装单元测试。一般选 no，根据自己项目情况选择”Y”或”N”</li>
+<li>Setup e2e tests with Nightwatch：是否安装 e2e 测试。一般也选 no，根据自己项目情况选择”Y”或”N”<br>以上配置如选择 yes 则生成的项目会自动有相关的配置，有一些 loader 我们就要配套下载。<br>如果我们确定不用的话最好不要 yes，防止下很多没有用的 loader。</li>
+</ul>
+<h2 id="部署-Vue-项目完成之后的目录"><a href="#部署-Vue-项目完成之后的目录" class="headerlink" title="部署 Vue 项目完成之后的目录"></a>部署 Vue 项目完成之后的目录</h2><ul>
+<li><p>首页入口 index.html</p>
+</li>
+<li><p>build 配置文件夹</p>
+</li>
+<li><p>webpack.base.config.js、webpack.dev.config.js、webpack.prod.config.js 三个 webpack 的配置文件，分别是基本 webpack 配置、开发环境配置、生产环境配置。</p>
+</li>
+<li><p>config 配置文件夹<br>其中最主要的 index.js 用于配置代理服务器，和后台联调时在 proxyTable 这个属性设置一个后台地址即可。<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-2-20190820.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>src 文件夹（主要以及使用频率最高的文件夹、大部分开发在 src 目录下、存储主要源码）<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-3-20190820.png" srcset="/img/loading.gif" lazyload></p>
+</li>
+<li><p>assets: 共用的样式、图片</p>
+</li>
+<li><p>components: 业务代码存放位置、里面分成一个个组件存放，一个页面是一个组件，一个页面里面还会包着很多组件</p>
+</li>
+<li><p>router: 设置路由</p>
+</li>
+<li><p>App.vue: vue 文件入口界面，App.vue 是可以热更新的。</p>
+</li>
+<li><p>main.js：入口文件、对应 App.vue 创建 vue 实例，对应 webpack.base.config.js 里的入口配置</p>
+</li>
+<li><p>static 文件夹（保存静态文件）<br>存放的文件不会经过 webpack 处理，可直接引用<br>如 swf 文件要引用可在 webpack 配置带 swf 后缀名的文件处理的 loader，也可直接将 swf 文件放在这个文件夹引用</p>
+</li>
+<li><p>package.json（npm 所需要的一套配置文件）<br>这个文件有两部分是有用的：</p>
+<ul>
+<li>scripts 里面设置命令，<br>如设置了 dev 用于调试则我们开发时输入：npm run dev</li>
+<li>如设置了 build 输入<br>npm run build 用于打包会生成部署一套上线目录文件（完成之后多了 dist 目录）<br>我们需要的依赖包,在 dependencies 和 devDependencies 中，分别对应全局下载和局部下载的依赖包</li>
+</ul>
+</li>
+</ul>
+<h1 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h1><ul>
+<li>进入项目文件夹：cd my-project</li>
+<li>打开 package.json 文件，找到 devDependencies 和 dependencies，删掉里面我们不需要的依赖包</li>
+<li>根据自己项目需要通过命令 sudo npm install &#x2F;npm install（安装项目依赖）、下载其他依赖包如 npm install vue-resource 等，一个个下载<blockquote>
+<p>要在有 packge.json 文件的目录下、推荐使用 yarn，速度更快、相关依赖安装之后目录会多一个 node_modules</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="跑项目-npm-run-dev"><a href="#跑项目-npm-run-dev" class="headerlink" title="跑项目 npm run dev"></a>跑项目 npm run dev</h1><ul>
+<li><p>下载好依赖后先输入 npm install</p>
+</li>
+<li><p>如有缺漏再根据提示去下载。</p>
+</li>
+<li><p>输入命令 sudo npm run dev &#x2F; npm run dev(在本地启动测试服务器)<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-4-20190820.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>ESLint: 帮助检查 Javascript 编程时的语法错误，保证多人开发一个项目保持语法一致。<br>Webpack: 设置代理、插件和 loader 处理各种文件和相关功能、打包等功能。整个项目中核心配置<br>iview: 基于 vue 的一套样式框架，里面有很多封装好的组件样式<br>ES6 语法：利用 babel 处理。<br>vue –help vue 的命令行查看帮助<br>vue -v 看版本</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="步骤总结："><a href="#步骤总结：" class="headerlink" title="步骤总结："></a>步骤总结：</h1><ul>
+<li>npm install –global vue-cli 下载 vue-cli 脚手架</li>
+<li>vue init webpack myProject 生成项目，形成基本结构</li>
+<li>npm install 下载依赖包</li>
+<li>npm run dev 运行</li>
+</ul>
+<h1 id="项目实例"><a href="#项目实例" class="headerlink" title="项目实例"></a>项目实例</h1><p>build&#x2F;webpack.base.config.js<br>进行 loader 的配置，以及有一个 iview 的 css 文件不进行 babel 的处理，如下<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-5-20190820.png" srcset="/img/loading.gif" lazyload><br>src&#x2F;router&#x2F;index.js:<br>import 引入组件文件，根据 vue-router 写上相应的路由配置</p>
+<p>src&#x2F;components:<br>业务代码集中地，我做了一个简单的，只有三个组件。然后在每个组件中又分成几个组件构成。<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/Create-Vue-6-20190820.png" srcset="/img/loading.gif" lazyload></p>
+<!-- 
+-----------------
+后期再来更新项目实例文档，觉得文章写的不错可扫码募捐以鼓励我继续书写高质量的原创文章。 
+-->
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Vue/">#Vue</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>手把手教你新建一个Vue项目</div>
+      <div>https://www.pengsifan.com/2019/08/20/手把手教你新建一个Vue项目/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>sifan.peng</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2019年8月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/08/21/%E5%88%9D%E8%AF%86Taro%EF%BC%88%E6%B3%B0%E7%BD%97%E5%A5%A5%E7%89%B9%E6%9B%BC%EF%BC%89/" title="初识泰罗奥特曼">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">初识泰罗奥特曼</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/08/06/HexoBlog-20190704/" title="低成本快速搭建个人博客">
+                        <span class="hidden-mobile">低成本快速搭建个人博客</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
