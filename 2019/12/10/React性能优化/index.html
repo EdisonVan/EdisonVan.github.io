@@ -1,84 +1,43 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN">
+
+
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Van">
+  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  <meta name="author" content="sifan.peng">
   <meta name="keywords" content="">
+  <title>React性能优化 ~ 彭思凡的个人网站</title>
   
-    <meta name="description" content="项目中的代码分割import 静态引入写法 1234567891011import Home from &quot;.&#x2F;components&#x2F;Home&quot;;import Login from &quot;.&#x2F;components&#x2F;Login&quot;;...return(  &lt;Router&gt;    &lt;Switch&gt;      &lt;Route exact pat">
-<meta property="og:type" content="article">
-<meta property="og:title" content="React性能优化">
-<meta property="og:url" content="https://www.pengsifan.com/2019/12/10/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html">
-<meta property="og:site_name" content="彭思凡的个人网站">
-<meta property="og:description" content="项目中的代码分割import 静态引入写法 1234567891011import Home from &quot;.&#x2F;components&#x2F;Home&quot;;import Login from &quot;.&#x2F;components&#x2F;Login&quot;;...return(  &lt;Router&gt;    &lt;Switch&gt;      &lt;Route exact pat">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-10T00:36:33.000Z">
-<meta property="article:modified_time" content="2021-04-26T00:50:59.958Z">
-<meta property="article:author" content="sifan.peng">
-<meta property="article:tag" content="React 那些事儿">
-<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+
+  
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+
+  
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+
+  
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+  
+    
+<link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+
   
   
-  
-  <title>React性能优化 - 彭思凡的个人网站</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"www.pengsifan.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
+<link rel="stylesheet" href="/css/main.css">
 
 
   
@@ -86,17 +45,11 @@
 
 
 <body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
-    </a>
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -110,355 +63,228 @@
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
           </li>
         
       </ul>
     </div>
   </div>
+
+
 </nav>
 
-  
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="React性能优化"></span>
+            
+              <br>
+              <p>星期二, 十二月 10日 2019, 8:36 早上</p>
+            
+          </div>
+
           
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2019-12-10 08:36" pubdate>
-          2019年12月10日 早上
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          2.6k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          22 分钟
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
       </div>
-
-      
     </div>
-  </div>
-</div>
-
-</div>
-
   </header>
 
   <main>
     
       
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">React性能优化</h1>
-            
-            
-              <div class="markdown-body">
-                
-                <h1 id="项目中的代码分割"><a href="#项目中的代码分割" class="headerlink" title="项目中的代码分割"></a>项目中的代码分割</h1><p>import 静态引入写法</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> <span class="hljs-title class_">Home</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./components/Home&quot;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-title class_">Login</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./components/Login&quot;</span>;<br>...<br><span class="hljs-keyword">return</span>(<br>  &lt;<span class="hljs-title class_">Router</span>&gt;<br>    &lt;<span class="hljs-title class_">Switch</span>&gt;<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">exact</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;/&quot;</span> <span class="hljs-attr">component</span>=<span class="hljs-string">&#123;Home&#125;</span> /&gt;</span></span><br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;/login&quot;</span> <span class="hljs-attr">component</span>=<span class="hljs-string">&#123;Login&#125;</span> /&gt;</span></span><br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;/posts&quot;</span> <span class="hljs-attr">component</span>=<span class="hljs-string">&#123;Home&#125;</span> /&gt;</span></span><br>  ...<br>)<br></code></pre></td></tr></table></figure>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <h1 id="项目中的代码分割"><a href="#项目中的代码分割" class="headerlink" title="项目中的代码分割"></a>项目中的代码分割</h1><p>import 静态引入写法</p>
+<pre><code class="jsx">import Home from &quot;./components/Home&quot;;
+import Login from &quot;./components/Login&quot;;
+...
+return(
+  &lt;Router&gt;
+    &lt;Switch&gt;
+      &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125; /&gt;
+      &lt;Route path=&quot;/login&quot; component=&#123;Login&#125; /&gt;
+      &lt;Route path=&quot;/posts&quot; component=&#123;Home&#125; /&gt;
+  ...
+)
+</code></pre>
 <p>以上写法不管匹配到了哪一个 route，都是一次性地引入所有的组件。可以使用代码分割进行优化，实现只引入匹配到的 route 和对应组件。</p>
 <h2 id="创建一个异步组件-asyncComponent-替换-import-动态导入的-Login-和-Home-组件，实现按需异步加载"><a href="#创建一个异步组件-asyncComponent-替换-import-动态导入的-Login-和-Home-组件，实现按需异步加载" class="headerlink" title="创建一个异步组件 asyncComponent 替换 import 动态导入的 Login 和 Home 组件，实现按需异步加载"></a>创建一个异步组件 asyncComponent 替换 import 动态导入的 Login 和 Home 组件，实现按需异步加载</h2><p><strong>utils&#x2F;AsyncComponent&#x2F;asyncComponent.jsx</strong></p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, &#123; <span class="hljs-title class_">Component</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;react&quot;</span>;<br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">asyncComponent</span>(<span class="hljs-params">importComponent</span>) &#123;<br>  <span class="hljs-comment">// asyncComponent 接收一个 importComponent函数作为参数，importComponent()在被调用时会动态引入给定的组件。</span><br>  <span class="hljs-keyword">class</span> <span class="hljs-title class_">AsyncComponent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Component</span> &#123;<br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">props</span>) &#123;<br>      <span class="hljs-variable language_">super</span>(props);<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span> = &#123;<br>        <span class="hljs-attr">component</span>: <span class="hljs-literal">null</span><br>      &#125;;<br>    &#125;<br>    <span class="hljs-title function_">componentDidMount</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-comment">// 调用传入的importComponent()，并将动态引入的组件保存在state中</span><br>      <span class="hljs-title function_">importComponent</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">mod</span> =&gt;</span> &#123;<br>        <span class="hljs-comment">// import()方法返回的是一个Promise，Promise的返回值只能通过then()来读取</span><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>(&#123;<br>          <span class="hljs-comment">// 同时兼容ES6和CommonJS的模块</span><br>          <span class="hljs-attr">component</span>: mod.<span class="hljs-property">default</span> ? mod.<span class="hljs-property">default</span> : mod<br>        &#125;);<br>      &#125;);<br>    &#125;<br>    <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>) &#123;<br>      <span class="hljs-keyword">const</span> C = <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span>.<span class="hljs-property">component</span>;<br>      <span class="hljs-keyword">return</span> C ? <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">C</span> &#123;<span class="hljs-attr">...this.props</span>&#125; /&gt;</span></span> : <span class="hljs-literal">null</span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-title class_">AsyncComponent</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+<pre><code class="jsx">import React, &#123; Component &#125; from &quot;react&quot;;
+export default function asyncComponent(importComponent) &#123;
+  // asyncComponent 接收一个 importComponent函数作为参数，importComponent()在被调用时会动态引入给定的组件。
+  class AsyncComponent extends Component &#123;
+    constructor(props) &#123;
+      super(props);
+      this.state = &#123;
+        component: null
+      &#125;;
+    &#125;
+    componentDidMount() &#123;
+      // 调用传入的importComponent()，并将动态引入的组件保存在state中
+      importComponent().then(mod =&gt; &#123;
+        // import()方法返回的是一个Promise，Promise的返回值只能通过then()来读取
+        this.setState(&#123;
+          // 同时兼容ES6和CommonJS的模块
+          component: mod.default ? mod.default : mod
+        &#125;);
+      &#125;);
+    &#125;
+    render() &#123;
+      const C = this.state.component;
+      return C ? &lt;C &#123;...this.props&#125; /&gt; : null;
+    &#125;
+  &#125;
+  return AsyncComponent;
+&#125;
+</code></pre>
 <h3 id="使用-asyncComponent-组件"><a href="#使用-asyncComponent-组件" class="headerlink" title="使用 asyncComponent 组件"></a>使用 asyncComponent 组件</h3><p><strong>src&#x2F;components&#x2F;App&#x2F;index.js</strong></p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> asyncComponent <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../../utils/AsyncComponent&quot;</span>;<br><span class="hljs-comment">// 使用asyncComponent组件来创建代码分片点替换import动态导入的Login和Home组件</span><br><span class="hljs-keyword">const</span> <span class="hljs-title class_">AsyncHome</span> = <span class="hljs-title function_">connectRoute</span>(<span class="hljs-title function_">asyncComponent</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">import</span>(<span class="hljs-string">&quot;../Home&quot;</span>)));<br><span class="hljs-keyword">const</span> <span class="hljs-title class_">AsyncLogin</span> = <span class="hljs-title function_">connectRoute</span>(<span class="hljs-title function_">asyncComponent</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">import</span>(<span class="hljs-string">&quot;../Login&quot;</span>)));<br><span class="hljs-comment">//传给 asyncComponent 一个函数，在 AsyncHome 组件被创建时对组件进行动态引入 这里并没有进行组件的引入</span><br>...<br>  <span class="hljs-keyword">return</span>(<br>    &lt;div&gt;<br>      &lt;<span class="hljs-title class_">Router</span>&gt;<br>        &lt;<span class="hljs-title class_">Switch</span>&gt;<br>          &#123;<span class="hljs-comment">/* 使用这个 AsyncHome 组件*/</span>&#125;<br>          &lt;<span class="hljs-title class_">Route</span> exact path=<span class="hljs-string">&quot;/&quot;</span> component=&#123;<span class="hljs-title class_">AsyncHome</span>&#125; /&gt;<br>          <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;/login&quot;</span> <span class="hljs-attr">component</span>=<span class="hljs-string">&#123;AsyncLogin&#125;</span> /&gt;</span></span><br>          <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Route</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;/posts&quot;</span> <span class="hljs-attr">component</span>=<span class="hljs-string">&#123;AsyncHome&#125;</span> /&gt;</span></span><br>    ...<br>  )<br>...<br></code></pre></td></tr></table></figure>
-
+<pre><code class="jsx">import asyncComponent from &quot;../../utils/AsyncComponent&quot;;
+// 使用asyncComponent组件来创建代码分片点替换import动态导入的Login和Home组件
+const AsyncHome = connectRoute(asyncComponent(() =&gt; import(&quot;../Home&quot;)));
+const AsyncLogin = connectRoute(asyncComponent(() =&gt; import(&quot;../Login&quot;)));
+//传给 asyncComponent 一个函数，在 AsyncHome 组件被创建时对组件进行动态引入 这里并没有进行组件的引入
+...
+  return(
+    &lt;div&gt;
+      &lt;Router&gt;
+        &lt;Switch&gt;
+          &#123;/* 使用这个 AsyncHome 组件*/&#125;
+          &lt;Route exact path=&quot;/&quot; component=&#123;AsyncHome&#125; /&gt;
+          &lt;Route path=&quot;/login&quot; component=&#123;AsyncLogin&#125; /&gt;
+          &lt;Route path=&quot;/posts&quot; component=&#123;AsyncHome&#125; /&gt;
+    ...
+  )
+...
+</code></pre>
 <h1 id="不要把所有的数据都往-State-中塞"><a href="#不要把所有的数据都往-State-中塞" class="headerlink" title="不要把所有的数据都往 State 中塞"></a>不要把所有的数据都往 State 中塞</h1><p>如后端数据，且数据为不需要在页面变动</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;result&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;totalUserCount&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">634801</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;totalSilentUserCount&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">631192</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;totalAccountCount&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">29012</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;creationTime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2019-12-12T14:46:45.423&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;isSuccess&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;errorCode&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-attr">&quot;message&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><br><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br></code></pre></td></tr></table></figure>
+<pre><code class="json">  &quot;data&quot;: &#123;
+    &quot;result&quot;: &#123;
+      &quot;id&quot;: 2,
+      &quot;totalUserCount&quot;: 634801,
+      &quot;totalSilentUserCount&quot;: 631192,
+      &quot;totalAccountCount&quot;: 29012,
+      &quot;creationTime&quot;: &quot;2019-12-12T14:46:45.423&quot;
+    &#125;,
+    &quot;isSuccess&quot;: true,
+    &quot;errorCode&quot;: 0,
+    &quot;message&quot;: &quot;&quot;
+  &#125;,
+</code></pre>
 <p>那么我们只需要把 result 放入 state 即可</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>(&#123;<br>  <span class="hljs-title class_">Data</span>:result<br>&#125;)<br><span class="hljs-keyword">const</span> &#123;<span class="hljs-title class_">Data</span>&#125;  = <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span><br>....<br>&lt;span style=&#123;&#123; <span class="hljs-attr">color</span>: <span class="hljs-string">&#x27;#333333&#x27;</span>, <span class="hljs-attr">fontSize</span>: <span class="hljs-string">&#x27;14px&#x27;</span> &#125;&#125;&gt;<br>  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span>&gt;</span></span><br><span class="language-xml">    &#123;Data.totalUserCount&#125;</span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span><br>  个，<br></code></pre></td></tr></table></figure>
+<pre><code class="jsx">this.setState(&#123;
+  Data:result
+&#125;)
+const &#123;Data&#125;  = this.state
+....
+&lt;span style=&#123;&#123; color: '#333333', fontSize: '14px' &#125;&#125;&gt;
+  &lt;a href=&quot;#&quot;&gt;
+    &#123;Data.totalUserCount&#125;
+  &lt;/a&gt;
+  个，
+</code></pre>
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81/" class="category-chain-item">快乐编码</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/React-%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/">#React 那些事儿</a>
-      
-    </div>
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>React性能优化</div>
-      <div>https://www.pengsifan.com/2019/12/10/React性能优化/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>Van</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2019年12月10日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
+            <hr>
+          </div>
+          <br>
           <div>
             
+              <p>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81">快乐编码</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
               
+                <a class="hover-with-bg" href="/tags/React%20%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF">React 那些事儿</a>
               
-                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-by"></i>
-                  </span>
-                </a>
-              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
             
           </div>
         </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2019/12/12/%E4%B8%8D%E6%83%B3%E5%81%9AAPI%E5%B7%A5%E7%A8%8B%E5%B8%88/" title="不想做API工程师">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">不想做API工程师</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2019/12/09/%E6%95%88%E7%8E%87%E8%87%B3%E4%B8%8A%E7%9A%84Mobx/" title="效率至上的Mobx">
-                        <span class="hidden-mobile">效率至上的Mobx</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
       </div>
     </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
+    <div class="d-none d-lg-block col-lg-2 toc-container">
       
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
 
     </div>
   </div>
 </div>
 
+<!-- custom -->
 
 
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
 
     
+  </main>
 
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
 
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -471,186 +297,116 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+  
 
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
     
+  </div>
+</footer>
 
+<!-- SCRIPTS -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/popper/popper.min.js"></script>
+
+
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+
+
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+  
     
-  </main>
+<script src="/lib/tocbot/tocbot.min.js"></script>
 
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
   
-  
-  
-</div>
+<script src="/js/post.js"></script>
 
-  </footer>
 
-  <!-- Scripts -->
+
   
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+<script src="/lib/prettify/prettify.min.js"></script>
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
     })
   </script>
 
 
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+  
+<script src="/lib/typed/typed.min.js"></script>
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "React性能优化&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  
+<script src="/lib/anchor/anchor.min.js"></script>
+
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
       
-        typing(text);
-      
-    })(window, document);
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
   </script>
 
 
 
-
   
-    <script  src="/js/img-lazyload.js" ></script>
-  
+<script src="/js/local-search.js"></script>
 
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
     }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
+  </script>
 
 
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
 </body>
 </html>

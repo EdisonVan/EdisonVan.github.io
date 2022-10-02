@@ -1,84 +1,43 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN">
+
+
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Van">
+  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  <meta name="author" content="sifan.peng">
   <meta name="keywords" content="">
+  <title>Loading chunk {n} failed 的解决方法 ~ 彭思凡的个人网站</title>
   
-    <meta name="description" content="背景: 前端代码更改后,每次发布到测试环境,用户的页面如果不刷新,会读取缓存,导致页面白掉! 本地没有过，都是打包到服务器上才有  error info 12345678910111213Uncaught SyntaxError: Unexpected token &amp;#x27;&lt;&amp;#x27;Uncaught ChunkLoadError: Loading chunk 8 failed.(mi">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Loading chunk {n} failed 的解决方法">
-<meta property="og:url" content="https://www.pengsifan.com/2020/12/01/Loading%20chunk%20%7Bn%7D%20failed/index.html">
-<meta property="og:site_name" content="彭思凡的个人网站">
-<meta property="og:description" content="背景: 前端代码更改后,每次发布到测试环境,用户的页面如果不刷新,会读取缓存,导致页面白掉! 本地没有过，都是打包到服务器上才有  error info 12345678910111213Uncaught SyntaxError: Unexpected token &amp;#x27;&lt;&amp;#x27;Uncaught ChunkLoadError: Loading chunk 8 failed.(mi">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-01T00:47:11.000Z">
-<meta property="article:modified_time" content="2022-06-03T08:57:54.925Z">
-<meta property="article:author" content="sifan.peng">
-<meta property="article:tag" content="编程之美">
-<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+
+  
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+
+  
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+
+  
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+  
+    
+<link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+
   
   
-  
-  <title>Loading chunk {n} failed 的解决方法 - 彭思凡的个人网站</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"www.pengsifan.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
+<link rel="stylesheet" href="/css/main.css">
 
 
   
@@ -86,17 +45,11 @@
 
 
 <body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
-    </a>
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -110,176 +63,100 @@
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
           </li>
         
       </ul>
     </div>
   </div>
+
+
 </nav>
 
-  
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="Loading chunk {n} failed 的解决方法"></span>
+            
+              <br>
+              <p>星期二, 十二月 1日 2020, 8:47 早上</p>
+            
+          </div>
+
           
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2020-12-01 08:47" pubdate>
-          2020年12月1日 早上
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          5k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          42 分钟
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
       </div>
-
-      
     </div>
-  </div>
-</div>
-
-</div>
-
   </header>
 
   <main>
     
       
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Loading chunk {n} failed 的解决方法</h1>
-            
-            
-              <div class="markdown-body">
-                
-                <h1 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h1><ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <h1 id="背景"><a href="#背景" class="headerlink" title="背景:"></a>背景:</h1><ul>
 <li>前端代码更改后,每次发布到测试环境,用户的页面如果不刷新,会读取缓存,导致页面白掉!</li>
 <li>本地没有过，都是打包到服务器上才有</li>
 </ul>
 <p><strong>error info</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-title class_">Uncaught</span> <span class="hljs-title class_">SyntaxError</span>: <span class="hljs-title class_">Unexpected</span> token <span class="hljs-string">&#x27;&lt;&#x27;</span><br><span class="hljs-title class_">Uncaught</span> <span class="hljs-title class_">ChunkLoadError</span>: <span class="hljs-title class_">Loading</span> chunk <span class="hljs-number">8</span> failed.<br>(<span class="hljs-attr">missing</span>: <span class="hljs-attr">https</span>:<span class="hljs-comment">//mispaceuat.mihoyo.com/static/js/8.98f2a71fc60af3a81dd1.js)</span><br>    at <span class="hljs-title class_">Function</span>.<span class="hljs-property">i</span>.<span class="hljs-property">e</span> (<span class="hljs-attr">https</span>:<span class="hljs-comment">//mispaceuat.mihoyo.com/static/js/app.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:1:934)</span><br>    at <span class="hljs-attr">https</span>:<span class="hljs-comment">//mispaceuat.mihoyo.com/static/js/app.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:1:3105</span><br>    at <span class="hljs-attr">https</span>:<span class="hljs-comment">//mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1229684</span><br>    at gl (<span class="hljs-attr">https</span>:<span class="hljs-comment">//mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1229833)</span><br>    at sc (<span class="hljs-attr">https</span>:<span class="hljs-comment">//mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1221601)</span><br>    at lc (<span class="hljs-attr">https</span>:<span class="hljs-comment">//mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1221526)</span><br>    at $l (<span class="hljs-attr">https</span>:<span class="hljs-comment">//mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1218556)</span><br>    at <span class="hljs-attr">https</span>:<span class="hljs-comment">//mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1170263</span><br>    at e.<span class="hljs-property">unstable_runWithPriority</span> (<span class="hljs-attr">https</span>:<span class="hljs-comment">//mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1244959)</span><br>    at <span class="hljs-title class_">Ia</span> (<span class="hljs-attr">https</span>:<span class="hljs-comment">//mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1169972)</span><br></code></pre></td></tr></table></figure>
-
+<pre><code class="js">Uncaught SyntaxError: Unexpected token &#39;&lt;&#39;
+Uncaught ChunkLoadError: Loading chunk 8 failed.
+(missing: https://mispaceuat.mihoyo.com/static/js/8.98f2a71fc60af3a81dd1.js)
+    at Function.i.e (https://mispaceuat.mihoyo.com/static/js/app.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:1:934)
+    at https://mispaceuat.mihoyo.com/static/js/app.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:1:3105
+    at https://mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1229684
+    at gl (https://mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1229833)
+    at sc (https://mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1221601)
+    at lc (https://mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1221526)
+    at $l (https://mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1218556)
+    at https://mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1170263
+    at e.unstable_runWithPriority (https://mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1244959)
+    at Ia (https://mispaceuat.mihoyo.com/static/js/vendor.98f2a71fc60af3a81dd1.js?98f2a71fc60af3a81dd1:2:1169972)
+</code></pre>
 <h1 id="报错原因分析"><a href="#报错原因分析" class="headerlink" title="报错原因分析:"></a>报错原因分析:</h1><ul>
 <li>webpack 打包重命名了改动过的 css 和 js 文件，并删除了原有的文件<ul>
 <li>场景 1.用户正在浏览页面时你发包了，并且你启用了懒加载，用户的 html 文件中的 js 和 css 名称就和服务器上的不一致导致</li>
@@ -307,8 +184,26 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// prompt user to confirm refresh</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">forceRefresh</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 设置只强制刷行一次页面</span><br>  <span class="hljs-keyword">if</span> (location.<span class="hljs-property">href</span>.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&#x27;#reloaded&#x27;</span>) === -<span class="hljs-number">1</span>) &#123;<br>    location.<span class="hljs-property">href</span> = location.<span class="hljs-property">href</span> + <span class="hljs-string">&#x27;#reloaded&#x27;</span>;<br>    <span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-title function_">reload</span>(<span class="hljs-literal">true</span>);<br>    <span class="hljs-comment">// window.location.reload();</span><br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;请手动刷新页面！&#x27;</span>);<br>  &#125;<br>&#125;<br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;error&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">const</span> pattern = <span class="hljs-regexp">/Loading chunk (\d)+ failed/g</span>;<br>  <span class="hljs-keyword">const</span> isChunkLoadFailed = error.<span class="hljs-property">message</span>.<span class="hljs-title function_">match</span>(pattern);<br>  <span class="hljs-comment">// const isChunkLoadFailed =  /Loading chunk [\d]+ failed/.test(e.message)</span><br>  <span class="hljs-keyword">if</span> (isChunkLoadFailed) <span class="hljs-title function_">forceRefresh</span>();<br>  <span class="hljs-comment">// const targetPath = router.history.pending.fullPath;</span><br>  <span class="hljs-comment">// if (isChunkLoadFailed) router.replace(targetPath);</span><br>&#125;);<br></code></pre></td></tr></table></figure>
-
+<pre><code class="js">// prompt user to confirm refresh
+function forceRefresh() &#123;
+  // 设置只强制刷行一次页面
+  if (location.href.indexOf(&#39;#reloaded&#39;) === -1) &#123;
+    location.href = location.href + &#39;#reloaded&#39;;
+    window.location.reload(true);
+    // window.location.reload();
+  &#125; else &#123;
+    alert(&#39;请手动刷新页面！&#39;);
+  &#125;
+&#125;
+window.addEventListener(&#39;error&#39;, (e) =&gt; &#123;
+  const pattern = /Loading chunk (\d)+ failed/g;
+  const isChunkLoadFailed = error.message.match(pattern);
+  // const isChunkLoadFailed =  /Loading chunk [\d]+ failed/.test(e.message)
+  if (isChunkLoadFailed) forceRefresh();
+  // const targetPath = router.history.pending.fullPath;
+  // if (isChunkLoadFailed) router.replace(targetPath);
+&#125;);
+</code></pre>
 <ul>
 <li><p><strong>方案 2</strong>：构建时静态资源路径带上版本信息</p>
 <ul>
@@ -318,26 +213,37 @@
 <li><p><strong>方案 3</strong>:增加配置让页面每次加载新数据而不是走缓存,同时让后端帮忙修改 Nginx,设置 no-cache,让页面不要每次去读取缓存</p>
 </li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- React 入口文件添加配置让页面每次加载新数据而不是走缓存, --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;Cache-control&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;no-cache&quot;</span> /&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;Cache&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;no-cache&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
-
+<pre><code class="html">&lt;!-- React 入口文件添加配置让页面每次加载新数据而不是走缓存, --&gt;
+&lt;meta http-equiv=&quot;Cache-control&quot; content=&quot;no-cache&quot; /&gt;
+&lt;meta http-equiv=&quot;Cache&quot; content=&quot;no-cache&quot; /&gt;
+</code></pre>
 <ul>
 <li><strong>方案 4</strong>:尝试入口文件 client\index.tsx 处进行热更新</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js">declare <span class="hljs-keyword">const</span> <span class="hljs-attr">module</span>: any<br><span class="hljs-keyword">if</span> (process.<span class="hljs-property">env</span>.<span class="hljs-property">NODE_ENV</span> === <span class="hljs-string">&#x27;development&#x27;</span> &amp;&amp; <span class="hljs-variable language_">module</span>.<span class="hljs-property">hot</span>) &#123;<br>  <span class="hljs-variable language_">module</span>.<span class="hljs-property">hot</span>.<span class="hljs-title function_">accept</span>(<span class="hljs-string">&#x27;./app&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    location.<span class="hljs-title function_">reload</span>()<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
-
+<pre><code class="js">declare const module: any
+if (process.env.NODE_ENV === &#39;development&#39; &amp;&amp; module.hot) &#123;
+  module.hot.accept(&#39;./app&#39;, () =&gt; &#123;
+    location.reload()
+  &#125;)
+&#125;
+</code></pre>
 <ul>
 <li><p><strong>方案 5（使用 Umi 框架的项目）</strong></p>
 <ul>
 <li>1.<code>将 .umirc.js 中的 publicPath 配置成 / </code></li>
 <li>2.如果构建的 dist 文件多加一层目录 base</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">location /base &#123;<br><span class="hljs-meta prompt_">  # </span><span class="language-bash">用于配合 browserHistory使用</span><br>  try_files $uri $uri/ /index.html;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre><code class="shell">location /base &#123;
+  # 用于配合 browserHistory使用
+  try_files $uri $uri/ /index.html;
+&#125;
+</code></pre>
 </li>
 <li><p><strong>方案 6</strong><br>找到 public&#x2F;index.html 页面,在脚本上 src 前加上”&#x2F;“</p>
 </li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;index.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
+<pre><code class="html">&lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;
+</code></pre>
 <h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/docs/error-boundaries.html">react 错误边界</a><ul>
 <li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000030686302">https://segmentfault.com/a/1190000030686302</a></li>
@@ -350,13 +256,56 @@
 <li><a target="_blank" rel="noopener" href="https://github.com/x-orpheus/catch-react-error">网易开源库</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/nuxt/nuxt.js/issues/742">GitHub 讨论</a></li>
 </ul>
-<h2 id="React-Lazy-的原理"><a href="#React-Lazy-的原理" class="headerlink" title="React.Lazy 的原理"></a>React.Lazy 的原理</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">lazyComponent <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> a component but a <span class="hljs-keyword">function</span> <span class="hljs-title">that</span> returns a promise object. Inside of the promise that we <span class="hljs-keyword">return</span> <span class="hljs-type">from</span> componentLoader, we trigger the <span class="hljs-keyword">function</span> <span class="hljs-title"></span>(lazyComponent) and add handlers for promise resolve (.then) and reject(.catch). Since the successful resolution of promise <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> a problem <span class="hljs-keyword">in</span> our <span class="hljs-keyword">use</span> <span class="hljs-keyword">case</span>, we let React.lazy handle the resolved contents.<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">componentLoader</span>(<span class="hljs-params">lazyComponent</span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;<br>    <span class="hljs-title function_">lazyComponent</span>()<br>      .<span class="hljs-title function_">then</span>(resolve)<br>      .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> &#123;<br>        <span class="hljs-comment">// let us retry after 1500 ms</span><br>        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>          <span class="hljs-comment">// call componentLoader again!</span><br>          <span class="hljs-keyword">if</span> (attemptsLeft === <span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-title function_">reject</span>(error);<br>            <span class="hljs-keyword">return</span>;<br>          &#125;<br>          <span class="hljs-title function_">componentLoader</span>(lazyComponent, attemptsLeft - <span class="hljs-number">1</span>).<span class="hljs-title function_">then</span>(<br>            resolve,<br>            reject<br>          );<br>          <span class="hljs-comment">// add one line to make it all work</span><br>        &#125;, <span class="hljs-number">1500</span>);<br>      &#125;);<br>  &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
-
+<h2 id="React-Lazy-的原理"><a href="#React-Lazy-的原理" class="headerlink" title="React.Lazy 的原理"></a>React.Lazy 的原理</h2><pre><code>lazyComponent is not a component but a function that returns a promise object. Inside of the promise that we return from componentLoader, we trigger the function (lazyComponent) and add handlers for promise resolve (.then) and reject(.catch). Since the successful resolution of promise is not a problem in our use case, we let React.lazy handle the resolved contents.
+</code></pre>
+<pre><code class="js">function componentLoader(lazyComponent) &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    lazyComponent()
+      .then(resolve)
+      .catch((error) =&gt; &#123;
+        // let us retry after 1500 ms
+        setTimeout(() =&gt; &#123;
+          // call componentLoader again!
+          if (attemptsLeft === 1) &#123;
+            reject(error);
+            return;
+          &#125;
+          componentLoader(lazyComponent, attemptsLeft - 1).then(
+            resolve,
+            reject
+          );
+          // add one line to make it all work
+        &#125;, 1500);
+      &#125;);
+  &#125;);
+&#125;
+</code></pre>
 <p><strong>封装 retry 方法</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs js"> <span class="hljs-keyword">function</span> <span class="hljs-title function_">retry</span>(<span class="hljs-params"></span><br><span class="hljs-params">  fn: () =&gt; <span class="hljs-built_in">Promise</span>&lt;&#123;</span><br><span class="hljs-params">    <span class="hljs-keyword">default</span>: React.ComponentType&lt;any&gt;;</span><br><span class="hljs-params">  &#125;&gt;,</span><br><span class="hljs-params">  retriesLeft = <span class="hljs-number">100</span>,</span><br><span class="hljs-params">  interval = <span class="hljs-number">1000</span></span><br><span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>&lt;&#123;<br>    <span class="hljs-attr">default</span>: <span class="hljs-title class_">React</span>.<span class="hljs-property">ComponentType</span>&lt;any&gt;;<br>  &#125;&gt;(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;<br>    <span class="hljs-title function_">fn</span>()<br>      .<span class="hljs-title function_">then</span>(resolve)<br>      .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error: any</span>) =&gt;</span> &#123;<br>        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>          <span class="hljs-keyword">if</span> (retriesLeft === <span class="hljs-number">1</span>) &#123;<br>            <span class="hljs-title function_">reject</span>(error);<br>            <span class="hljs-keyword">return</span>;<br>          &#125;<br>          <span class="hljs-title function_">retry</span>(fn, retriesLeft - <span class="hljs-number">1</span>, interval).<span class="hljs-title function_">then</span>(resolve, reject);<br>        &#125;, interval);<br>      &#125;);<br>  &#125;);<br>&#125;<br><span class="hljs-attr">component</span>: <span class="hljs-title function_">lazy</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">retry</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-title function_">import</span>(<span class="hljs-string">&quot;./pages/dashboard/Dashboard&quot;</span>)))<br></code></pre></td></tr></table></figure>
-
+<pre><code class="js"> function retry(
+  fn: () =&gt; Promise&lt;&#123;
+    default: React.ComponentType&lt;any&gt;;
+  &#125;&gt;,
+  retriesLeft = 100,
+  interval = 1000
+) &#123;
+  return new Promise&lt;&#123;
+    default: React.ComponentType&lt;any&gt;;
+  &#125;&gt;((resolve, reject) =&gt; &#123;
+    fn()
+      .then(resolve)
+      .catch((error: any) =&gt; &#123;
+        setTimeout(() =&gt; &#123;
+          if (retriesLeft === 1) &#123;
+            reject(error);
+            return;
+          &#125;
+          retry(fn, retriesLeft - 1, interval).then(resolve, reject);
+        &#125;, interval);
+      &#125;);
+  &#125;);
+&#125;
+component: lazy(() =&gt; retry(() =&gt; import(&quot;./pages/dashboard/Dashboard&quot;)))
+</code></pre>
 <!-- ## 运营商的数据拦截 -->
 <!-- // webpack动态加载原理(webpack动态加载分片的精简过后的源码)
 var promise = new Promise(function (resolve, reject) {
@@ -414,177 +363,64 @@ webpack动态加载分片顺序：
 */
  -->
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%BE%8E/">#编程之美</a>
-      
-    </div>
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>Loading chunk {n} failed 的解决方法</div>
-      <div>https://www.pengsifan.com/2020/12/01/Loading chunk {n} failed/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>Van</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2020年12月1日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
+            <hr>
+          </div>
+          <br>
           <div>
             
+              <p>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF">前端</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
               
+                <a class="hover-with-bg" href="/tags/%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%BE%8E">编程之美</a>
               
-                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-by"></i>
-                  </span>
-                </a>
-              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
             
           </div>
         </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/01/05/Mock%E6%96%B9%E6%A1%88/" title="Mock方案">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Mock方案</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2020/05/06/Golang-Daily/" title="我与Golang的每一天">
-                        <span class="hidden-mobile">我与Golang的每一天</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
       </div>
     </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
+    <div class="d-none d-lg-block col-lg-2 toc-container">
       
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
 
     </div>
   </div>
 </div>
 
+<!-- custom -->
 
 
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
 
     
+  </main>
 
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
 
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -597,186 +433,116 @@ webpack动态加载分片顺序：
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+  
 
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
     
+  </div>
+</footer>
 
+<!-- SCRIPTS -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/popper/popper.min.js"></script>
+
+
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+
+
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+  
     
-  </main>
+<script src="/lib/tocbot/tocbot.min.js"></script>
 
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
   
-  
-  
-</div>
+<script src="/js/post.js"></script>
 
-  </footer>
 
-  <!-- Scripts -->
+
   
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+<script src="/lib/prettify/prettify.min.js"></script>
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
     })
   </script>
 
 
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+  
+<script src="/lib/typed/typed.min.js"></script>
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Loading chunk {n} failed 的解决方法&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  
+<script src="/lib/anchor/anchor.min.js"></script>
+
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
       
-        typing(text);
-      
-    })(window, document);
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
   </script>
 
 
 
-
   
-    <script  src="/js/img-lazyload.js" ></script>
-  
+<script src="/js/local-search.js"></script>
 
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
     }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
+  </script>
 
 
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
 </body>
 </html>

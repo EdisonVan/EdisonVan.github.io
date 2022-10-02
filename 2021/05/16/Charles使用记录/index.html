@@ -1,91 +1,43 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN">
+
+
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Van">
+  <meta name="description" content="Peng Sifan&#39;s self blog!">
+  <meta name="author" content="sifan.peng">
   <meta name="keywords" content="">
+  <title>Charles使用记录 ~ 彭思凡的个人网站</title>
   
-    <meta name="description" content="Charles 手机抓包设置 常用：copy 别人网站图片或脚本 原理：手机依靠 charles 与服务端进行对话 目标：把手机的网络委托给 charles 进行代理 手机抓包设置流程总结（类似 HTTP 的握手原理，双方保证正常通信即可） 1.在 charles 里设置允许手机联网的权限；把 charles 设置为允许的状态并设置允许的端口号，这样手机端才能正常的接入 2.把手机按照 charl">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Charles使用记录">
-<meta property="og:url" content="https://www.pengsifan.com/2021/05/16/Charles%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/index.html">
-<meta property="og:site_name" content="彭思凡的个人网站">
-<meta property="og:description" content="Charles 手机抓包设置 常用：copy 别人网站图片或脚本 原理：手机依靠 charles 与服务端进行对话 目标：把手机的网络委托给 charles 进行代理 手机抓包设置流程总结（类似 HTTP 的握手原理，双方保证正常通信即可） 1.在 charles 里设置允许手机联网的权限；把 charles 设置为允许的状态并设置允许的端口号，这样手机端才能正常的接入 2.把手机按照 charl">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_setting.png?raw=true">
-<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_location_20210516.png?raw=true">
-<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_connect_20210516.png?raw=true">
-<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_set.jpg?raw=true">
-<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_connect_210516.png?raw=true">
-<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/digiwin_charles.png?raw=true">
-<meta property="article:published_time" content="2021-05-16T02:30:00.000Z">
-<meta property="article:modified_time" content="2021-05-16T14:39:11.743Z">
-<meta property="article:author" content="sifan.peng">
-<meta property="article:tag" content="开发工具">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_setting.png?raw=true">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+
+  
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+
+  
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+
+  
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+  
+    
+<link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+
   
   
-  
-  <title>Charles使用记录 - 彭思凡的个人网站</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"www.pengsifan.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
+<link rel="stylesheet" href="/css/main.css">
 
 
   
@@ -93,17 +45,11 @@
 
 
 <body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
-    </a>
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>彭思凡的个人网站</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -117,170 +63,82 @@
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
         
           
           
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
           </li>
         
       </ul>
     </div>
   </div>
+
+
 </nav>
 
-  
+    <div class="view intro-2"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="Charles使用记录"></span>
+            
+              <br>
+              <p>星期日, 五月 16日 2021, 10:30 上午</p>
+            
+          </div>
+
           
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2021-05-16 10:30" pubdate>
-          2021年5月16日 上午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          886 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          8 分钟
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
       </div>
-
-      
     </div>
-  </div>
-</div>
-
-</div>
-
   </header>
 
   <main>
     
       
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Charles使用记录</h1>
-            
-            
-              <div class="markdown-body">
-                
-                <h1 id="Charles-手机抓包设置"><a href="#Charles-手机抓包设置" class="headerlink" title="Charles 手机抓包设置"></a>Charles 手机抓包设置</h1><ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <h1 id="Charles-手机抓包设置"><a href="#Charles-手机抓包设置" class="headerlink" title="Charles 手机抓包设置"></a>Charles 手机抓包设置</h1><ul>
 <li>常用：copy 别人网站图片或脚本</li>
 <li>原理：手机依靠 charles 与服务端进行对话</li>
 <li>目标：把手机的网络委托给 charles 进行代理</li>
@@ -291,186 +149,73 @@
 </ul>
 </li>
 </ul>
-<h1 id="Charles-使用教程"><a href="#Charles-使用教程" class="headerlink" title="Charles 使用教程"></a>Charles 使用教程</h1><p><strong>1.设置 charles 为允许状态，并设置好接入端口</strong><br>在 Charles 的菜单栏上选择“Proxy”-&gt;“Proxy Settings”，填入任意代理<code>端口号</code>，如 8888（记住这个端口，因为这里设置的允许接入的端口，手机端配置时需要用到），并且勾上”Enable transparent HTTP proxying” 就完成了在 Charles 上的设置。<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_setting.png?raw=true" srcset="/img/loading.gif" lazyload><br>在 charles 点击 HELP -&gt; local IP Address 看到当前的<code>*本机 IP 地址*</code><br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_location_20210516.png?raw=true" srcset="/img/loading.gif" lazyload><br>charles 允许手机接入的 IP 和端口是<code>IP地址:端口号</code>，如 192.168.1.107:8888<br>手动在浏览器中输入<code>IP地址:端口号</code>，会发现 charles 会提示一个窗口问你是否允许接入；<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_connect_20210516.png?raw=true" srcset="/img/loading.gif" lazyload></p>
-<p><strong>2.把手机按照 charles 的 IP 和端口进行配置</strong><br>手机连接<code>Wi-Fi</code>，电脑和手机连接同一个<code>Wi-Fi</code><br>在 iPhone 的 “设置”-&gt;“无线局域网“中，可以看到当前连接的<code>Wi-Fi</code>名，通过点击右边的详情键，在其最底部有<code>Configure Proxy/配置代理</code>一项，将其切换成手动，然后填上 Charles 运行所在的电脑的 IP，及端口号 8888<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_set.jpg?raw=true" srcset="/img/loading.gif" lazyload><br>设置好之后，打开 iPhone 上的任意需要网络通讯的程序，可以看到 Charles 弹出 iPhone 请求连接的确认菜单，点击允许<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_connect_210516.png?raw=true" srcset="/img/loading.gif" lazyload></p>
-<p><strong>3.手机配对成功后，就可以电脑上就抓到访问的资源了</strong><br><img src="https://github.com/EdisonVan/GraphBed/raw/master/digiwin_charles.png?raw=true" srcset="/img/loading.gif" lazyload alt="1"><br>拷贝对应路径的 url，然后在浏览器中输入 url 回车即可看到对应页面</p>
+<h1 id="Charles-使用教程"><a href="#Charles-使用教程" class="headerlink" title="Charles 使用教程"></a>Charles 使用教程</h1><p><strong>1.设置 charles 为允许状态，并设置好接入端口</strong><br>在 Charles 的菜单栏上选择“Proxy”-&gt;“Proxy Settings”，填入任意代理<code>端口号</code>，如 8888（记住这个端口，因为这里设置的允许接入的端口，手机端配置时需要用到），并且勾上”Enable transparent HTTP proxying” 就完成了在 Charles 上的设置。<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_setting.png?raw=true"><br>在 charles 点击 HELP -&gt; local IP Address 看到当前的<code>*本机 IP 地址*</code><br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_location_20210516.png?raw=true"><br>charles 允许手机接入的 IP 和端口是<code>IP地址:端口号</code>，如 192.168.1.107:8888<br>手动在浏览器中输入<code>IP地址:端口号</code>，会发现 charles 会提示一个窗口问你是否允许接入；<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_connect_20210516.png?raw=true"></p>
+<p><strong>2.把手机按照 charles 的 IP 和端口进行配置</strong><br>手机连接<code>Wi-Fi</code>，电脑和手机连接同一个<code>Wi-Fi</code><br>在 iPhone 的 “设置”-&gt;“无线局域网“中，可以看到当前连接的<code>Wi-Fi</code>名，通过点击右边的详情键，在其最底部有<code>Configure Proxy/配置代理</code>一项，将其切换成手动，然后填上 Charles 运行所在的电脑的 IP，及端口号 8888<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_set.jpg?raw=true"><br>设置好之后，打开 iPhone 上的任意需要网络通讯的程序，可以看到 Charles 弹出 iPhone 请求连接的确认菜单，点击允许<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_connect_210516.png?raw=true"></p>
+<p><strong>3.手机配对成功后，就可以电脑上就抓到访问的资源了</strong><br><img src="https://github.com/EdisonVan/GraphBed/raw/master/digiwin_charles.png?raw=true" alt="1"><br>拷贝对应路径的 url，然后在浏览器中输入 url 回车即可看到对应页面</p>
 <!-- 比如此时，访问企业微信或 pengsifan.com -->
 
 <h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><ul>
 <li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/jiayuchn-test/p/8875105.html">更详细的 Charles 操作</a></li>
 </ul>
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81/" class="category-chain-item">快乐编码</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">#开发工具</a>
-      
-    </div>
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>Charles使用记录</div>
-      <div>https://www.pengsifan.com/2021/05/16/Charles使用记录/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>Van</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2021年5月16日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
+            <hr>
+          </div>
+          <br>
           <div>
             
+              <p>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81">快乐编码</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
               
+                <a class="hover-with-bg" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7">开发工具</a>
               
-                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-by"></i>
-                  </span>
-                </a>
-              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
             
           </div>
         </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/08/22/DIY/" title="山地车组装">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">山地车组装</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2021/02/07/2021%E4%BC%9A%E6%9C%89%E5%93%AA%E4%BA%9B%E4%B8%8D%E4%B8%80%E6%A0%B7%EF%BC%9F/" title="2021会有哪些不一样？">
-                        <span class="hidden-mobile">2021会有哪些不一样？</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
       </div>
     </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
+    <div class="d-none d-lg-block col-lg-2 toc-container">
       
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
 
     </div>
   </div>
 </div>
 
+<!-- custom -->
 
 
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
 
     
+  </main>
 
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
 
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
      aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
@@ -483,186 +228,116 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+  
 
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
     
+  </div>
+</footer>
 
+<!-- SCRIPTS -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/popper/popper.min.js"></script>
+
+
+<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+
+
+<script src="/lib/mdbootstrap/js/mdb.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+  
     
-  </main>
+<script src="/lib/tocbot/tocbot.min.js"></script>
 
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
   
-  
-  
-</div>
+<script src="/js/post.js"></script>
 
-  </footer>
 
-  <!-- Scripts -->
+
   
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+<script src="/lib/prettify/prettify.min.js"></script>
 
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
     })
   </script>
 
 
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+  
+<script src="/lib/typed/typed.min.js"></script>
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Charles使用记录&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  
+<script src="/lib/anchor/anchor.min.js"></script>
+
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
       
-        typing(text);
-      
-    })(window, document);
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
   </script>
 
 
 
-
   
-    <script  src="/js/img-lazyload.js" ></script>
-  
+<script src="/js/local-search.js"></script>
 
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
     }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
+  </script>
 
 
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
 </body>
 </html>
