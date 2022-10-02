@@ -16,22 +16,22 @@
   <meta name="author" content="sifan.peng">
   <meta name="keywords" content="">
   
-    <meta name="description" content="121 Best Time to Buy and Sell StockRelated:Array &amp;&amp; Dynamic ProgrammingSay you have an array for which the ith element is the price of a given stock on day i.If you were only permitted to comp">
+    <meta name="description" content="win11 安装教程 U 盘灌好 Win11 ISO，从 U 盘引导系统，安装，一直到提示你不符合要求那个界面 按下 shift+F10，打开 CMD 窗口，输入 regedit，打开注册表编辑器 找到 HKEY_LOCAL_MACHINE\SYSTEM\Setup 文件夹 右键，新建“项”，名称为 LabConfig 进入到这个新建的文件夹（项）中，右键，新建 dword（32 位），名称为 B">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Best Time to Buy and Sell Stock">
-<meta property="og:url" content="https://www.pengsifan.com/2018/12/10/BestTimeToBuyAndSellStock/index.html">
+<meta property="og:title" content="win11 安装教程">
+<meta property="og:url" content="https://www.pengsifan.com/2021/12/13/win11%20%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="彭思凡的个人网站">
-<meta property="og:description" content="121 Best Time to Buy and Sell StockRelated:Array &amp;&amp; Dynamic ProgrammingSay you have an array for which the ith element is the price of a given stock on day i.If you were only permitted to comp">
+<meta property="og:description" content="win11 安装教程 U 盘灌好 Win11 ISO，从 U 盘引导系统，安装，一直到提示你不符合要求那个界面 按下 shift+F10，打开 CMD 窗口，输入 regedit，打开注册表编辑器 找到 HKEY_LOCAL_MACHINE\SYSTEM\Setup 文件夹 右键，新建“项”，名称为 LabConfig 进入到这个新建的文件夹（项）中，右键，新建 dword（32 位），名称为 B">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-12-10T00:39:47.000Z">
-<meta property="article:modified_time" content="2021-04-26T00:50:59.957Z">
+<meta property="article:published_time" content="2021-12-13T04:30:01.000Z">
+<meta property="article:modified_time" content="2022-10-02T08:15:13.929Z">
 <meta property="article:author" content="sifan.peng">
-<meta property="article:tag" content="Taste-Algorithms">
+<meta property="article:tag" content="生活">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Best Time to Buy and Sell Stock - 彭思凡的个人网站</title>
+  <title>win11 安装教程 - 彭思凡的个人网站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -189,7 +189,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Best Time to Buy and Sell Stock"></span>
+            <span id="subtitle" data-typed-text="win11 安装教程"></span>
           
         </div>
 
@@ -200,8 +200,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2018-12-10 08:39" pubdate>
-          2018年12月10日 早上
+        <time datetime="2021-12-13 12:30" pubdate>
+          2021年12月13日 下午
         </time>
       </span>
     
@@ -212,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          619 字
         
       </span>
     
@@ -223,7 +223,7 @@
         
         
         
-          9 分钟
+          6 分钟
         
       </span>
     
@@ -261,19 +261,31 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Best Time to Buy and Sell Stock</h1>
+            <h1 style="display: none">win11 安装教程</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="121-Best-Time-to-Buy-and-Sell-Stock"><a href="#121-Best-Time-to-Buy-and-Sell-Stock" class="headerlink" title="121 Best Time to Buy and Sell Stock"></a>121 Best Time to Buy and Sell Stock</h1><p>Related:Array &amp;&amp; Dynamic Programming<br>Say you have an array for which the ith element is the price of a given stock on day i.<br>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.<br>Note that you cannot sell a stock before you buy one.<br>example:I got array[7,1,5,3,6,4];The correct output should be 5;</p>
-<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> maxProfit = <span class="hljs-keyword">function</span>(<span class="hljs-params">prices</span>)&#123;     <span class="hljs-comment">//maxProfit在这里起到了比较下面profit大小的作用</span><br>    <span class="hljs-keyword">if</span>(prices === <span class="hljs-literal">null</span> || price.<span class="hljs-property">lenght</span> === <span class="hljs-number">0</span>)&#123;<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;&#125;<br>    <span class="hljs-keyword">var</span> min = <span class="hljs-title class_">Number</span>.<span class="hljs-property">MAX_VALUE</span>;<br>    <span class="hljs-keyword">var</span> profit = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">var</span> i;<br>    <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;prices.<span class="hljs-property">length</span>;i++)&#123;<br>        min = prices[i]&lt;min?:prices[i]:min; <span class="hljs-comment">//7 1 1 1 1 1</span><br>        profit = (prices[i] - min)&gt;profit?price[i]-<span class="hljs-attr">min</span>:profit;  <span class="hljs-comment">//0 0 5-1  3-1  6-1 4-1</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> profit;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>[7,1,5,3,6,4]</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> maxProfit = <span class="hljs-keyword">function</span> (<span class="hljs-params">prices</span>) &#123;<br>    <span class="hljs-keyword">var</span> profit = <span class="hljs-number">0</span>, diff;<br>    <span class="hljs-keyword">var</span> i;<br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; prices.<span class="hljs-property">length</span> - <span class="hljs-number">1</span>; i++) &#123;<br>        diff = prices[i+<span class="hljs-number">1</span>] - prices[i]; <span class="hljs-comment">//1-7 5-1 3-5 6-3  4-6</span><br>        <span class="hljs-keyword">if</span> (diff &gt; <span class="hljs-number">0</span>) &#123; profit += diff; &#125; <span class="hljs-comment">//4 3</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> profit; <span class="hljs-comment">//4</span><br>&#125;<br><span class="hljs-comment">// 这里我想maxProfit是已经封装了max()函数，因为const不定义maxProfit老是报错</span><br></code></pre></td></tr></table></figure>
-
-<p>一起回顾下max()方法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> max = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(<span class="hljs-number">3</span>,<span class="hljs-number">54</span>,<span class="hljs-number">32</span>,<span class="hljs-number">16</span>);<br><span class="hljs-title function_">alert</span>(max); <span class="hljs-comment">//54</span><br></code></pre></td></tr></table></figure>
+                <h1 id="win11-安装教程"><a href="#win11-安装教程" class="headerlink" title="win11 安装教程"></a>win11 安装教程</h1><ul>
+<li>U 盘灌好 Win11 ISO，从 U 盘引导系统，安装，一直到提示你不符合要求那个界面</li>
+<li>按下 shift+F10，打开 CMD 窗口，输入 regedit，打开注册表编辑器</li>
+<li>找到 HKEY_LOCAL_MACHINE\SYSTEM\Setup 文件夹</li>
+<li>右键，新建“项”，名称为 LabConfig</li>
+<li>进入到这个新建的文件夹（项）中，右键，新建 dword（32 位），名称为 BypassTPMCheck，值为 1</li>
+<li>（有网友推荐，此步不需要，可省略，你可以试一下）同上，再新建 Dword（32 位），名称为 BypassRAMCheck，值为 1</li>
+<li>再新建 BypassSecureBootCheck（32 位），值为 1</li>
+<li>完成上述 1 个项和 3 个键值的建立和设定后，关闭注册表编辑器，关闭 CMD 窗口，回到报错窗口，返回上一步（左上角按钮），重新执行安装，此时你会发现可以顺利装下去了。</li>
+</ul>
+<p><strong>转换磁盘格式</strong></p>
+<ul>
+<li>在当前安装界面按住 Shift+F10 调出命令提示符窗口；</li>
+<li>输入“diskpart”，按回车执行，进入 DISKPART 命令模式；</li>
+<li>输入“list disk”回车，列出当前磁盘信息；</li>
+<li>输入“select disk 0”回车，选中磁盘 0；</li>
+<li>输入“clean”，删除磁盘分区；</li>
+<li>输入“convert mbr”，回车，将磁盘转换为 MBR，或者，输入“convert gpt”将磁盘转换为 GPT；</li>
+<li>输入“exit”，回车，退出 DISKPART 命令模式，再次输入“exit”，回车，退出命令提示符，返回安装界面继续安装系统</li>
+</ul>
 
                 
               </div>
@@ -282,11 +294,32 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/DIY/" class="category-chain-item">DIY</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Taste-Algorithms/">#Taste-Algorithms</a>
+        <a href="/tags/%E7%94%9F%E6%B4%BB/">#生活</a>
       
     </div>
   
@@ -298,8 +331,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Best Time to Buy and Sell Stock</div>
-      <div>https://www.pengsifan.com/2018/12/10/BestTimeToBuyAndSellStock/</div>
+      <div>win11 安装教程</div>
+      <div>https://www.pengsifan.com/2021/12/13/win11 安装教程/</div>
     </div>
     <div class="license-meta">
       
@@ -311,7 +344,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2018年12月10日</div>
+          <div>2021年12月13日</div>
         </div>
       
       
@@ -343,9 +376,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/07/30/git-history/" title="你不得不知道的Git插件1--git history">
+                      <a href="/2022/05/10/permission_list/" title="企业管理项目权限管控设计">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">你不得不知道的Git插件1--git history</span>
+                        <span class="hidden-mobile">企业管理项目权限管控设计</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -353,8 +386,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2018/05/13/%E5%A4%9A%E5%AF%B9%E4%B8%80%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9A%5Btemplate%E7%9A%84%E5%A6%99%E7%94%A8%5D/" title="多对一数据绑定[template的妙用]">
-                        <span class="hidden-mobile">多对一数据绑定[template的妙用]</span>
+                      <a href="/2021/12/11/%E6%99%BA%E8%83%BD%E5%AE%B6%E5%B1%85/" title="智能家居">
+                        <span class="hidden-mobile">智能家居</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -1,14 +1,14 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN" >
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -24,7 +24,7 @@
 <meta property="og:description" content="易微联开机卡 BIOS 设置关机状态下 USB 接口待机电源方法  易微联开机卡线路连接  POWER SW 线一端连的开机卡 com 口，一端开机卡 no 口   注意不要把 POWER Light 线当电源线哈~  易微联开机卡配网步骤  接通电源，如果指示灯快闪三下长亮一下，直接进行第 2 步添加（否则长按 WiFi 配对键 5 秒） 手机连接 2.4GHz 的 WiFi，打开易微联 App">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-11T08:29:01.000Z">
-<meta property="article:modified_time" content="2021-12-27T15:13:44.430Z">
+<meta property="article:modified_time" content="2022-10-02T08:15:28.769Z">
 <meta property="article:author" content="sifan.peng">
 <meta property="article:tag" content="生活">
 <meta name="twitter:card" content="summary_large_image">
@@ -60,8 +60,6 @@
 
   <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
 
 
 
@@ -95,7 +93,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
+      <strong>彭思凡的个人网站</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -177,11 +175,6 @@
           
         
         
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -190,7 +183,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.jpeg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -219,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          879 字
+          260 字
         
       </span>
     
@@ -230,7 +223,7 @@
         
         
         
-          8 分钟
+          3 分钟
         
       </span>
     
@@ -298,26 +291,6 @@
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1j7411C7AX?share_source=copy_web">配网视频步骤</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Z7411K7ZZ?share_source=copy_web">易微联使用视频 2</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1KA411T7uu?share_source=copy_web">05:15 开始</a></li>
-</ul>
-<h1 id="win11-安装教程"><a href="#win11-安装教程" class="headerlink" title="win11 安装教程"></a>win11 安装教程</h1><ul>
-<li>U 盘灌好 Win11 ISO，从 U 盘引导系统，安装，一直到提示你不符合要求那个界面</li>
-<li>按下 shift+F10，打开 CMD 窗口，输入 regedit，打开注册表编辑器</li>
-<li>找到 HKEY_LOCAL_MACHINE\SYSTEM\Setup 文件夹</li>
-<li>右键，新建“项”，名称为 LabConfig</li>
-<li>进入到这个新建的文件夹（项）中，右键，新建 dword（32 位），名称为 BypassTPMCheck，值为 1</li>
-<li>（有网友推荐，此步不需要，可省略，你可以试一下）同上，再新建 Dword（32 位），名称为 BypassRAMCheck，值为 1</li>
-<li>再新建 BypassSecureBootCheck（32 位），值为 1</li>
-<li>完成上述 1 个项和 3 个键值的建立和设定后，关闭注册表编辑器，关闭 CMD 窗口，回到报错窗口，返回上一步（左上角按钮），重新执行安装，此时你会发现可以顺利装下去了。</li>
-</ul>
-<p><strong>转换磁盘格式</strong></p>
-<ul>
-<li>在当前安装界面按住 Shift+F10 调出命令提示符窗口；</li>
-<li>输入“diskpart”，按回车执行，进入 DISKPART 命令模式；</li>
-<li>输入“list disk”回车，列出当前磁盘信息；</li>
-<li>输入“select disk 0”回车，选中磁盘 0；</li>
-<li>输入“clean”，删除磁盘分区；</li>
-<li>输入“convert mbr”，回车，将磁盘转换为 MBR，或者，输入“convert gpt”将磁盘转换为 GPT；</li>
-<li>输入“exit”，回车，退出 DISKPART 命令模式，再次输入“exit”，回车，退出命令提示符，返回安装界面继续安装系统</li>
 </ul>
 
                 
@@ -409,9 +382,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/10/permission_list/" title="企业管理项目权限管控设计">
+                      <a href="/2021/12/13/win11%20%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/" title="win11 安装教程">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">企业管理项目权限管控设计</span>
+                        <span class="hidden-mobile">win11 安装教程</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
