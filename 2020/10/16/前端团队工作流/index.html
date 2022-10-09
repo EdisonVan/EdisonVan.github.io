@@ -16,22 +16,22 @@
   <meta name="author" content="Van">
   <meta name="keywords" content="">
   
-    <meta name="description" content="曾有人跟我说说：‘高手与低手的区别在于读库能力与调试能力。’我觉得很在理，所以也制定一些源码阅读计划！  迷你React框架anujs源码">
+    <meta name="description" content="分支管理策略分支命名规范 feature (功能开发分支) bugfix (修复分支) test (测试环境部署分支) uat(预发布环境部署分支) master(主干分支)  合并须知 develop 分支及 release 分支为环境部署分支，提 pr 由项目负责人 Code Review 通过后进行合并，通过 jenkins 检测代码变动实现自动发布  CodeReview 步骤 maste">
 <meta property="og:type" content="article">
-<meta property="og:title" content="不想做API工程师">
-<meta property="og:url" content="https://www.pengsifan.com/2019/12/12/%E4%B8%8D%E6%83%B3%E5%81%9AAPI%E5%B7%A5%E7%A8%8B%E5%B8%88/index.html">
+<meta property="og:title" content="前端团队工作流">
+<meta property="og:url" content="https://www.pengsifan.com/2020/10/16/%E5%89%8D%E7%AB%AF%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E6%B5%81/index.html">
 <meta property="og:site_name" content="彭思凡的个人网站">
-<meta property="og:description" content="曾有人跟我说说：‘高手与低手的区别在于读库能力与调试能力。’我觉得很在理，所以也制定一些源码阅读计划！  迷你React框架anujs源码">
+<meta property="og:description" content="分支管理策略分支命名规范 feature (功能开发分支) bugfix (修复分支) test (测试环境部署分支) uat(预发布环境部署分支) master(主干分支)  合并须知 develop 分支及 release 分支为环境部署分支，提 pr 由项目负责人 Code Review 通过后进行合并，通过 jenkins 检测代码变动实现自动发布  CodeReview 步骤 maste">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-11T21:39:47.000Z">
-<meta property="article:modified_time" content="2021-04-26T00:50:59.959Z">
+<meta property="article:published_time" content="2020-10-15T21:23:47.000Z">
+<meta property="article:modified_time" content="2022-10-09T05:32:00.113Z">
 <meta property="article:author" content="sifan.peng">
-<meta property="article:tag" content="Ant-Design">
+<meta property="article:tag" content="编程之美">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>不想做API工程师 - 彭思凡的个人网站</title>
+  <title>前端团队工作流 - 彭思凡的个人网站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -189,7 +189,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="不想做API工程师"></span>
+            <span id="subtitle" data-typed-text="前端团队工作流"></span>
           
         </div>
 
@@ -200,8 +200,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2019-12-12 05:39" pubdate>
-          2019年12月12日 凌晨
+        <time datetime="2020-10-16 05:23" pubdate>
+          2020年10月16日 凌晨
         </time>
       </span>
     
@@ -212,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          67 字
+          484 字
         
       </span>
     
@@ -223,7 +223,7 @@
         
         
         
-          1 分钟
+          5 分钟
         
       </span>
     
@@ -261,15 +261,33 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">不想做API工程师</h1>
+            <h1 style="display: none">前端团队工作流</h1>
             
             
               <div class="markdown-body">
                 
-                <p>曾有人跟我说说：‘高手与低手的区别在于读库能力与调试能力。’我觉得很在理，所以也制定一些源码阅读计划！</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/RubyLouvre/anu">迷你React框架anujs源码</a></li>
+                <h1 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h1><h2 id="分支命名规范"><a href="#分支命名规范" class="headerlink" title="分支命名规范"></a>分支命名规范</h2><ul>
+<li>feature (功能开发分支)</li>
+<li>bugfix (修复分支)</li>
+<li>test (测试环境部署分支)</li>
+<li>uat(预发布环境部署分支)</li>
+<li>master(主干分支)</li>
 </ul>
+<h2 id="合并须知"><a href="#合并须知" class="headerlink" title="合并须知"></a>合并须知</h2><ul>
+<li>develop 分支及 release 分支为环境部署分支，提 pr 由项目负责人 Code Review 通过后进行合并，通过 jenkins 检测代码变动实现自动发布</li>
+</ul>
+<h2 id="CodeReview-步骤"><a href="#CodeReview-步骤" class="headerlink" title="CodeReview 步骤"></a>CodeReview 步骤</h2><ol>
+<li>master、 UAT 分支设置为保护分支</li>
+<li>提测时开发分支发 pull requests 向 UAT 合并(但不点通过)</li>
+<li>QA 验收时，前端进行代码初步 review 及代码修改</li>
+<li>QA 验收测试环境通过，前端将步骤二发起的 pull requests 点击通过 merge 到 uat 分支</li>
+<li>UAT 分支发布到预发布环境，uat 环境的 bug 修改，通过开发分支提 pull requests 的方<br>式往 UAT 进行合并</li>
+<li>UAT 验收通过，将需要发布的个人开发分支向 master 分支提 pull requests</li>
+<li>master 分支发生产环境，如有线上 bug，基于 master 新建临更分支，重复步骤 1-&gt;6</li>
+</ol>
+<blockquote>
+<p>必须通过 tag 进行发布，规避多人协作 master 分支有人改动而导致发布内容与版本不一-致</p>
+</blockquote>
 
                 
               </div>
@@ -288,7 +306,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" class="category-chain-item">源码阅读</a>
+  <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81/" class="category-chain-item">快乐编码</a>
   
   
 
@@ -303,7 +321,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Ant-Design/">#Ant-Design</a>
+        <a href="/tags/%E7%BC%96%E7%A8%8B%E4%B9%8B%E7%BE%8E/">#编程之美</a>
       
     </div>
   
@@ -315,8 +333,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>不想做API工程师</div>
-      <div>https://www.pengsifan.com/2019/12/12/不想做API工程师/</div>
+      <div>前端团队工作流</div>
+      <div>https://www.pengsifan.com/2020/10/16/前端团队工作流/</div>
     </div>
     <div class="license-meta">
       
@@ -328,7 +346,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2019年12月12日</div>
+          <div>2020年10月16日</div>
         </div>
       
       
@@ -360,9 +378,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2019/12/16/%E7%AC%AC14%E5%B1%8AD2%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E5%A4%A7%E4%BC%9A/" title="参加第14届D2前端技术大会后的感悟">
+                      <a href="/2020/12/01/Loading%20chunk%20%7Bn%7D%20failed/" title="Loading chunk {n} failed 的解决方法">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">参加第14届D2前端技术大会后的感悟</span>
+                        <span class="hidden-mobile">Loading chunk {n} failed 的解决方法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -370,8 +388,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/12/10/React%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="React性能优化">
-                        <span class="hidden-mobile">React性能优化</span>
+                      <a href="/2020/05/06/Golang-Daily/" title="我与Golang的每一天">
+                        <span class="hidden-mobile">我与Golang的每一天</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

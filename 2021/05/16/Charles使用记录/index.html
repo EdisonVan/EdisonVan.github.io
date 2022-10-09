@@ -16,12 +16,12 @@
   <meta name="author" content="Van">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Charles 手机抓包设置 常用：copy 别人网站图片或脚本 原理：手机依靠 charles 与服务端进行对话 目标：把手机的网络委托给 charles 进行代理 手机抓包设置流程总结（类似 HTTP 的握手原理，双方保证正常通信即可） 1.在 charles 里设置允许手机联网的权限；把 charles 设置为允许的状态并设置允许的端口号，这样手机端才能正常的接入 2.把手机按照 charl">
+    <meta name="description" content="Charles 抓包工具下载及简介   移动端抓包原理：手机依赖 charles 与服务端进行对话，把手机的网络委托给 charles 进行代理 手机抓包设置流程（类似 HTTP 的握手原理，双方保证正常通信即可）  在 charles 里设置允许手机联网的权限；把 charles 设置为允许的状态并设置允许的端口号，这样手机端才能正常的接入    把手机按照 charles 的 IP 和端口进行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Charles使用记录">
+<meta property="og:title" content="抓包">
 <meta property="og:url" content="https://www.pengsifan.com/2021/05/16/Charles%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="彭思凡的个人网站">
-<meta property="og:description" content="Charles 手机抓包设置 常用：copy 别人网站图片或脚本 原理：手机依靠 charles 与服务端进行对话 目标：把手机的网络委托给 charles 进行代理 手机抓包设置流程总结（类似 HTTP 的握手原理，双方保证正常通信即可） 1.在 charles 里设置允许手机联网的权限；把 charles 设置为允许的状态并设置允许的端口号，这样手机端才能正常的接入 2.把手机按照 charl">
+<meta property="og:description" content="Charles 抓包工具下载及简介   移动端抓包原理：手机依赖 charles 与服务端进行对话，把手机的网络委托给 charles 进行代理 手机抓包设置流程（类似 HTTP 的握手原理，双方保证正常通信即可）  在 charles 里设置允许手机联网的权限；把 charles 设置为允许的状态并设置允许的端口号，这样手机端才能正常的接入    把手机按照 charles 的 IP 和端口进行">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_setting.png?raw=true">
 <meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_location_20210516.png?raw=true">
@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_connect_210516.png?raw=true">
 <meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/digiwin_charles.png?raw=true">
 <meta property="article:published_time" content="2021-05-16T02:30:00.000Z">
-<meta property="article:modified_time" content="2021-05-16T14:39:11.743Z">
+<meta property="article:modified_time" content="2022-10-09T06:00:05.951Z">
 <meta property="article:author" content="sifan.peng">
 <meta property="article:tag" content="开发工具">
 <meta name="twitter:card" content="summary_large_image">
@@ -38,7 +38,7 @@
   
   
   
-  <title>Charles使用记录 - 彭思凡的个人网站</title>
+  <title>抓包 - 彭思凡的个人网站</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Charles使用记录"></span>
+            <span id="subtitle" data-typed-text="抓包"></span>
           
         </div>
 
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          886 字
+          1.3k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          8 分钟
+          11 分钟
         
       </span>
     
@@ -268,28 +268,67 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Charles使用记录</h1>
+            <h1 style="display: none">抓包</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="Charles-手机抓包设置"><a href="#Charles-手机抓包设置" class="headerlink" title="Charles 手机抓包设置"></a>Charles 手机抓包设置</h1><ul>
-<li>常用：copy 别人网站图片或脚本</li>
-<li>原理：手机依靠 charles 与服务端进行对话</li>
-<li>目标：把手机的网络委托给 charles 进行代理</li>
-<li>手机抓包设置流程总结（类似 HTTP 的握手原理，双方保证正常通信即可）<ul>
-<li>1.在 charles 里设置允许手机联网的权限；把 charles 设置为允许的状态并设置允许的端口号，这样手机端才能正常的接入</li>
-<li>2.把手机按照 charles 的 IP 和端口进行配置</li>
-<li>3.手机配对成功后，charles 还会弹窗是否允许（charles 虽然开放了端口，但并不知道是哪一台手机会配入，此窗口起到提示和安全防护的作用）</li>
+                <h1 id="Charles-抓包工具下载及简介"><a href="#Charles-抓包工具下载及简介" class="headerlink" title="Charles 抓包工具下载及简介"></a><a target="_blank" rel="noopener" href="https://www.charlesproxy.com/download/latest-release/">Charles 抓包工具下载</a>及简介</h1><!-- - 使用场景：如 copy 网站图片或脚本 -->
+
+<ul>
+<li>移动端抓包原理：手机依赖 charles 与服务端进行对话，把手机的网络委托给 charles 进行代理</li>
+<li>手机抓包设置流程（类似 HTTP 的握手原理，双方保证正常通信即可）<ul>
+<li><ol>
+<li>在 charles 里设置允许手机联网的权限；把 charles 设置为允许的状态并设置允许的端口号，这样手机端才能正常的接入</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>把手机按照 charles 的 IP 和端口进行配置</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>手机配对成功后，charles 还会弹出是否允许（charles 虽然开放了端口，但并不知道是哪一台手机会配对，此窗口起到提示和安全防护的作用）</li>
+</ol>
+</li>
 </ul>
 </li>
 </ul>
-<h1 id="Charles-使用教程"><a href="#Charles-使用教程" class="headerlink" title="Charles 使用教程"></a>Charles 使用教程</h1><p><strong>1.设置 charles 为允许状态，并设置好接入端口</strong><br>在 Charles 的菜单栏上选择“Proxy”-&gt;“Proxy Settings”，填入任意代理<code>端口号</code>，如 8888（记住这个端口，因为这里设置的允许接入的端口，手机端配置时需要用到），并且勾上”Enable transparent HTTP proxying” 就完成了在 Charles 上的设置。<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_setting.png?raw=true" srcset="/img/loading.gif" lazyload><br>在 charles 点击 HELP -&gt; local IP Address 看到当前的<code>*本机 IP 地址*</code><br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_location_20210516.png?raw=true" srcset="/img/loading.gif" lazyload><br>charles 允许手机接入的 IP 和端口是<code>IP地址:端口号</code>，如 192.168.1.107:8888<br>手动在浏览器中输入<code>IP地址:端口号</code>，会发现 charles 会提示一个窗口问你是否允许接入；<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_connect_20210516.png?raw=true" srcset="/img/loading.gif" lazyload></p>
-<p><strong>2.把手机按照 charles 的 IP 和端口进行配置</strong><br>手机连接<code>Wi-Fi</code>，电脑和手机连接同一个<code>Wi-Fi</code><br>在 iPhone 的 “设置”-&gt;“无线局域网“中，可以看到当前连接的<code>Wi-Fi</code>名，通过点击右边的详情键，在其最底部有<code>Configure Proxy/配置代理</code>一项，将其切换成手动，然后填上 Charles 运行所在的电脑的 IP，及端口号 8888<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_set.jpg?raw=true" srcset="/img/loading.gif" lazyload><br>设置好之后，打开 iPhone 上的任意需要网络通讯的程序，可以看到 Charles 弹出 iPhone 请求连接的确认菜单，点击允许<br><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_connect_210516.png?raw=true" srcset="/img/loading.gif" lazyload></p>
-<p><strong>3.手机配对成功后，就可以电脑上就抓到访问的资源了</strong><br><img src="https://github.com/EdisonVan/GraphBed/raw/master/digiwin_charles.png?raw=true" srcset="/img/loading.gif" lazyload alt="1"><br>拷贝对应路径的 url，然后在浏览器中输入 url 回车即可看到对应页面</p>
+<h1 id="Charles-使用教程"><a href="#Charles-使用教程" class="headerlink" title="Charles 使用教程"></a>Charles 使用教程</h1><p><strong>1.设置 charles 为允许状态，并设置好接入端口</strong><br>在 Charles 的菜单栏上选择“Proxy”-&gt;“Proxy Settings”，填入任意代理<code>端口号</code>，如 8888（记住这个端口，因为这里设置的允许接入的端口，手机端配置时需要用到），并且勾上”Enable transparent HTTP proxying” 就完成了在 Charles 上的设置。</p>
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_setting.png?raw=true" srcset="/img/loading.gif" lazyload alt="请使用外网访问"></p>
+<p>在 charles 点击 HELP -&gt; local IP Address 看到当前的<code>*本机 IP 地址*</code></p>
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_location_20210516.png?raw=true" srcset="/img/loading.gif" lazyload alt="请使用外网访问"></p>
+<p>charles 允许手机接入的 IP 和端口是<code>IP地址:端口号</code>，如 192.168.1.107:8888<br>手动在浏览器中输入<code>IP地址:端口号</code>，会发现 charles 会提示一个窗口问你是否允许接入；</p>
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_connect_20210516.png?raw=true" srcset="/img/loading.gif" lazyload alt="请使用外网访问"></p>
+<p><strong>2.把手机按照 charles 的 IP 和端口进行配置</strong><br>手机连接<code>Wi-Fi</code>，电脑和手机连接同一个<code>Wi-Fi</code><br>在 iPhone 的 “设置”-&gt;“无线局域网“中，可以看到当前连接的<code>Wi-Fi</code>名，通过点击右边的详情键，在其最底部有<code>Configure Proxy/配置代理</code>一项，将其切换成手动，然后填上 Charles 运行所在的电脑的 IP，及端口号 8888</p>
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_set.jpg?raw=true" srcset="/img/loading.gif" lazyload alt="请使用外网访问"></p>
+<p>设置好之后，打开 iPhone 上的任意需要网络通讯的程序，可以看到 Charles 弹出 iPhone 请求连接的确认菜单，点击允许</p>
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_connect_210516.png?raw=true" srcset="/img/loading.gif" lazyload alt="请使用外网访问"></p>
+<p><strong>3.手机配对成功后，就可以电脑上就抓到访问的资源了</strong></p>
+<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/digiwin_charles.png?raw=true" srcset="/img/loading.gif" lazyload alt="请使用外网访问"></p>
+<p>拷贝对应路径的 url，然后在浏览器中输入 url 回车即可看到对应页面</p>
 <!-- 比如此时，访问企业微信或 pengsifan.com -->
 
-<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><ul>
+<h1 id="Charles-的使用（PC-端抓包）"><a href="#Charles-的使用（PC-端抓包）" class="headerlink" title="Charles 的使用（PC 端抓包）"></a>Charles 的使用（PC 端抓包）</h1><h2 id="全局设置-SSL-Proxying"><a href="#全局设置-SSL-Proxying" class="headerlink" title="全局设置 SSL Proxying"></a>全局设置 SSL Proxying</h2><p>Proxy-&gt;SSL Proxying Settings-&gt;Add-&gt;输入</p>
+<ul>
+<li><code>Host:*</code></li>
+<li><code>Port:443</code></li>
+</ul>
+<!-- TODO 加入图片 -->
+
+<h2 id="移动和电脑端分别安装-Charles-证书"><a href="#移动和电脑端分别安装-Charles-证书" class="headerlink" title="移动和电脑端分别安装 Charles 证书"></a>移动和电脑端分别安装 Charles 证书</h2><ul>
+<li>PC 端：Help-&gt;SSL Proxying-&gt;Install Charles Root Certificate</li>
+<li>手机端：Help-&gt;Install Charles Root Certificate on A Mobile Device or Remote Browser-&gt;手机端浏览器输入弹窗提示的地址<code>chls.pro/ssl</code>去下载证书</li>
+<li>下载证书之后设置信任-&gt;General-&gt;About-&gt;Certificate Trust Setting..-&gt;开启</li>
+</ul>
+<!-- TODO 加入图片 -->
+
+<p>证书存储位置选择：第三方根证书颁布机构文件夹</p>
+<!-- TODO 加入图片 -->
+
+<p>重启电脑，打开 Charles 即可在 PC 端抓包</p>
+<h1 id="More"><a href="#More" class="headerlink" title="More"></a>More</h1><ul>
+<li>有些应用取到的就是数据处理的页面是端上开发的，所以看不到</li>
+<li>在抓时一般都是这种（url 有跳转参数）</li>
 <li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/jiayuchn-test/p/8875105.html">更详细的 Charles 操作</a></li>
 </ul>
 
@@ -310,7 +349,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%BF%AB%E4%B9%90%E7%BC%96%E7%A0%81/" class="category-chain-item">快乐编码</a>
+  <a href="/categories/%E9%AB%98%E6%95%88%E7%BC%96%E7%A0%81/" class="category-chain-item">高效编码</a>
   
   
 
@@ -337,7 +376,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Charles使用记录</div>
+      <div>抓包</div>
       <div>https://www.pengsifan.com/2021/05/16/Charles使用记录/</div>
     </div>
     <div class="license-meta">
@@ -382,9 +421,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/22/DIY/" title="山地车组装">
+                      <a href="/2021/12/13/smart_home/" title="win11装机+语音开机">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">山地车组装</span>
+                        <span class="hidden-mobile">win11装机+语音开机</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
