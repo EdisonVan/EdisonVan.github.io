@@ -24,7 +24,7 @@
 <meta property="og:description" content="分支管理策略分支命名规范 feature (功能开发分支) bugfix (修复分支) test (测试环境部署分支) uat(预发布环境部署分支) master(主干分支)  合并须知 develop 分支及 uat 分支为环境部署分支，提 pr 由项目负责人 Code Review 通过后进行合并，通过 jenkins 检测代码变动实现自动发布  CodeReview 步骤 master、 u">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-15T21:23:47.000Z">
-<meta property="article:modified_time" content="2022-10-09T06:19:52.497Z">
+<meta property="article:modified_time" content="2022-10-09T06:46:43.355Z">
 <meta property="article:author" content="sifan.peng">
 <meta property="article:tag" content="编程之美">
 <meta name="twitter:card" content="summary_large_image">
@@ -212,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          482 字
+          521 字
         
       </span>
     
@@ -277,17 +277,18 @@
 <li>develop 分支及 uat 分支为环境部署分支，提 pr 由项目负责人 Code Review 通过后进行合并，通过 jenkins 检测代码变动实现自动发布</li>
 </ul>
 <h2 id="CodeReview-步骤"><a href="#CodeReview-步骤" class="headerlink" title="CodeReview 步骤"></a>CodeReview 步骤</h2><ol>
-<li>master、 u’a’t 分支设置为保护分支</li>
+<li>master、 uat 分支设置为保护分支</li>
 <li>提测时开发分支发 pull requests 向 uat 合并(但不点通过)</li>
 <li>QA 验收时，前端进行代码初步 review 及代码修改</li>
 <li>QA 验收测试环境通过，前端将步骤二发起的 pull requests 点击通过 merge 到 uat 分支</li>
 <li>uat 分支发布到预发布环境，uat 环境的 bug 修改，通过开发分支提 pull requests 的方<br>式往 uat 进行合并</li>
 <li>uat 验收通过，将需要发布的个人开发分支向 master 分支提 pull requests</li>
-<li>master 分支发生产环境，如有线上 bug，基于 master 新建临更分支，重复步骤 1-&gt;6</li>
+<li>master 分支打上 tag，用 tag 进行生产环境发布，如有线上 bug，基于 master 新建临更分支，重复步骤 1-&gt;6</li>
 </ol>
 <blockquote>
-<p>必须通过 tag 进行发布，规避多人协作 master 分支有人改动而导致发布内容与版本不一-致</p>
+<p>通过 tag 进行发布，规避多人协作 master 分支有人改动而导致发布内容与版本不一-致</p>
 </blockquote>
+<h2 id="tag-命名"><a href="#tag-命名" class="headerlink" title="tag 命名"></a>tag 命名</h2><p>发布 tag：版本号<br>临更 tag：hotfix-版本号</p>
 
                 
               </div>
