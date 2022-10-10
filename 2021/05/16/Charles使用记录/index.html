@@ -23,18 +23,18 @@
 <meta property="og:site_name" content="彭思凡的个人网站">
 <meta property="og:description" content="Charles 抓包工具下载及简介   移动端抓包原理：手机依赖 charles 与服务端进行对话，把手机的网络委托给 charles 进行代理 手机抓包设置流程（类似 HTTP 的握手原理，双方保证正常通信即可）  在 charles 里设置允许手机联网的权限；把 charles 设置为允许的状态并设置允许的端口号，这样手机端才能正常的接入    把手机按照 charles 的 IP 和端口进行">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_setting.png?raw=true">
-<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_location_20210516.png?raw=true">
-<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_connect_20210516.png?raw=true">
-<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_set.jpg?raw=true">
-<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_connect_210516.png?raw=true">
-<meta property="og:image" content="https://github.com/EdisonVan/GraphBed/raw/master/digiwin_charles.png?raw=true">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/Kan25x4FhLoyjdw.png">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/2uZNL8X7ExmIjW3.png">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/VT58vOgwx3Pcizs.png">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/G7c4fL5doBagQHE.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/MXVhZHub2CRxIUt.png">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/26xn17GXmlZaJbH.png">
 <meta property="article:published_time" content="2021-05-16T02:30:00.000Z">
-<meta property="article:modified_time" content="2022-10-09T06:00:05.951Z">
+<meta property="article:modified_time" content="2022-10-10T22:51:56.888Z">
 <meta property="article:author" content="sifan.peng">
 <meta property="article:tag" content="开发工具">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://github.com/EdisonVan/GraphBed/raw/master/charles_setting.png?raw=true">
+<meta name="twitter:image" content="https://s2.loli.net/2022/10/11/Kan25x4FhLoyjdw.png">
   
   
   
@@ -294,17 +294,29 @@
 </li>
 </ul>
 <h1 id="Charles-使用教程"><a href="#Charles-使用教程" class="headerlink" title="Charles 使用教程"></a>Charles 使用教程</h1><p><strong>1.设置 charles 为允许状态，并设置好接入端口</strong><br>在 Charles 的菜单栏上选择“Proxy”-&gt;“Proxy Settings”，填入任意代理<code>端口号</code>，如 8888（记住这个端口，因为这里设置的允许接入的端口，手机端配置时需要用到），并且勾上”Enable transparent HTTP proxying” 就完成了在 Charles 上的设置。</p>
-<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_setting.png?raw=true" srcset="/img/loading.gif" lazyload alt="请使用外网访问"></p>
+<p><img src="https://s2.loli.net/2022/10/11/Kan25x4FhLoyjdw.png" srcset="/img/loading.gif" lazyload alt="charles setting"></p>
+<!-- ![请使用外网访问](https://github.com/EdisonVan/GraphBed/raw/master/charles_setting.png?raw=true) -->
+
 <p>在 charles 点击 HELP -&gt; local IP Address 看到当前的<code>*本机 IP 地址*</code></p>
-<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_location_20210516.png?raw=true" srcset="/img/loading.gif" lazyload alt="请使用外网访问"></p>
+<p><img src="https://s2.loli.net/2022/10/11/2uZNL8X7ExmIjW3.png" srcset="/img/loading.gif" lazyload alt="charles_location_20210516.png"></p>
+<!-- ![请使用外网访问](https://github.com/EdisonVan/GraphBed/raw/master/charles_location_20210516.png?raw=true) -->
+
 <p>charles 允许手机接入的 IP 和端口是<code>IP地址:端口号</code>，如 192.168.1.107:8888<br>手动在浏览器中输入<code>IP地址:端口号</code>，会发现 charles 会提示一个窗口问你是否允许接入；</p>
-<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_connect_20210516.png?raw=true" srcset="/img/loading.gif" lazyload alt="请使用外网访问"></p>
+<p><img src="https://s2.loli.net/2022/10/11/VT58vOgwx3Pcizs.png" srcset="/img/loading.gif" lazyload alt="charles_connect_20210516.png"></p>
+<!-- ![请使用外网访问](https://github.com/EdisonVan/GraphBed/raw/master/charles_connect_20210516.png?raw=true) -->
+
 <p><strong>2.把手机按照 charles 的 IP 和端口进行配置</strong><br>手机连接<code>Wi-Fi</code>，电脑和手机连接同一个<code>Wi-Fi</code><br>在 iPhone 的 “设置”-&gt;“无线局域网“中，可以看到当前连接的<code>Wi-Fi</code>名，通过点击右边的详情键，在其最底部有<code>Configure Proxy/配置代理</code>一项，将其切换成手动，然后填上 Charles 运行所在的电脑的 IP，及端口号 8888</p>
-<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_set.jpg?raw=true" srcset="/img/loading.gif" lazyload alt="请使用外网访问"></p>
+<p><img src="https://s2.loli.net/2022/10/11/G7c4fL5doBagQHE.jpg" srcset="/img/loading.gif" lazyload alt="iPhone settings"></p>
+<!-- ![请使用外网访问](https://github.com/EdisonVan/GraphBed/raw/master/charles_iPhone_set.jpg?raw=true) -->
+
 <p>设置好之后，打开 iPhone 上的任意需要网络通讯的程序，可以看到 Charles 弹出 iPhone 请求连接的确认菜单，点击允许</p>
-<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/charles_iphone_connect_210516.png?raw=true" srcset="/img/loading.gif" lazyload alt="请使用外网访问"></p>
+<p><img src="https://s2.loli.net/2022/10/11/MXVhZHub2CRxIUt.png" srcset="/img/loading.gif" lazyload alt="iPhone connect charles"></p>
+<!-- ![请使用外网访问](https://github.com/EdisonVan/GraphBed/raw/master/charles_iPhone_connect_210516.png?raw=true) -->
+
 <p><strong>3.手机配对成功后，就可以电脑上就抓到访问的资源了</strong></p>
-<p><img src="https://github.com/EdisonVan/GraphBed/raw/master/digiwin_charles.png?raw=true" srcset="/img/loading.gif" lazyload alt="请使用外网访问"></p>
+<p><img src="https://s2.loli.net/2022/10/11/26xn17GXmlZaJbH.png" srcset="/img/loading.gif" lazyload></p>
+<!-- ![请使用外网访问](https://github.com/EdisonVan/GraphBed/raw/master/digiwin_charles.png?raw=true) -->
+
 <p>拷贝对应路径的 url，然后在浏览器中输入 url 回车即可看到对应页面</p>
 <!-- 比如此时，访问企业微信或 pengsifan.com -->
 
