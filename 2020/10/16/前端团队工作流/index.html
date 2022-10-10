@@ -16,18 +16,37 @@
   <meta name="author" content="Van">
   <meta name="keywords" content="">
   
-    <meta name="description" content="分支管理策略分支命名规范 feature-版本号 (功能开发分支) fix-开发人员域名-bugID (修复分支) test (测试环境部署分支) uat(预发布环境部署分支) master(主干分支)  合并须知 develop 分支及 uat 分支为环境部署分支，提 pr 由项目负责人 Code Review 通过后进行合并，通过 jenkins 检测代码变动实现自动发布  CodeRevie">
+    <meta name="description" content="部分内容源于 玩转 Git 三剑客(极客时间) 笔记  分支管理策略分支命名规范 feature-版本号 (功能开发分支) fix-开发人员域名-bugID (修复分支) test (测试环境部署分支) uat(预发布环境部署分支) master(主干分支)  合并须知 develop 分支及 uat 分支为环境部署分支，提 pr 由项目负责人 code review 通过后进行合并，通过 je">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端团队工作流">
 <meta property="og:url" content="https://www.pengsifan.com/2020/10/16/%E5%89%8D%E7%AB%AF%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E6%B5%81/index.html">
 <meta property="og:site_name" content="彭思凡的个人网站">
-<meta property="og:description" content="分支管理策略分支命名规范 feature-版本号 (功能开发分支) fix-开发人员域名-bugID (修复分支) test (测试环境部署分支) uat(预发布环境部署分支) master(主干分支)  合并须知 develop 分支及 uat 分支为环境部署分支，提 pr 由项目负责人 Code Review 通过后进行合并，通过 jenkins 检测代码变动实现自动发布  CodeRevie">
+<meta property="og:description" content="部分内容源于 玩转 Git 三剑客(极客时间) 笔记  分支管理策略分支命名规范 feature-版本号 (功能开发分支) fix-开发人员域名-bugID (修复分支) test (测试环境部署分支) uat(预发布环境部署分支) master(主干分支)  合并须知 develop 分支及 uat 分支为环境部署分支，提 pr 由项目负责人 code review 通过后进行合并，通过 je">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/2zTBfhg71DrA9Mp.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/2xfXmVUdO58Zkig.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/VP3XvRwodafsnyH.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/XW7nxdEHPpTlCKs.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/8Mtb5xcKeWal3of.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/gwXuUyDSTqcpfzZ.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/sHtIxK5D7EdRmMX.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/sqo3uRvBUPfw1kO.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/agKi6WyJ1n8czHd.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/6gAai7OQtqFXSCx.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/gEL5znNiqIKx8Dp.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/h3aqdRAEOfU46SL.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/wUjzfe4vSi1MTV2.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/TpEWgFPrkdonmhi.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/RIf7t8QJAVhb5C4.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/4w3Vl6mcH5xDTQt.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/eFGBqCaV3EvNTPw.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/11/c1H6yv3xBj8a5qF.jpg">
 <meta property="article:published_time" content="2020-10-15T21:23:47.000Z">
-<meta property="article:modified_time" content="2022-10-09T09:40:30.363Z">
+<meta property="article:modified_time" content="2022-10-10T22:41:07.479Z">
 <meta property="article:author" content="sifan.peng">
 <meta property="article:tag" content="编程之美">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2022/10/11/2zTBfhg71DrA9Mp.jpg">
   
   
   
@@ -212,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          534 字
+          2k 字
         
       </span>
     
@@ -223,7 +242,7 @@
         
         
         
-          5 分钟
+          17 分钟
         
       </span>
     
@@ -266,7 +285,10 @@
             
               <div class="markdown-body">
                 
-                <h1 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h1><h2 id="分支命名规范"><a href="#分支命名规范" class="headerlink" title="分支命名规范"></a>分支命名规范</h2><ul>
+                <blockquote>
+<p>部分内容源于 <a target="_blank" rel="noopener" href="https://time.geekbang.org/course/intro/100021601">玩转 Git 三剑客(极客时间)</a> 笔记</p>
+</blockquote>
+<h1 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h1><h2 id="分支命名规范"><a href="#分支命名规范" class="headerlink" title="分支命名规范"></a>分支命名规范</h2><ul>
 <li>feature-版本号 (功能开发分支)</li>
 <li>fix-开发人员域名-bugID (修复分支)</li>
 <li>test (测试环境部署分支)</li>
@@ -274,9 +296,9 @@
 <li>master(主干分支)</li>
 </ul>
 <h2 id="合并须知"><a href="#合并须知" class="headerlink" title="合并须知"></a>合并须知</h2><ul>
-<li>develop 分支及 uat 分支为环境部署分支，提 pr 由项目负责人 Code Review 通过后进行合并，通过 jenkins 检测代码变动实现自动发布</li>
+<li>develop 分支及 uat 分支为环境部署分支，提 pr 由项目负责人 code review 通过后进行合并，通过 jenkins 检测代码变动实现自动发布</li>
 </ul>
-<h2 id="CodeReview-步骤"><a href="#CodeReview-步骤" class="headerlink" title="CodeReview 步骤"></a>CodeReview 步骤</h2><ol>
+<h2 id="实行-code-review-的具体步骤"><a href="#实行-code-review-的具体步骤" class="headerlink" title="实行 code review 的具体步骤"></a>实行 code review 的具体步骤</h2><ol>
 <li>master、 uat 分支设置为保护分支</li>
 <li>提测时开发分支发 pull requests 向 uat 合并(但不点通过)</li>
 <li>QA 验收时，前端进行代码初步 review 及代码修改</li>
@@ -289,6 +311,101 @@
 <p>通过 tag 进行发布，规避多人协作 master 分支有人改动而导致发布内容与版本不一致</p>
 </blockquote>
 <h2 id="tag-命名"><a href="#tag-命名" class="headerlink" title="tag 命名"></a>tag 命名</h2><p>发布 tag：版本号<br>临更 tag：hotfix-版本号</p>
+<h1 id="选择适合团队的分支工作流"><a href="#选择适合团队的分支工作流" class="headerlink" title="选择适合团队的分支工作流"></a>选择适合团队的分支工作流</h1><ul>
+<li>团队人员组成：全资深&#x2F;高级 or 各等级搭配</li>
+<li>研发设计能力</li>
+<li>输出的产品的特征：toB or toC</li>
+<li>项目难易程度</li>
+</ul>
+<p><strong>1、主干开发</strong></p>
+<blockquote>
+<p>google, facebook 采用;</p>
+</blockquote>
+<ul>
+<li>概念：任何人的 commit 会直接推送到 main 分支，以便其他成员第一时间看到变更。</li>
+<li>适用于：<ul>
+<li>组件开发团队，成员能力强且人员少</li>
+<li>需要快速迭代，想获得 CI CD 全部好处。且设置了一套产品特性快速切换机制的团队</li>
+</ul>
+</li>
+</ul>
+<p><strong>2、Git FLow</strong><br>一线互联网公司采用的不多见，比较繁琐。</p>
+<p><img src="https://s2.loli.net/2022/10/11/2zTBfhg71DrA9Mp.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><strong>3、GitHub FLow</strong><br><img src="https://s2.loli.net/2022/10/11/2xfXmVUdO58Zkig.jpg" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>分支集成时经过 code review 之后可以立即发布</li>
+</ul>
+<p><strong>4、GitLab FLow</strong><br><img src="https://s2.loli.net/2022/10/11/VP3XvRwodafsnyH.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>基于 Github Flow 的拓展，在分支合并到主干分支之后，不使用 master 立即发布。而是拉一个 Production 分支去上线，不影响 master 的持续集成。</p>
+<h2 id="如何挑选合适的分支集成策略？"><a href="#如何挑选合适的分支集成策略？" class="headerlink" title="如何挑选合适的分支集成策略？"></a>如何挑选合适的分支集成策略？</h2><p>github 处仓库设置，挑选团队拟定的策略</p>
+<ul>
+<li>auto rebase ：将 feature 分支的 commit 逐一添加到主干分支，不改变原分支</li>
+<li>auto merge：新生成一个 merge commit 添加到主干分支</li>
+<li>auto squash：多个 commit 合并为一个 commit 添加到主干分支，不改变原分支</li>
+</ul>
+<h2 id="使用-issue-跟踪需求、bug"><a href="#使用-issue-跟踪需求、bug" class="headerlink" title="使用 issue 跟踪需求、bug"></a>使用 issue 跟踪需求、bug</h2><ul>
+<li>Labels：自定义的分类集合</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/10/11/XW7nxdEHPpTlCKs.jpg" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>MileStones：里程碑</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/10/11/8Mtb5xcKeWal3of.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><strong>创建 issue</strong><br>可在 setting 中自定义各种 template，并最终作为.github 中的 md 文件被提交才会生效。</p>
+<p><img src="https://s2.loli.net/2022/10/11/gwXuUyDSTqcpfzZ.jpg" srcset="/img/loading.gif" lazyload><br><img src="https://s2.loli.net/2022/10/11/sHtIxK5D7EdRmMX.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><strong>优点</strong><br>团队交流便捷，可追溯记录，推荐使用 issue 来进行团队任务需求的跟踪。</p>
+<h2 id="如何用-project-管理-issue？"><a href="#如何用-project-管理-issue？" class="headerlink" title="如何用 project 管理 issue？"></a>如何用 project 管理 issue？</h2><p><img src="https://s2.loli.net/2022/10/11/sqo3uRvBUPfw1kO.jpg" srcset="/img/loading.gif" lazyload alt="1. 新建 project"><br><img src="https://s2.loli.net/2022/10/11/agKi6WyJ1n8czHd.jpg" srcset="/img/loading.gif" lazyload alt="2. 选择 project 模板"></p>
+<blockquote>
+<p>此处为一个较全模板范例，具有待办、进行中、完成等状态集。</p>
+</blockquote>
+<h2 id="团队如何实行-code-review"><a href="#团队如何实行-code-review" class="headerlink" title="团队如何实行 code review"></a>团队如何实行 code review</h2><ul>
+<li>设置 Branch Protection Rules，针对指定分支定义 review 规则</li>
+</ul>
+<h2 id="团队协作时如何做多分支集成？"><a href="#团队协作时如何做多分支集成？" class="headerlink" title="团队协作时如何做多分支集成？"></a>团队协作时如何做多分支集成？</h2><p>场景：2 个开发分支，基于同一个 master 的点拉出开发，开发完成后想合并到 master</p>
+<p><img src="https://s2.loli.net/2022/10/11/6gAai7OQtqFXSCx.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><strong>merge</strong></p>
+<ul>
+<li>分支之间合并时只需解决一次全冲突即可</li>
+<li>会在 feature 分支上生成一个新的 merge commit</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/10/11/gEL5znNiqIKx8Dp.jpg" srcset="/img/loading.gif" lazyload><br><img src="https://s2.loli.net/2022/10/11/h3aqdRAEOfU46SL.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><strong>squash</strong></p>
+<ul>
+<li>将多个 commit 合并为一个 commit，线性加到 master 上</li>
+<li>无冲突时：不会改变原 feature 分支</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/10/11/wUjzfe4vSi1MTV2.jpg" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>有冲突时：将 feature 分支往前新生成一个 commit</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/10/11/TpEWgFPrkdonmhi.jpg" srcset="/img/loading.gif" lazyload><br><img src="https://s2.loli.net/2022/10/11/RIf7t8QJAVhb5C4.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><strong>rebase</strong><br>普通：<br>需要变基的每次 commit 都要解决一次冲突，也是很多人觉得 rebase 麻烦的原因。但可以让 master 保持线性</p>
+<ul>
+<li>无冲突时：</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/10/11/4w3Vl6mcH5xDTQt.jpg" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p>有冲突时：</p>
+<ul>
+<li>step1: 在特性分支执行 git rebase master</li>
+<li>step2: 解决每一次冲突后 git add .</li>
+<li>step3: 直到 git rebase –continue 时没有冲突解决后，将特性分支 push 到远程特性分支</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/10/11/eFGBqCaV3EvNTPw.jpg" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>PR 到 master 之后</li>
+</ul>
+<p><img src="https://s2.loli.net/2022/10/11/c1H6yv3xBj8a5qF.jpg" srcset="/img/loading.gif" lazyload></p>
+<p><strong>高级用法：</strong><br><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-Rerere">git rerere</a>，帮助你缓存每次解决过的块冲突。在下次遇到的时候会自动读取缓存已解决过的冲突而无需再执行重复操作</p>
+<ul>
+<li>前提配置 rerere：<code>git config --global rerere.enabled true</code></li>
+<li>step1: A 要往 master 合并，A 先 git merge master</li>
+<li>step2: merge 解决冲突后，必须 add 并生成一个新 commit 在 A 分支，方便 rerere 寻找</li>
+<li>step3：A 分支回退到 merge 之前的 commit，这一步是为了避免出现不干净的 commit</li>
+<li>step4：A 分支执行 git rebase master，报 conflict，但此时不用我们自己再去手动解决冲突。呈现给我们的已经是解决完成态，只需 wq!退出后继续每次执行 git rebase –continue 即可</li>
+</ul>
 
                 
               </div>
